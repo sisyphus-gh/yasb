@@ -3030,8 +3030,8 @@
         text: ""
       },
       "Black Squadron Scout": {
-        display_name: "Black Squadron Scout",
-        text: "<i class = flavor_text>These heavily armed atmospheric craft employ their specialized moveable wings to gain additional speed and maneuverability.</i>%LINEBREAK% <sasmall><strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。</sasmall>"
+        display_name: "黑色中队侦察兵",
+        text: "<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动"
       },
       "Black Squadron Ace (T-70)": {
         display_name: "Black Squadron Ace",
@@ -3114,8 +3114,8 @@
         text: "在你防御时，如果该攻击者没有任何绿色标记，你可以选择将你的1个空白或%FOCUS%结果改为一个%EVADE%结果。%LINEBREAK%<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
       },
       "Captain Jonus": {
-        display_name: "Captain Jonus",
-        text: "While a friendly ship at range 0-1 performs a %TORPEDO% or %MISSILE% attack, that ship may reroll up to 2 attack dice. %LINEBREAK%<strong>Nimble Bomber:</strong> If you would drop a device using a %STRAIGHT% template, you may use a %BANKLEFT% or %BANKRIGHT% template of the same speed instead."
+        display_name: "尤纳斯队长",
+        text: "在一个友方战机在距离0-1执行了一次%TORPEDO%或%MISSILE%攻击时，该战机可以选择重投至多2枚攻击骰。%LINEBREAK%<strong>灵敏投弹:</strong> 如果你将使用一个%STRAIGHT%移动条投放一个装置，你可以选择改为使用速度相同的%BANKLEFT%或%BANKRIGHT%移动条。"
       },
       "Captain Jostero": {
         display_name: "Captain Jostero",
@@ -3130,8 +3130,8 @@
         text: "Before a friendly bomb or mine would detonate, you may spend 1&nbsp;%CHARGE% to prevent it from detonating.%LINEBREAK% While you defend against an attack obstructed by a bomb or mine, roll 1 additional defense die."
       },
       "Captain Oicunn": {
-        display_name: "Captain Oicunn",
-        text: "You can perform primary attacks at range 0."
+        display_name: "奥伊坤队长",
+        text: "你可在距离0执行基础攻击。"
       },
       "Captain Rex": {
         display_name: "Captain Rex",
@@ -3350,8 +3350,8 @@
         text: "<i class = flavor_text>Many spacers make a living traveling the Outer Rim, where the difference between smuggler and legitimate merchant is often murky. On the outskirts of civilization, buyers are rarely so discerning to ask where merchandise came from, at least as long as the price is low enough.</i>"
       },
       "Gamma Squadron Ace": {
-        display_name: "Gamma Squadron Ace",
-        text: "<i class = flavor_text>Though it sacrifices a degree of speed and maneuverability compared to a TIE/ln, the TIE bomber’s increased payload can carry enough firepower to destroy virtually any enemy target.</i> %LINEBREAK%<strong>Nimble Bomber:</strong> If you would drop a device using a %STRAIGHT% template, you may use a %BANKLEFT% or %BANKRIGHT% template of the same speed instead."
+        display_name: "伽马中队王牌",
+        text: "<strong>灵敏投弹:</strong> 如果你将使用一个%STRAIGHT%移动条投放一个装置，你可以选择改为使用速度相同的%BANKLEFT%或%BANKRIGHT%移动条。"
       },
       "Gand Findsman": {
         display_name: "Gand Findsman",
@@ -3474,8 +3474,8 @@
         text: "在一个在距离0-1的友方TIE/ln 战斗机将承受1点或以上的伤害前，你可以选择花费1%CHARGE% 。如此的话，抵消该伤害。"
       },
       "Imdaar Test Pilot": {
-        display_name: "Imdaar Test Pilot",
-        text: "<i class = flavor_text>The primary result of a hidden research facility on Imdaar Alpha, the TIE phantom achieves what many thought was impossible: a small starfighter equipped with an advanced cloaking device.</i>%LINEBREAK%<strong>Stygium Array:</strong> After you decloak, you may perform an %EVADE% action. At the start of the End Phase, you may spend 1 evade token to gain 1 cloak token."
+        display_name: "伊姆达尔实验驾驶员",
+        text: "<strong>暗水晶阵列:</strong> 在你显形后，你可以选择执行一次%EVADE%行动。在结束阶段开始时，你可以选择花费1个闪避标记来获得1个隐形标记。"
       },
       "Inaldra": {
         display_name: "Inaldra",
@@ -3678,8 +3678,8 @@
         text: "在一个友方战机在距离0-2防御时，该攻击者不能重投大于1个的攻击骰。"
       },
       "Major Rhymer": {
-        display_name: "Major Rhymer",
-        text: "While you perform a %TORPEDO% or %MISSILE% attack, you may increase or decrease the range requirement by 1, to a limit of 0-3. %LINEBREAK%<strong>Nimble Bomber:</strong> If you would drop a device using a %STRAIGHT% template, you may use a %BANKLEFT% or %BANKRIGHT% template of the same speed instead."
+        display_name: "莱姆将军",
+        text: "在你执行一次%TORPEDO%或%MISSILE%攻击时，你可以选择将要求的距离增加或减少1，限制在0-3内。%LINEBREAK%<strong>灵敏投弹:</strong> 如果你将使用一个%STRAIGHT%移动条投放一个装置，你可以选择改为使用速度相同的%BANKLEFT%或%BANKRIGHT%移动条。"
       },
       "Major Stridan": {
         display_name: "史崔丹将军",
@@ -3793,8 +3793,8 @@
         text: ""
       },
       "Patrol Leader": {
-        display_name: "Patrol Leader",
-        text: "<i class = flavor_text>To be granted command of a VT-49 Decimator is seen as a significant promotion for a middling officer of the Imperial Navy.</i>"
+        display_name: "巡逻队长",
+        text: ""
       },
       "Petty Officer Thanisson": {
         display_name: "小头目撒尼森",
@@ -3805,8 +3805,8 @@
         text: "<i class = flavor_text>Led by Commander Jun Sato, the brave but inexperienced pilots of Phoenix Squadron face staggering odds in their battle against the Galactic Empire.</i>%LINEBREAK%<strong>Vectored Thrusters:</strong> After you perform an action, you may perform a red %BOOST% action."
       },
       "Planetary Sentinel": {
-        display_name: "Planetary Sentinel",
-        text: "<i class = flavor_text>To protect its many military installations, the Empire requires a swift and vigilant defense force.</i>%LINEBREAK% <strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
+        display_name: "行星哨兵",
+        text: "<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
       },
       "Plo Koon": {
         display_name: "Plo Koon",
@@ -3900,8 +3900,8 @@
         text: "%LINEBREAK%<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
       },
       "Scimitar Squadron Pilot": {
-        display_name: "Scimitar Squadron Pilot",
-        text: "<i class = flavor_text>The TIE/sa is exceptionally nimble for a bomber, allowing it to pinpoint its target while avoiding excessive collateral damage to the surrounding area.</i> %LINEBREAK%<strong>Nimble Bomber:</strong> If you would drop a device using a %STRAIGHT% template, you may use a %BANKLEFT% or %BANKRIGHT% template of the same speed instead."
+        display_name: "弯刀中队驾驶员",
+        text: "<strong>灵敏投弹:</strong> 如果你将使用一个%STRAIGHT%移动条投放一个装置，你可以选择改为使用速度相同的%BANKLEFT%或%BANKRIGHT%移动条。"
       },
       "Separatist Bomber": {
         display_name: "Separatist Bomber",
@@ -3940,8 +3940,8 @@
         text: "<strong>自动推进器:</strong>在你执行一个行动后，你可以选择执行一次红色%BARRELROLL%或红色%BOOST%行动。"
       },
       "Sigma Squadron Ace": {
-        display_name: "Sigma Squadron Ace",
-        text: "<i class = flavor_text>Featuring a hyperdrive and shields, the TIE phantom is also equipped with five laser cannons, giving it substantial firepower for an Imperial fighter.</i>%LINEBREAK%<strong>Stygium Array:</strong> After you decloak, you may perform an %EVADE% action. At the start of the End Phase, you may spend 1 evade token to gain 1 cloak token."
+        display_name: "西格玛中队王牌",
+        text: "<strong>暗水晶阵列:</strong> 在你显形后，你可以选择执行一次%EVADE%行动。在结束阶段开始时，你可以选择花费1个闪避标记来获得1个隐形标记。"
       },
       "Skakoan Ace": {
         display_name: "Skakoan Ace",
@@ -4024,8 +4024,8 @@
         text: "在你执行一次攻击时，你可以选择花费1个%FOCUS%，%HIT%/%CRIT%结果，来查看防御者面朝下的伤害卡们，指定其中1张并展示。"
       },
       "Tomax Bren": {
-        display_name: "Tomax Bren",
-        text: "After you perform a %RELOAD% action, you may recover 1&nbsp;%CHARGE% token on 1 of your equipped %TALENT% upgrade cards. %LINEBREAK%<strong>Nimble Bomber:</strong> If you would drop a device using a %STRAIGHT% template, you may use a %BANKLEFT% or %BANKRIGHT% template of the same speed instead."
+        display_name: "托马斯·布伦",
+        text: "在你执行一次%RELOAD%行动后，你可以选择恢复你装备的一张%TALENT% 升级卡上的1个%CHARGE%标记。 %LINEBREAK%<strong>灵敏投弹:</strong> 如果你将使用一个%STRAIGHT%移动条投放一个装置，你可以选择改为使用速度相同的%BANKLEFT%或%BANKRIGHT%移动条。"
       },
       "Torani Kulda": {
         display_name: "Torani Kulda",
@@ -4132,12 +4132,12 @@
         text: "At the start of the Engagement Phase, each enemy ship at range 0 gains 2 jam tokens. %LINEBREAK%<strong>Tail Gun:</strong> While you have a docked ship, you have a primary %REARARC% weapon with an attack value equal to your docked ship’s primary %FRONTARC% attack value."
       },
       '"Countdown"': {
-        display_name: "“Countdown”",
-        text: "While you defend, after the Neutralize Results step, if you are not stressed, you may suffer 1&nbsp;%HIT% damage and gain 1 stress token. If you do, cancel all dice results.%LINEBREAK%<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
+        display_name: "“读秒”",
+        text: "在你防御时，在抵消结果步骤后，如果你没有压力，你可以选择承受1%HIT%伤害并获得1个压力标记。如此的话，抵消全部骰子的效果。%LINEBREAK%<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
       },
       '"Deathfire"': {
-        display_name: "“Deathfire”",
-        text: "After you are destroyed, before you are removed, you may perform an attack and drop or launch 1 device.%LINEBREAK%<strong>Nimble Bomber:</strong> If you would drop a device using a %STRAIGHT% template, you may use a %BANKLEFT% or %BANKRIGHT% template of the same speed instead."
+        display_name: "“死火”",
+        text: "在你被消灭后，被移除前，你可以选择执行一次攻击，并投放或发射1个装置。%LINEBREAK%<strong>灵敏投弹:</strong> 如果你将使用一个%STRAIGHT%移动条投放一个装置，你可以选择改为使用速度相同的%BANKLEFT%或%BANKRIGHT%移动条。"
       },
       '"Deathrain"': {
         display_name: "“死雨”",
@@ -4148,16 +4148,16 @@
         text: "在你执行一次未命中的%TURRET%或%MISSILE%攻击后，你可以选择使用一个不同的武器执行一次额外攻击。"
       },
       '"Duchess"': {
-        display_name: "“Duchess”",
-        text: "You may choose not to use your <strong>Adaptive Ailerons</strong>. %LINEBREAK%You may use your <strong>Adaptive Ailerons</strong> even while stressed.%LINEBREAK%<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
+        display_name: "“女公爵”",
+        text: "你可以选择不使用你的<strong>可变副翼</strong>。%LINEBREAK%即使有压力你仍可以选择使用<strong>可变副翼</strong>%LINEBREAK%<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
       },
       '"Dutch" Vander': {
         display_name: "“Dutch” Vander",
         text: "After you perform the %LOCK% action, you may choose 1 friendly ship at range 1-3. That ship may acquire a lock on the object you locked, ignoring range restrictions."
       },
       '"Echo"': {
-        display_name: "“Echo”",
-        text: "While you decloak, you <b>must</b> use the [2&nbsp;%BANKLEFT%] or [2&nbsp;%BANKRIGHT%] template instead of the [2&nbsp;%STRAIGHT%] template.%LINEBREAK%<strong>Stygium Array:</strong> After you decloak, you may perform an %EVADE% action. At the start of the End Phase, you may spend 1 evade token to gain 1 cloak token."
+        display_name: "“回声”",
+        text: "在你显形时，你必须使用[2%BANKLEFT%]或[2%BANKRIGHT%]移动条，而不是[2%STRAIGHT%]移动条。%LINEBREAK%<strong>暗水晶阵列:</strong> 在你显形后，你可以选择执行一次%EVADE%行动。在结束阶段开始时，你可以选择花费1个闪避标记来获得1个隐形标记。"
       },
       '"Howlrunner"': {
         display_name: "“奔号者”",
@@ -4208,8 +4208,8 @@
         text: "After you fully execute a red maneuver or perform a red action, if there is an enemy ship in your %BULLSEYEARC%, you may acquire a lock on that ship."
       },
       '"Pure Sabacc"': {
-        display_name: "“Pure Sabacc”",
-        text: "While you perform an attack, if you have 1 or fewer damage cards, you may roll 1 additional attack die.%LINEBREAK%<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
+        display_name: "“萨巴克牌手”",
+        text: "在你执行一次攻击时，如果你有1张或更少的伤害卡，你可以选择投一枚额外的攻击骰。%LINEBREAK%<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
       },
       '"Quickdraw"': {
         display_name: "“快手”",
@@ -4256,8 +4256,8 @@
         text: "在你执行一次攻击时，你可以选择花费1%CHARGE% 来投1枚额外的攻击骰。%LINEBREAK%在防御后，失去1%CHARGE%。"
       },
       '"Whisper"': {
-        display_name: "“Whisper”",
-        text: "After you perform an attack that hits, gain 1 evade token.%LINEBREAK%<strong>Stygium Array:</strong> After you decloak, you may perform an %EVADE% action. At the start of the End Phase, you may spend 1 evade token to gain 1 cloak token."
+        display_name: "“细语者”",
+        text: "在你执行一次命中的攻击后，获得1个闪避标记。%LINEBREAK%<strong>暗水晶阵列:</strong> 在你显形后，你可以选择执行一次%EVADE%行动。在结束阶段开始时，你可以选择花费1个闪避标记来获得1个隐形标记。"
       },
       '"Wolffe"': {
         display_name: "“Wolffe”",
@@ -4434,10 +4434,12 @@
         text: "在你执行一次攻击时，在抵消结果步骤后，如果该攻击命中，你可以选择花费2%FORCE%来增加1个%CRIT%结果。"
       },
       '"Vagabond"': {
-        text: "After you fully execute a maneuver using your <strong>Adaptive Ailerons</strong>, if you are not stressed you may drop 1 device. %LINEBREAK%<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
+        display_name: "流浪者",
+        text: "在你使用你的<strong>可变副翼</strong>完整地执行一次移动后，如果你没有压力，你可以选择投放1个装置。%LINEBREAK%<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
       },
       "Morna Kee": {
-        text: "During the End Phase, you may spend 1 %CHARGE% to flip 1 of your reinforce tokens to the other full arc instead of removing it."
+        display_name: "莫腊娜·齐",
+        text: "在结束阶段中，你可以选择花费1%CHARGE%来将你的1枚强化标记翻面，翻到另一个全周范围，而不是将其移除。"
       },
       "Lieutenant LeHuse": {
         display_name: "里修斯士官",
@@ -4570,7 +4572,7 @@
       },
       "ST-321": {
         display_name: "ST-321",
-        text: "<i>条件：帝国</i>%LINEBREAK%After you perform a %COORDINATE% action, you may choose an enemy ship at range 0-3 of the ship you coordinated. If you do, acquire a lock on that enemy ship, ignoring range restrictions."
+        text: "<i>条件：帝国，拉姆达级穿梭机</i>%LINEBREAK%在你执行一次%COORDINATE%行动后，你可以选择指定一个在你已协同战机距离0-3的敌方战机。如此的话，对该敌方战机获得1个锁定，无视距离限制。"
       },
       "Scimitar": {
         display_name: "Scimitar",
@@ -4621,8 +4623,8 @@
         text: "<i>条件：小型战机</i>%LINEBREAK%在你完整地执行一次速度3-5的移动后，你可以选择花费1%CHARGE%来执行一次%BOOST% 行动，即使有压力也可以。"
       },
       "Agent Kallus": {
-        display_name: "Agent Kallus",
-        text: "<i>条件：帝国</i>%LINEBREAK%<strong>设置:</strong> After placing forces, assign the <strong>Hunted</strong> condition to 1 enemy ship.%LINEBREAK%While you perform an attack against the ship with the <strong>Hunted</strong> condition, you may change 1 of your %FOCUS% results to a %HIT% result.%LINEBREAK%<i>Errata (since rules reference 1.1.0)</i>:\"Added After placing forces,\"</i>"
+        display_name: "卡勒斯特工",
+        text: "<i>条件：帝国</i>%LINEBREAK%<strong>设置:</strong>在部署军力后，将<strong>猎物</strong>状态分配给一个敌方战机。%LINEBREAK%在你对一个有<strong>猎物</strong>状态的战机执行一次攻击时，你可以选择将你的1个%FOCUS% 结果改为1个%HIT%结果。"
       },
       "Agile Gunner": {
         display_name: "机敏炮手",
@@ -4720,8 +4722,8 @@
         text: "<i>Resistance only</i>%LINEBREAK%<strong>设置:</strong> Lose 1&nbsp;%CHARGE%.%LINEBREAK%After a friendly ship at range&nbsp;0-3 is dealt 1&nbsp;damage card, recover 1&nbsp;%CHARGE%.%LINEBREAK%While you perform an attack, you may spend 2&nbsp;%CHARGE% to change 1&nbsp;%FOCUS% result to a&nbsp;%CRIT% result."
       },
       "Ciena Ree": {
-        display_name: "Ciena Ree",
-        text: "<i>条件 %COORDINATE% or <r>%COORDINATE%</r></i>%LINEBREAK%<i>条件：帝国</i>%LINEBREAK%After you perform a %COORDINATE% action, if the ship you coordinated performed a %BARRELROLL% or %BOOST% action, it may gain 1 stress token to rotate 90°."
+        display_name: "赛恩娜·雷",
+        text: "<i>条件: 帝国,%COORDINATE%</i>%LINEBREAK% 在你执行一次%COORDINATE%行动后，如果你协同的战机执行了一次%BARRELROLL%或%BOOST%行动，它可以选择获得1个压力标记来旋转90度。"
       },
       "Cikatro Vizago": {
         display_name: "Cikatro Vizago",
@@ -4784,8 +4786,8 @@
         text: "在你被消灭后，每个在距离0-1的其他战机承受1%HIT%伤害。"
       },
       "Death Troopers": {
-        display_name: "Death Troopers",
-        text: "<i>条件：帝国</i>%LINEBREAK%During the Activation Phase, enemy ships at range 0-1 cannot remove stress tokens."
+        display_name: "死亡部队",
+        text: "<i>条件：帝国</i>%LINEBREAK%在激活阶段中，在距离0-1的敌方战机不能移除压力标记。"
       },
       "Debris Gambit": {
         display_name: "星屑王牌",
@@ -4812,8 +4814,8 @@
         text: "<strong>攻击 (%LOCK%):</strong> 花费1%CHARGE%。在此攻击命中后，你可以选择花费1%CHARGE% 。如此的话，每个在该防御者距离0-1，敏捷值小于等于该防御者敏捷值的战机投1枚攻击骰，为每个 %HIT%/%CRIT%结果承受1个对应的伤害。"
       },
       "Director Krennic": {
-        display_name: "Director Krennic",
-        text: "<i>Adds %LOCK%</i>%LINEBREAK%<i>条件：帝国</i>%LINEBREAK%<strong>设置:</strong> Before placing forces, assign the <strong>Optimized Prototype</strong> condition to another friendly ship."
+        display_name: "克伦尼克主管",
+        text: "<i>条件：帝国</i>%LINEBREAK%<i>添加 %LOCK%</i>%LINEBREAK% <strong>设置:</strong>在部署军力前，将<strong>强化试验品</strong>状态分配给另一个友方战机。"
       },
       "Discord Missiles": {
         display_name: "Discord Missiles",
@@ -4832,8 +4834,8 @@
         text: "<i>条件：小型或中型战机</i>%LINEBREAK%在你防御时，你可以选择花费1%CHARGE%来重投1枚防御骰。%LINEBREAK%在你完整地执行一次红色移动后，恢复1%CHARGE%。"
       },
       "Emperor Palpatine": {
-        display_name: "Emperor Palpatine",
-        text: "<i>条件：帝国</i>%LINEBREAK%While another friendly ship defends or performs an attack, you may spend 1&nbsp;%FORCE% to modify 1 of its dice as though that ship had spent 1&nbsp;%FORCE%."
+        display_name: "帕尔帕廷皇帝",
+        text: "<i>条件：帝国</i>%LINEBREAK%在另一个友方战机防御或执行一次攻击时，你可以选择花费1%FORCE%来将它的1枚骰子进行修正，如同该战机已经花费了1%FORCE%那样。"
       },
       "Energy-Shell Charges": {
         display_name: "Energy-Shell Charges",
@@ -4871,8 +4873,8 @@
         text: "<i>Resistance only</i>%LINEBREAK%After an enemy ship locks you, if you are not in that ship’s %BULLSEYEARC%, that ship gains 1 stress token."
       },
       "Fifth Brother": {
-        display_name: "Fifth Brother",
-        text: "<i>条件：帝国</i>%LINEBREAK%While you perform an attack, you may spend 1&nbsp;%FORCE% to change 1 of your %FOCUS% results to a %CRIT% result."
+        display_name: "五哥",
+        text: "<i>条件：帝国</i>%LINEBREAK% 在你执行一次攻击时，你可以选择花费1%FORCE% 来将你的1个%FOCUS% 结果改为1个%CRIT% 结果。"
       },
       "Finn": {
         display_name: "Finn",
@@ -4902,12 +4904,12 @@
         text: "<i>条件 第一秩序，%COORDINATE%</i>%LINEBREAK%在你执行一次白色%COORDINATE%行动时，你可以选择将其视为红色。如此的话，你可以选择协调最多2个额外的战机，要求这些战机有相同的战机类别，且每个你协同的战机必须执行相同的行动，将该行动视为红色。"
       },
       "Grand Inquisitor": {
-        display_name: "Grand Inquisitor",
-        text: "<i>条件：帝国</i>%LINEBREAK%After an enemy ship at range 0-2 reveals its dial, you may spend 1&nbsp;%FORCE% to perform 1 white action on your action bar, treating that action as red."
+        display_name: "最高裁判官",
+        text: "<i>条件：帝国</i>%LINEBREAK%在一个在距离0-2的敌方战机展示其转盘后，你可以选择花费1%FORCE%来执行1个你的行动侧栏中的白色行动，视其为红色。"
       },
       "Grand Moff Tarkin": {
-        display_name: "Grand Moff Tarkin",
-        text: "<i>条件 %LOCK% or <r>%LOCK%</r></i>%LINEBREAK%<i>条件：帝国</i>%LINEBREAK%During the System Phase, you may spend 2 %CHARGE%. If you do, each friendly ship may acquire a lock on a ship that you have locked."
+        display_name: "大星区长塔金乘员",
+        text: "<i>条件：帝国，%LOCK%</i>%LINEBREAK%在系统阶段中，你可以选择花费2%CHARGE%。如此的话，每个友方战机可以选择获得1个对你已有锁定战机的锁定。"
       },
       "Grappling Struts": {
         display_name: "Grappling Struts",
@@ -4974,8 +4976,8 @@
         text: "<strong>炸弹</strong>在系统阶段中，你可以选择花费1%CHARGE%来使用[1%STRAIGHT%]移动条投放一个离子炸弹。"
       },
       "ISB Slicer": {
-        display_name: "ISB Slicer",
-        text: "<i>条件：帝国</i>%LINEBREAK%During the End Phase, enemy ships at range 1-2 cannot remove jam tokens."
+        display_name: "ISB黑客",
+        text: "<i>条件：帝国</i>%LINEBREAK%在结束阶段中，在距离1-2的敌方战机不能移除干扰标记。"
       },
       "Impervium Plating": {
         display_name: "Impervium Plating",
@@ -5109,12 +5111,12 @@
         text: "<i>条件：不法者，或包含埃兹拉.布里杰的小队</i>%LINEBREAK%在你承受伤害后，你可以选择获得1压力标记来恢复1%FORCE%。.%LINEBREAK%你可装备“黑暗面”升级卡"
       },
       "Minister Tua": {
-        display_name: "Minister Tua",
-        text: "<i>条件：帝国</i>%LINEBREAK%At the start of the Engagement Phase, if you are damaged, you may perform a red %REINFORCE% action."
+        display_name: "图阿部长",
+        text: "<i>条件：帝国</i>%LINEBREAK%在交战阶段开始后，如果你有伤害，你可以选择执行一次红色%REINFORCE%行动。"
       },
       "Moff Jerjerrod": {
-        display_name: "Moff Jerjerrod",
-        text: "<i>条件 %COORDINATE% or <r>%COORDINATE%</r></i>%LINEBREAK%<i>条件：帝国</i>%LINEBREAK%During the System Phase, you may spend 2 %CHARGE%. If you do, choose the [1&nbsp;%BANKLEFT%], [1&nbsp;%STRAIGHT%], or [1&nbsp;%BANKRIGHT%] template. Each friendly ship may perform a red %BOOST% action using that template."
+        display_name: "星区总督杰杰罗德",
+        text: "<i>条件 帝国，%COORDINATE%</i>%LINEBREAK%在系统阶段中，你可以选择花费2%CHARGE%.。如此的话，选择[1%BANKLEFT%]，[1%STRAIGHT%]或[1%BANKRIGHT%]移动条。每个友方战机可以使用该移动条执行一次红色%BOOST%行动。"
       },
       "Munitions Failsafe": {
         display_name: "弹药保险",
@@ -5129,8 +5131,8 @@
         text: "在该轮结束时，你可以选择投1枚攻击骰来修复1张正面朝上的伤害卡。然后如果为%HIT% 结果，展示1张伤害卡。"
       },
       "Os-1 Arsenal Loadout": {
-        display_name: "Os-1 Arsenal Loadout",
-        text: "While you have exactly 1 disarm token, you can still perform %TORPEDO% and %MISSILE% attacks against targets you have locked. If you do, you cannot spend your lock during the attack.%LINEBREAK%Adds %TORPEDO% and %MISSILE% slots."
+        display_name: "Os-1 炮击挂载",
+        text: "<i>条件：阿尔法级太空战机</i>%LINEBREAK% 在你有正好1个解除武装标记时，你仍可对你有锁定的目标执行%TORPEDO%和%MISSILE%攻击。如此的话，你在该攻击中不能花费你的锁定。%LINEBREAK%增加%TORPEDO%和%MISSILE% 槽位。"
       },
       "Outmaneuver": {
         display_name: "谋略致胜",
@@ -5308,8 +5310,8 @@
         text: "<i>Galactic Republic only</i>%LINEBREAK%While another friendly ship performs a primary attack, if the defender is in your firing arc, you may spend 1 %CHARGE%. If you do, the attacker rolls 1&nbsp;additional die, to a maximum of 4. During the System Phase, you may gain 1 disarm token to recover 1 %CHARGE%."
       },
       "Seventh Sister": {
-        display_name: "Seventh Sister",
-        text: "<i>条件：帝国</i>%LINEBREAK%If an enemy ship at range 0-1 would gain a stress token, you may spend 1&nbsp;%FORCE% to have it gain 1 jam or tractor token instead."
+        display_name: "七妹",
+        text: "<i>条件：帝国</i>%LINEBREAK% 如果一个在距离0-1的敌方战机将获得1个压力标记，你可以选择花费1%FORCE%来让它改为获得1个干扰或牵引标记。"
       },
       "Shield Upgrade": {
         display_name: "护盾升级",
@@ -5412,8 +5414,8 @@
         text: "<i>条件：%ROTATEARC%</i>%LINEBREAK%在你执行一次基础攻击后，你可以选择执行一次额外的%SINGLETURRETARC%攻击，使用一个此轮中你未攻击过的%SINGLETURRETARC%。"
       },
       "Xg-1 Assault Configuration": {
-        display_name: "Xg-1 Assault Configuration",
-        text: "While you have exactly 1 disarm token, you can still perform %CANNON% attacks. While you perform a %CANNON% attack while disarmed, roll a maximum of 3 attack dice.%LINEBREAK%Adds %CANNON% slot."
+        display_name: "Xg-1 突击装配",
+        text: "<i>条件：阿尔法级太空战机</i>%LINEBREAK%在你有正好1个解除武装标记时，你仍可执行%CANNON%攻击。在你有解除武装标记执行一次%CANNON%攻击时，最多投3枚攻击骰。%LINEBREAK%增加 %CANNON% 槽位。"
       },
       "Zuckuss": {
         display_name: "Zuckuss",
