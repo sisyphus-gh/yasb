@@ -2956,7 +2956,7 @@
       },
       "Academy Pilot": {
         display_name: "帝国军校飞行员",
-        text: "<i class = flavor_text>The Galactic Empire uses the fast and agile TIE/ln, developed by Sienar Fleet Systems and produced in staggering quantity, as its primary starfighter.</i>"
+        text: ""
       },
       "Ahhav": {
         display_name: "Ahhav",
@@ -2971,15 +2971,15 @@
         text: "After you perform an attack, you may choose 1 friendly ship at range 1. That ship may perform an action, treating it as red."
       },
       "Alpha Squadron Pilot": {
-        display_name: "Alpha Squadron Pilot",
-        text: "<i class = flavor_text>Sienar Fleet Systems designed the TIE interceptor with four wing-mounted laser cannons, a dramatic increase in firepower over its predecessors.</i>%LINEBREAK%<strong>Autothrusters:</strong> After you perform an action, you may perform a red %BARRELROLL% or red %BOOST% action."
+        display_name: "阿尔法中队驾驶员",
+        text: "<strong>自动推进器:</strong>在你执行一次行动后，你可以选择执行一次红色%BARRELROLL% 或红色%BOOST%行动。"
       },
       "Anakin Skywalker": {
         display_name: "Anakin Skywalker",
         text: "After you fully execute a maneuver, if there is an enemy ship in your %FRONTARC% at range&nbsp;0-1 or in your %BULLSEYEARC%, you may spend 1 %FORCE% to remove 1&nbsp;stress token.%LINEBREAK%<strong>Fine-tuned Controls:</strong> After you fully execute a maneuver, you may spend 1&nbsp;%FORCE% to perform a %BOOST% or %BARRELROLL% action."
       },
       "Anakin Skywalker (N-1 Starfighter)": {
-        text: "Before you reveal your maneuver, you may spend 1 %FORCE% to barrel roll (this is not an action): %LINEBREAK%<strong>Full Throttle:</strong> After you fully execute a speed 3-5 maneuver, you may perform an %EVADE% action."
+        text: "Before you reveal your maneuver, you may spend 1 %FORCE% to barrel roll (this is not an action): %LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
       },
       "Arvel Crynyd": {
         display_name: "Arvel Crynyd",
@@ -3026,12 +3026,12 @@
         text: "<i class = flavor_text>Operating from the Double Worlds, Talus and Tralus, Kath Scarlet’s gang of smugglers and pirates would never be described as reputable or dependable—even by other criminals.</i>"
       },
       "Black Squadron Ace": {
-        display_name: "Black Squadron Ace",
-        text: "<i class = flavor_text>The elite TIE/ln pilots of Black Squadron accompanied Darth Vader on a devastating strike against the Rebel forces at the Battle of Yavin.</i>"
+        display_name: "黑色中队王牌",
+        text: ""
       },
       "Black Squadron Scout": {
         display_name: "Black Squadron Scout",
-        text: "<i class = flavor_text>These heavily armed atmospheric craft employ their specialized moveable wings to gain additional speed and maneuverability.</i>%LINEBREAK% <sasmall><strong>Adaptive Ailerons:</strong> Before you reveal your dial, if you are not stressed, you <b>must</b> execute a white [1&nbsp;%BANKLEFT%], [1&nbsp;%STRAIGHT%], or [1&nbsp;%BANKRIGHT%] maneuver.</sasmall>"
+        text: "<i class = flavor_text>These heavily armed atmospheric craft employ their specialized moveable wings to gain additional speed and maneuverability.</i>%LINEBREAK% <sasmall><strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。</sasmall>"
       },
       "Black Squadron Ace (T-70)": {
         display_name: "Black Squadron Ace",
@@ -3039,7 +3039,7 @@
       },
       "Black Squadron Scout": {
         display_name: "Black Squadron Scout",
-        text: "<i class = flavor_text>These heavily armed atmospheric craft employ their specialized moveable wings to gain additional speed and maneuverability.</i>%LINEBREAK% <strong>Adaptive Ailerons:</strong> Before you reveal your dial, if you are not stressed, you <b>must</b> execute a white [1&nbsp;%BANKLEFT%], [1&nbsp;%STRAIGHT%], or [1&nbsp;%BANKRIGHT%] maneuver."
+        text: "<i class = flavor_text>These heavily armed atmospheric craft employ their specialized moveable wings to gain additional speed and maneuverability.</i>%LINEBREAK% <strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
       },
       "Black Sun Ace": {
         display_name: "Black Sun Ace",
@@ -3110,8 +3110,8 @@
         text: "当一个在距离1-2，先攻值比你低的友方战机防御或执行一次攻击时，如果你有至少1%CHARGE% ，该战机可以选择重投1个%FOCUS%结果。%LINEBREAK%在距离0-3的一个敌方战机被消灭时，失去1%CHARGE%。%LINEBREAK%<strong>并联机炮:</strong> 在你执行一次%CANNON%攻击时，投1枚额外的骰子。"
       },
       "Captain Feroph": {
-        display_name: "Captain Feroph",
-        text: "While you defend, if the attacker does not have any green tokens, you may change 1 of your blank or %FOCUS% results to an %EVADE% result.%LINEBREAK%<strong>Adaptive Ailerons:</strong> Before you reveal your dial, if you are not stressed, you <b>must</b> execute a white [1&nbsp;%BANKLEFT%], [1&nbsp;%STRAIGHT%], or [1&nbsp;%BANKRIGHT%] maneuver."
+        display_name: "费罗夫队长",
+        text: "在你防御时，如果该攻击者没有任何绿色标记，你可以选择将你的1个空白或%FOCUS%结果改为一个%EVADE%结果。%LINEBREAK%<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
       },
       "Captain Jonus": {
         display_name: "Captain Jonus",
@@ -3186,8 +3186,8 @@
         text: "在激活阶段开始时，你可以选择花费1【充能】 。如此的话，在友方战机此轮获得锁定时，他们必须获得距离3外的锁定，而不是距离0-3的锁定。"
       },
       "Colonel Vessery": {
-        display_name: "Colonel Vessery",
-        text: "While you perform an attack against a locked ship, after you roll attack dice, you may acquire a lock on the defender.%LINEBREAK%<strong>Full Throttle:</strong> After you fully execute a speed 3-5 maneuver, you may perform an %EVADE% action."
+        display_name: "瓦西里上校",
+        text: "在你对一个被锁定战机执行一次攻击时，在你投攻击骰后，你可以选择对该防御者获得一个锁定。%LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
       },
       "Commander Malarus": {
         display_name: "指挥官马拉尔斯",
@@ -3210,16 +3210,16 @@
         text: "After you defend, if the attacker is in your firing arc, you may spend 1&nbsp;%FORCE% to remove 1 of your blue or red tokens.%LINEBREAK%After you perform an attack that hits, you may spend 1 %FORCE% to perform an action."
       },
       "Countess Ryad": {
-        display_name: "Countess Ryad",
-        text: "While you would execute a %STRAIGHT% maneuver, you may increase the difficulty of the maneuver. If you do, execute it as a %KTURN% maneuver instead.%LINEBREAK%<strong>Full Throttle:</strong> After you fully execute a speed 3-5 maneuver, you may perform an %EVADE% action."
+        display_name: "莱雅得女爵",
+        text: "在你将执行一个%STRAIGHT% 移动时，你可以选择增加该移动的难度。如此的话，改为将其作为%KTURN%移动执行。<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
       },
       "Crymorah Goon": {
         display_name: "Crymorah Goon",
         text: "<i class = flavor_text>Though far from nimble, the Y-wing’s heavy hull, substantial shielding, and turret-mounted cannons make it an excellent patrol craft.</i>"
       },
       "Cutlass Squadron Pilot": {
-        display_name: "Cutlass Squadron Pilot",
-        text: "<i class = flavor_text>The TIE punisher’s design builds upon the success of the TIE bomber, adding shielding, a second bomb chute, and three additional ordnance pods, each equipped with a twin ion engine.</i>"
+        display_name: "短剑中队驾驶员",
+        text: ""
       },
       "DBS-32C": {
         display_name: "DBS-32C",
@@ -3258,20 +3258,20 @@
         text: "After you perform an attack, you may spend 2 %FORCE% to perform a bonus primary attack against a different target. If your attack missed, you may perform that bonus primary attack against the same target instead."
       },
       "Darth Vader": {
-        display_name: "Darth Vader",
-        text: "After you perform an action, you may spend 1&nbsp;%FORCE% to perform an action.%LINEBREAK%<strong>Advanced Targeting Computer:</strong> While you perform a primary attack against a defender you have locked, roll 1 additional attack die and change 1&nbsp;%HIT% result to a %CRIT% result."
+        display_name: "达斯·维达",
+        text: "在你执行一次行动后，你可以选择花费1%FORCE%来执行一个行动。%LINEBREAK%<strong>高级锁定计算机:</strong> 在你对一个你有锁定的防御者执行一次基础攻击时，投1个额外的攻击骰并将1个%HIT%结果改为1个%CRIT%结果。"
       },
       "Dash Rendar": {
         display_name: "Dash Rendar",
         text: "While you move, you ignore obstacles.%LINEBREAK%<strong>Sensor Blindspot:</strong> While you perform a primary attack at attack range 0-1, do not apply the range 0-1 bonus and roll 1 fewer attack die."
       },
       "Del Meeko": {
-        display_name: "Del Meeko",
-        text: "While a friendly ship at range 0-2 defends against a damaged attacker, the defender may reroll 1 defense die."
+        display_name: "德尔·米科",
+        text: "在一个在距离0-2的友方战机对一个有伤害的攻击者进行防御时，该防御者可以选择重投1枚防御骰。"
       },
       "Delta Squadron Pilot": {
-        display_name: "Delta Squadron Pilot",
-        text: "<i class = flavor_text>In addition to its missile launchers and six wingtip laser cannons, the formidable TIE defender is equipped with deflector shields and a hyperdrive.</i>%LINEBREAK%<strong>Full Throttle:</strong> After you fully execute a speed 3-5 maneuver, you may perform an %EVADE% action."
+        display_name: "德尔塔中队驾驶员",
+        text: "<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
       },
       "Dengar": {
         display_name: "登加",
@@ -3378,8 +3378,8 @@
         text: "After you acquire a lock, you must remove all of your focus and evade tokens. Then, gain the same number of focus and evade tokens that the locked ship has.%LINEBREAK%<strong>Weapon Hardpoint:</strong> You can equip 1 %CANNON%, %TORPEDO%, or %MISSILE% upgrade."
       },
       "Gideon Hask": {
-        display_name: "Gideon Hask",
-        text: "While you perform an attack against a damaged defender, roll 1 additional attack die."
+        display_name: "吉迪恩·哈斯克",
+        text: "在你对一个有伤害的防御者执行一次攻击时，投1枚额外的攻击骰。"
       },
       "Gold Squadron Trooper": {
         display_name: "Gold Squadron Trooper",
@@ -3470,8 +3470,8 @@
         text: "After you fully execute a maneuver, if you are stressed, you may roll 1 attack die. On a %HIT% or %CRIT% result, remove 1 stress token."
       },
       "Iden Versio": {
-        display_name: "Iden Versio",
-        text: "Before a friendly TIE/ln fighter at range 0-1 would suffer 1 or more damage, you may spend 1&nbsp;%CHARGE%. If you do, prevent that damage."
+        display_name: "艾登·韦尔西奥",
+        text: "在一个在距离0-1的友方TIE/ln 战斗机将承受1点或以上的伤害前，你可以选择花费1%CHARGE% 。如此的话，抵消该伤害。"
       },
       "Imdaar Test Pilot": {
         display_name: "Imdaar Test Pilot",
@@ -3626,8 +3626,8 @@
         text: "在你获得一个解除武装标记后，如果你没有压力，你可以选择获得1个压力标记来移除1个解除武装标记。"
       },
       "Lieutenant Kestal": {
-        display_name: "Lieutenant Kestal",
-        text: "While you perform an attack, after the defender rolls defense dice, you may spend 1 focus token to cancel all of the defender’s blank/%FOCUS% results."
+        display_name: "卡斯塔士官",
+        text: "在你执行一次攻击时，在该防御者投防御骰后，你可以选择花费1个专注标记来抵消该防御者全部的空白或%FOCUS%结果。"
       },
       "Lieutenant Rivas": {
         display_name: "里瓦斯中尉",
@@ -3666,8 +3666,8 @@
         text: "While you defend or perform a primary attack, if you are stressed, you <b>must</b> roll 1 fewer defense die or 1 additional attack die.%LINEBREAK%<strong>Refined Gyrostabilizers:</strong> You can rotate your %SINGLETURRETARC% indicator only to your %FRONTARC% or %REARARC%. After you perform an action, you may perform a red %BOOST% or red %ROTATEARC% action."
       },
       "Maarek Stele": {
-        display_name: "Maarek Stele",
-        text: "While you perform an attack, if the defender would be dealt a faceup damage card, instead draw 3 damage cards, choose 1, and discard the rest.%LINEBREAK%<strong>Advanced Targeting Computer:</strong> While you perform a primary attack against a defender you have locked, roll 1 additional attack die and change 1&nbsp;%HIT% result to a %CRIT% result. "
+        display_name: "马雷克·斯蒂利",
+        text: "在你执行一次攻击时，如果该防御者将被分配一张正面朝上的伤害卡，改为抽3张伤害卡选择其一，然后丢弃其余的卡。%LINEBREAK%<strong>高级锁定计算机:</strong> 在你对一个你有锁定的防御者执行一次基础攻击时，投1个额外的攻击骰并将1个%HIT%结果改为1个%CRIT%结果。"
       },
       "Mace Windu": {
         display_name: "Mace Windu",
@@ -3686,8 +3686,8 @@
         text: "在你协同或结算你的一个升级的效果时，你可以选择将在距离2-3的友方战机视为在距离0或距离1。%LINEBREAK%<strong>并联机炮:</strong> 在你执行一次%CANNON%攻击时，投1枚额外的骰子。"
       },
       "Major Vermeil": {
-        display_name: "Major Vermeil",
-        text: "While you perform an attack, if the defender does not have any green tokens, you may change 1 of your blank or %FOCUS% results to a %HIT% result.%LINEBREAK% %LINEBREAK%<strong>Adaptive Ailerons:</strong> Before you reveal your dial, if you are not stressed, you <b>must</b> execute a white [1&nbsp;%BANKLEFT%], [1&nbsp;%STRAIGHT%], or [1&nbsp;%BANKRIGHT%] maneuver."
+        display_name: "梅尔莫将军",
+        text: "在你执行一次攻击时，如果该防御者没有任何绿色标记，你可以选择将你的1个空白或%FOCUS% 结果改为一个%HIT%结果。%LINEBREAK%<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
       },
       "Major Vynder": {
         display_name: "温德尔将军",
@@ -3738,8 +3738,8 @@
         text: "After a friendly ship at range&nbsp;0-2 spends a focus token, you may spend 1&nbsp;%FORCE%. If you do, that ship gains 1&nbsp;focus token.%LINEBREAK%<strong>Fine-tuned Controls:</strong> After you fully execute a maneuver, you may spend 1&nbsp;%FORCE% to perform a %BOOST% or %BARRELROLL% action."
       },
       "Obsidian Squadron Pilot": {
-        display_name: "Obsidian Squadron Pilot",
-        text: "<i class = flavor_text>The TIE fighter’s Twin Ion Engine system was designed for speed, making the TIE/ln one of the most maneuverable starships ever mass-produced.</i>"
+        display_name: "黑曜石中队驾驶员",
+        text: ""
       },
       "Old Teroch": {
         display_name: "Old Teroch",
@@ -3758,12 +3758,12 @@
         text: ""
       },
       "Onyx Squadron Ace": {
-        display_name: "Onyx Squadron Ace",
-        text: "<i class = flavor_text>The experimental TIE defender outclasses all other contemporary starfighters, though its size, speed, and array of weapons come at a tremendous cost in credits.</i>%LINEBREAK%<strong>Full Throttle:</strong> After you fully execute a speed 3-5 maneuver, you may perform an %EVADE% action."
+        display_name: "奥尼克斯中队王牌",
+        text: "%LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
       },
       "Onyx Squadron Scout": {
-        display_name: "Onyx Squadron Scout",
-        text: "<i class = flavor_text>Designed for extended engagements, the TIE/ag is flown primarily by elite pilots trained to leverage both its unique weapons loadout and its maneuverability to full effect.</i>"
+        display_name: "奥尼克斯中队侦察兵",
+        text: ""
       },
       "Outer Rim Pioneer": {
         display_name: "Outer Rim Pioneer",
@@ -3779,7 +3779,7 @@
       },
       "Padmé Amidala": {
         display_name: "Padmé Amidala",
-        text: "While an enemy ship in your %FRONTARC% defends or performs an attack that ship can modify only 1 %EVADE% result (other results can still be modified). %LINEBREAK%<strong>Full Throttle:</strong> After you fully execute a speed 3-5 maneuver, you may perform an %EVADE% action."
+        text: "While an enemy ship in your %FRONTARC% defends or performs an attack that ship can modify only 1 %EVADE% result (other results can still be modified). %LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
       },
       "Palob Godalhi": {
         display_name: "Palob Godalhi",
@@ -3806,7 +3806,7 @@
       },
       "Planetary Sentinel": {
         display_name: "Planetary Sentinel",
-        text: "<i class = flavor_text>To protect its many military installations, the Empire requires a swift and vigilant defense force.</i>%LINEBREAK% <strong>Adaptive Ailerons:</strong> Before you reveal your dial, if you are not stressed, you <b>must</b> execute a white [1&nbsp;%BANKLEFT%], [1&nbsp;%STRAIGHT%], or [1&nbsp;%BANKRIGHT%] maneuver."
+        text: "<i class = flavor_text>To protect its many military installations, the Empire requires a swift and vigilant defense force.</i>%LINEBREAK% <strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
       },
       "Plo Koon": {
         display_name: "Plo Koon",
@@ -3845,8 +3845,8 @@
         text: "<i class = flavor_text>After witnessing the Hosnian Cataclysm, some spacers willingly aided the Resistance with whatever ships they had.</i>"
       },
       "Rexler Brath": {
-        display_name: "Rexler Brath",
-        text: "After you perform an attack that hits, if you are evading, expose 1 of the defender’s damage cards.%LINEBREAK%<strong>Full Throttle:</strong> After you fully execute a speed 3-5 maneuver, you may perform an %EVADE% action."
+        display_name: "莱克斯勒·博阿斯",
+        text: "在你执行一次命中的攻击后，如果你有闪避，将该防御者的1张伤害卡展示。%LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
       },
       "Rey": {
         display_name: "Rey",
@@ -3868,8 +3868,8 @@
         text: "While you defend or perform an attack, you may reroll up to 1 of your results for each other friendly ship in the attack arc."
       },
       "Saber Squadron Ace": {
-        display_name: "Saber Squadron Ace",
-        text: "<i class = flavor_text>Led by Baron Soontir Fel, the pilots of Saber Squadron are among the Empire’s best. Their TIE interceptors are marked with red stripes to designate pilots with at least ten confirmed kills. </i> %LINEBREAK%  <strong> Autothrusters:</strong> After you perform an action, you may perform a red %BARRELROLL% or red %BOOST% action."
+        display_name: "军刀中队王牌",
+        text: "<strong>自动推进器:</strong>在你执行一次行动后，你可以选择执行一次红色%BARRELROLL% 或红色%BOOST%行动。"
       },
       "Sabine Wren": {
         display_name: "Sabine Wren",
@@ -3896,8 +3896,8 @@
         text: "在一个有伤害的友方战机在距离0-3执行一次攻击时，它可以选择重投1枚攻击骰。"
       },
       "Scarif Base Pilot": {
-        display_name: "Scarif Base Pilot",
-        text: "<i class = flavor_text>The TIE reaper was designed to ferry elite troops to flashpoints on the battlefield, notably carrying Director Krennic’s dreaded death troopers at the Battle of Scarif.</i>%LINEBREAK%<strong>Adaptive Ailerons:</strong> Before you reveal your dial, if you are not stressed, you <b>must</b> execute a white [1&nbsp;%BANKLEFT%], [1&nbsp;%STRAIGHT%], or [1&nbsp;%BANKRIGHT%] maneuver."
+        display_name: "斯卡里夫基地驾驶员",
+        text: "%LINEBREAK%<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
       },
       "Scimitar Squadron Pilot": {
         display_name: "Scimitar Squadron Pilot",
@@ -3920,8 +3920,8 @@
         text: "在你执行一次基础攻击时，在抵消结果步骤前，你可以选择花费2%FORCE%来抵消1个%EVADE%结果。"
       },
       "Seyn Marana": {
-        display_name: "Seyn Marana",
-        text: "While you perform an attack, you may spend 1&nbsp;%CRIT% result. If you do, deal 1 facedown damage card to the defender, then cancel your remaining results."
+        display_name: "塞茵·马拉纳",
+        text: "在你执行一次攻击时，你可以选择花费1个%CRIT% 结果。如此的话，对防御者分配1张面朝下的伤害卡，然后抵消你剩余的结果。"
       },
       "Shadowport Hunter": {
         display_name: "Shadowport Hunter",
@@ -3932,8 +3932,8 @@
         text: "While you defend or perform a primary attack, you may spend 1 lock you have on the enemy ship to add 1&nbsp;%FOCUS% result to your dice results."
       },
       "Sienar Specialist": {
-        display_name: "Sienar Specialist",
-        text: "<i class = flavor_text>During the development of the TIE aggressor, Sienar Fleet Systems valued performance and versatility over raw cost efficiency.</i>"
+        display_name: "西纳专员",
+        text: ""
       },
       "Sienar-Jaemus Engineer": {
         display_name: "西纳-杰穆斯 工程师",
@@ -3956,8 +3956,8 @@
         text: "If you would drop a device using a [1&nbsp;%STRAIGHT%] template, you may drop it using any speed 1 template instead."
       },
       "Soontir Fel": {
-        display_name: "Soontir Fel",
-        text: "At the start of the Engagement Phase, if there is an enemy ship in your %BULLSEYEARC%, gain 1 focus token.%LINEBREAK%<strong>Autothrusters:</strong> After you perform an action, you may perform a red %BARRELROLL% or red %BOOST% action."
+        display_name: "苏恩蒂尔·费尔",
+        text: "在交战阶段开始时，如果在你的%BULLSEYEARC%有一个敌方战机，获得1个专注标记。%LINEBREAK%<strong>自动推进器:</strong>在你执行一次行动后，你可以选择执行一次红色%BARRELROLL% 或红色%BOOST%行动。"
       },
       "Spice Runner": {
         display_name: "Spice Runner",
@@ -3972,8 +3972,8 @@
         text: "<strong>并联机炮:</strong> 在你执行一次%CANNON%攻击时，投1枚额外的骰子。"
       },
       "Storm Squadron Ace": {
-        display_name: "Storm Squadron Ace",
-        text: "<i class = flavor_text>The TIE Advanced x1 was produced in limited quantities, but Sienar engineers incorporated many of its best qualities into their next TIE model: the TIE Interceptor.</i>%LINEBREAK%<strong>Advanced Targeting Computer:</strong> While you perform a primary attack against a defender you have locked, roll 1 additional attack die and change 1&nbsp;%HIT% result to a %CRIT% result."
+        display_name: "风暴中队王牌",
+        text: "<strong>高级锁定计算机:</strong> 在你对一个你有锁定的防御者执行一次基础攻击时，投1个额外的攻击骰并将1个%HIT%结果改为1个%CRIT%结果。"
       },
       "Sunny Bounder": {
         display_name: "Sunny Bounder",
@@ -4012,8 +4012,8 @@
         text: "After you fully execute a speed 2-4 maneuver, you may perform a %BOOST% action.%LINEBREAK%<strong>Weapon Hardpoint:</strong> You can equip 1&nbsp;%CANNON%, %TORPEDO%, or %MISSILE% upgrade."
       },
       "Tempest Squadron Pilot": {
-        display_name: "Tempest Squadron Pilot",
-        text: "<i class = flavor_text>The TIE Advanced improved on the popular TIE/ln design by adding shielding, better weapons systems, curved solar panels, and a hyperdrive.</i>%LINEBREAK%<strong>Advanced Targeting Computer:</strong> While you perform a primary attack against a defender you have locked, roll 1 additional attack die and change 1&nbsp;%HIT% result to a %CRIT% result."
+        display_name: "暴风中队驾驶员",
+        text: "<strong>高级锁定计算机:</strong> 在你对一个你有锁定的防御者执行一次基础攻击时，投1个额外的攻击骰并将1个%HIT%结果改为1个%CRIT%结果。"
       },
       "Ten Numb": {
         display_name: "Ten Numb",
@@ -4044,20 +4044,20 @@
         text: "<i class = flavor_text>The spacious triple-decker design of the YV-666 makes it popular among bounty hunters and slavers, who often retrofit an entire deck for prisoner transport.</i>"
       },
       "Turr Phennir": {
-        display_name: "Turr Phennir",
-        text: "After you perform an attack, you may perform a %BARRELROLL% or %BOOST% action, even if you are stressed.%LINEBREAK%<strong>Autothrusters:</strong> After you perform an action, you may perform a red %BARRELROLL% or red %BOOST% action."
+        display_name: "图尔·芬尼尔",
+        text: "在你执行一次攻击后，你可以选择执行一次%BARRELROLL%或%BOOST%行动，即使你有压力。%LINEBREAK%<strong>自动推进器:</strong>在你执行一次行动后，你可以选择执行一次红色%BARRELROLL% 或红色%BOOST%行动。"
       },
       "Unkar Plutt": {
         display_name: "Unkar Plutt",
         text: "At the start of the Engagement Phase, if there are one or more other ships at range 0, you and each other ship at range 0 gain 1 tractor token.%LINEBREAK%<strong>Spacetug Tractor Array:</strong> <strong>Action:</strong> Choose a ship in your %FRONTARC% at range 1. That ship gains 1 tractor token, or 2 tractor tokens if it is in your %BULLSEYEARC% at range 1."
       },
       "Valen Rudor": {
-        display_name: "Valen Rudor",
-        text: "After a friendly ship at range 0-1 defends (after damage is resolved, if any), you may perform an action."
+        display_name: "瓦伦·鲁多尔",
+        text: "在一个在距离0-1的友方战机防御后（在伤害结算后，如有的话），你可以选择执行一个行动。"
       },
       "Ved Foslo": {
-        display_name: "Ved Foslo",
-        text: "While you execute a maneuver, you may execute a maneuver of the same bearing and difficulty of a speed 1 higher or lower instead.%LINEBREAK%<strong>Advanced Targeting Computer:</strong> While you perform a primary attack against a defender you have locked, roll 1 additional attack die and change 1&nbsp;%HIT% result to a %CRIT% result."
+        display_name: "韦德·佛斯洛",
+        text: "在你执行一次移动时，你可以选择执行一个朝向与难度相同，速度高1或低1的移动。%LINEBREAK%<strong>高级锁定计算机:</strong> 在你对一个你有锁定的防御者执行一次基础攻击时，投1个额外的攻击骰并将1个%HIT%结果改为1个%CRIT%结果。"
       },
       "Vennie": {
         display_name: "Vennie",
@@ -4096,8 +4096,8 @@
         text: "<i class = flavor_text>Mandalorian Fang fighter pilots must master the Concordia Faceoff maneuver, leveraging their ships’ narrow attack profile to execute deadly head-on charges.</i> %LINEBREAK% <strong>Concordia Faceoff:</strong> While you defend, if the attack range is 1 and you are in the attacker’s %FRONTARC%, change 1 result to an %EVADE% result."
       },
       "Zertik Strom": {
-        display_name: "Zertik Strom",
-        text: "During the End Phase, you may spend a lock you have on an enemy ship to expose 1 of that ship’s damage cards.%LINEBREAK%<strong>Advanced Targeting Computer:</strong> While you perform a primary attack against a defender you have locked, roll 1 additional attack die and change 1&nbsp;%HIT% result to a %CRIT% result."
+        display_name: "则提克·风暴",
+        text: "在结束阶段中，你可以选择花费你对一个敌方战机的一个锁定，来展示该战机的1张伤害卡。%LINEBREAK%<strong>高级锁定计算机:</strong> 在你对一个你有锁定的防御者执行一次基础攻击时，投1个额外的攻击骰并将1个%HIT%结果改为1个%CRIT%结果。"
       },
       "Zeta Squadron Pilot": {
         display_name: "截塔中队驾驶员",
@@ -4133,23 +4133,23 @@
       },
       '"Countdown"': {
         display_name: "“Countdown”",
-        text: "While you defend, after the Neutralize Results step, if you are not stressed, you may suffer 1&nbsp;%HIT% damage and gain 1 stress token. If you do, cancel all dice results.%LINEBREAK%<strong>Adaptive Ailerons:</strong> Before you reveal your dial, if you are not stressed, you <b>must</b> execute a white [1&nbsp;%BANKLEFT%], [1&nbsp;%STRAIGHT%], or [1&nbsp;%BANKRIGHT%] maneuver."
+        text: "While you defend, after the Neutralize Results step, if you are not stressed, you may suffer 1&nbsp;%HIT% damage and gain 1 stress token. If you do, cancel all dice results.%LINEBREAK%<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
       },
       '"Deathfire"': {
         display_name: "“Deathfire”",
         text: "After you are destroyed, before you are removed, you may perform an attack and drop or launch 1 device.%LINEBREAK%<strong>Nimble Bomber:</strong> If you would drop a device using a %STRAIGHT% template, you may use a %BANKLEFT% or %BANKRIGHT% template of the same speed instead."
       },
       '"Deathrain"': {
-        display_name: "“Deathrain”",
-        text: "After you drop or launch a device, you may perform an action."
+        display_name: "“死雨”",
+        text: "在你投放或发射一个装置后，你可以选择执行一个行动。"
       },
       '"Double Edge"': {
-        display_name: "“Double Edge”",
-        text: "After you perform a %TURRET% or %MISSILE% attack that misses, you may perform a bonus attack using a different weapon."
+        display_name: "“双刃”",
+        text: "在你执行一次未命中的%TURRET%或%MISSILE%攻击后，你可以选择使用一个不同的武器执行一次额外攻击。"
       },
       '"Duchess"': {
         display_name: "“Duchess”",
-        text: "You may choose not to use your <strong>Adaptive Ailerons</strong>. %LINEBREAK%You may use your <strong>Adaptive Ailerons</strong> even while stressed.%LINEBREAK%<strong>Adaptive Ailerons:</strong> Before you reveal your dial, if you are not stressed, you <b>must</b> execute a white [1&nbsp;%BANKLEFT%], [1&nbsp;%STRAIGHT%], or [1&nbsp;%BANKRIGHT%] maneuver."
+        text: "You may choose not to use your <strong>Adaptive Ailerons</strong>. %LINEBREAK%You may use your <strong>Adaptive Ailerons</strong> even while stressed.%LINEBREAK%<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
       },
       '"Dutch" Vander': {
         display_name: "“Dutch” Vander",
@@ -4160,8 +4160,8 @@
         text: "While you decloak, you <b>must</b> use the [2&nbsp;%BANKLEFT%] or [2&nbsp;%BANKRIGHT%] template instead of the [2&nbsp;%STRAIGHT%] template.%LINEBREAK%<strong>Stygium Array:</strong> After you decloak, you may perform an %EVADE% action. At the start of the End Phase, you may spend 1 evade token to gain 1 cloak token."
       },
       '"Howlrunner"': {
-        display_name: "“Howlrunner”",
-        text: "While a friendly ship at range 0-1 performs a primary attack, that ship may reroll 1 attack die."
+        display_name: "“奔号者”",
+        text: "当一个在距离0-1的友方战机执行一次基础攻击时，该战机可以选择重投1枚攻击骰。"
       },
       '"Jag"': {
         display_name: "“Jag”",
@@ -4180,8 +4180,8 @@
         text: "在你于攻击距离3执行一次基础攻击时，投1枚额外的攻击骰。"
       },
       '"Mauler" Mithel': {
-        display_name: "“Mauler” Mithel",
-        text: "While you perform an attack at attack range 1, roll 1 additional attack die."
+        display_name: "“铁拳”米赛尔",
+        text: "在你在攻击距离1执行一次攻击时，投1枚额外的攻击骰。"
       },
       '"Midnight"': {
         display_name: "“午夜”",
@@ -4192,8 +4192,8 @@
         text: "在交战阶段开始时，你可以选择指定一个在距离0-1的友方战机。如此的话，该战机移除1个压力标记。"
       },
       '"Night Beast"': {
-        display_name: "“Night Beast”",
-        text: "After you fully execute a blue maneuver, you may perform a %FOCUS% action."
+        display_name: "“夜兽”",
+        text: "在你完整地执行一个蓝色移动后，你可以选择执行一次 %FOCUS% 行动。"
       },
       '"Null"': {
         display_name: "“空”",
@@ -4209,7 +4209,7 @@
       },
       '"Pure Sabacc"': {
         display_name: "“Pure Sabacc”",
-        text: "While you perform an attack, if you have 1 or fewer damage cards, you may roll 1 additional attack die.%LINEBREAK%<strong>Adaptive Ailerons:</strong> Before you reveal your dial, if you are not stressed, you <b>must</b> execute a white [1&nbsp;%BANKLEFT%], [1&nbsp;%STRAIGHT%], or [1&nbsp;%BANKRIGHT%] maneuver."
+        text: "While you perform an attack, if you have 1 or fewer damage cards, you may roll 1 additional attack die.%LINEBREAK%<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
       },
       '"Quickdraw"': {
         display_name: "“快手”",
@@ -4220,16 +4220,16 @@
         text: "在你有压力时，你可以选择将在你%FRONTARC%距离0-1的敌方战机视为在你的%BULLSEYEARC%内。%LINEBREAK%<strong>自动推进器:</strong>在你执行一个行动后，你可以选择执行一次红色%BARRELROLL%或红色%BOOST%行动。"
       },
       '"Redline"': {
-        display_name: "“Redline”",
-        text: "You can maintain up to 2 locks. %LINEBREAK%After you perform an action, you may acquire a lock."
+        display_name: "“红线”",
+        text: "你可维持最多2个锁定。%LINEBREAK%在你执行一个行动后，你可以选择获得1个锁定。"
       },
       '"Scorch"': {
         display_name: "“枯萎”",
         text: "在你执行一次基础攻击时，如果你没有压力，你可以选择获得1个压力标记来投1个额外的攻击骰。"
       },
       '"Scourge" Skutu': {
-        display_name: "“Scourge” Skutu",
-        text: "While you perform an attack against a defender in your %BULLSEYEARC%, roll 1 additional attack die."
+        display_name: "“灾祸”思古图",
+        text: "在你对你%BULLSEYEARC%的一个防御者执行一次攻击时，投1枚额外的攻击骰。"
       },
       '"Sinker"': {
         display_name: "“Sinker”",
@@ -4248,12 +4248,12 @@
         text: "After a friendly ship at range&nbsp;1-2 performs an attack against an enemy ship in your %FRONTARC%, you may perform a %FOCUS%&nbsp;action."
       },
       '"Vizier"': {
-        display_name: "“Vizier”",
-        text: "After you fully execute a speed 1 maneuver using your <strong>Adaptive Ailerons</strong> ship ability, you may perform a %COORDINATE% action. If you do, skip your Perform Action step.%LINEBREAK%<strong>Adaptive Ailerons:</strong> Before you reveal your dial, if you are not stressed, you <b>must</b> execute a white [1&nbsp;%BANKLEFT%], [1&nbsp;%STRAIGHT%], or [1&nbsp;%BANKRIGHT%] maneuver."
+        display_name: "“大臣”",
+        text: "在你使用你的可变副翼战机能力，完整地执行一次速度1的移动后，你可以选择执行一次%COORDINATE%动作。如此的话，跳过你的执行行动步骤。%LINEBREAK%<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
       },
       '"Wampa"': {
-        display_name: "“Wampa”",
-        text: "While you perform an attack, you may spend 1&nbsp;%CHARGE% to roll 1 additional attack die.%LINEBREAK%After defending, lose 1&nbsp;%CHARGE%."
+        display_name: "“雪怪”",
+        text: "在你执行一次攻击时，你可以选择花费1%CHARGE% 来投1枚额外的攻击骰。%LINEBREAK%在防御后，失去1%CHARGE%。"
       },
       '"Whisper"': {
         display_name: "“Whisper”",
@@ -4296,27 +4296,27 @@
       },
       "Padmé Amidala": {
         display_name: "Padmé Amidala",
-        text: "While an enemy ship in your %FRONTARC% defends or performs an attack, that ship can modify only 1 %FOCUS% result (other results can still be modified). %LINEBREAK%<strong>Full Throttle:</strong> After you fully execute a speed 3-5 maneuver, you may perform an %EVADE% action."
+        text: "While an enemy ship in your %FRONTARC% defends or performs an attack, that ship can modify only 1 %FOCUS% result (other results can still be modified). %LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
       },
       "Anakin Skywalker (N-1 Starfighter)": {
         display_name: "Anakin Skywalker",
-        text: "Before you reveal your maneuver, you may spend 1 %FORCE% to barrel roll (this is not an action). %LINEBREAK%<strong>Full Throttle:</strong> After you fully execute a speed 3-5 maneuver, you may perform an %EVADE% action."
+        text: "Before you reveal your maneuver, you may spend 1 %FORCE% to barrel roll (this is not an action). %LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
       },
       "Ric Olié": {
         display_name: "Ric Olié",
-        text: "While you defend or perform a primary attack, if the speed of your revealed maneuver is higher than the enemy ship's, roll 1 additional die. %LINEBREAK%<strong>Full Throttle:</strong> After you fully execute a speed 3-5 maneuver, you may perform an %EVADE% action."
+        text: "While you defend or perform a primary attack, if the speed of your revealed maneuver is higher than the enemy ship's, roll 1 additional die. %LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
       },
       "Dineé Ellberger": {
         display_name: "Dineé Ellberger",
-        text: "While you defend or perform an attack, if the speed of your revealed maneuver is the same as the enemy ship's, that ship's dice cannot be modified. %LINEBREAK%<strong>Full Throttle:</strong> After you fully execute a speed 3-5 maneuver, you may perform an %EVADE% action."
+        text: "While you defend or perform an attack, if the speed of your revealed maneuver is the same as the enemy ship's, that ship's dice cannot be modified. %LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
       },
       "Naboo Handmaiden": {
         display_name: "Naboo Handmaiden",
-        text: "<strong>Setup:</strong> After placing forces, assign the <strong>Decoyed</strong> condition to 1 friendly ship other than <strong>Naboo Handmaiden</strong>. %LINEBREAK%<strong>Full Throttle:</strong> After you fully execute a speed 3-5 maneuver, you may perform an %EVADE% action."
+        text: "<strong>Setup:</strong> After placing forces, assign the <strong>Decoyed</strong> condition to 1 friendly ship other than <strong>Naboo Handmaiden</strong>. %LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
       },
       "Bravo Flight Officer": {
         display_name: "Bravo Flight Officer",
-        text: "<strong>Full Throttle:</strong> After you fully execute a speed 3-5 maneuver, you may perform an %EVADE% action."
+        text: "<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
       },
       "BB-8": {
         display_name: "BB-8",
@@ -4434,7 +4434,7 @@
         text: "在你执行一次攻击时，在抵消结果步骤后，如果该攻击命中，你可以选择花费2%FORCE%来增加1个%CRIT%结果。"
       },
       '"Vagabond"': {
-        text: "After you fully execute a maneuver using your <strong>Adaptive Ailerons</strong>, if you are not stressed you may drop 1 device. %LINEBREAK%<strong>Adaptive Ailerons:</strong> Before you reveal your dial, if you are not stressed, you <b>must</b> execute a white [1&nbsp;%BANKLEFT%], [1&nbsp;%STRAIGHT%], or [1&nbsp;%BANKRIGHT%] maneuver."
+        text: "After you fully execute a maneuver using your <strong>Adaptive Ailerons</strong>, if you are not stressed you may drop 1 device. %LINEBREAK%<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
       },
       "Morna Kee": {
         text: "During the End Phase, you may spend 1 %CHARGE% to flip 1 of your reinforce tokens to the other full arc instead of removing it."
