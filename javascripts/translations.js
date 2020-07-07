@@ -3014,12 +3014,12 @@
         text: "After you perform an attack, if the defender is in your %SINGLETURRETARC%, assign the <strong>Rattled</strong> condition to the defender."
       },
       "Benthic Two Tubes": {
-        display_name: "Benthic Two Tubes",
-        text: "After you perform a %FOCUS% action, you may transfer 1 of your focus tokens to a friendly ship at range 1-2."
+        display_name: "本西克·双管",
+        text: "在你执行一次%FOCUS%行动后，你可以选择将你的1个专注标记转移到一个在距离1-2的友方战机上。"
       },
       "Biggs Darklighter": {
-        display_name: "Biggs Darklighter",
-        text: "While another friendly ship at range 0-1 defends, before the Neutralize Results step, if you are in the attack arc, you may suffer 1&nbsp;%HIT% or %CRIT% to cancel 1 matching result."
+        display_name: "比格斯·暗光者",
+        text: "在距离0-1的另一个友方战机防御时，在抵消结果阶段前，如果你在该开火范围内，你可以选择承受1个%HIT%/%CRIT%伤害，来抵消1个对应的结果。"
       },
       "Binayre Pirate": {
         display_name: "Binayre Pirate",
@@ -3059,39 +3059,39 @@
       },
       "Blade Squadron Veteran": {
         display_name: "Blade Squadron Veteran",
-        text: "<i class = flavor_text>A unique gyrostabilization system surrounds the B-wing’s cockpit, ensuring that the pilot always remains stationary during flight.</i>"
+        text: ""
       },
       "Blue Squadron Escort": {
-        display_name: "Blue Squadron Escort",
-        text: "<i class = flavor_text>Designed by Incom Corporation, the T-65 X-wing quickly proved to be one of the most effective and versatile military vehicles in the galaxy and a boon to the Rebellion.</i>"
+        display_name: "蓝色中队护航员",
+        text: ""
       },
       "Blue Squadron Pilot": {
         display_name: "Blue Squadron Pilot",
-        text: "<i class = flavor_text>Due to its heavy weapons array and resilient shielding, the B-wing has solidified itself as the Rebel Alliance’s most innovative assault fighter.</i>"
+        text: ""
       },
       "Blue Squadron Protector": {
         display_name: "Blue Squadron Protector",
-        text: "<i class = flavor_text>Blue Squadron’s elite clone pilots are trained to fly their V-19s in conjunction with Jedi and often support famous commanders such as Anakin Skywalker and Ahsoka Tano.</i>"
+        text: ""
       },
       "Blue Squadron Recruit": {
         display_name: "Blue Squadron Recruit",
-        text: "<i class = flavor_text>Young beings across the galaxy have grown up on tales of heroism in the Galactic Civil War, and many learned to fly in the same cockpits from which their parents fought the Empire.</i>%LINEBREAK%<strong>Refined Gyrostabilizers:</strong> You can rotate your %SINGLETURRETARC% indicator only to your %FRONTARC% or %REARARC%. After you perform an action, you may perform a red %BOOST% or red %ROTATEARC% action."
+        text: "<strong>Refined Gyrostabilizers:</strong> You can rotate your %SINGLETURRETARC% indicator only to your %FRONTARC% or %REARARC%. After you perform an action, you may perform a red %BOOST% or red %ROTATEARC% action."
       },
       "Blue Squadron Rookie": {
         display_name: "Blue Squadron Rookie",
-        text: "<i class = flavor_text>The Incom-FreiTek T-70 X-Wing was designed to improve upon the tactical flexibility of the venerable T-65. The starfighter’s advanced droid socket is compatible with a wide array of astromechs, and its modular weapons pods allow ground crews to tailor its payload for specific missions.</i>%LINEBREAK%<strong>Weapon Hardpoint:</strong> You can equip 1&nbsp;%CANNON%, %TORPEDO%, or %MISSILE% upgrade."
+        text: "<strong>Weapon Hardpoint:</strong> You can equip 1&nbsp;%CANNON%, %TORPEDO%, or %MISSILE% upgrade."
       },
       "Blue Squadron Scout": {
-        display_name: "Blue Squadron Scout",
-        text: "<i class = flavor_text>Used for deploying troops under the cover of darkness or into the heat of battle, the UT-60D U-wing fulfills the Rebellion’s need for a swift and hardy troop transport.</i>"
+        display_name: "蓝色中队侦察兵",
+        text: ""
       },
       "Boba Fett": {
         display_name: "波巴·费特",
         text: "当你防御或执行一次攻击时，在距离0-1每有一个敌方战机，你便可以选择重投1枚你的骰子。"
       },
       "Bodhi Rook": {
-        display_name: "Bodhi Rook",
-        text: "Friendly ships can acquire locks onto objects at range 0-3 of any friendly ship."
+        display_name: "菩提·鲁克",
+        text: "友方战机可以获得在任何友方战机距离0-3物体的锁定。"
       },
       "Bossk": {
         display_name: "Bossk",
@@ -3158,16 +3158,16 @@
         text: "<i class = flavor_text>MandalMotors’ M3-A “Scyk” Interceptor is purchased in large quantities by the Hutt Cartel and the Car’das smugglers due to its low cost and customizability.</i> %LINEBREAK%<strong>Weapon Hardpoint:</strong> You can equip 1 %CANNON%, %TORPEDO%, or %MISSILE% upgrade."
       },
       "Cassian Andor": {
-        display_name: "Cassian Andor",
-        text: "At the start of the Activation Phase, you may choose 1 friendly ship at range 1-3. If you do, that ship removes 1 stress token."
+        display_name: "卡西安·安多",
+        text: "在激活阶段开始时，你可以选择指定1个在距离1-3的友方战机。如此的话，该战机移除1个压力标记。"
       },
       "Cat": {
         display_name: "Cat",
         text: "While you perform a primary attack, if the defender is at range 0-1 of at least 1&nbsp;friendly device, roll 1 additional die."
       },
       "Cavern Angels Zealot": {
-        display_name: "Cavern Angels Zealot",
-        text: "<i class = flavor_text>Unlike most Rebel cells, Saw Gerrera’s partisans are willing to use extreme methods to undermine the Galactic Empire’s objectives in brutal battles that rage from Geonosis to Jedha.</i>"
+        display_name: "洞穴天使狂热者",
+        text: ""
       },
       "Chewbacca": {
         display_name: "Chewbacca",
@@ -3202,8 +3202,8 @@
         text: "<i class = flavor_text>Built for long-distance reconnaissance and plotting new hyperspace routes, the lightly armed JumpMaster 5000 is often extensively retrofitted with custom upgrades.</i>"
       },
       "Corran Horn": {
-        display_name: "Corran Horn",
-        text: "At initiative 0, you may perform a bonus primary attack against an enemy ship in your %BULLSEYEARC%. If you do, at the start of the next Planning Phase, gain 1 disarm token.%LINEBREAK%<strong>Experimental Scanners:</strong> You can acquire locks beyond range 3. You cannot acquire locks at range 1."
+        display_name: "科兰·霍恩",
+        text: "轮到先攻值0时，你可以选择对一个在你%BULLSEYEARC%的敌方战机执行一次额外基础攻击。如此的话，在下一个计划阶段开始时，获得1个解除武装标记。%LINEBREAK%<strong>实验扫描器:</strong> 你可在距离3外获得锁定。你不可在距离1获得锁定。"
       },
       "Count Dooku": {
         display_name: "Count Dooku",
@@ -3286,8 +3286,8 @@
         text: "After you fully execute a blue or white maneuver, if you have not dropped or launched a device this round, you may drop 1 device."
       },
       "Edrio Two Tubes": {
-        display_name: "Edrio Two Tubes",
-        text: "Before you activate, if you are focused, you may perform an action."
+        display_name: "埃德里奥·双管",
+        text: "在你激活前，如果你有专注，你可以选择执行一个行动。"
       },
       "Ello Asty": {
         display_name: "Ello Asty",
@@ -3358,16 +3358,16 @@
         text: "<i class = flavor_text>The legendary Findsmen of Gand worship the enshrouding mists of their home planet, using signs, augurs, and mystical rituals to track their quarry.</i>"
       },
       "Garven Dreis (X-Wing)": {
-        display_name: "Garven Dreis",
+        display_name: "加尔文·德赖斯",
         text: "After you spend a focus token, you may choose 1 friendly ship at range 1-3. That ship gains 1 focus token."
       },
       "Garven Dreis": {
-        display_name: "Garven Dreis",
-        text: "After you spend a focus token, you may choose 1 friendly ship at range 1-3. That ship gains 1 focus token."
+        display_name: "加尔文·德赖斯",
+        text: "在你花费一枚专注标记后，你可以选择指定1个在距离1-3的友方战机。该战机获得1枚专注标记。"
       },
       "Gavin Darklighter": {
-        display_name: "Gavin Darklighter",
-        text: "While a friendly ship performs an attack, if the defender is in your %FRONTARC%, the attacker may change 1&nbsp;%HIT% result to a %CRIT% result.%LINEBREAK%<strong>Experimental Scanners:</strong> You can acquire locks beyond range 3. You cannot acquire locks at range 1."
+        display_name: "盖文·暗光者",
+        text: "在一个友方战机执行一次攻击时，如果该防御者在你的%FRONTARC%，该攻击者可以选择将1个%HIT%结果改为%CRIT%结果。%LINEBREAK%<strong>实验扫描器:</strong> 你可在距离3外获得锁定。你不可在距离1获得锁定。"
       },
       "General Grievous": {
         display_name: "General Grievous",
@@ -3430,8 +3430,8 @@
         text: "<strong>Setup:</strong> You can be placed anywhere in the play area beyond range 3 of enemy ships."
       },
       "Heff Tobber": {
-        display_name: "Heff Tobber",
-        text: "After an enemy ship executes a maneuver, if it is at range 0, you may perform an action."
+        display_name: "贺夫·托布尔",
+        text: "在一个敌方战机执行一次移动后，如果它在距离0，你可以选择执行一个行动。"
       },
       "Hera Syndulla": {
         display_name: "Hera Syndulla",
@@ -3506,8 +3506,8 @@
         text: "<i class = flavor_text>When the Clone Wars began, the Jedi Knights rallied to the cause of preserving the Republic, assuming command of legions of clone troopers and leading them in battle.</i>%LINEBREAK%<strong>Fine-tuned Controls:</strong> After you fully execute a maneuver, you may spend 1&nbsp;%FORCE% to perform a %BOOST% or %BARRELROLL% action."
       },
       "Jek Porkins": {
-        display_name: "Jek Porkins",
-        text: "After you receive a stress token, you may roll 1 attack die to remove it. On a %HIT% result, suffer 1&nbsp;%HIT% damage."
+        display_name: "杰克·波金斯",
+        text: "在你获得一个压力标记后，你可以选择投1枚攻击骰来将它移除。出现一个%HIT%结果时，承受1个%HIT%伤害。"
       },
       "Jessika Pava": {
         display_name: "Jessika Pava",
@@ -3554,8 +3554,8 @@
         text: "At the start of the Engagement Phase, you may choose 1 ship in both your %FRONTARC% and %SINGLETURRETARC% at range 0-1. If you do, it gains 1 tractor token."
       },
       "Knave Squadron Escort": {
-        display_name: "Knave Squadron Escort",
-        text: "<i class = flavor_text>Designed to combine the best features of the X-wing series with the A-wing series, the E-wing boasts superior firepower, speed, and maneuverability.</i>%LINEBREAK% <strong>Experimental Scanners:</strong> You can acquire locks beyond range 3. You cannot acquire locks at range 1."
+        display_name: "侠盗中队护航员",
+        text: "<strong>实验扫描器:</strong> 你可在距离3外获得锁定。你不可在距离1获得锁定。"
       },
       "Koshka Frost": {
         display_name: "Koshka Frost",
@@ -3566,8 +3566,8 @@
         text: "You can perform %FRONTARC% special attacks from your %REARARC%.%LINEBREAK%While you perform a special attack, you may reroll 1 attack die."
       },
       "Kullbee Sperado": {
-        display_name: "Kullbee Sperado",
-        text: "After you perform a %BARRELROLL% or %BOOST% action, you may flip your equipped %CONFIG% upgrade card."
+        display_name: "库尔毕·斯佩拉多",
+        text: "在你执行一次%BARRELROLL% 或 %BOOST% 行动后，你可以选择把你装备的 %CONFIG% 升级卡翻面。"
       },
       "Kyle Katarn": {
         display_name: "Kyle Katarn",
@@ -3606,8 +3606,8 @@
         text: "At the start of the Engagement Phase, you may choose a ship at range 1 and spend a lock you have on that ship. If you do, that ship gains 1 tractor token."
       },
       "Leevan Tenza": {
-        display_name: "Leevan Tenza",
-        text: "After you perform a %BARRELROLL% or %BOOST% action, you may perform a red %EVADE% action."
+        display_name: "莱文·腾赞",
+        text: "在你执行一次%BARRELROLL%或%BOOST%行动后，你可以选择执行一次红色%EVADE%行动。"
       },
       "Lieutenant Bastian": {
         display_name: "Lieutenant Bastian",
@@ -3654,8 +3654,8 @@
         text: "After a friendly ship at range 0-1 becomes the defender, you may spend 1 reinforce token. If you do, that ship gains 1 evade token."
       },
       "Luke Skywalker": {
-        display_name: "Luke Skywalker",
-        text: "After you become the defender (before dice are rolled), you may recover 1&nbsp;%FORCE%."
+        display_name: "卢克·天行者",
+        text: "在你成为防御者后（在投骰之前），你可以选择恢复1个%FORCE%."
       },
       "Luminara Unduli": {
         display_name: "Luminara Unduli",
@@ -3674,8 +3674,8 @@
         text: "After you fully execute a red maneuver, recover 1&nbsp;%FORCE%.%LINEBREAK%<strong>Fine-tuned Controls:</strong> After you fully execute a maneuver, you may spend 1&nbsp;%FORCE% to perform a %BOOST% or %BARRELROLL% action."
       },
       "Magva Yarro": {
-        display_name: "Magva Yarro",
-        text: "While a friendly ship at range 0-2 defends, the attacker cannot reroll more than 1 attack die."
+        display_name: "马格娃·亚尔罗",
+        text: "在一个友方战机在距离0-2防御时，该攻击者不能重投大于1个的攻击骰。"
       },
       "Major Rhymer": {
         display_name: "Major Rhymer",
@@ -3754,8 +3754,8 @@
         text: "<strong>重武器炮塔:</strong>你只可将你的%SINGLETURRETARC%指示物旋转到你的%FRONTARC%或%REARARC%。你必须将你装备的%MISSILE%升级的%FRONTARC%要求视为%SINGLETURRETARC%。"
       },
       "Omicron Group Pilot": {
-        display_name: "Omicron Group Pilot",
-        text: "<i class = flavor_text>Noted for its tri-wing design and advanced sensor suite, the Lambda-class shuttle serves a critical role as a light utility craft in the Imperial Navy.</i>"
+        display_name: "奥米克伦小队驾驶员",
+        text: ""
       },
       "Onyx Squadron Ace": {
         display_name: "Onyx Squadron Ace",
@@ -3789,8 +3789,8 @@
         text: "While you have 2 or fewer stress tokens, you may execute red maneuvers even while stressed"
       },
       "Partisan Renegade": {
-        display_name: "Partisan Renegade",
-        text: "<i class = flavor_text>Saw Gerrera’s partisans were first established to oppose Separatist forces on Onderon during the Clone Wars, and continued to wage war against galactic tyranny as the Empire rose to power.</i>"
+        display_name: "游击叛军",
+        text: ""
       },
       "Patrol Leader": {
         display_name: "Patrol Leader",
@@ -3837,8 +3837,8 @@
         text: "<i class = flavor_text>Although the bulk of the Resistance Starfighter Corps is made up of young volunteers from the New Republic, their ranks are bolstered by veterans of the Galactic Civil War determined to finish what they started decades ago.</i>%LINEBREAK%<strong>Weapon Hardpoint:</strong> You can equip 1&nbsp;%CANNON%, %TORPEDO%, or %MISSILE% upgrade."
       },
       "Red Squadron Veteran": {
-        display_name: "Red Squadron Veteran",
-        text: "<i class = flavor_text>Created as an elite starfighter squad, Red Squadron includes some of the best pilots in the Rebel Alliance.</i>"
+        display_name: "红色中队老兵",
+        text: ""
       },
       "Resistance Sympathizer": {
         display_name: "Resistance Sympathizer",
@@ -3861,8 +3861,8 @@
         text: "At the start of the Engagement Phase, you may choose 1 ship in your firing arc. If you do, it engages at initiative 7 instead of its standard initiative value this phase."
       },
       "Rogue Squadron Escort": {
-        display_name: "Rogue Squadron Escort",
-        text: "<i class = flavor_text>The elite pilots of Rogue Squadron are among the Rebellion’s very best.</i> %LINEBREAK% <strong>Experimental Scanners:</strong> You can acquire locks beyond range 3. You cannot acquire locks at range 1."
+        display_name: "游侠中队护航员",
+        text: "<strong>实验扫描器:</strong> 你可在距离3外获得锁定。你不可在距离1获得锁定。"
       },
       "Rose Tico": {
         text: "While you defend or perform an attack, you may reroll up to 1 of your results for each other friendly ship in the attack arc."
@@ -3892,8 +3892,8 @@
         text: "While you defend, you may treat your agility value as equal to the speed of the maneuver you executed this round.%LINEBREAK%<strong>Spacetug Tractor Array:</strong> <strong>Action:</strong> Choose a ship in your %FRONTARC% at range 1. That ship gains 1 tractor token, or 2 tractor tokens if it is in your %BULLSEYEARC% at range 1."
       },
       "Saw Gerrera": {
-        display_name: "Saw Gerrera",
-        text: "While a damaged friendly ship at range 0-3 performs an attack, it may reroll 1 attack die."
+        display_name: "索·格雷拉",
+        text: "在一个有伤害的友方战机在距离0-3执行一次攻击时，它可以选择重投1枚攻击骰。"
       },
       "Scarif Base Pilot": {
         display_name: "Scarif Base Pilot",
@@ -4020,8 +4020,8 @@
         text: "While you defend or perform an attack, you may spend 1 stress token to change all of your %FOCUS% results to %EVADE% or %HIT% results."
       },
       "Thane Kyrell": {
-        display_name: "Thane Kyrell",
-        text: "While you perform an attack, you may spend 1&nbsp;%FOCUS%, %HIT%, or %CRIT% result to look at the defender’s facedown damage cards, choose 1, and expose it."
+        display_name: "塞恩·凯雷尔",
+        text: "在你执行一次攻击时，你可以选择花费1个%FOCUS%，%HIT%/%CRIT%结果，来查看防御者面朝下的伤害卡们，指定其中1张并展示。"
       },
       "Tomax Bren": {
         display_name: "Tomax Bren",
@@ -4076,8 +4076,8 @@
         text: "While you perform a primary attack, you may reroll 1 attack die for each calculating friendly ship at range&nbsp;1 of the defender."
       },
       "Wedge Antilles": {
-        display_name: "Wedge Antilles",
-        text: "While you perform an attack, the defender rolls 1 fewer defense die."
+        display_name: "韦奇·安蒂列斯",
+        text: "在你执行一次攻击时，该防御者少投1枚防御骰。"
       },
       "Wild Space Fringer": {
         display_name: "Wild Space Fringer",
@@ -4417,7 +4417,8 @@
         text: "At the start of the Engagement Phase, you <b>must</b> transfer 1 of your stress tokens to another friendly ship at range 0-2."
       },
       "K-2SO": {
-        text: "After you gain a stress token, gain 1 calculate token."
+        display_name: "K-2SO",
+        text: "在你获得1个压力标记后，获得1个计算标记。"
       },
       "Alexsandr Kallus": {
         text: "While you defend, if the attacker modified any attack dice, you may roll 1 additional defense die."
@@ -4524,8 +4525,8 @@
         text: "<i>条件：帝国， VT-49行刑者</i>%LINEBREAK%在你不完整地执行一次移动后，你可以选择执行1次白色行动，视该行动为红色。"
       },
       "Ghost": {
-        display_name: "Ghost",
-        text: "<i>Rebel only</i>%LINEBREAK%You can dock 1 attack shuttle or Sheathipede-class shuttle.%LINEBREAK%Your docked ships can deploy only from your rear guides."
+        display_name: "鬼怪号",
+        text: "<i>条件：义军， VCX-100</i>%LINEBREAK%你可与1个攻击穿梭机或鞘足虫级穿梭机对接。%LINEBREAK%你的对接战机只可从你的后方参考线进行部署。"
       },
       "Havoc": {
         display_name: "Havoc",
@@ -4544,24 +4545,24 @@
         text: "<i>条件：不法者</i>%LINEBREAK%While you perform a primary %REARARC% attack, you may reroll 1 attack die.%LINEBREAK%Adds %GUNNER% slot."
       },
       "Millennium Falcon": {
-        display_name: "Millennium Falcon",
-        text: "<i>Adds %EVADE%</i>%LINEBREAK%<i>Rebel only</i>%LINEBREAK%While you defend, if you are evading, you may reroll 1 defense die."
+        display_name: "千年隼",
+        text: "<i>条件：义军，改装YT-1300</i><i>添加 %EVADE%</i>%LINEBREAK%%LINEBREAK%在你防御时，如果你有闪避，你可以选择重投1枚防御骰。"
       },
       "Mist Hunter": {
         display_name: "Mist Hunter",
         text: "<i>Adds %BARRELROLL%</i>%LINEBREAK%<i>条件：不法者</i>%LINEBREAK%Adds %CANNON% slot."
       },
       "Moldy Crow": {
-        display_name: "Moldy Crow",
-        text: "<i>Rebel or Scum only</i>%LINEBREAK%Gain a %FRONTARC% primary weapon with a value of “3.”%LINEBREAK%During the End Phase, do not remove up to 2 focus tokens."
+        display_name: "破鸦号",
+        text: "<i>条件：义军或不法者，HWK-290</i>%LINEBREAK%获得一个%FRONTARC%基础武器，攻击值为3。在结束阶段中，不要移除最多2个专注标记。"
       },
       "Outrider": {
-        display_name: "Outrider",
-        text: "<i>Rebel only</i>%LINEBREAK% While you perform an attack that is obstructed by an obstacle, the defender rolls 1 fewer defense die. %LINEBREAK% After you fully execute a maneuver, if you moved through or overlapped an obstacle, you may remove 1 of your red or orange tokens. %LINEBREAK% <i>Errata (since rules reference 1.0.2): changed \"obstructed attack\" to \"an attack that is obstructed by an obstacle\"</i>"
+        display_name: "先驱者号",
+        text: "<i>条件：义军， YT-2400</i>%LINEBREAK% 在你执行一次被一个障碍物阻挡的攻击时，该防御者少投1枚防御骰。%LINEBREAK% 在你完整地执行一次移动后，如果你移动穿过或与一个障碍物重叠，你可以选择移除1个你的红色或橙色标记。\"</i>"
       },
       "Phantom": {
-        display_name: "Phantom",
-        text: "<i>Rebel only</i>%LINEBREAK%You can dock at range 0-1."
+        display_name: "幽灵号",
+        text: "<i>条件：义军，攻击穿梭机或鞘足虫级穿梭机</i>%LINEBREAK%你可在距离0-1对接。"
       },
       "Punishing One": {
         display_name: "Punishing One",
@@ -4651,16 +4652,16 @@
         text: "<i>Adds %F-COORDINATE%</i>%LINEBREAK%<i>Galactic Republic only</i>%LINEBREAK%You cannot coordinate limited ships.%LINEBREAK% While you perform a purple %COORDINATE% action, you may coordinate 1 additional friendly non-limited ship of the same type. Both ships must perform the same action."
       },
       "Baze Malbus": {
-        display_name: "Baze Malbus",
-        text: "<i>Rebel only</i>%LINEBREAK%While you perform a %FOCUS% action, you may treat it as red. If you do, gain 1 additional focus token for each enemy ship at range 0-1, to a maximum of 2."
+        display_name: "贝兹·马尔巴斯",
+        text: "<i>条件：义军</i>%LINEBREAK%在你执行一次%FOCUS%行动时，你可以选择将其视为红色。如此的话，每有1个敌方战机在距离0-1，获得1个额外的专注标记，最多2个。"
       },
       "Biohexacrypt Codes": {
         display_name: "生体代码",
         text: "<i>条件：第一秩序，%LOCK%</i>%LINEBREAK%在你协同或干扰时，如果你对一个战机有锁定，你可以选择花费该锁定来指定该战机，无视距离的限制。"
       },
       "Bistan": {
-        display_name: "Bistan",
-        text: "<i>Rebel only</i>%LINEBREAK%After you perform a primary attack, if you are focused, you may perform a bonus %SINGLETURRETARC% attack against a ship you have not already attacked this round."
+        display_name: "贝斯坦",
+        text: "<i>条件：义军</i>%LINEBREAK%在你执行一次基础攻击后，如果你有专注，你可以选择对此轮未攻击过的1个战机执行一次额外%SINGLETURRETARC%攻击。"
       },
       "Boba Fett": {
         display_name: "Boba Fett",
@@ -4680,7 +4681,7 @@
       },
       "C-3PO": {
         display_name: "C-3PO",
-        text: "<i>Adds %CALCULATE%</i>%LINEBREAK%<i>Rebel only</i>%LINEBREAK%Before rolling defense dice, you may spend 1 calculate token to guess aloud a number 1 or higher. If you do and you roll exactly that many %EVADE% results, add 1&nbsp;%EVADE% result.%LINEBREAK%After you perform the %CALCULATE% action, gain 1 calculate token."
+        text: "<i>条件：义军</i>%LINEBREAK%<i>Adds %CALCULATE%</i>%LINEBREAK%在投防御骰前，你可以选择花费1个计算标记来大声猜出一个大于等于1的数字。如此的话，如果你投出了该数量的%EVADE%结果，增加1个%EVADE%结果。%LINEBREAK%在你执行%CALCULATE%行动后，获得1个计算标记。"
       },
       "C-3PO (Resistance)": {
         display_name: "C-3PO",
@@ -4699,16 +4700,16 @@
         text: "<i>条件：第一秩序</i>%LINEBREAK%在交战阶段结束时，每个在距离0-1的敌方战机如果没有压力，获得1个压力标记。"
       },
       "Cassian Andor": {
-        display_name: "Cassian Andor",
-        text: "<i>Rebel only</i>%LINEBREAK%During the System Phase, you may choose 1 enemy ship at range 1-2 and guess aloud a bearing and speed, then look at that ship’s dial. If the chosen ship’s bearing and speed match your guess, you may set your dial to another maneuver."
+        display_name: "卡西安·安多",
+        text: "<i>条件：义军</i>%LINEBREAK%在系统阶段中，你可以选择指定1个在距离1-2的敌方战机，然后大声猜出1个朝向与速度，然后查看该战机的转盘。如果被制定战机的朝向与速度与你猜的相同，你可以选择将你的转盘调整到另一个移动上。"
       },
       "Chancellor Palpatine": {
         display_name: "Chancellor Palpatine",
         text: "<i>Separatist Alliance or Galactic Republic only</i>%LINEBREAK%<i>Adds <f>%COORDINATE%</f></i>%LINEBREAK%Chancellor Palpatine:%LINEBREAK%<strong>设置:</strong> Equip this side faceup.%LINEBREAK%After you defend, if the attacker is at range 0-2, you may spend 1 %FORCE%. If you do, the attacker gains 1 stress token.%LINEBREAK%During the End Phase, you may flip this card.%LINEBREAK%Darth Sidious%LINEBREAK%After you perform a purple&nbsp;%COORDINATE%&nbsp;action, the ship you coordinated gains 1&nbsp;stress token. Then, it gains 1&nbsp;focus token or recovers 1&nbsp;%FORCE%."
       },
       "Chewbacca": {
-        display_name: "Chewbacca",
-        text: "<i>Rebel only</i>%LINEBREAK%At the start of the Engagement Phase, you may spend 2 %CHARGE% to repair 1 faceup damage card."
+        display_name: "楚巴卡",
+        text: "<i>条件：义军</i>%LINEBREAK%在交战阶段开始时，你可以选择花费2个%CHARGE%来修复一张正面朝上的伤害卡。"
       },
       "Chewbacca (Scum)": {
         display_name: "Chewbacca",
@@ -4850,8 +4851,8 @@
         text: "<i>条件 <r>%BARRELROLL%</r></i>%LINEBREAK%<i>添加 %BARRELROLL%</i>%LINEBREAK%"
       },
       "Ezra Bridger": {
-        display_name: "Ezra Bridger",
-        text: "<i>Rebel only</i>%LINEBREAK%After you perform a primary attack, you may spend 1&nbsp;%FORCE% to perform a bonus %SINGLETURRETARC% attack from a %SINGLETURRETARC% you have not attacked from this round. If you do and you are stressed, you may reroll 1 attack die."
+        display_name: "埃兹拉·布里杰",
+        text: "<i>条件：义军</i>%LINEBREAK%在你执行一次基础攻击后，你可以选择花费1%FORCE% ，来使用1个此轮中你未攻击过的%SINGLETURRETARC%，执行1次额外%SINGLETURRETARC%攻击。如此的话，且你没有压力的话，你可以选择重投1枚攻击骰。"
       },
       "Fanatical": {
         display_name: "狂热",
@@ -4917,8 +4918,8 @@
         text: "<i>条件：不法者</i>%LINEBREAK%While you perform an attack, you may spend 1&nbsp;%CHARGE% to change 1&nbsp;%HIT% result to a %CRIT% result.%LINEBREAK%While you defend, if your %CHARGE% is active, the attacker may change 1&nbsp;%HIT% result to a %CRIT% result."
       },
       "Han Solo": {
-        display_name: "Han Solo",
-        text: "<i>Rebel only</i>%LINEBREAK%During the Engagement Phase, at initiative 7, you may perform a %SINGLETURRETARC% attack. You cannot attack from that %SINGLETURRETARC% again this round."
+        display_name: "汉·索罗",
+        text: "<i>条件：义军</i>%LINEBREAK%在交战阶段中，轮到先攻值7时，你可以选择执行一次%SINGLETURRETARC%攻击。在此轮中你不能再使用该%SINGLETURRETARC%攻击。"
       },
       "Han Solo (Scum)": {
         display_name: "Han Solo",
@@ -4941,8 +4942,8 @@
         text: "在交战阶段开始时，你可以选择花费1%FORCE%。如此的话，此阶段，在轮到先攻值7时交战，而不是你的标准先攻值。"
       },
       "Hera Syndulla": {
-        display_name: "Hera Syndulla",
-        text: "<i>Rebel only</i>%LINEBREAK%You can execute red maneuvers even while stressed. After you fully execute a red maneuver, if you have 3 or more stress tokens, remove 1 stress token and suffer 1&nbsp;%HIT% damage."
+        display_name: "赫拉·辛杜拉",
+        text: "<i>条件：义军</i>%LINEBREAK%即使有压力，你也可执行红色移动。在你完整地执行一次红色移动后，如果你有3个或以上的压力标记，移除1个压力标记，并承受1%HIT%伤害。"
       },
       "Heroic": {
         display_name: "Heroic",
@@ -5029,8 +5030,8 @@
         text: "<i>条件：小型或中型战机</i>%LINEBREAK%在你执行一次攻击时，如果你有闪避，你可以选择将该防御者的1个%EVADE%结果改为%FOCUS%结果。"
       },
       "Jyn Erso": {
-        display_name: "Jyn Erso",
-        text: "<i>Rebel only</i>%LINEBREAK%If a friendly ship at range 0-3 would gain a focus token, it may gain 1 evade token instead."
+        display_name: "琴·厄索",
+        text: "<i>条件：义军</i>%LINEBREAK%如果一个在距离0-3的友方战机将获得1个专注标记，它可以选择改为获得1个闪避标记。"
       },
       "K2-B4": {
         display_name: "K2-B4",
@@ -5040,8 +5041,8 @@
         text: "After you reveal your dial, you may set your dial to a basic maneuver of the next higher speed. While you execute that maneuver, increase its difficulty"
       },
       "Kanan Jarrus": {
-        display_name: "Kanan Jarrus",
-        text: "<i>Rebel only</i>%LINEBREAK%After a friendly ship at range 0-2 fully executes a white maneuver, you may spend 1&nbsp;%FORCE% to remove 1 stress token from that ship."
+        display_name: "凯南·贾勒斯",
+        text: "<i>条件：义军</i>%LINEBREAK%在一个友方战机在距离0-2完整地执行一次白色移动后，你可以选择花费1%FORCE%，从该战机移除一个压力标记。"
       },
       "Ketsu Onyo": {
         display_name: "Ketsu Onyo",
@@ -5059,20 +5060,16 @@
         display_name: "L3-37",
         text: "<i>条件：不法者</i>%LINEBREAK%<strong>设置:</strong> Equip this side faceup.%LINEBREAK%While you defend, you may flip this card. If you do, the attacker must reroll all attack dice.%LINEBREAK%<strong>L3-37’s Programming:</strong> If you are not shielded, decrease the difficulty of your bank (%BANKLEFT% and %BANKRIGHT%) maneuvers."
       },
-      "Kylo Ren": {
-        display_name: "Kylo Ren",
-        text: "<i>条件：第一秩序</i>%LINEBREAK%<strong>行动:</strong> Choose 1 enemy ship at range 1-3. If you do, spend 1&nbsp;%FORCE% to assign the <strong>I’ll Show You the Dark Side</strong> condition to that ship."
-      },
       "Landing Struts": {
         display_name: "Landing Struts",
         text: "Closed:%LINEBREAK%<strong>设置:</strong> Equip this side faceup.%LINEBREAK%While you execute a maneuver, if you overlap an asteroid or debris cloud and there are 1 or fewer other friendly ships at range 0 of that obstacle, you may flip this card.%LINEBREAK%Open:%LINEBREAK%You ignore obstacles at range&nbsp;0 and while you move through them. After you reveal your dial, if you reveal a maneuver other than a [2&nbsp;%STRAIGHT%] and are at range 0 of an asteroid or debris cloud, skip your Execute Maneuver step and remove 1 stress token; if you revealed a right or left maneuver, rotate your ship 90º in that direction. After you execute a maneuver, flip this card."
       },
       "Lando Calrissian": {
-        display_name: "Lando Calrissian",
-        text: "<i>Rebel only</i>%LINEBREAK%<strong>行动:</strong> Roll 2 defense dice. For each %FOCUS% result, gain 1 focus token. For each %EVADE% result, gain 1 evade token. If both results are blank, the opposing player chooses focus or evade. You gain 1 token of that type."
+        display_name: "蓝多·卡瑞辛",
+        text: "<i>条件：义军</i>%LINEBREAK%<strong>行动:</strong> 投2个防御骰。每有一个%FOCUS%结果，获得1个专注标记。每有一个%EVADE%结果，获得1个闪避标记。如果两个结果都是空白，对方玩家选择专注或闪避，你获得1个该类别的标记。"
       },
       "Lando Calrissian (Scum)": {
-        display_name: "Lando Calrissian",
+        display_name: "蓝多·卡瑞辛",
         text: "<i>条件：不法者</i>%LINEBREAK%After you roll dice, you may spend 1 green token to reroll up to 2 of your results."
       },
       "Lando's Millennium Falcon": {
@@ -5084,24 +5081,24 @@
         text: "<i>条件：不法者</i>%LINEBREAK%While you defend, if the attacker is stressed, you may remove 1 stress from the attacker to change 1 of your blank/%FOCUS% results to an %EVADE% result."
       },
       "Leia Organa": {
-        display_name: "Leia Organa",
-        text: "<i>Rebel only</i>%LINEBREAK%At the start of the Activation Phase, you may spend 3 %CHARGE%. During this phase, each friendly ship reduces the difficulty of its red maneuvers."
+        display_name: "莱娅·奥加纳",
+        text: "<i>条件：义军</i>%LINEBREAK%在激活阶段开始时，你可以选择花费3个%CHARGE%。在此阶段，每个友方战机自己的红色移动难度降低。"
       },
       "Lone Wolf": {
         display_name: "孤狼",
         text: "在你防御或执行一次攻击时，如果在距离0-2没有其他友方战机，你可以选择花费1%CHARGE%来重投你的一枚骰子。"
       },
       "Luke Skywalker": {
-        display_name: "Luke Skywalker",
-        text: "<i>Rebel only</i>%LINEBREAK%At the start of the Engagement Phase, you may spend 1&nbsp;%FORCE% to rotate your %SINGLETURRETARC% indicator."
+        display_name: "卢克·天行者",
+        text: "<i>条件：义军</i>%LINEBREAK%在交战阶段开始时，你可以选择花费1%FORCE%来旋转你的%SINGLETURRETARC%指示物。"
       },
       "M9-G8": {
         display_name: "M9-G8",
         text: "<i>Resistance only</i>%LINEBREAK%While a ship you are locking performs an attack, you may choose 1 attack die. If you do, the attacker rerolls that die."
       },
       "Magva Yarro": {
-        display_name: "Magva Yarro",
-        text: "<i>Rebel only</i>%LINEBREAK%After you defend, if the attack hit, you may acquire a lock on the attacker."
+        display_name: "马格娃·亚尔罗",
+        text: "<i>条件：义军</i>%LINEBREAK%在你防御后，如果该攻击命中，你可以选择获得一个对该攻击者的锁定。"
       },
       "Marksmanship": {
         display_name: "神射手",
@@ -5109,7 +5106,7 @@
       },
       "Maul": {
         display_name: "Maul",
-        text: "<i>Scum or Squad including Ezra Bridger or Squad including Ezra Bridger (Sheathipede) or Squad including Ezra Bridger (TIE Fighter) only</i>%LINEBREAK%After you suffer damage, you may gain 1 stress token to recover 1&nbsp;%FORCE%.%LINEBREAK%You can equip “Dark Side” upgrades."
+        text: "<i>条件：不法者，或包含埃兹拉.布里杰的小队</i>%LINEBREAK%在你承受伤害后，你可以选择获得1压力标记来恢复1%FORCE%。.%LINEBREAK%你可装备“黑暗面”升级卡"
       },
       "Minister Tua": {
         display_name: "Minister Tua",
@@ -5124,8 +5121,8 @@
         text: "在你执行一次%TORPEDO% or %MISSILE%攻击时，在投攻击骰后，你可以选择取消全部骰子结果，来恢复你此次攻击所花费的1%CHARGE% 。"
       },
       "Nien Nunb": {
-        display_name: "Nien Nunb",
-        text: "<i>Rebel only</i>%LINEBREAK%Decrease the difficulty of your bank maneuvers (%BANKLEFT% and %BANKRIGHT%)."
+        display_name: "尼恩·农布",
+        text: "<i>条件：义军</i>%LINEBREAK%你的倾斜移动的难度降低(%BANKLEFT% 和 %BANKRIGHT%)。"
       },
       "Novice Technician": {
         display_name: "初学技师",
@@ -5160,8 +5157,8 @@
         text: "<strong>攻击 (%LOCK%):</strong> 花费1%CHARGE%。在抵消结果步骤中，%CRIT%结果在%HIT%结果之前被抵消。在此次攻击命中后，该防御者失去1个护盾。"
       },
       "Pivot Wing": {
-        display_name: "Pivot Wing",
-        text: "<strong>Closed: </strong>While you defend, roll 1 fewer defense die.%LINEBREAK%After you execute a [0&nbsp;%STOP%] maneuver, you may rotate your ship 90º or 180º.%LINEBREAK%Before you activate, you may flip this card.%LINEBREAK%<strong>Open:</Strong> Before you activate, you may flip this card."
+        display_name: "旋转机翼",
+        text: "<i>条件：UT-60D U翼战机</i>%LINEBREAK%<strong>打开:</Strong> 在你激活前，你可以选择将此卡翻面。%LINEBREAK%<strong>关闭:</strong>在你防御时，少投1枚防御骰。%LINEBREAK%在你执行一个[0%STOP%]移动后，你可以选择将你的战机旋转90度或180度。%LINEBREAK%在你激活前，你可以选择将此卡翻面。"
       },
       "Predator": {
         display_name: "掠食者",
@@ -5204,11 +5201,11 @@
       },
       "R2-D2 (Crew)": {
         display_name: "R2-D2",
-        text: "<i>Rebel only</i>%LINEBREAK%During the End Phase, if you are damaged and not shielded, you may roll 1 attack die to recover 1 shield. On a %HIT% result, expose 1 of your damage cards."
+        text: "<i>条件：义军</i>%LINEBREAK%在结束阶段中，如果你有伤害且没有护盾，你可以选择投1枚攻击骰来恢复1个护盾。如果结果为一个HIT% ，将你的伤害卡中的1张展示。"
       },
       "R2-D2": {
         display_name: "R2-D2",
-        text: "<i>Rebel only</i>%LINEBREAK%After you reveal your dial, you may spend 1&nbsp;%CHARGE% and gain 1 disarm token to recover 1 shield."
+        text: "<i>条件：义军</i>%LINEBREAK%在你展示你的转盘后，你可以选择花费1%CHARGE%并获得1个解除武装标记来恢复1个护盾。"
       },
       "R2-HA": {
         display_name: "R2-HA",
@@ -5240,7 +5237,7 @@
       },
       "R5-D8": {
         display_name: "R5-D8",
-        text: "<i>Rebel only</i>%LINEBREAK%<strong>行动:</strong> Spend 1&nbsp;%CHARGE% to repair 1 facedown damage card.%LINEBREAK%<strong>行动:</strong> Repair 1 faceup <strong>Ship</strong> damage card."
+        text: "<i>条件：义军</i>%LINEBREAK%<strong>行动:</strong>花费1个%CHARGE%来修复1张正面朝下的伤害卡。%LINEBREAK%<strong>行动:</strong>修复1枚正面朝上的<strong>战机</strong>伤害卡。"
       },
       "R5-P8": {
         display_name: "R5-P8",
@@ -5275,16 +5272,16 @@
         text: "<i>条件：帝国</i>%LINEBREAK%在你执行一次攻击时，你可以选择指定在该防御者距离0-1的另一个友方战机。如此的话，该战机承受1%HIT%伤害，且你可以选择将1个你的掷骰结果改为%HIT%结果。"
       },
       "Sabine Wren": {
-        display_name: "Sabine Wren",
-        text: "<i>Rebel only</i>%LINEBREAK%<strong>设置:</strong> Place 1 ion, 1 jam, 1 stress, and 1 tractor token on this card. %LINEBREAK%After a ship suffers the effect of a friendly bomb, you may remove 1 ion, jam, stress, or tractor token from this card. If you do, that ship gains a matching token."
+        display_name: "莎宾·雷恩",
+        text: "<i>条件：义军</i>%LINEBREAK%<strong>设置:</strong> 在此卡上放置1个离子，1个干扰，1个压力和1个牵引标记。%LINEBREAK%在一个战机承受了1个友方炸弹的效果后，你可以选择从此卡移除1个离子，1个干扰，1个压力或1个牵引标记。如此的话，该战机获得1个对应的标记。"
       },
       "Saturation Salvo": {
         display_name: "饱和齐射",
         text: "<i>条件 %RELOAD%</i>%LINEBREAK%在你执行一次%TORPEDO%或%MISSILE%攻击时，你可以选择从该升级上花费1%CHARGE%。如此的话，指定2枚防御骰。该防御者必须重投这些骰子。"
       },
       "Saw Gerrera": {
-        display_name: "Saw Gerrera",
-        text: "<i>Rebel only</i>%LINEBREAK%While you perform an attack, you may suffer 1&nbsp;%HIT% damage to change all of your %FOCUS% results to %CRIT% results."
+        display_name: "索·格雷拉",
+        text: "<i>条件：义军</i>%LINEBREAK%在你执行一次攻击时，你可以选择承受1个%HIT%伤害来将你的所有%FOCUS%结果改为%CRIT%结果。"
       },
       "Seasoned Navigator": {
         display_name: "老练导航员",
@@ -5295,16 +5292,16 @@
         text: "<strong>炸弹</strong>%LINEBREAK%在系统阶段中，你可以选择花费1个%CHARGE%来使用[1%STRAIGHT%]移动条投放一个震荡炸弹。"
       },
       "Selfless": {
-        display_name: "Selfless",
-        text: "<i>Rebel only</i>%LINEBREAK%While another friendly ship at range 0-1 defends, before the Neutralize Results step, if you are in the attack arc, you may suffer 1&nbsp;%CRIT% damage to cancel 1&nbsp;%CRIT% result."
+        display_name: "伟大无私",
+        text: "<i>条件：义军</i>%LINEBREAK%在另一个在距离0-1的友方战机防御时，在抵消结果步骤前，如果你在该攻击范围内，你可以选择承受1个%CRIT%伤害，来抵消1个%CRIT%结果。"
       },
       "Sense": {
         display_name: "感知",
         text: "在系统阶段中，你可以选择指定1个在距离0-1的战机查看它的转盘。如果你花费1%FORCE% ，改为你可以选择指定1个在距离0-3内的战机。"
       },
       "Servomotor S-Foils": {
-        display_name: "Servomotor S-Foils",
-        text: "<strong>Closed: </strong><i>Adds %BOOST% ,  %FOCUS%&nbsp;<i class=\"xwing-miniatures-font xwing-miniatures-font-linked\"></i>&nbsp;<r>%BOOST%</r></i>%LINEBREAK% While you perform a primary attack, roll 1 fewer attack die.%LINEBREAK%Before you activate, you may flip this card.%LINEBREAK%<strong>Open:</strong> Before you activate, you may flip this card."
+        display_name: "S翼伺服马达",
+        text: "<i>条件：T-65 X翼战机</i>%LINEBREAK%<strong>打开:</Strong> 在你激活前，你可以选择将此卡翻面。%LINEBREAK%<strong>关闭:</strong>在你执行一次基础攻击时，少投1枚攻击骰。%LINEBREAK%在你激活前，你可以选择将此卡翻面。"
       },
       "Seventh Fleet Gunner": {
         display_name: "Seventh Fleet Gunner",
@@ -5423,20 +5420,20 @@
         text: "<i>条件：不法者</i>%LINEBREAK%While you perform an attack, if you are not stressed, you may choose 1 defense die and gain 1 stress token. If you do, the defender must reroll that die."
       },
       '"Chopper" (Crew)': {
-        display_name: "“Chopper”",
-        text: "<i>Rebel only</i>%LINEBREAK%During the Perform Action step, you may perform 1 action, even while stressed. After you perform an action while stressed, suffer 1&nbsp;%HIT% damage unless you expose 1 of your damage cards."
+        display_name: "“切宝”",
+        text: "<i>条件：义军</i>%LINEBREAK%在执行行动步骤，你可以选择执行1个行动，即使有压力也可以。在你有压力时执行一个行动后，除非将你的1个伤害卡展示，否则承受1%HIT%伤害。"
       },
       '"Chopper" (Astromech)': {
-        display_name: "“Chopper”",
-        text: "<i>Rebel only</i>%LINEBREAK%<strong>行动:</strong> Spend 1 non-recurring &nbsp;%CHARGE% from another equipped upgrade to recover 1 shield. %LINEBREAK%<strong>行动:</strong> Spend 2 shields to recover 1 non-recurring %CHARGE% on an equipped upgrade."
+        display_name: "“切宝”",
+        text: "<i>条件：义军</i>%LINEBREAK%<strong>行动:</strong>花费来自于其他已装备升级的1个不可恢复%CHARGE% ，恢复1个护盾。%LINEBREAK%<strong>行动:</strong>花费2个护盾，恢复一个已装备的升级上的1个不可恢复%CHARGE%。"
       },
       '"Genius"': {
         display_name: "“Genius”",
         text: "<i>条件：不法者</i>%LINEBREAK%After you fully execute a maneuver, if you have not dropped or launched a device this round, you may drop 1 bomb."
       },
       '"Zeb" Orrelios': {
-        display_name: "“Zeb” Orrelios",
-        text: "<i>Rebel only</i>%LINEBREAK%You can perform primary attacks at range 0. Enemy ships at range 0 can perform primary attacks against you."
+        display_name: "泽布·奥雷利奥斯",
+        text: "<i>条件：义军</i>%LINEBREAK%你可在距离0执行基础攻击。在距离0的敌方战机可对你执行基础攻击。"
       },
       "Kaydel Connix": {
         display_name: "Kaydel Connix",
@@ -5531,11 +5528,12 @@
         text: "While you have 2 or fewer stress tokens, you can perform actions on damage cards even while stressed. %LINEBREAK% After you repair a damage card with the <b>Ship</b> trait, you may spend 1 %CHARGE% to repair that card again."
       },
       "Stabilized S-Foils": {
-        display_name: "Stabilized S-Foils",
-        text: "<strong>Closed: </strong><i>Adds <r>%RELOAD%</r>, %BARRELROLL% <i class=\"xwing-miniatures-font xwing-miniatures-font-linked\"></i><r> %EVADE%</r></i>%LINEBREAK% Before you activate, if you are not critically damaged, you may flip this card. %LINEBREAK% <strong>Open:</strong> <i>Adds %BARRELROLL% <i class=\"xwing-miniatures-font xwing-miniatures-font-linked\"></i><r> %LOCK%</r></i>%LINEBREAK% After you perform an attack, you may spend your lock on the defender to perform a bonus %CANNON% attack against that ship using a %CANNON% upgrade you have not attacked with this turn. %LINEBREAK% Before you activate, if you are not critically damaged, you may flip this card."
+        display_name: "S翼稳定器",
+        text: "<i>条件： A/SF-01 B翼战机</i>%LINEBREAK%<strong>打开:</Strong> 在你执行一次攻击后，你可以选择花费对该防御者的锁定，对该战机使用你在此回合未曾攻击过的%CANNON%升级，来执行一次额外%CANNON%攻击。%LINEBREAK%在你激活前，如果你没有暴击伤害，你可以选择将此卡翻面%LINEBREAK%<strong>关闭:</strong>在你激活前，如果你没有暴击伤害，你可以选择将此卡翻面。"
       },
       "K-2SO": {
-        text: "Adds %CALCULATE%, %JAM% %LINEBREAK% During the System Phase, you may choose a friendly ship at range 0-3. That ship gains 1 calculate token and 1 stress token."
+        display_name: "K-2SO",
+        text: "添加 %CALCULATE%, %JAM% %LINEBREAK% 在系统阶段中，你可以选择指定一个在距离0-3的友方战机。该战机获得1个计算标记和1个压力标记。"
       },
       "Proud Tradition": {
         display_name: "自豪传统",
