@@ -2944,8 +2944,8 @@
         text: "After you defend, you may spend 1 calculate token to perform an action."
       },
       "104th Battalion Pilot": {
-        display_name: "104th Battalion Pilot",
-        text: "<i class = flavor_text>The ARC-170 was designed as a dominating heavy escort fighter with powerful front and rear lasers, ordnance, and an astromech for navigation. Squadrons of these mighty ships bolster the Republic Navy’s presence at any battle where they are deployed.</i>"
+        display_name: "104大队驾驶员",
+        text: ""
       },
       "4-LOM": {
         display_name: "4-LOM",
@@ -2968,8 +2968,8 @@
         text: "While you defend or perform an attack, if the enemy ship is a larger size than you, roll 1 additional die.%LINEBREAK%<strong>Notched Stabilizers:</strong> While you move, you ignore asteroids."
       },
       "Ahsoka Tano": {
-        display_name: "Ahsoka Tano",
-        text: "After you fully execute a maneuver, you may choose a friendly ship at range&nbsp;0-1 and spend 1&nbsp;%FORCE%. That ship may perform an action, even if it is stressed.%LINEBREAK%<strong>Fine-tuned Controls:</strong> After you fully execute a maneuver, you may spend 1&nbsp;%FORCE% to perform a %BOOST% or %BARRELROLL% action."
+        display_name: "阿索卡·塔诺",
+        text: "在你完整地执行一个移动后，你可以选择指定一个在距离0-1的友方战机并花费1【原力】 。即使有压力，该战机可以选择执行一个行动。%LINEBREAK%<strong>精调控制:</strong> 在你完整地执行一个移动后，你可以选择花费"
       },
       "Airen Cracken": {
         display_name: "艾伦‧克拉肯",
@@ -2980,10 +2980,11 @@
         text: "<strong>自动推进器:</strong>在你执行一次行动后，你可以选择执行一次红色%BARRELROLL% 或红色%BOOST%行动。"
       },
       "Anakin Skywalker": {
-        display_name: "Anakin Skywalker",
-        text: "After you fully execute a maneuver, if there is an enemy ship in your %FRONTARC% at range&nbsp;0-1 or in your %BULLSEYEARC%, you may spend 1 %FORCE% to remove 1&nbsp;stress token.%LINEBREAK%<strong>Fine-tuned Controls:</strong> After you fully execute a maneuver, you may spend 1&nbsp;%FORCE% to perform a %BOOST% or %BARRELROLL% action."
+        display_name: "阿纳金·天行者",
+        text: "在你完整地执行一次移动后，如果在你的【正面范围】 距离0-1，或在你的【靶心范围】 有一个敌方战机，你可以选择花费1【原力】 来移除1个压力标记。%LINEBREAK%<strong>精调控制:</strong> 在你完整地执行一个移动后，你可以选择花费"
       },
       "Anakin Skywalker (N-1 Starfighter)": {
+        display_name: "阿纳金·天行者",
         text: "Before you reveal your maneuver, you may spend 1 %FORCE% to barrel roll (this is not an action): %LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
       },
       "Arvel Crynyd": {
@@ -3011,8 +3012,8 @@
         text: "<i class = flavor_text>Sienar Fleet System’s TIE Advanced v1 is a groundbreaking starfighter design, featuring upgraded engines, a missile launcher, and folding s-foils.</i>"
       },
       "Barriss Offee": {
-        display_name: "Barriss Offee",
-        text: "While a friendly ship at range&nbsp;0-2 performs an attack, if the defender is in its %BULLSEYEARC%, you may spend 1&nbsp;%FORCE% to change 1&nbsp;%FOCUS% result to a %HIT% result or 1&nbsp;%HIT% result to a %CRIT% result.%LINEBREAK%<strong>Fine-tuned Controls:</strong> After you fully execute a maneuver, you may spend 1 %FORCE% to perform a %BOOST% or %BARRELROLL% action."
+        display_name: "巴丽斯·奥菲",
+        text: "当一个在距离0-2的友方战机执行一次攻击时，如果该防御者在它的【靶心范围】 ，你可以选择花费1【原力】 将1个【专注】 结果改为一个【命中】 结果，或将1个【命中】结果改为一个【暴击】 结果。%LINEBREAK%<strong>精调控制:</strong> After you fully execute a maneuver, you may spend 1 %FORCE% to perform a %BOOST% or %BARRELROLL% action."
       },
       "Ben Teene": {
         display_name: "Ben Teene",
@@ -3071,11 +3072,11 @@
         text: ""
       },
       "Blue Squadron Pilot": {
-        display_name: "Blue Squadron Pilot",
+        display_name: "蓝色中队驾驶员",
         text: ""
       },
       "Blue Squadron Protector": {
-        display_name: "蓝色中队驾驶员",
+        display_name: "蓝色中队保护员",
         text: ""
       },
       "Blue Squadron Recruit": {
@@ -3387,7 +3388,7 @@
         text: "在你对一个有伤害的防御者执行一次攻击时，投1枚额外的攻击骰。"
       },
       "Gold Squadron Trooper": {
-        display_name: "Gold Squadron Trooper",
+        display_name: "金色中队士兵",
         text: ""
       },
       "Gold Squadron Veteran": {
@@ -3507,8 +3508,8 @@
         text: "After you fully execute a blue maneuver, you may choose a friendly ship at range&nbsp;0-1. If you do, that ship removes 1&nbsp;stress token.%LINEBREAK%<strong>Weapon Hardpoint:</strong> You can equip 1&nbsp;%CANNON%, %TORPEDO%, or %MISSILE% upgrade."
       },
       "Jedi Knight": {
-        display_name: "Jedi Knight",
-        text: "<i class = flavor_text>When the Clone Wars began, the Jedi Knights rallied to the cause of preserving the Republic, assuming command of legions of clone troopers and leading them in battle.</i>%LINEBREAK%<strong>Fine-tuned Controls:</strong> After you fully execute a maneuver, you may spend 1&nbsp;%FORCE% to perform a %BOOST% or %BARRELROLL% action."
+        display_name: "绝地武士",
+        text: "<strong>精调控制:</strong> 在你完整地执行一个移动后，你可以选择花费"
       },
       "Jek Porkins": {
         display_name: "杰克·波金斯",
@@ -3663,8 +3664,8 @@
         text: "在你成为防御者后（在投骰之前），你可以选择恢复1个%FORCE%."
       },
       "Luminara Unduli": {
-        display_name: "Luminara Unduli",
-        text: "While a friendly ship at range&nbsp;0-2 defends, if it is not in the attacker’s %BULLSEYEARC%, you may spend 1&nbsp;%FORCE%. If you do, change 1&nbsp;%CRIT% result to a %HIT% result or 1 %HIT% result to a %FOCUS% result.%LINEBREAK%<strong>Fine-tuned Controls:</strong> After you fully execute a maneuver, you may spend 1&nbsp;%FORCE% to perform a %BOOST% or %BARRELROLL% action."
+        display_name: "卢米娜拉·昂杜利",
+        text: "在一个距离0-2的友方战机防御时，如果它不在该攻击者的【靶心范围】 ，你可以选择花费1【原力】 。如此的话，将一个【暴击】 结果改为一个【命中】 结果，或将一个【命中】 结果改为一个【专注】 结果。%LINEBREAK%<strong>精调控制:</strong> 在你完整地执行一个移动后，你可以选择花费"
       },
       "L'ulo L'ampar": {
         display_name: "L’ulo L’ampar",
@@ -3676,7 +3677,8 @@
       },
       "Mace Windu": {
         display_name: "Mace Windu",
-        text: "After you fully execute a red maneuver, recover 1&nbsp;%FORCE%.%LINEBREAK%<strong>Fine-tuned Controls:</strong> After you fully execute a maneuver, you may spend 1&nbsp;%FORCE% to perform a %BOOST% or %BARRELROLL% action."
+        display_name: "梅斯·温杜",
+        text: "在你完整地执行一个红色移动后，恢复1【原力】 。%LINEBREAK%<strong>精调控制:</strong> 在你完整地执行一个移动后，你可以选择花费"
       },
       "Magva Yarro": {
         display_name: "马格娃·亚尔罗",
@@ -3739,8 +3741,8 @@
         text: "While you perform a primary attack, if there are no other friendly ships at range 0-2, roll 1 additional attack die."
       },
       "Obi-Wan Kenobi": {
-        display_name: "Obi-Wan Kenobi",
-        text: "After a friendly ship at range&nbsp;0-2 spends a focus token, you may spend 1&nbsp;%FORCE%. If you do, that ship gains 1&nbsp;focus token.%LINEBREAK%<strong>Fine-tuned Controls:</strong> After you fully execute a maneuver, you may spend 1&nbsp;%FORCE% to perform a %BOOST% or %BARRELROLL% action."
+        display_name: "欧比旺·肯诺比",
+        text: "在一个距离0-2的友方战机花费1个专注标记后，你可以选择花费1【原力】 。如此的话，该战机获得1专注标记。%LINEBREAK%<strong>精调控制:</strong> 在你完整地执行一个移动后，你可以选择花费"
       },
       "Obsidian Squadron Pilot": {
         display_name: "黑曜石中队驾驶员",
@@ -3814,8 +3816,8 @@
         text: "<strong>可变副翼:</strong> 在你展示你的转盘前，如果你没有压力，你必须执行一次白色的[1&nbsp;%BANKLEFT%]， [1&nbsp;%STRAIGHT%]或[1&nbsp;%BANKRIGHT%]移动。"
       },
       "Plo Koon": {
-        display_name: "Plo Koon",
-        text: "At the start of the Engagement Phase, you may spend 1 %FORCE% and choose another friendly ship at range 0-2. If you do, you may transfer 1 green token to it or transfer one orange token from it to yourself.%LINEBREAK%<strong>Fine-tuned Controls:</strong> After you fully execute a maneuver, you may spend 1&nbsp;%FORCE% to perform a %BOOST% or %BARRELROLL% action."
+        display_name: "普罗·昆",
+        text: "在交战阶段开始时，你可以选择花费1【原力】 并指定在距离0-2的另一个友方战机。如此的话，你可以选择将1个绿色标记转移给该战机，或将1个橙色标记从该战机转移给你自己。%LINEBREAK%<strong>精调控制:</strong> 在你完整地执行一个移动后，你可以选择花费"
       },
       "Poe Dameron": {
         display_name: "Poe Dameron",
@@ -3889,8 +3891,8 @@
         text: "While you defend, if the attacker is in your %SINGLETURRETARC% at range 0-2, you may add 1&nbsp;%FOCUS% result to your dice results."
       },
       "Saesee Tiin": {
-        display_name: "Saesee Tiin",
-        text: "After a friendly ship at range 0-2 reveals its dial, you may spend 1 %FORCE%. If you do, set its dial to another maneuver of the same speed and difficulty.%LINEBREAK%<strong>Fine-tuned Controls:</strong> After you fully execute a maneuver, you may spend 1&nbsp;%FORCE% to perform a %BOOST% or %BARRELROLL% action."
+        display_name: "萨斯·汀",
+        text: "在一个距离0-2的友方战机展示其转盘后，你可以选择花费1【原力】 。如此的话，将它的转盘改到另一个速度与难度相同的移动上。%LINEBREAK%<strong>精调控制:</strong> 在你完整地执行一个移动后，你可以选择花费"
       },
       "Sarco Plank": {
         display_name: "Sarco Plank",
@@ -3966,11 +3968,11 @@
       },
       "Spice Runner": {
         display_name: "Spice Runner",
-        text: "<i class = flavor_text>Though its cargo space is limited compared to other light freighters, the small, swift HWK-290 is a favorite choice of smugglers who specialize in discreetly transporting precious goods.</i>"
+        text: ""
       },
       "Squad Seven Veteran": {
-        display_name: "Squad Seven Veteran",
-        text: "<i class = flavor_text>Clone Flight Seven serves as part of the Open Circle Fleet under legendary Jedi Generals such as Plo Koon and Obi-Wan Kenobi, and won glory at the battles of Coruscant and Cato Neimoidia.</i>"
+        display_name: "第七中队老兵",
+        text: ""
       },
       "Starkiller Base Pilot": {
         display_name: "弑星者基地驾驶员",
@@ -4121,8 +4123,8 @@
         text: "在另一个友方战机被消灭后，即使有压力，你可以选择执行一个行动。%LINEBREAK%<strong>自动推进器:</strong>在你执行一个行动后，你可以选择执行一次红色%BARRELROLL%或红色%BOOST%行动。"
       },
       '"Axe"': {
-        display_name: "“Axe”",
-        text: "After you defend or perform an attack, you may choose a friendly ship at range&nbsp;1-2 in your %LEFTARC%  or %RIGHTARC%. If you do, transfer 1 green token to that ship."
+        display_name: "“战斧”",
+        text: "在你防御或执行一次攻击后，你可以选择指定在你【左侧范围】 或【右侧范围】 距离1-2的一个友方战机。如此的话，将1个绿色标记转移给该战机。"
       },
       '"Backdraft"': {
         display_name: "“逆火”",
@@ -4169,12 +4171,12 @@
         text: "当一个在距离0-1的友方战机执行一次基础攻击时，该战机可以选择重投1枚攻击骰。"
       },
       '"Jag"': {
-        display_name: "“Jag”",
-        text: "After a friendly ship at range&nbsp;1-2 in your %LEFTARC%  or %RIGHTARC%  defends, you may acquire a lock on the attacker."
+        display_name: "“疯子”",
+        text: "当一个在你【左侧范围】 或【右侧范围】 距离1-2的友方战机防御后，你可以选择对该攻击者获得1个锁定。"
       },
       '"Kickback"': {
-        display_name: "“Kickback”",
-        text: "After you perform a %BARRELROLL% action, you may perform a red %LOCK% action."
+        display_name: "“后踢”",
+        text: "在你执行一次 %BARRELROLL% 行动后，你可以选择执行一个红色 %LOCK% 行动。"
       },
       '"Leebo"': {
         display_name: "“利博”",
@@ -4205,12 +4207,12 @@
         text: "在你没有伤害时，将你的先攻值视为7。"
       },
       '"Odd Ball"': {
-        display_name: "“Odd Ball”",
-        text: "After you fully execute a red maneuver or perform a red action, if there is an enemy ship in your %BULLSEYEARC%, you may acquire a lock on that ship."
+        display_name: "“怪头”",
+        text: "在你完整地执行一个红色移动或执行一次红色行动后，如果有一个敌方战机在你的%BULLSEYEARC% ，你可以选择对该战机获得一个锁定。"
       },
       '"Odd Ball" (ARC-170)': {
-        display_name: "“Odd Ball”",
-        text: "After you fully execute a red maneuver or perform a red action, if there is an enemy ship in your %BULLSEYEARC%, you may acquire a lock on that ship."
+        display_name: "“怪头”",
+        text: "在你完整地执行一个红色移动或执行一次红色行动后，如果有一个敌方战机在你的%BULLSEYEARC% ，你可以选择对该战机获得一个锁定。"
       },
       '"Pure Sabacc"': {
         display_name: "“萨巴克牌手”",
@@ -4237,20 +4239,20 @@
         text: "在你对你%BULLSEYEARC%的一个防御者执行一次攻击时，投1枚额外的攻击骰。"
       },
       '"Sinker"': {
-        display_name: "“Sinker”",
-        text: "While a friendly ship at range&nbsp;1-2 in your %LEFTARC% or %RIGHTARC% performs a primary attack, it may reroll 1&nbsp;attack die."
+        display_name: "“沉子”",
+        text: "当一个在距离1-2的友方战机在你的【左侧范围】 或【右侧范围】 执行一次基础攻击时，它可以选择重投1枚攻击骰"
       },
       '"Static"': {
         display_name: "“静态”",
         text: "在你执行一次基础攻击时，你可以选择花费你对该防御者的锁定，并花费1个专注标记，来将你的全部结果改为%CRIT%结果。"
       },
       '"Swoop"': {
-        display_name: "“Swoop”",
-        text: "After a friendly small or medium ship fully executes a speed 3-4 maneuver, if it is at range&nbsp;0-1, it may perform a red %BOOST% action."
+        display_name: "“俯冲”",
+        text: "在一个友方小型或中型战机完整地执行一次速度3-4的移动后，如果它在距离0-1，它可以选择执行一个红色【推进】 行动。"
       },
       '"Tucker"': {
-        display_name: "“Tucker”",
-        text: "After a friendly ship at range&nbsp;1-2 performs an attack against an enemy ship in your %FRONTARC%, you may perform a %FOCUS%&nbsp;action."
+        display_name: "“塔克”",
+        text: "在一个友方战机在距离1-2对在你【正面范围】 的一个敌方战机执行一次攻击后，你可以选择执行一个【专注】 行动。"
       },
       '"Vizier"': {
         display_name: "“大臣”",
@@ -4265,8 +4267,8 @@
         text: "在你执行一次命中的攻击后，获得1个闪避标记。%LINEBREAK%<strong>暗水晶阵列:</strong> 在你显形后，你可以选择执行一次%EVADE%行动。在结束阶段开始时，你可以选择花费1个闪避标记来获得1个隐形标记。"
       },
       '"Wolffe"': {
-        display_name: "“Wolffe”",
-        text: "While you perform a primary %FRONTARC% attack, you may spend 1 %CHARGE% to reroll 1&nbsp;attack die. %LINEBREAK%While you perform a primary %REARARC% attack, you may recover 1&nbsp;%CHARGE% to roll 1&nbsp;additional attack die. "
+        display_name: "“沃飞”",
+        text: "在你执行一次【正面范围】 基础攻击时，你可以选择花费1【充能】 来重投1枚攻击骰。%LINEBREAK%在你执行一次【背面范围】 基础攻击时，你可以选择恢复1【充能】 来投一枚额外的攻击骰。"
       },
       '"Zeb" Orrelios': {
         display_name: "“泽布·奥雷利奥斯",
@@ -4301,27 +4303,27 @@
         text: "While you have 2 or fewer stress tokens, you may execute red maneuvers even while stressed."
       },
       "Padmé Amidala": {
-        display_name: "Padmé Amidala",
-        text: "While an enemy ship in your %FRONTARC% defends or performs an attack, that ship can modify only 1 %FOCUS% result (other results can still be modified). %LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
+        display_name: "帕德美·阿米达拉",
+        text: "在一个在你【正面范围】 的敌方战机防御或执行一次攻击时，该战机只可修改1个【专注】 结果（其他结果仍可被修改）。 %LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
       },
       "Anakin Skywalker (N-1 Starfighter)": {
-        display_name: "Anakin Skywalker",
-        text: "Before you reveal your maneuver, you may spend 1 %FORCE% to barrel roll (this is not an action). %LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
+        display_name: "阿纳金·天行者",
+        text: "在你展示你的移动前，你可以选择花费1【原力】 来桶滚（这不是一次桶滚行动）。 %LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
       },
       "Ric Olié": {
-        display_name: "Ric Olié",
-        text: "While you defend or perform a primary attack, if the speed of your revealed maneuver is higher than the enemy ship's, roll 1 additional die. %LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
+        display_name: "里克·奥利耶",
+        text: "在你防御或执行一次基础攻击时，如果你展示移动的速度高于该敌方战机的速度，投一枚额外的骰子。%LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
       },
       "Dineé Ellberger": {
-        display_name: "Dineé Ellberger",
-        text: "While you defend or perform an attack, if the speed of your revealed maneuver is the same as the enemy ship's, that ship's dice cannot be modified. %LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
+        display_name: "迪奈·埃尔博尔",
+        text: "在你防御或执行一次攻击时，如果你展示移动的速度与该敌方战机的相同，该战机的骰子不能被修正。%LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
       },
       "Naboo Handmaiden": {
-        display_name: "Naboo Handmaiden",
-        text: "<strong>Setup:</strong> After placing forces, assign the <strong>Decoyed</strong> condition to 1 friendly ship other than <strong>Naboo Handmaiden</strong>. %LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
+        display_name: "纳布侍女",
+        text: "<strong>设置:</strong> 在部署军力后，将<strong>诱饵</strong>状态分配给1个除<strong>纳布侍女</strong>外的友方战机。%LINEBREAK%<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
       },
       "Bravo Flight Officer": {
-        display_name: "Bravo Flight Officer",
+        display_name: "B小队飞行士官",
         text: "<strong>满油门:</strong> 在你完整地执行一次速度3-5的移动后，你可以选择执行一次%EVADE% 行动。"
       },
       "BB-8": {
@@ -4345,28 +4347,36 @@
         text: "<strong>Setup:</strong> After placing forces, assign the <strong>Compromising Intel</strong> condition to 1 enemy ship."
       },
       "Shadow Squadron Veteran": {
-        text: "<strong>Plated Hull:</strong> While you defend, if you are not critically damaged, change 1 %CRIT% to a %HIT% result."
+        display_name: "暗影中队老兵",
+        text: "<strong>镀造机身:</strong> 在你防御时，如果你没有暴击伤害，将1个"
       },
       "Red Squadron Bomber": {
-        text: "<strong>Plated Hull:</strong> While you defend, if you are not critically damaged, change 1 %CRIT% to a %HIT% result."
+        display_name: "红色中队投弹手",
+        text: "<strong>镀造机身:</strong> 在你防御时，如果你没有暴击伤害，将1个"
       },
       '"Goji"': {
-        text: "While a friendly ship at range 0-3 defends, it may roll 1 additional defense die for each friendly bomb at 0-1 of it. %LINEBREAK%<strong>Plated Hull:</strong> While you defend, if you are not critically damaged, change 1 %CRIT% to a %HIT% result. %LINEBREAK% <i>Errata (since rules reference 1.1.0): Removed \"or mine\"</i>"
+        display_name: "“枸杞”",
+        text: "在一个友方战机在距离0-3防御时，在距离0-1每有一个友方炸弹， 它便可以选择投1枚额外的防御骰。%LINEBREAK%<strong>镀造机身:</strong> 在你防御时，如果你没有暴击伤害，将1个 %LINEBREAK% "
       },
       '"Broadside"': {
-        text: "While you perform a %SINGLETURRETARC% attack, if your %SINGLETURRETARC% indicator is in your %LEFTARC% or %RIGHTARC%, you may change 1 blank result to a %FOCUS% result. %LINEBREAK%<strong>Plated Hull:</strong> While you defend, if you are not critically damaged, change 1 %CRIT% to a %HIT% result."
+        display_name: "“舷炮”",
+        text: "在你执行一次【炮塔】 攻击时，如果你的【炮塔】 指示物在你的【左侧范围】 或【右侧范围】 ，你可以选择将1个空白结果改为1个【专注】 结果。 %LINEBREAK%<strong>镀造机身:</strong> 在你防御时，如果你没有暴击伤害，将1个"
       },
       '"Matchstick"': {
-        text: "While you perform a primary or %SINGLETURRETARC% attack, you may reroll 1 attack die for each red token you have. %LINEBREAK%<strong>Plated Hull:</strong> While you defend, if you are not critically damaged, change 1 %CRIT% to a %HIT% result."
+        display_name: "“火柴”",
+        text: "在你执行一次基础或【炮塔】 攻击后，你每有一个红色标记，你便可以选择重投1枚攻击骰。%LINEBREAK%<strong>镀造机身:</strong> 在你防御时，如果你没有暴击伤害，将1个"
       },
       '"Odd Ball" (Y-Wing)': {
-        text: "After you execute a red maneuver or perform a red action, if there is an enemy ship in your %BULLSEYEARC%, you may acquire a lock on that ship. %LINEBREAK%<strong>Plated Hull:</strong> While you defend, if you are not critically damaged, change 1 %CRIT% to a %HIT% result."
+        display_name: "“怪头”",
+        text: "在你完整地执行一次红色移动或执行一次红色行动后，如果在你的【靶心范围】 有一个敌方战机，你可以选择对该战机获得1个锁定。%LINEBREAK%<strong>镀造机身:</strong> 在你防御时，如果你没有暴击伤害，将1个"
       },
       "R2-D2": {
-        text: "At the start of the Engagement Phase, if there is an enemy ship in your %REARARC%, gain 1 calculate token.%LINEBREAK%<strong>Plated Hull:</strong> While you defend, if you are not critically damaged, change 1 %CRIT% to a %HIT% result."
+        display_name: "R2-D2",
+        text: "在交战阶段开始时，如果在你的【背面范围】 有一个敌方战机，你获得1个计算标记。%LINEBREAK%<strong>镀造机身:</strong> 在你防御时，如果你没有暴击伤害，将1个"
       },
       "Anakin Skywalker (Y-Wing)": {
-        text: "After you fully execute a maneuver, if there is an enemy ship in your %FRONTARC% at range 0-1 or in your %BULLSEYEARC%, you may spend 1 %FORCE% to remove 1 stress token.%LINEBREAK%<strong>Plated Hull:</strong> While you defend, if you are not critically damaged, change 1 %CRIT% to a %HIT% result."
+        display_name: "阿纳金·天行者",
+        text: "在你完整地执行一次移动后，如果在你的【正面范围】 距离0-1，或在你的【靶心范围】 有一个敌方战机，你可以选择花费1【原力】 来移除1个压力标记。%LINEBREAK%<strong>镀造机身:</strong> 在你防御时，如果你没有暴击伤害，将1个"
       },
       "Sun Fac": {
         display_name: "孙·菲克",
@@ -4665,8 +4675,8 @@
         text: "<strong>攻击 (%FOCUS%):</strong> 花费1%CHARGE%。如果该防御者在你的%BULLSEYEARC%，你可以选择花费1个或更多%CHARGE%来重投对应数量的攻击骰。"
       },
       "Battle Meditation": {
-        display_name: "Battle Meditation",
-        text: "<i>添加 %F-COORDINATE%</i>%LINEBREAK%<i>Galactic Republic only</i>%LINEBREAK%You cannot coordinate limited ships.%LINEBREAK% While you perform a purple %COORDINATE% action, you may coordinate 1 additional friendly non-limited ship of the same type. Both ships must perform the same action."
+        display_name: "战斗冥想",
+        text: "<i>添加 %F-COORDINATE%</i>%LINEBREAK%<i>条件：共和国</i>%LINEBREAK%你不能协同限制战机。%LINEBREAK% 在你执行一次紫色【协同】 行动时，你可以选择协同1个额外的相同类型的友方非限制战机。两个战机必须执行相同的行动。"
       },
       "Baze Malbus": {
         display_name: "贝兹·马尔巴斯",
@@ -4709,8 +4719,8 @@
         text: "<i>条件：不法者</i>%LINEBREAK%After you drop or launch a device, you may perform a red %BOOST% action."
       },
       "Calibrated Laser Targeting": {
-        display_name: "Calibrated Laser Targeting",
-        text: "While you perform a primary attack, if&nbsp;the defender is in your %BULLSEYEARC%, add 1&nbsp;%FOCUS%&nbsp;result."
+        display_name: "校准激光瞄准",
+        text: "在你执行一次基础攻击时，如果该防御者在你的【靶心范围】 ，添加一个【专注】 结果"
       },
       "Captain Phasma": {
         display_name: "法斯马队长",
@@ -4749,8 +4759,8 @@
         text: "<i>条件：小型或中型战机</i>%LINEBREAK%<strong>行动:</strong> 花费1%CHARGE%来执行一次%CLOAK%行动。在计划阶段开始时，投1枚攻击骰。为%FOCUS%结果是，显形或丢弃你的隐形标记。"
       },
       "Clone Commander Cody": {
-        display_name: "Clone Commander Cody",
-        text: "<i>Galactic Republic only</i>%LINEBREAK%After you perform an attack that missed, if 1&nbsp;or more %HIT%/%CRIT% results were neutralized, the defender gains 1&nbsp;strain token."
+        display_name: "克隆人指挥官柯迪",
+        text: "<i>条件：共和国</i>%LINEBREAK%在你执行一次未命中的攻击后，如果1个或更多的【命中】 或【暴击】 结果被抵消，该防御者获得1个扭力标记。"
       },
       "Cluster Missiles": {
         display_name: "集束导弹",
@@ -4809,8 +4819,8 @@
         text: "<i>条件：小型或中型战机</i>%LINEBREAK%<i>添加<r>%EVADE%</r></i>%LINEBREAK%在你执行一次红色%EVADE%行动时，如果在距离0-1有一个障碍物，改为将该行动视为白色。"
       },
       "Dedicated": {
-        display_name: "Dedicated",
-        text: "<i>Galactic Republic only</i>%LINEBREAK%While another friendly ship in your %LEFTARC%&nbsp;or %RIGHTARC% at range&nbsp;0-2 defends, if it is limited or has the <strong>Dedicated</strong> upgrade and you are not strained, you may gain 1 strain token. If you do, the defender rerolls 1&nbsp;of their blank results."
+        display_name: "专注",
+        text: "<i>条件：共和国</i>%LINEBREAK%当在你【左侧范围】 或【右侧范围】 距离0-2的另一个友方战机防御时，如果它是限制的或带有专注升级，且你没有压力，你可以选择获得1个扭力标记。如此的话，该防御者重投他空白结果中的1个。"
       },
       "Delayed Fuses": {
         display_name: "延时引信",
@@ -5215,7 +5225,7 @@
         text: "在你展示你的转盘后，你可以选择花费1%CHARGE%获得1个解除武装标记来恢复1个护盾。"
       },
       "R2-C4": {
-        text: "<i>Galactic Republic only</i>%LINEBREAK%While you perform an attack, you may spend 1 evade token to change 1 %FOCUS% result to a %HIT% result."
+        text: "<i>条件：共和国</i>%LINEBREAK%While you perform an attack, you may spend 1 evade token to change 1 %FOCUS% result to a %HIT% result."
       },
       "R2-D2 (Crew)": {
         display_name: "R2-D2",
@@ -5238,16 +5248,16 @@
         text: " <i>条件：小型战机</i>%LINEBREAK%你速度1-2的基础移动(%TURNLEFT%, %BANKLEFT%, %STRAIGHT%, %BANKRIGHT%, %TURNRIGHT%)难度降低。"
       },
       "R4-P Astromech": {
-        display_name: "R4-P Astromech",
-        text: "<i>Galactic Republic only</i>%LINEBREAK%Before you execute a basic maneuver, you may spend 1&nbsp;%CHARGE%. If you do, while you execute that maneuver, reduce its difficulty."
+        display_name: "R4-P机器人",
+        text: "<i>条件：共和国</i>%LINEBREAK%在你执行一个基础移动前，你可以选择花费1【充能】 。如此的话，在你执行该移动时，降低它的难度。"
       },
       "R4-P17": {
         display_name: "R4-P17",
-        text: "<i>Galactic Republic only</i>%LINEBREAK%After you fully execute a red maneuver, you may spend 1&nbsp;%CHARGE% to perform an action, even while stressed."
+        text: "<i>条件：共和国</i>%LINEBREAK%在你完整地执行一次红色移动后，即使有压力，你可以选择花费1【充能】 来执行一个行动。"
       },
       "R4-P44": {
         display_name: "R4-P44",
-        text: "<i>Galactic Republic only</i>%LINEBREAK%After you fully execute a red maneuver, if there is an enemy ship in your %BULLSEYEARC%, gain 1&nbsp;calculate token."
+        text: "<i>条件：共和国</i>%LINEBREAK%在你完整地执行一次红色移动后，如果在你的【靶心范围】 有一个敌方战机，获得1个计算标记。"
       },
       "R5 Astromech": {
         display_name: "R5宇航技工机器人",
@@ -5322,8 +5332,8 @@
         text: "<i>条件：T-65 X翼战机</i>%LINEBREAK%<strong>打开:</Strong> 在你激活前，你可以选择将此卡翻面。%LINEBREAK%<strong>关闭:</strong>在你执行一次基础攻击时，少投1枚攻击骰。%LINEBREAK%在你激活前，你可以选择将此卡翻面。"
       },
       "Seventh Fleet Gunner": {
-        display_name: "Seventh Fleet Gunner",
-        text: "<i>Galactic Republic only</i>%LINEBREAK%While another friendly ship performs a primary attack, if the defender is in your firing arc, you may spend 1 %CHARGE%. If you do, the attacker rolls 1&nbsp;additional die, to a maximum of 4. During the System Phase, you may gain 1 disarm token to recover 1 %CHARGE%."
+        display_name: "第七舰队炮手",
+        text: "<i>条件：共和国</i>%LINEBREAK%在另一个友方战机执行一次基础攻击时，如果该防御者在你的开火范围，你可以选择花费1【充能】 。如此的话，该攻击者投1枚额外的骰子，最多4枚。在该系统阶段中，你可以选择获得1个解除武装标记来恢复1【充能】 。"
       },
       "Seventh Sister": {
         display_name: "七妹",
@@ -5370,8 +5380,8 @@
         text: "在交战阶段开始时，你可以选择指定一个在距离1的1个友方战机。如此的话，该战机的先攻值视为等于你的先攻值，直到此轮结束。"
       },
       "Synchronized Console": {
-        display_name: "Synchronized Console",
-        text: "<i>条件 %LOCK% or <r>%LOCK%</r></i>%LINEBREAK%<i>Galactic Republic only</i>%LINEBREAK%After you perform an attack, you may choose a friendly ship at range 1 or a friendly ship with the <strong>Synchronized Console</strong> upgrade at range 1-3 and spend a lock you have on the defender. If you do, the friendly ship you chose may acquire a lock on the defender."
+        display_name: "同步操作台",
+        text: "<i>条件：共和国,%LOCK%</i>%LINEBREAK%在你执行一次攻击后，你可以选择指定一个在距离1，或在距离1-3且带有<strong>同步操作台</strong>升级的友方战机，并花费一个你对该防御者的锁定。如此的话，你指定的友方战机可以选择获得对该防御者的锁定。"
       },
       "TA-175": {
         display_name: "TA-175",
@@ -5463,7 +5473,7 @@
       },
       "R2-C4": {
         display_name: "R2-C4",
-        text: "While you perform an attack, you may spend 1 evade token to change 1 %FOCUS% result to a %HIT% result. "
+        text: "<i>条件：共和国</i>在你执行一次攻击时，你可以选择花费1闪避标记，来将1个【专注】 结果改为1个【命中】 结果。"
       },
       "Electro-Proton Bomb": {
         display_name: "电质子炸弹",
@@ -5475,7 +5485,7 @@
       },
       "R2-A6": {
         display_name: "R2-A6",
-        text: "<i>Galactic Republic only</i>%LINEBREAK% After you reveal your dial, you may set your dial to a maneuver of the same bearing of a speed 1 higher or lower."
+        text: "<i>条件：共和国</i>%LINEBREAK% 在你展示你的转盘后，你可以选择将你的转盘该到一个朝向相同，速度高1或低1的移动上。"
       },
       "Amilyn Holdo": {
         display_name: "Amilyn Holdo",
@@ -5511,15 +5521,15 @@
       },
       "C1-10P": {
         display_name: "C1-10P",
-        text: "<strong>C1-10P: </strong>Setup: Equip this side faceup. %LINEBREAK% After you execute a maneuver, you may spend 1 %CHARGE% to perform a red %EVADE% action, even while stressed. %LINEBREAK% During the End Phase, if this card has 0 active %CHARGE%, flip it. %LINEBREAK% <strong>C1-10P (Erratic):</strong> After you execute a maneuver, you <strong>must</strong> choose a ship at range 0-1. It gains 1 jam token."
+        text: "<i>条件：共和国</i>%LINEBREAK%<strong>C1-10P </strong> %LINEBREAK%设置: 以此面朝上装备。%LINEBREAK% 在你执行一次移动后，即使有压力，你可以选择花费1【充能】 来执行1次红色【闪避】 行动。 %LINEBREAK% 在结束阶段中，如果此卡有0个激活的【充能】 ，将其翻面。%LINEBREAK% C1-10P（不稳定）在你执行一次移动后，你必须指定1个在距离0-1的战机，它获得1个干扰标记。"
       },
       "Ahsoka Tano": {
-        display_name: "Ahsoka Tano",
-        text: "After you execute a maneuver, you may spend 1 %FORCE% and choose a friendly ship at range 1-3 in your firing arc. If you do, it may perform a red %FOCUS% action, even while stressed."
+        display_name: "阿索卡·塔诺",
+        text: "在你执行一次移动后，你可以选择花费1【原力】 并指定1个在你的开火范围距离1-3的友方战机。如此的话，即使有压力，它可以选择执行1次红色【专注】行动。"
       },
       "C-3PO (Republic)": {
         display_name: "C-3PO",
-        text: "While you defend, if you are calculating, you may reroll 1 defense die. %LINEBREAK% After you perform a %CALCULATE% action, gain 1 calculate token."
+        text: "在你防御时，如果你有计算，你可以选择重投1个防御骰。 %LINEBREAK% 在你执行一次【计算】 行动后，获得1个计算标记。"
       },
       "Gravitic Deflection": {
         display_name: "重力偏斜",
