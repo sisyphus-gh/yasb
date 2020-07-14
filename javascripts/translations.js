@@ -3620,7 +3620,7 @@
         text: "在一个距离1-2的战机被分配一张伤害卡后，你可以选择获得一个对该战机的锁定。"
       },
       "Lieutenant Blount": {
-        display_name: "布朗特士官 Blount",
+        display_name: "布朗特士官",
         text: "在你执行一次基础攻击时，如果在该防御者距离0-1有至少1个其他友方战机，你可以选择投1枚额外的攻击骰。"
       },
       "Lieutenant Dormitz": {
