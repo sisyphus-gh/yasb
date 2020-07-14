@@ -2774,7 +2774,7 @@ exportObj.cardLoaders['简体中文'] = () ->
            display_name: """凯南·贾勒斯"""
            text: """当一个在你开火范围的友方战机防御时，你可以选择花费1%FORCE%。如此的话，该攻击者少投1枚攻击骰。%LINEBREAK%<strong>尾炮:</strong>在你有一个对接战机时，你拥有1个基础%REARARC%武器，攻击值等同于与你对接战机的基础%FRONTARC%武器攻击值。"""
         "Kare Kun":
-           display_name: """Kare Kun"""
+           display_name: """卡尔·昆"""
            text: """在你推进时，你可以选择改为使用[左转1]或[右转1]移动条。<strong>武器挂载:</strong> 你可装备1个【加农炮】 ， 【鱼雷】 或【导弹】升级。"""
         "Kashyyyk Defender":
            display_name: """卡希克守卫者"""
@@ -3026,7 +3026,8 @@ exportObj.cardLoaders['简体中文'] = () ->
            display_name: """游侠中队护航员"""
            text: """<strong>实验扫描器:</strong> 你可在距离3外获得锁定。你不可在距离1获得锁定。"""
         "Rose Tico":
-           text: """While you defend or perform an attack, you may reroll up to 1 of your results for each other friendly ship in the attack arc."""
+           display_name: """罗丝·蒂科"""
+           text: """在你防御或执行一次攻击时，你可以选择花费你的1个结果，来获得1个对该敌方战机的锁定。"""
         "Saber Squadron Ace":
            display_name: """军刀中队王牌"""
            text: """<strong>自动推进器:</strong>在你执行一次行动后，你可以选择执行一次红色%BARRELROLL% 或红色%BOOST%行动。"""
@@ -3934,7 +3935,8 @@ exportObj.cardLoaders['简体中文'] = () ->
            display_name: """K2-B4"""
            text: """<i>条件：分离主义，独一</i>%LINEBREAK%当一个友方战机在距离0-3防御时，它可以选择花费1个计算标记。如此的话，增加1个%EVADE%结果，除非该攻击者选择获得1个扭力标记。"""
         "Kaydel Connix":
-           text: """After you reveal your dial, you may set your dial to a basic maneuver of the next higher speed. While you execute that maneuver, increase its difficulty"""
+           display_name: """凯德尔·康尼克斯"""
+           text: """在你展示你的转盘后，你可以选择将你的转盘改到速度高1的一个基础移动上。在你执行该移动时，增加其难度。"""
         "Kanan Jarrus":
            display_name: """凯南·贾勒斯"""
            text: """<i>条件：义军</i>%LINEBREAK%在一个友方战机在距离0-2完整地执行一次白色移动后，你可以选择花费1%FORCE%，从该战机移除一个压力标记。"""
