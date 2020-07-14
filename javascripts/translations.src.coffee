@@ -2321,7 +2321,6 @@ exportObj.cardLoaders['简体中文'] = () ->
     exportObj.renameShip """GR-75 Medium Transport""", """GT-75中型运输船"""
     exportObj.renameShip """Raider-class Corvette""", """袭击者级护卫舰"""
 
-
     pilot_translations =
         "0-66":
            display_name: """0-66"""
@@ -3528,8 +3527,7 @@ exportObj.cardLoaders['简体中文'] = () ->
         "Syndicate Smugglers":
            display_name: """财团走私者"""
            text: """<strong>过载燃烧室:</strong> 在你防御时，如果你展示的移动速度为3-5，投1枚额外的防御骰。"""
-		   
-
+		 
     upgrade_translations =
         "0-0-0":
            display_name: """0-0-0"""
@@ -4105,7 +4103,7 @@ exportObj.cardLoaders['简体中文'] = () ->
            display_name: """货物滑槽"""
            text: """<i>条件：中型或大型战机</i>%LINEBREAK%<strong>行动:</strong> 花费1%CHARGE%。使用[1%STRAIGHT%]移动条投放1个散乱货物(loose cargo)。"""
         "Rose Tico":
-           display_name: """Rose Tico"""
+           display_name: """罗丝·蒂科"""
            text: """<i>条件：抵抗组织</i>%LINEBREAK%在你防御或执行一次攻击时，你可以选择花费你的1个结果，来获得1个对该敌方战机的锁定。"""
         "Ruthless":
            display_name: """冷酷无情"""
@@ -4233,9 +4231,6 @@ exportObj.cardLoaders['简体中文'] = () ->
         '"Zeb" Orrelios':
            display_name: """泽布·奥雷利奥斯"""
            text: """<i>条件：义军</i>%LINEBREAK%你可在距离0执行基础攻击。在距离0的敌方战机可对你执行基础攻击。"""
-        "Kaydel Connix":
-           display_name: """Kaydel Connix"""
-           text: """在你展示你的转盘后，你可以选择将你的转盘改到速度高1的一个基础移动上。在你执行该移动时，增加其难度。"""
         "Autoblasters":
            display_name: """自动爆能炮"""
            text: """<strong>攻击:</strong>如果该防御者在你的%BULLSEYEARC%，投1枚额外的骰子。在抵消结果步骤，如果你不在该防御者的%FRONTARC%%EVADE%结果不能抵消%CRIT%结果。"""
@@ -4477,7 +4472,6 @@ exportObj.cardLoaders['简体中文'] = () ->
            display_name: """海盗改装"""
            text: """<i>要求:</i><i>添加 2 hull and 1 energy. Removes 2 shields. %LINEBREAK%</i> 添加 %CANNON%, %TURRET% 和 %MISSILE% 槽位。 %LINEBREAK% 额外攻击：花费1%ENERGY%来执行一次%CANNON%, %TURRET% 或 %MISSILE% 攻击。"""
 
-     
     condition_translations =
         'Suppressive Fire':
            text: '''While you perform an attack against a ship other than <strong>Captain Rex</strong>, roll 1 fewer attack die. %LINEBREAK% After <strong>Captain Rex</strong> defends, remove this card.  %LINEBREAK% At the end of the Combat Phase, if <strong>Captain Rex</strong> did not perform an attack this phase, remove this card. %LINEBREAK% After <strong>Captain Rex</strong> is destroyed, remove this card.'''

@@ -5308,7 +5308,7 @@
         text: "<i>条件：中型或大型战机</i>%LINEBREAK%<strong>行动:</strong> 花费1%CHARGE%。使用[1%STRAIGHT%]移动条投放1个散乱货物(loose cargo)。"
       },
       "Rose Tico": {
-        display_name: "Rose Tico",
+        display_name: "罗丝·蒂科",
         text: "<i>条件：抵抗组织</i>%LINEBREAK%在你防御或执行一次攻击时，你可以选择花费你的1个结果，来获得1个对该敌方战机的锁定。"
       },
       "Ruthless": {
@@ -5478,10 +5478,6 @@
       '"Zeb" Orrelios': {
         display_name: "泽布·奥雷利奥斯",
         text: "<i>条件：义军</i>%LINEBREAK%你可在距离0执行基础攻击。在距离0的敌方战机可对你执行基础攻击。"
-      },
-      "Kaydel Connix": {
-        display_name: "Kaydel Connix",
-        text: "在你展示你的转盘后，你可以选择将你的转盘改到速度高1的一个基础移动上。在你执行该移动时，增加其难度。"
       },
       "Autoblasters": {
         display_name: "自动爆能炮",
