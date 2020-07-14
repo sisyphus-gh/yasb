@@ -4536,7 +4536,7 @@
         text: "<strong>对接夹层:</strong> 你可对接至多4个小型战机。"
       },
       "Separatist Privateers": {
-        display_name: "Separatist Privateers",
+        display_name: "分离主义私掠者",
         text: "<strong>过载燃烧室:</strong> 在你防御时，如果你展示的移动速度为3-5，投1枚额外的防御骰。"
       },
       "Syndicate Smugglers": {
