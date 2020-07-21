@@ -3960,7 +3960,7 @@
         text: ""
       },
       "Skull Squadron Pilot": {
-        display_name: "Skull Squadron Pilot",
+        display_name: "颅骨中队驾驶员",
         text: "<strong>康科迪亚对抗:</strong> 在你防御时，如果该攻击距离为1且你在该攻击者的【正面范围】 ，将1个结果改为一个【闪避】结果。"
       },
       "Sol Sixxa": {
