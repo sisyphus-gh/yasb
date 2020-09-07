@@ -10698,7 +10698,7 @@ class exportObj.SquadBuilder
                     </div>
                     <br />
                     <select class="game-type-selector">
-                        <option value="standard" selected="1">Extended</option>
+                        <option value="standard">Extended</option>
                         <option value="hyperspace">Hyperspace</option>
                         <option value="epic">Epic</option>
                         <option value="quickbuild">Quickbuild</option>
@@ -11075,8 +11075,8 @@ class exportObj.SquadBuilder
         @game_type_selector.select2
             minimumResultsForSearch: -1
         @game_type_selector.change (e) =>
-            $(window).trigger 'xwing:gameTypeChanged', @game_type_selector.val()
-            # @onGameTypeChanged @game_type_selector.val()
+            # $(window).trigger 'xwing:gameTypeChanged', @game_type_selector.val()
+            @onGameTypeChanged @game_type_selector.val()
         @desired_points_input = $ @points_container.find('.desired-points')
         @desired_points_input.change (e) =>
             @onPointsUpdated $.noop
@@ -11631,6 +11631,8 @@ class exportObj.SquadBuilder
                 cb this
         .on 'xwing:gameTypeChanged', (e, gameType, cb=$.noop) =>
             @onGameTypeChanged gameType, cb
+            if @game_type_selector.val() != gameType
+                @game_type_selector.val(gameType).trigger('change')
 
         @obstacles_select.change (e) =>
             if @obstacles_select.val().length > 3
@@ -11793,7 +11795,6 @@ class exportObj.SquadBuilder
             @container.trigger 'xwing-backend:squadDirtinessChanged'
 
     onGameTypeChanged: (gametype, cb=$.noop) =>
-        @game_type_selector.val gametype
         oldHyperspace = @isHyperspace
         oldEpic = @isEpic
         oldQuickbuild = @isQuickbuild
@@ -14126,6 +14127,9 @@ class Ship
             if action.search('F-') != -1 
                 color = "force "
                 actionname = action.toLowerCase().replace(/F-/gi, '').replace(/[^0-9a-z]/gi, '')
+            else if action.search('R-') != -1 
+                color = "red "
+                actionname = action.toLowerCase().replace(/R-/gi, '').replace(/[^0-9a-z]/gi, '')
             else if action.search('R> ') != -1
                 color = "red "
                 actionname = action.toLowerCase().replace(/R> /gi, '').replace(/[^0-9a-z]/gi, '')
@@ -14140,7 +14144,6 @@ class Ship
             action_icons.push (prefix + """<i class="xwing-miniatures-font """ + color + """xwing-miniatures-font-""" + actionname + """"></i> """ + suffix)
 
         action_bar = action_icons.join ' '
-        action_bar_red = action_icons_red.join ' '
 
         attack_icon = @data.attack_icon ? 'xwing-miniatures-font-frontarc'
 
@@ -14273,8 +14276,6 @@ class Ship
                     #{chargeHTML}
                     <br />
                     #{action_bar}
-                    &nbsp;&nbsp;
-                    #{action_bar_red}
                 </div>
             </div>
         """
@@ -14874,14 +14875,14 @@ class GenericAddon
         if data?.variableagility?
             data?.pointsarray[ship.data.agility]
         else if data?.variablebase?
-            if not (ship.data.medium? or ship.data.large?)
-                data?.pointsarray[0]
-            else if ship?.data.medium?
+            if ship?.data.medium?
                 data?.pointsarray[1]
             else if ship?.data.large?
                 data?.pointsarray[2]
             else if ship?.data.huge?
                 data?.pointsarray[3]
+            else
+                data?.pointsarray[0]
         else if data?.variableinit?
             data?.pointsarray[ship.pilot.skill]
         else

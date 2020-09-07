@@ -819,7 +819,6 @@ exportObj.basicCardData = function() {
         agility: 1,
         hull: 5,
         shields: 3,
-        medium: true,
         actions: ["Calculate", "Lock", "R-Barrel Roll", "Reload", "R> Calculate"],
         maneuvers: [[0, 0, 3, 0, 0, 0, 0, 0, 0, 0], [0, 3, 2, 3, 0, 0, 0, 0, 0, 0], [2, 1, 2, 1, 2, 0, 0, 0, 0, 0], [1, 3, 1, 3, 1, 0, 0, 0, 0, 0], [0, 0, 3, 0, 0, 0, 0, 0, 0, 0], [0, 0, 3, 0, 0, 0, 0, 0, 0, 0]]
       },
@@ -832,7 +831,7 @@ exportObj.basicCardData = function() {
         hull: 8,
         shields: 2,
         medium: true,
-        actions: ["Focus", "Lock", "Rotate", "R-Reinforce", "Reload"],
+        actions: ["Focus", "Lock", "Rotate Arc", "R-Reinforce", "Reload"],
         maneuvers: [[0, 0, 3, 0, 0, 0, 0, 0, 0, 0], [0, 1, 2, 1, 0, 0, 0, 0, 0, 0], [1, 1, 2, 1, 1, 0, 0, 0, 0, 0], [3, 1, 1, 1, 3, 0, 0, 0, 0, 0], [0, 0, 3, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
       },
       "TIE/rb Heavy": {
@@ -843,8 +842,8 @@ exportObj.basicCardData = function() {
         agility: 1,
         hull: 8,
         medium: true,
-        actions: ["Focus", "Reinforce", "Lock", "R-Barrel Roll", "Rotate", "R> Calculate"],
-        maneuvers: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [3, 1, 2, 1, 3, 0, 0, 0, 0, 0], [1, 2, 2, 2, 1, 0, 0, 0, 0, 0], [3, 1, 1, 1, 3, 3, 0, 0, 3, 3], [0, 0, 1, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+        actions: ["Focus", "Reinforce", "Lock", "R-Barrel Roll", "Rotate Arc", "R> Calculate"],
+        maneuvers: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [3, 1, 2, 1, 3, 0, 0, 0, 0, 0], [1, 2, 2, 2, 1, 0, 0, 0, 0, 0], [3, 1, 1, 1, 3, 0, 0, 0, 3, 3], [0, 0, 1, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
       },
       "Droid Tri-Fighter": {
         name: "Droid Tri-Fighter",
@@ -865,7 +864,7 @@ exportObj.basicCardData = function() {
         hull: 2,
         shields: 2,
         actions: ["Focus", "Lock", "R-Barrel Roll", "Boost", "R> Lock"],
-        maneuvers: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [1, 3, 0, 3, 1, 0, 0, 0, 0, 0], [2, 2, 2, 2, 2, 3, 0, 0, 0, 0], [1, 1, 2, 1, 1, 0, 0, 0, 0, 0], [0, 0, 2, 0, 0, 3, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0, 0, 0]]
+        maneuvers: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [1, 3, 0, 3, 1, 0, 0, 0, 0, 0], [2, 2, 2, 2, 2, 3, 0, 0, 0, 0], [1, 1, 2, 1, 1, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 3, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0, 0, 0]]
       },
       "ETA-2 Actis": {
         name: "ETA-2 Actis",
@@ -3078,7 +3077,7 @@ exportObj.basicCardData = function() {
         points: 67,
         charge: 1,
         recurring: true,
-        slots: ["Talent", "Astromech", "Modification", "Configuration", "Tech", "Title", "HardpointShip"]
+        slots: ["Talent", "Astromech", "Tech", "Modification", "Configuration", "Title", "HardpointShip"]
       }, {
         id: 232,
         skip: true
@@ -3268,7 +3267,7 @@ exportObj.basicCardData = function() {
         ship: "T-70 X-Wing",
         skill: 4,
         points: 51,
-        slots: ["Talent", "Astromech", "Modification", "Configuration", "Tech", "Title", "HardpointShip"]
+        slots: ["Talent", "Astromech", "Tech", "Modification", "Configuration", "Title", "HardpointShip"]
       }, {
         name: "Joph Seastriker",
         id: 253,
@@ -3277,7 +3276,7 @@ exportObj.basicCardData = function() {
         ship: "T-70 X-Wing",
         skill: 3,
         points: 49,
-        slots: ["Talent", "Astromech", "Modification", "Configuration", "Tech", "Title", "HardpointShip"]
+        slots: ["Talent", "Astromech", "Tech", "Modification", "Configuration", "Title", "HardpointShip"]
       }, {
         name: "Lieutenant Bastian",
         id: 254,
@@ -3286,7 +3285,7 @@ exportObj.basicCardData = function() {
         ship: "T-70 X-Wing",
         skill: 2,
         points: 47,
-        slots: ["Astromech", "Modification", "Configuration", "Tech", "Title", "HardpointShip"]
+        slots: ["Astromech", "Tech", "Modification", "Configuration", "Title", "HardpointShip"]
       }, {
         name: "Jaycris Tubbs",
         id: 255,
@@ -3295,7 +3294,7 @@ exportObj.basicCardData = function() {
         ship: "T-70 X-Wing",
         skill: 1,
         points: 48,
-        slots: ["Astromech", "Modification", "Configuration", "Tech", "Title", "HardpointShip"]
+        slots: ["Astromech", "Tech", "Modification", "Configuration", "Title", "HardpointShip"]
       }, {
         name: "Black Squadron Ace (T-70)",
         id: 256,
@@ -3304,7 +3303,7 @@ exportObj.basicCardData = function() {
         ship: "T-70 X-Wing",
         skill: 4,
         points: 47,
-        slots: ["Talent", "Astromech", "Modification", "Configuration", "Tech", "Title", "HardpointShip"]
+        slots: ["Talent", "Astromech", "Tech", "Modification", "Configuration", "Title", "HardpointShip"]
       }, {
         name: "Red Squadron Expert",
         id: 257,
@@ -3312,7 +3311,7 @@ exportObj.basicCardData = function() {
         ship: "T-70 X-Wing",
         skill: 3,
         points: 44,
-        slots: ["Talent", "Astromech", "Modification", "Configuration", "Tech", "Title", "HardpointShip"]
+        slots: ["Talent", "Astromech", "Tech", "Modification", "Configuration", "Title", "HardpointShip"]
       }, {
         name: "Blue Squadron Rookie",
         id: 258,
@@ -3320,7 +3319,7 @@ exportObj.basicCardData = function() {
         ship: "T-70 X-Wing",
         skill: 1,
         points: 42,
-        slots: ["Astromech", "Modification", "Configuration", "Tech", "Title", "HardpointShip"]
+        slots: ["Astromech", "Tech", "Modification", "Configuration", "Title", "HardpointShip"]
       }, {
         name: "Zeta Squadron Survivor",
         id: 259,
@@ -3667,7 +3666,7 @@ exportObj.basicCardData = function() {
         points: 51,
         charge: 1,
         recurring: true,
-        slots: ["Astromech", "Modification", "Configuration", "Tech", "Title", "HardpointShip"]
+        slots: ["Astromech", "Tech", "Modification", "Configuration", "Title", "HardpointShip"]
       }, {
         name: "Temmin Wexley",
         id: 297,
@@ -3676,7 +3675,7 @@ exportObj.basicCardData = function() {
         ship: "T-70 X-Wing",
         skill: 4,
         points: 53,
-        slots: ["Talent", "Astromech", "Modification", "Configuration", "Tech", "Title", "HardpointShip"]
+        slots: ["Talent", "Astromech", "Tech", "Modification", "Configuration", "Title", "HardpointShip"]
       }, {
         name: "Nien Nunb",
         id: 298,
@@ -3685,7 +3684,7 @@ exportObj.basicCardData = function() {
         ship: "T-70 X-Wing",
         skill: 5,
         points: 55,
-        slots: ["Talent", "Astromech", "Modification", "Configuration", "Tech", "Title", "HardpointShip"]
+        slots: ["Talent", "Astromech", "Tech", "Modification", "Configuration", "Title", "HardpointShip"]
       }, {
         name: "Ello Asty",
         id: 299,
@@ -3694,7 +3693,7 @@ exportObj.basicCardData = function() {
         ship: "T-70 X-Wing",
         skill: 5,
         points: 55,
-        slots: ["Talent", "Astromech", "Modification", "Configuration", "Tech", "Title", "HardpointShip"]
+        slots: ["Talent", "Astromech", "Tech", "Modification", "Configuration", "Title", "HardpointShip"]
       }, {
         name: "Green Squadron Expert",
         id: 300,
@@ -4647,7 +4646,7 @@ exportObj.basicCardData = function() {
         skill: 2,
         ship: "Xi-class Light Shuttle",
         points: 200,
-        slots: ["Modification"]
+        slots: ["Tech", "Crew", "Crew", "Modification"]
       }, {
         name: "Agent Terex",
         id: 402,
@@ -4656,16 +4655,17 @@ exportObj.basicCardData = function() {
         skill: 3,
         ship: "Xi-class Light Shuttle",
         points: 200,
-        slots: ["Talent", "Crew", "Modification"]
+        slots: ["Talent", "Tech", "Crew", "Crew", "Illicit", "Illicit", "Modification"]
       }, {
-        name: "Unnamed I4",
+        name: "Gideon Hask (Xi Shuttle)",
+        canonical_name: "Gideon Hask".canonicalize(),
         id: 403,
         faction: "First Order",
         unique: true,
         skill: 4,
         ship: "Xi-class Light Shuttle",
         points: 200,
-        slots: ["Talent", "Crew", "Modification"]
+        slots: ["Talent", "Tech", "Crew", "Crew", "Modification"]
       }, {
         name: "Commander Malarus (Xi Shuttle)",
         canonical_name: "Commander Malarus".canonicalize(),
@@ -4675,7 +4675,7 @@ exportObj.basicCardData = function() {
         skill: 5,
         ship: "Xi-class Light Shuttle",
         points: 200,
-        slots: ["Talent", "Crew", "Modification"]
+        slots: ["Talent", "Tech", "Crew", "Crew", "Modification"]
       }, {
         name: "Generic I1",
         id: 405,
@@ -4735,36 +4735,44 @@ exportObj.basicCardData = function() {
         id: 412,
         faction: "Galactic Republic",
         skill: 2,
+        charge: 2,
+        recurring: true,
         ship: "LAAT/i Gunship",
         points: 200,
-        slots: ["Crew", "Modification"]
+        slots: ["Crew", "Crew", "Gunner", "Modification"]
       }, {
-        name: '"Halo"',
+        name: '"Hound"',
         id: 413,
         faction: "Galactic Republic",
         skill: 2,
         unique: true,
+        charge: 2,
+        recurring: true,
         ship: "LAAT/i Gunship",
         points: 200,
-        slots: ["Crew", "Modification"]
+        slots: ["Crew", "Crew", "Gunner", "Modification"]
       }, {
         name: '"Warthog"',
         id: 414,
         faction: "Galactic Republic",
         skill: 3,
         unique: true,
+        charge: 2,
+        recurring: true,
         ship: "LAAT/i Gunship",
         points: 200,
-        slots: ["Crew", "Modification"]
+        slots: ["Talent", "Crew", "Crew", "Gunner", "Modification"]
       }, {
         name: '"Hawk"',
         id: 415,
         faction: "Galactic Republic",
         skill: 4,
+        charge: 2,
+        recurring: true,
         unique: true,
         ship: "LAAT/i Gunship",
         points: 200,
-        slots: ["Crew", "Modification"]
+        slots: ["Talent", "Crew", "Crew", "Gunner", "Modification"]
       }, {
         name: "Cardia Academy Pilot",
         id: 416,
@@ -5005,7 +5013,7 @@ exportObj.basicCardData = function() {
         points: 200,
         charge: 2,
         recurring: true,
-        slots: ["Talent", "Astromech", "Modification", "Configuration", "Tech", "Title", "HardpointShip"]
+        slots: ["Talent", "Astromech", "Tech", "Modification", "Configuration", "Title", "HardpointShip"]
       }, {
         name: "Temmin Wexley (HoH)",
         canonical_name: 'Temmin Wexley'.canonicalize(),
@@ -5015,7 +5023,7 @@ exportObj.basicCardData = function() {
         ship: "T-70 X-Wing",
         skill: 4,
         points: 200,
-        slots: ["Talent", "Astromech", "Modification", "Configuration", "Tech", "Title", "HardpointShip"]
+        slots: ["Talent", "Astromech", "Tech", "Modification", "Configuration", "Title", "HardpointShip"]
       }, {
         name: "Merl Cobben",
         id: 444,
@@ -7609,7 +7617,7 @@ exportObj.basicCardData = function() {
         slot: "Crew",
         points: 4,
         modifier_func: function(stats) {
-          stats.actions.push('Lock');
+          stats.actions.push('*Lock');
           return stats.actions.push('R> Coordinate');
         },
         restriction_func: function(ship) {
@@ -8165,7 +8173,7 @@ exportObj.basicCardData = function() {
       }, {
         name: "Clone Captain Rex",
         id: 321,
-        slot: "Crew",
+        slot: "Gunner",
         unique: true,
         faction: "Galactic Republic",
         points: 200
@@ -8250,7 +8258,7 @@ exportObj.basicCardData = function() {
         points: 200,
         modifier_func: function(stats) {
           stats.force += 1;
-          stats.actions.push('Focus');
+          stats.actions.push('*Focus');
           return stats.actions.push('> F-Coordinate');
         }
       }, {
@@ -8262,7 +8270,7 @@ exportObj.basicCardData = function() {
         points: 200,
         modifier_func: function(stats) {
           stats.actions.push('Calculate');
-          stats.actions.push('Barrel Roll');
+          stats.actions.push('*Barrel Roll');
           return stats.actions.push('> F-Coordinate');
         }
       }, {
@@ -8342,6 +8350,7 @@ exportObj.basicCardData = function() {
         id: 340,
         charge: 2,
         unique: true,
+        faction: "Galactic Republic",
         slot: "Astromech",
         points: 200
       }, {
@@ -8378,11 +8387,68 @@ exportObj.basicCardData = function() {
         slot: "Modification",
         points: 200
       }, {
-        name: "Commander Pyre",
+        name: '"Fives"',
         id: 346,
+        unique: true,
+        faction: "Galactic Republic",
+        slot: "Crew",
+        points: 200
+      }, {
+        name: "Commander Malarus",
+        id: 347,
         faction: "First Order",
         slot: "Crew",
         points: 200
+      }, {
+        name: "Automated Target Priority",
+        id: 348,
+        slot: "Tech",
+        points: 200,
+        restriction_func: function(ship) {
+          return ship.pilot.skill < 4;
+        }
+      }, {
+        name: "Sensor Buoy Suite",
+        id: 349,
+        faction: "First Order",
+        slot: "Tech",
+        points: 200,
+        restriction_func: function(ship) {
+          return (ship.data.large != null) || (ship.data.medium != null);
+        }
+      }, {
+        name: "Suppressive Gunner",
+        id: 350,
+        slot: "Gunner",
+        points: 200
+      }, {
+        name: "Ghost Company",
+        id: 351,
+        faction: "Galactic Republic",
+        unique: true,
+        slot: "Crew",
+        points: 200,
+        restriction_func: function(ship, upgrade_obj) {
+          return ((__indexOf.call(ship.effectiveStats().actions, "Rotate Arc") >= 0) || (__indexOf.call(ship.effectiveStats().actions, "R-Rotate Arc") >= 0)) && ship.hasAnotherUnoccupiedSlotLike(upgrade_obj, "Gunner");
+        },
+        validation_func: function(ship, upgrade_obj) {
+          return upgrade_obj.occupiesAnUpgradeSlot("Gunner");
+        },
+        also_occupies_upgrades: ["Gunner"]
+      }, {
+        name: "Wolf Pack",
+        id: 352,
+        faction: "Galactic Republic",
+        unique: true,
+        slot: "Crew",
+        points: 200,
+        restriction_func: function(ship, upgrade_obj) {
+          return ship.hasAnotherUnoccupiedSlotLike(upgrade_obj, "Gunner");
+        },
+        validation_func: function(ship, upgrade_obj) {
+          return upgrade_obj.occupiesAnUpgradeSlot("Gunner");
+        },
+        also_occupies_upgrades: ["Gunner"]
       }
     ],
     conditionsById: [
@@ -12189,7 +12255,7 @@ exportObj.hyperspaceShipInclusions = [
   }
 ];
 
-exportObj.hyperspacePilotExclusions = ['Wedge Antilles', 'Biggs Darklighter', 'Kullbee Sperado', 'Leevan Tenza', 'Edrio Two Tubes', 'Cavern Angels Zealot', 'Outer Rim Smuggler', '"Chopper"', 'Lothal Rebel', 'Fenn Rau (Sheathipede)', 'AP-5', '"Wampa"', '"Howlrunner"', '"Night Beast"', '"Wampa"', 'Valen Rudor', 'Scarif Base Pilot', 'Patrol Leader', 'Grand Inquisitor', 'Inquisitor', 'Soontir Fel', 'Old Teroch', 'Foreman Proach', 'Captain Seevor', 'Lando Calrissian (Scum)', 'Freighter Captain', 'Outer Rim Pioneer', 'L3-37 (Escape Craft)', 'Autopilot Drone', 'Moralo Eval', 'Trandoshan Slaver', 'Binayre Pirate', 'Finn', "L'ulo L'ampar", '"Quickdraw"', '"Sinker"', '104th Battalion Pilot', 'Anakin Skywalker', 'Mace Windu', 'Saesee Tiin', '"Kickback"', '"Axe"', 'Gold Squadron Trooper', 'Dark Courier', 'Captain Sear'];
+exportObj.hyperspacePilotExclusions = ['Wedge Antilles', 'Biggs Darklighter', 'Kullbee Sperado', 'Cavern Angels Zealot', 'Outer Rim Smuggler', '"Chopper"', 'Lothal Rebel', 'Fenn Rau (Sheathipede)', 'AP-5', '"Wampa"', '"Howlrunner"', '"Night Beast"', '"Wampa"', 'Valen Rudor', 'Scarif Base Pilot', 'Patrol Leader', 'Grand Inquisitor', 'Inquisitor', 'Soontir Fel', 'Old Teroch', 'Foreman Proach', 'Captain Seevor', 'Lando Calrissian (Scum)', 'Freighter Captain', 'Outer Rim Pioneer', 'L3-37 (Escape Craft)', 'Autopilot Drone', 'Moralo Eval', 'Trandoshan Slaver', 'Binayre Pirate', 'Finn', "L'ulo L'ampar", '"Quickdraw"', '"Sinker"', '104th Battalion Pilot', 'Anakin Skywalker', 'Mace Windu', 'Saesee Tiin', '"Kickback"', '"Axe"', 'Gold Squadron Trooper', 'Dark Courier', 'Captain Sear'];
 
 exportObj.hyperspaceUpgradeExclusions = ['Jyn Erso', 'Bistan', 'Ezra Bridger', '"Chopper" (Astromech)', 'Pivot Wing', 'Baze Malbus', 'Cassian Andor', 'Hera Syndulla', 'Magva Yarro', 'R2-D2 (Crew)', 'Saw Gerrera', 'Han Solo', 'Luke Skywalker', 'Admiral Sloane', 'Ciena Ree', 'Darth Vader', 'Grand Moff Tarkin', 'Minister Tua', 'Moff Jerjerrod', 'ISB Slicer', 'Emperor Palpatine', '"Genius"', 'R5-TK', '4-LOM', 'Cad Bane', 'Cikatro Vizago', 'IG-88D', 'Ketsu Onyo', 'Unkar Plutt', 'Zuckuss', 'Jabba the Hutt', 'Greedo', 'Chewbacca (Scum)', 'L3-37', 'Lando Calrissian (Scum)', "Qi'ra", 'Tobias Beckett', 'Han Solo (Scum)', "Marauder", 'Virago', 'M9-G8', 'C-3PO (Resistance)', 'Chewbacca (Resistance)', 'GA-97', 'Han Solo (Resistance)', 'Rose Tico', 'Finn', 'Rey', 'Paige Tico', "Rey's Millennium Falcon", 'Captain Phasma', 'General Hux', 'Kylo Ren', 'Petty Officer Thanisson', 'Supreme Leader Snoke', 'Biohexacrypt Codes', 'Hyperspace Tracking Data', 'C1-10P', 'R2-A6', 'R2-C4', 'R4-P44', 'Delta-7B', 'Chancellor Palpatine', 'Ahsoka Tano', 'Clone Commander Cody', 'Chancellor Palpatine', 'Energy-Shell Charges', 'Impervium Plating', 'Ensnare', 'Jamming Beam', 'Heavy Laser Cannon', 'GNK "Gonk" Droid', 'Seasoned Navigator', 'Bomblet Generator', 'Electro-Proton Bomb', 'Proximity Mines', 'Hate', 'Precognitive Reflexes', 'Sense', 'Supernatural Reflexes', 'Freelance Slicer', 'Cloaking Device', 'Feedback Array', 'Ablative Plating', 'Debris Gambit', 'Saturation Salvo', 'Hotshot Gunner', 'Skilled Bombardier', 'Veteran Turret Gunner', 'Feedback Array', 'Barrage Rockets', 'Cluster Missiles', 'Homing Missiles', 'Proton Rockets', 'Afterburners', 'Electronic Baffle', 'Shield Upgrade', 'Static Discharge Vanes', 'Stealth Device', 'Tactical Scrambler', 'Advanced Sensors', 'Collision Detector', 'Trajectory Simulator', 'Composure', 'Crack Shot', 'Elusive', 'Juke', 'Lone Wolf', 'Predator', 'Swarm Tactics', 'Trick Shot', 'Pattern Analyzer', 'Ion Torpedoes'];
 
@@ -13986,7 +14052,13 @@ exportObj.cardLoaders.English = function() {
       text: "<strong>Fire Ordinance:</strong> While a friendly ship performs a non-%SINGLETURRETARC% attack, if the defender is in your turret arc you may spend 1 charge token, if you do the attacker may reroll up to 2 results."
     },
     '"Hawk"': {
-      text: "At the start of the end phase if a friendly ship at range 0-1 has a revealed maneuver higher than this one it may gain 1 strain token to perform a boost action. %LINEBREAK%<strong>Fire Ordinance:</strong> While a friendly ship performs a non-%SINGLETURRETARC% attack, if the defender is in your turret arc you may spend 1 charge token, if you do the attacker may reroll up to 2 results."
+      text: "At the start of the End Phase, each friendly ship at range 0-1 that has a revealed maneuver of speed 3-5 may gain 1 strain token to perform a %BARRELROLL% or %BOOST% action. %LINEBREAK%<strong>Fire Ordinance:</strong> While a friendly ship performs a non-%SINGLETURRETARC% attack, if the defender is in your turret arc you may spend 1 charge token, if you do the attacker may reroll up to 2 results."
+    },
+    '"Hound"': {
+      text: "After a friendly ship in your %SINGLETURRETARC% gains a deplete or strain token, if you have no tokens of that type, you may transfer that token to yourself. %LINEBREAK%<strong>Fire Ordinance:</strong> While a friendly ship performs a non-%SINGLETURRETARC% attack, if the defender is in your turret arc you may spend 1 charge token, if you do the attacker may reroll up to 2 results."
+    },
+    '"Warthog"': {
+      text: "After you or a friendly non-limited ship at range 0-2 are destroyed during the Engagement Phase, that ship is not removed until the end of that phase. %LINEBREAK%<strong>Fire Ordinance:</strong> While a friendly ship performs a non-%SINGLETURRETARC% attack, if the defender is in your turret arc you may spend 1 charge token, if you do the attacker may reroll up to 2 results."
     },
     "Separatist Predator": {
       text: "After you barrel roll or maneuver you are stressed. Gain 1 calculate token. %LINEBREAK%<strong>Networked Aim:</strong> You cannot spend your locks to reroll attack dice. While you perform an attack, you may reroll a number of attack dice up to the number of friendly locks on the defender."
@@ -14047,6 +14119,17 @@ exportObj.cardLoaders.English = function() {
     "Merl Cobben": {
       text: "While a friendly ship at range 0-2 performs a primary attack, if you are in the defender's %BULLSEYEARC%, the defender rolls 1 fewer defense die. %LINEBREAK%<strong>Refined Gyrostabilizers:</strong> You can rotate your %SINGLETURRETARC% indicator only to your %FRONTARC% or %REARARC%. After you perform an action, you may perform a red %BOOST% or red %ROTATEARC% action."
     },
+    "Agent Terex": {
+      text: "<strong>Setup:</strong> After placing forces, choose any number of your equipped %ILLICIT% upgrades and equip them to friendly TIE/fo or TIE/sf fighters. Each ship can be assigned only 1 %ILLICIT% this way. %LINEBREAK% <strong>End of Game:</strong> Return all %ILLICIT% upgrades to their original ships."
+    },
+    "Commander Malarus (Xi Shuttle)": {
+      display_name: "Commander Malarus",
+      text: "While a friendly ship at range 0-2 performs a primary attack, if it has 1 or more blank results, that ship <b>must</b> gain 1 strain token to reroll 1 bank result, if able."
+    },
+    "Gideon Hask (Xi Shuttle)": {
+      display_name: "Gideon Hask",
+      text: "While you or a friendly small ship at range 0-2 performs a primary attack against a damaged defender, if the attacker rolled 2 or fewer attack dice, it may gain 1 strain token to roll 1 additiional attack die."
+    },
     "Republic Judiciary": {
       display_name: "Republic Judiciary",
       text: "<i class = flavor_text>The Galactic Republic uses small, swift warships such as the CR90 corvette to respond rapidly to Separatist incursions across the galaxy.</i> %LINEBREAK% <strong>Broadside Batteries:</strong> You can acquire locks and perform primary attacks at range 1-4."
@@ -14091,7 +14174,7 @@ exportObj.cardLoaders.English = function() {
   upgrade_translations = {
     "0-0-0": {
       display_name: "0-0-0",
-      text: "<i>Scum or Squad including Darth Vader only</i>%LINEBREAK%At the start of the Engagement Phase, you may choose 1 enemy ship at range 0-1. If you do, you gain 1 calculate token unless that ship chooses to gain 1 stress token."
+      text: "<i>Scum or Squad including Darth Vader</i>%LINEBREAK%At the start of the Engagement Phase, you may choose 1 enemy ship at range 0-1. If you do, you gain 1 calculate token unless that ship chooses to gain 1 stress token."
     },
     "4-LOM": {
       display_name: "4-LOM",
@@ -14695,7 +14778,7 @@ exportObj.cardLoaders.English = function() {
     },
     "Maul": {
       display_name: "Maul",
-      text: "<i>Scum or Squad including Ezra Bridger or Squad including Ezra Bridger (Sheathipede) or Squad including Ezra Bridger (TIE Fighter) only</i>%LINEBREAK%After you suffer damage, you may gain 1 stress token to recover 1&nbsp;%FORCE%.%LINEBREAK%You can equip “Dark Side” upgrades."
+      text: "<i>Scum or Squad including Ezra Bridger.</i>%LINEBREAK%After you suffer damage, you may gain 1 stress token to recover 1&nbsp;%FORCE%.%LINEBREAK%You can equip “Dark Side” upgrades."
     },
     "Minister Tua": {
       display_name: "Minister Tua",
@@ -15069,7 +15152,7 @@ exportObj.cardLoaders.English = function() {
     },
     "Precognitive Reflexes": {
       display_name: "Precognitive Reflexes",
-      text: "<i>small ship only</i>%LINEBREAK%After you reveal your dial, you may spend 1 %FORCE% to perform a %BARRELROLL% or %BOOST% action. Then, if you performed an action you do not have on your action bar, gain 1 strain token. %LINEBREAK% If you do, you cannot perform another action during your activation."
+      text: "<i>Small ship only</i>%LINEBREAK%After you reveal your dial, you may spend 1 %FORCE% to perform a %BARRELROLL% or %BOOST% action. Then, if you performed an action you do not have on your action bar, gain 1 strain token. %LINEBREAK% If you do, you cannot perform another action during your activation."
     },
     "Foresight": {
       display_name: "Foresight",
@@ -15077,7 +15160,7 @@ exportObj.cardLoaders.English = function() {
     },
     "Angled Deflectors": {
       display_name: "Angled Deflectors",
-      text: "<strong>Requires:</strong> Small or Medium Ship with at least 1 shield %LINEBREAK% <strong>Adds:</strong> %REINFORCE% %LINEBREAK% <strong>Removes:</strong> 1 Shield "
+      text: "<i>Requires: Small or Medium Ship with at least 1 shield %LINEBREAK% Adds %REINFORCE% </i>%LINEBREAK% <strong>Removes:</strong> 1 Shield "
     },
     "C1-10P": {
       display_name: "C1-10P",
@@ -15134,17 +15217,32 @@ exportObj.cardLoaders.English = function() {
     "Agent Terex": {
       text: "<strong>Setup:</strong> Equip this side faceup and place 3 calculate tokens on this card. %LINEBREAK% At the start of the Engagement Phase, you may choose a friendly ship at range 0-3 and remove 1 calculate token from this card to have that ship gain a matching token. Then, if there are no calculate tokens on this card, flip it. %LINEBREAK%<strong>Cyborg:</strong> During the System Phase, roll 1 attack die. On a %HIT% or %CRIT% result, gain 1 calculate token. Otherwise gain 1 jam token. %LINEBREAK% <strong>Action:</strong> Transfer 1 calculate token or 1 jam token to a ship at range 0-3."
     },
-    "Plo Koon": {
-      text: "At the start of the End Phase, if you are reinforced, you may choose 1 friendly ship at range 0 or in your %LEFTARC% or %RIGHTARC% at range 1. That ship removes 1 deplete or strain token, or repairs 1 faceup damage card."
-    },
-    "Commander Pyre": {
-      text: "<strong>Setup:</strong> After placing forces, choose an enemy ship. It gains 2 stress tokens. While you defend, if the attacker is stressed, you may reroll 1 defense die."
-    },
     "Clone Captain Rex": {
       text: "While you perform an attack, you may spend 1 %FOCUS% result. If you do, each friendly ship that has the defender in its %BULLSEYEARC% may gain 1 strain token to perform a %FOCUS% action."
     },
+    '"Fives"': {
+      text: "After you perform an attack that missed, if the defender's initiative is equal or greater than your initiative, place 1 evade or focus token on this card. %LINEBREAK% Before you engage, you may remove 1 token from this card to gain 1 matching token."
+    },
+    "Suppressive Gunner": {
+      text: "While you perform an attack, you may spend 1 %FOCUS% result. If you do, the defender gains 1 deplete token unless it chooses to suffer 1 %HIT% damage."
+    },
+    "Ghost Company": {
+      text: "<i>Requires %ROTATEARC%</i> %LINEBREAK% After you perform a primary attack, if you are focused, you may perform a %SINGLETURRETARC% attack against a ship you have not attacked this round as a bonus attack."
+    },
+    "Wolf Pack": {
+      text: "After a friendly ship at range 0-3 defends, if the attacker is in your firing arc, the defender may gain 1 strain token to acquire a lock on the attacker."
+    },
     "Yoda": {
-      text: "After another friendly ship at range 0-2 fully executes a purple maneuver or performs a purple action, you may spend 1 %FORCE%. If you do, that ship recovers 1 %FORCE%."
+      text: "<i>Adds <f>%COORDINATE%</f></i> %LINEBREAK% After another friendly ship at range 0-2 fully executes a purple maneuver or performs a purple action, you may spend 1 %FORCE%. If you do, that ship recovers 1 %FORCE%."
+    },
+    "Kit Fisto": {
+      text: "<i>Adds <f>%EVADE%</f></i> %LINEBREAK% At the start of the Engagement Phase, you may choose 1 friendly ship at range 0-1 and spend 1 %FORCE%. If you do, it may perform a red %EVADE% action."
+    },
+    "Plo Koon": {
+      text: "<i>Adds <f>%REINFORCE%</f></i> %LINEBREAK% At the start of the End Phase, if you are reinforced, you may choose 1 friendly ship at range 0 or in your %LEFTARC% or %RIGHTARC% at range 1. That ship removes 1 deplete or strain token, or repairs 1 faceup damage card."
+    },
+    "Aayla Secura": {
+      text: "<i>Adds %FOCUS% <i class=\"xwing-miniatures-font xwing-miniatures-font-linked\"></i> <f>%COORDINATE%</f></i> %LINEBREAK% While an enemy ship in your %BULLSEYEARC% performs an attack, if the defender is friendly and at range 0-2, the defender may change 1 blank result to a %FOCUS% result."
     },
     "Repulsorlift Stabilizers": {
       text: "<strong>Inactive: Setup:</strong> Equip this side faceup. Reduce the difficulty of your straight %STRAIGHT% maneuvers.%LINEBREAK% After you fully execute a maneuver, you may flip this card. %LINEBREAK%<strong>Active: </strong>After you reveal a bank (%BANKLEFT% or %BANKRIGHT%) or turn (%TURNLEFT% or %TURNRIGHT%), you must perform that maneuver as a slideslip, then flip this card. %LINEBREAK%After you fully execute a non-sideslip maneuver, you may flip this card."
@@ -15190,6 +15288,18 @@ exportObj.cardLoaders.English = function() {
     },
     "Commander Pyre": {
       text: "<strong>Setup:</strong> After placing forces, choose an enemy ship. It gains 2 stress tokens. %LINEBREAK% While you defend, if the attacker is stressed, you may reroll 1 defense die."
+    },
+    "Commander Malarus": {
+      text: "<strong>Setup:</strong> Equip this side face up. %LINEBREAK% While a friendly non-limited ship at range 0-1 performs a primary attack, that ship may reroll 1 blank result. If it does and the attack does not hit, you <b>must</b> flip thiss card. %LINEBREAK%<strong>Perfected:</strong> While you perform an attack, if the defender is in your %BULLSEYEARC%, you <b>must</b> convert all %FOCUS% results to %HIT% results and gain 1 stress token. Then, if you have 2 or more stress tokens, suffer 1 %HIT% damage."
+    },
+    "Automated Target Priority": {
+      text: "While you perfom an attack, you <b>must</b> choose a defender at the closest valid attack range. %LINEBREAK% After you perform an attack that missed, place 1 calculate token on this card. %LINEBREAK% Before you engage, you may remove 1 calculate token from this card to gain a matching token."
+    },
+    "Sensor Buoy Suite": {
+      text: "<strong>Setup:</strong> Before placing forces, place 2 sensor buoy remotes beyond range 2 of any edge. %LINEBREAK% Before you engage, you may acquire a lock on a ship at range 0-1 of a friendly sensor buoy, ignoring range restrictions."
+    },
+    "Deadeye Shot": {
+      text: "While you perform a primary attack, if the defender is in your %BULLSEYEARC%, you may spend 1 %HIT% result or change 1 %CRIT% result to a %HIT% result. If you do, the defender exposes 1 of its damage cards."
     },
     "Admiral Ozzel": {
       display_name: "Admiral Ozzel",

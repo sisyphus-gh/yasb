@@ -1535,7 +1535,6 @@ exportObj.basicCardData = ->
            agility: 1
            hull: 5
            shields: 3
-           medium: true
            actions: [
              "Calculate"
              "Lock"
@@ -1563,7 +1562,7 @@ exportObj.basicCardData = ->
            actions: [
              "Focus"
              "Lock"
-             "Rotate"
+             "Rotate Arc"
              "R-Reinforce"
              "Reload"
            ]
@@ -1588,14 +1587,14 @@ exportObj.basicCardData = ->
              "Reinforce"
              "Lock"
              "R-Barrel Roll"
-             "Rotate"
+             "Rotate Arc"
              "R> Calculate"
            ]
            maneuvers: [
                 [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
                 [ 3, 1, 2, 1, 3, 0, 0, 0, 0, 0 ]
                 [ 1, 2, 2, 2, 1, 0, 0, 0, 0, 0 ]
-                [ 3, 1, 1, 1, 3, 3, 0, 0, 3, 3 ]
+                [ 3, 1, 1, 1, 3, 0, 0, 0, 3, 3 ]
                 [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 ]
                 [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
            ]
@@ -1643,7 +1642,7 @@ exportObj.basicCardData = ->
                 [ 1, 3, 0, 3, 1, 0, 0, 0, 0, 0 ]
                 [ 2, 2, 2, 2, 2, 3, 0, 0, 0, 0 ]
                 [ 1, 1, 2, 1, 1, 0, 0, 0, 0, 0 ]
-                [ 0, 0, 2, 0, 0, 3, 0, 0, 0, 0 ]
+                [ 0, 0, 1, 0, 0, 3, 0, 0, 0, 0 ]
                 [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 ]
            ]
         "ETA-2 Actis":
@@ -5588,9 +5587,9 @@ exportObj.basicCardData = ->
             slots: [
                 "Talent"
                 "Astromech"
+                "Tech"
                 "Modification"
                 "Configuration"
-                "Tech"
                 "Title"
                 "HardpointShip"
             ]
@@ -5916,9 +5915,9 @@ exportObj.basicCardData = ->
             slots: [
                 "Talent"
                 "Astromech"
+                "Tech"
                 "Modification"
                 "Configuration"
-                "Tech"
                 "Title"
                 "HardpointShip"
             ]
@@ -5934,9 +5933,9 @@ exportObj.basicCardData = ->
             slots: [
                 "Talent"
                 "Astromech"
+                "Tech"
                 "Modification"
                 "Configuration"
-                "Tech"
                 "Title"
                 "HardpointShip"
             ]
@@ -5951,9 +5950,9 @@ exportObj.basicCardData = ->
             points: 47
             slots: [
                 "Astromech"
+                "Tech"
                 "Modification"
                 "Configuration"
-                "Tech"
                 "Title"
                 "HardpointShip"
             ]
@@ -5968,9 +5967,9 @@ exportObj.basicCardData = ->
             points: 48
             slots: [
                 "Astromech"
+                "Tech"
                 "Modification"
                 "Configuration"
-                "Tech"
                 "Title"
                 "HardpointShip"
             ]
@@ -5986,9 +5985,9 @@ exportObj.basicCardData = ->
             slots: [
                 "Talent"
                 "Astromech"
+                "Tech"
                 "Modification"
                 "Configuration"
-                "Tech"
                 "Title"
                 "HardpointShip"
             ]
@@ -6003,9 +6002,9 @@ exportObj.basicCardData = ->
             slots: [
                 "Talent"
                 "Astromech"
+                "Tech"
                 "Modification"
                 "Configuration"
-                "Tech"
                 "Title"
                 "HardpointShip"
             ]
@@ -6019,9 +6018,9 @@ exportObj.basicCardData = ->
             points: 42
             slots: [
                 "Astromech"
+                "Tech"
                 "Modification"
                 "Configuration"
-                "Tech"
                 "Title"
                 "HardpointShip"
             ]
@@ -6627,9 +6626,9 @@ exportObj.basicCardData = ->
             recurring: true
             slots: [
                 "Astromech"
+                "Tech"
                 "Modification"
                 "Configuration"
-                "Tech"
                 "Title"
                 "HardpointShip"
             ]
@@ -6645,9 +6644,9 @@ exportObj.basicCardData = ->
             slots: [
                 "Talent"
                 "Astromech"
+                "Tech"
                 "Modification"
                 "Configuration"
-                "Tech"
                 "Title"
                 "HardpointShip"
             ]
@@ -6663,9 +6662,9 @@ exportObj.basicCardData = ->
             slots: [
                 "Talent"
                 "Astromech"
+                "Tech"
                 "Modification"
                 "Configuration"
-                "Tech"
                 "Title"
                 "HardpointShip"
             ]
@@ -6681,9 +6680,9 @@ exportObj.basicCardData = ->
             slots: [
                 "Talent"
                 "Astromech"
+                "Tech"
                 "Modification"
                 "Configuration"
-                "Tech"
                 "Title"
                 "HardpointShip"
             ]
@@ -8388,6 +8387,9 @@ exportObj.basicCardData = ->
             ship: "Xi-class Light Shuttle"
             points: 200
             slots: [
+                "Tech"
+                "Crew"
+                "Crew"
                 "Modification"
             ]
         }
@@ -8401,12 +8403,17 @@ exportObj.basicCardData = ->
             points: 200
             slots: [
                 "Talent"
+                "Tech"
                 "Crew"
+                "Crew"
+                "Illicit"
+                "Illicit"
                 "Modification"
             ]
         }
         {
-            name: "Unnamed I4"
+            name: "Gideon Hask (Xi Shuttle)"
+            canonical_name: "Gideon Hask".canonicalize()
             id: 403
             faction: "First Order"
             unique: true
@@ -8415,6 +8422,8 @@ exportObj.basicCardData = ->
             points: 200
             slots: [
                 "Talent"
+                "Tech"
+                "Crew"
                 "Crew"
                 "Modification"
             ]
@@ -8430,6 +8439,8 @@ exportObj.basicCardData = ->
             points: 200
             slots: [
                 "Talent"
+                "Tech"
+                "Crew"
                 "Crew"
                 "Modification"
             ]
@@ -8539,23 +8550,31 @@ exportObj.basicCardData = ->
             id: 412
             faction: "Galactic Republic"
             skill: 2
+            charge: 2
+            recurring: true
             ship: "LAAT/i Gunship"
             points: 200
             slots: [
                 "Crew"
+                "Crew"
+                "Gunner"
                 "Modification"
             ]
         }
         {
-            name: '"Halo"'
+            name: '"Hound"'
             id: 413
             faction: "Galactic Republic"
             skill: 2
             unique: true
+            charge: 2
+            recurring: true
             ship: "LAAT/i Gunship"
             points: 200
             slots: [
                 "Crew"
+                "Crew"
+                "Gunner"
                 "Modification"
             ]
         }
@@ -8565,10 +8584,15 @@ exportObj.basicCardData = ->
             faction: "Galactic Republic"
             skill: 3
             unique: true
+            charge: 2
+            recurring: true
             ship: "LAAT/i Gunship"
             points: 200
             slots: [
+                "Talent"
                 "Crew"
+                "Crew"
+                "Gunner"
                 "Modification"
             ]
         }
@@ -8577,11 +8601,16 @@ exportObj.basicCardData = ->
             id: 415
             faction: "Galactic Republic"
             skill: 4
+            charge: 2
+            recurring: true
             unique: true
             ship: "LAAT/i Gunship"
             points: 200
             slots: [
+                "Talent"
                 "Crew"
+                "Crew"
+                "Gunner"
                 "Modification"
             ]
         }
@@ -8997,9 +9026,9 @@ exportObj.basicCardData = ->
             slots: [
                 "Talent"
                 "Astromech"
+                "Tech"
                 "Modification"
                 "Configuration"
-                "Tech"
                 "Title"
                 "HardpointShip"
             ]
@@ -9016,9 +9045,9 @@ exportObj.basicCardData = ->
             slots: [
                 "Talent"
                 "Astromech"
+                "Tech"
                 "Modification"
                 "Configuration"
-                "Tech"
                 "Title"
                 "HardpointShip"
             ]
@@ -11635,7 +11664,7 @@ exportObj.basicCardData = ->
             slot: "Crew"
             points: 4
             modifier_func: (stats) ->
-                stats.actions.push 'Lock'
+                stats.actions.push '*Lock'
                 stats.actions.push 'R> Coordinate'
             restriction_func: (ship) ->
                 ship.data.huge?
@@ -12210,7 +12239,7 @@ exportObj.basicCardData = ->
        {
             name: "Clone Captain Rex"
             id: 321
-            slot: "Crew"
+            slot: "Gunner"
             unique: true
             faction: "Galactic Republic"
             points: 200
@@ -12291,7 +12320,7 @@ exportObj.basicCardData = ->
             points: 200
             modifier_func: (stats) ->
                 stats.force += 1
-                stats.actions.push 'Focus'
+                stats.actions.push '*Focus'
                 stats.actions.push '> F-Coordinate'
        }
        {
@@ -12303,7 +12332,7 @@ exportObj.basicCardData = ->
             points: 200
             modifier_func: (stats) ->
                 stats.actions.push 'Calculate'
-                stats.actions.push 'Barrel Roll'
+                stats.actions.push '*Barrel Roll'
                 stats.actions.push '> F-Coordinate'
        }
        {
@@ -12390,6 +12419,7 @@ exportObj.basicCardData = ->
             id: 340
             charge: 2
             unique: true
+            faction: "Galactic Republic"
             slot: "Astromech"
             points: 200
        }
@@ -12429,12 +12459,69 @@ exportObj.basicCardData = ->
             points: 200
        }
        {
-            name: "Commander Pyre"
+            name: '"Fives"'
             id: 346
+            unique: true
+            faction: "Galactic Republic"
+            slot: "Crew"
+            points: 200
+       }
+       {
+            name: "Commander Malarus"
+            id: 347
             faction: "First Order"
             slot: "Crew"
             points: 200
        }
+       {
+            name: "Automated Target Priority"
+            id: 348
+            slot: "Tech"
+            points: 200
+            restriction_func: (ship) ->
+                ship.pilot.skill < 4
+       }
+       {
+            name: "Sensor Buoy Suite"
+            id: 349
+            faction: "First Order"
+            slot: "Tech"
+            points: 200
+            restriction_func: (ship) ->
+                ship.data.large? or ship.data.medium?
+       }
+       {
+            name: "Suppressive Gunner"
+            id: 350
+            slot: "Gunner"
+            points: 200
+       }
+       {
+            name: "Ghost Company"
+            id: 351
+            faction: "Galactic Republic"
+            unique: true
+            slot: "Crew"
+            points: 200
+            restriction_func: (ship, upgrade_obj) ->
+                (("Rotate Arc" in ship.effectiveStats().actions) or ("R-Rotate Arc" in ship.effectiveStats().actions)) and ship.hasAnotherUnoccupiedSlotLike(upgrade_obj, "Gunner")
+            validation_func: (ship, upgrade_obj) ->
+                upgrade_obj.occupiesAnUpgradeSlot "Gunner"
+            also_occupies_upgrades: [ "Gunner" ]
+       }
+       {
+            name: "Wolf Pack"
+            id: 352
+            faction: "Galactic Republic"
+            unique: true
+            slot: "Crew"
+            points: 200
+            restriction_func: (ship, upgrade_obj) ->
+                ship.hasAnotherUnoccupiedSlotLike(upgrade_obj, "Gunner")
+            validation_func: (ship, upgrade_obj) ->
+                upgrade_obj.occupiesAnUpgradeSlot "Gunner"
+            also_occupies_upgrades: [ "Gunner" ]
+       }       
     ]
 
 
@@ -18428,8 +18515,6 @@ exportObj.hyperspacePilotExclusions = [
     'Wedge Antilles',
     'Biggs Darklighter',
     'Kullbee Sperado',
-    'Leevan Tenza',
-    'Edrio Two Tubes',
     'Cavern Angels Zealot',
     'Outer Rim Smuggler',
     '"Chopper"',
@@ -20008,7 +20093,11 @@ exportObj.cardLoaders.English = () ->
         "212th Battalion Pilot":
            text: """<strong>Fire Ordinance:</strong> While a friendly ship performs a non-%SINGLETURRETARC% attack, if the defender is in your turret arc you may spend 1 charge token, if you do the attacker may reroll up to 2 results."""
         '"Hawk"':
-           text: """At the start of the end phase if a friendly ship at range 0-1 has a revealed maneuver higher than this one it may gain 1 strain token to perform a boost action. %LINEBREAK%<strong>Fire Ordinance:</strong> While a friendly ship performs a non-%SINGLETURRETARC% attack, if the defender is in your turret arc you may spend 1 charge token, if you do the attacker may reroll up to 2 results."""
+           text: """At the start of the End Phase, each friendly ship at range 0-1 that has a revealed maneuver of speed 3-5 may gain 1 strain token to perform a %BARRELROLL% or %BOOST% action. %LINEBREAK%<strong>Fire Ordinance:</strong> While a friendly ship performs a non-%SINGLETURRETARC% attack, if the defender is in your turret arc you may spend 1 charge token, if you do the attacker may reroll up to 2 results."""
+        '"Hound"':
+           text: """After a friendly ship in your %SINGLETURRETARC% gains a deplete or strain token, if you have no tokens of that type, you may transfer that token to yourself. %LINEBREAK%<strong>Fire Ordinance:</strong> While a friendly ship performs a non-%SINGLETURRETARC% attack, if the defender is in your turret arc you may spend 1 charge token, if you do the attacker may reroll up to 2 results."""
+        '"Warthog"':
+           text: """After you or a friendly non-limited ship at range 0-2 are destroyed during the Engagement Phase, that ship is not removed until the end of that phase. %LINEBREAK%<strong>Fire Ordinance:</strong> While a friendly ship performs a non-%SINGLETURRETARC% attack, if the defender is in your turret arc you may spend 1 charge token, if you do the attacker may reroll up to 2 results."""
         "Separatist Predator":
            text: """After you barrel roll or maneuver you are stressed. Gain 1 calculate token. %LINEBREAK%<strong>Networked Aim:</strong> You cannot spend your locks to reroll attack dice. While you perform an attack, you may reroll a number of attack dice up to the number of friendly locks on the defender."""
         "Jedi Knight (ETA-2)":
@@ -20049,6 +20138,14 @@ exportObj.cardLoaders.English = () ->
            text: """At the start of the Engagement Phase, each friendly T-70 X-wing at range 0-3 may gain 1 strain token to flip its equipped %CONFIGURATION% upgrade. If it does, that ship gains 1 calculate token. %LINEBREAK%<strong>Weapon Hardpoint:</strong> You can equip 1&nbsp;%CANNON%, %TORPEDO%, or %MISSILE% upgrade."""
         "Merl Cobben":
            text: """While a friendly ship at range 0-2 performs a primary attack, if you are in the defender's %BULLSEYEARC%, the defender rolls 1 fewer defense die. %LINEBREAK%<strong>Refined Gyrostabilizers:</strong> You can rotate your %SINGLETURRETARC% indicator only to your %FRONTARC% or %REARARC%. After you perform an action, you may perform a red %BOOST% or red %ROTATEARC% action."""
+        "Agent Terex":
+           text: """<strong>Setup:</strong> After placing forces, choose any number of your equipped %ILLICIT% upgrades and equip them to friendly TIE/fo or TIE/sf fighters. Each ship can be assigned only 1 %ILLICIT% this way. %LINEBREAK% <strong>End of Game:</strong> Return all %ILLICIT% upgrades to their original ships."""
+        "Commander Malarus (Xi Shuttle)":
+           display_name: """Commander Malarus"""
+           text: """While a friendly ship at range 0-2 performs a primary attack, if it has 1 or more blank results, that ship <b>must</b> gain 1 strain token to reroll 1 bank result, if able."""
+        "Gideon Hask (Xi Shuttle)":
+           display_name: """Gideon Hask"""
+           text: """While you or a friendly small ship at range 0-2 performs a primary attack against a damaged defender, if the attacker rolled 2 or fewer attack dice, it may gain 1 strain token to roll 1 additiional attack die."""
 
             
         # Epic Ships
@@ -20088,7 +20185,7 @@ exportObj.cardLoaders.English = () ->
     upgrade_translations =
         "0-0-0":
            display_name: """0-0-0"""
-           text: """<i>Scum or Squad including Darth Vader only</i>%LINEBREAK%At the start of the Engagement Phase, you may choose 1 enemy ship at range 0-1. If you do, you gain 1 calculate token unless that ship chooses to gain 1 stress token."""
+           text: """<i>Scum or Squad including Darth Vader</i>%LINEBREAK%At the start of the Engagement Phase, you may choose 1 enemy ship at range 0-1. If you do, you gain 1 calculate token unless that ship chooses to gain 1 stress token."""
         "4-LOM":
            display_name: """4-LOM"""
            text: """<i>Scum only</i>%LINEBREAK%While you perform an attack, after rolling attack dice, you may name a type of green token. If you do, gain 2 ion tokens and, during this attack, the defender cannot spend tokens of the named type."""
@@ -20540,7 +20637,7 @@ exportObj.cardLoaders.English = () ->
            text: """While you perform an attack, if the defender is in your %BULLSEYEARC%, you may change 1&nbsp;%HIT% result to a %CRIT% result."""
         "Maul":
            display_name: """Maul"""
-           text: """<i>Scum or Squad including Ezra Bridger or Squad including Ezra Bridger (Sheathipede) or Squad including Ezra Bridger (TIE Fighter) only</i>%LINEBREAK%After you suffer damage, you may gain 1 stress token to recover 1&nbsp;%FORCE%.%LINEBREAK%You can equip “Dark Side” upgrades."""
+           text: """<i>Scum or Squad including Ezra Bridger.</i>%LINEBREAK%After you suffer damage, you may gain 1 stress token to recover 1&nbsp;%FORCE%.%LINEBREAK%You can equip “Dark Side” upgrades."""
         "Minister Tua":
            display_name: """Minister Tua"""
            text: """<i>Empire only</i>%LINEBREAK%At the start of the Engagement Phase, if you are damaged, you may perform a red %REINFORCE% action."""
@@ -20820,13 +20917,13 @@ exportObj.cardLoaders.English = () ->
            text: """<i>Resistance only</i>%LINEBREAK% After you fully execute a blue maneuver, remove all of your stress tokens."""
         "Precognitive Reflexes":
            display_name: """Precognitive Reflexes"""
-           text: """<i>small ship only</i>%LINEBREAK%After you reveal your dial, you may spend 1 %FORCE% to perform a %BARRELROLL% or %BOOST% action. Then, if you performed an action you do not have on your action bar, gain 1 strain token. %LINEBREAK% If you do, you cannot perform another action during your activation."""
+           text: """<i>Small ship only</i>%LINEBREAK%After you reveal your dial, you may spend 1 %FORCE% to perform a %BARRELROLL% or %BOOST% action. Then, if you performed an action you do not have on your action bar, gain 1 strain token. %LINEBREAK% If you do, you cannot perform another action during your activation."""
         "Foresight":
            display_name: """Foresight"""
            text: """After an enemy ship executes a maneuver, you may spend 1 %FORCE% to perform this attack against it as a bonus attack. %LINEBREAK% <strong>Attack:</strong> You may change 1 %FOCUS% result to a %HIT% result; your dice cannot be modified otherwise."""
         "Angled Deflectors":
            display_name: """Angled Deflectors"""
-           text: """<strong>Requires:</strong> Small or Medium Ship with at least 1 shield %LINEBREAK% <strong>Adds:</strong> %REINFORCE% %LINEBREAK% <strong>Removes:</strong> 1 Shield """
+           text: """<i>Requires: Small or Medium Ship with at least 1 shield %LINEBREAK% Adds %REINFORCE% </i>%LINEBREAK% <strong>Removes:</strong> 1 Shield """
             
         "C1-10P":
            display_name: """C1-10P"""
@@ -20868,14 +20965,24 @@ exportObj.cardLoaders.English = () ->
            text: """<strong>Setup:</strong> When you resolve <strong>Explosion with Wings</strong>, you may search the damage deck and choose a damage card with the <b>Ship</b> trait: you are dealt that card instead. Then, shuffle the damage deck. %LINEBREAK% You can perform actions of damage cards even while ionized."""
         "Agent Terex":
            text: """<strong>Setup:</strong> Equip this side faceup and place 3 calculate tokens on this card. %LINEBREAK% At the start of the Engagement Phase, you may choose a friendly ship at range 0-3 and remove 1 calculate token from this card to have that ship gain a matching token. Then, if there are no calculate tokens on this card, flip it. %LINEBREAK%<strong>Cyborg:</strong> During the System Phase, roll 1 attack die. On a %HIT% or %CRIT% result, gain 1 calculate token. Otherwise gain 1 jam token. %LINEBREAK% <strong>Action:</strong> Transfer 1 calculate token or 1 jam token to a ship at range 0-3."""
-        "Plo Koon":
-           text: """At the start of the End Phase, if you are reinforced, you may choose 1 friendly ship at range 0 or in your %LEFTARC% or %RIGHTARC% at range 1. That ship removes 1 deplete or strain token, or repairs 1 faceup damage card."""
-        "Commander Pyre":
-           text: """<strong>Setup:</strong> After placing forces, choose an enemy ship. It gains 2 stress tokens. While you defend, if the attacker is stressed, you may reroll 1 defense die."""
         "Clone Captain Rex":
            text: """While you perform an attack, you may spend 1 %FOCUS% result. If you do, each friendly ship that has the defender in its %BULLSEYEARC% may gain 1 strain token to perform a %FOCUS% action."""
+        '"Fives"':
+           text: """After you perform an attack that missed, if the defender's initiative is equal or greater than your initiative, place 1 evade or focus token on this card. %LINEBREAK% Before you engage, you may remove 1 token from this card to gain 1 matching token."""
+        "Suppressive Gunner":
+           text: """While you perform an attack, you may spend 1 %FOCUS% result. If you do, the defender gains 1 deplete token unless it chooses to suffer 1 %HIT% damage."""
+        "Ghost Company":
+           text: """<i>Requires %ROTATEARC%</i> %LINEBREAK% After you perform a primary attack, if you are focused, you may perform a %SINGLETURRETARC% attack against a ship you have not attacked this round as a bonus attack."""
+        "Wolf Pack":
+           text: """After a friendly ship at range 0-3 defends, if the attacker is in your firing arc, the defender may gain 1 strain token to acquire a lock on the attacker."""
         "Yoda":
-           text: """After another friendly ship at range 0-2 fully executes a purple maneuver or performs a purple action, you may spend 1 %FORCE%. If you do, that ship recovers 1 %FORCE%."""
+           text: """<i>Adds <f>%COORDINATE%</f></i> %LINEBREAK% After another friendly ship at range 0-2 fully executes a purple maneuver or performs a purple action, you may spend 1 %FORCE%. If you do, that ship recovers 1 %FORCE%."""
+        "Kit Fisto":
+           text: """<i>Adds <f>%EVADE%</f></i> %LINEBREAK% At the start of the Engagement Phase, you may choose 1 friendly ship at range 0-1 and spend 1 %FORCE%. If you do, it may perform a red %EVADE% action."""
+        "Plo Koon":
+           text: """<i>Adds <f>%REINFORCE%</f></i> %LINEBREAK% At the start of the End Phase, if you are reinforced, you may choose 1 friendly ship at range 0 or in your %LEFTARC% or %RIGHTARC% at range 1. That ship removes 1 deplete or strain token, or repairs 1 faceup damage card."""
+        "Aayla Secura":
+           text: """<i>Adds %FOCUS% <i class="xwing-miniatures-font xwing-miniatures-font-linked"></i> <f>%COORDINATE%</f></i> %LINEBREAK% While an enemy ship in your %BULLSEYEARC% performs an attack, if the defender is friendly and at range 0-2, the defender may change 1 blank result to a %FOCUS% result."""
         "Repulsorlift Stabilizers":
            text: """<strong>Inactive: Setup:</strong> Equip this side faceup. Reduce the difficulty of your straight %STRAIGHT% maneuvers.%LINEBREAK% After you fully execute a maneuver, you may flip this card. %LINEBREAK%<strong>Active: </strong>After you reveal a bank (%BANKLEFT% or %BANKRIGHT%) or turn (%TURNLEFT% or %TURNRIGHT%), you must perform that maneuver as a slideslip, then flip this card. %LINEBREAK%After you fully execute a non-sideslip maneuver, you may flip this card."""
         "Multi-Missle Pods":
@@ -20906,7 +21013,14 @@ exportObj.cardLoaders.English = () ->
            text: """While you perform a red %BOOST%. %BARRELROLL%, or %SLAM% action, you <b>must</b> use a template of 1 speed higher if able."""
         "Commander Pyre":
            text: """<strong>Setup:</strong> After placing forces, choose an enemy ship. It gains 2 stress tokens. %LINEBREAK% While you defend, if the attacker is stressed, you may reroll 1 defense die."""
-
+        "Commander Malarus":
+           text: """<strong>Setup:</strong> Equip this side face up. %LINEBREAK% While a friendly non-limited ship at range 0-1 performs a primary attack, that ship may reroll 1 blank result. If it does and the attack does not hit, you <b>must</b> flip thiss card. %LINEBREAK%<strong>Perfected:</strong> While you perform an attack, if the defender is in your %BULLSEYEARC%, you <b>must</b> convert all %FOCUS% results to %HIT% results and gain 1 stress token. Then, if you have 2 or more stress tokens, suffer 1 %HIT% damage."""
+        "Automated Target Priority":
+           text: """While you perfom an attack, you <b>must</b> choose a defender at the closest valid attack range. %LINEBREAK% After you perform an attack that missed, place 1 calculate token on this card. %LINEBREAK% Before you engage, you may remove 1 calculate token from this card to gain a matching token."""
+        "Sensor Buoy Suite":
+           text: """<strong>Setup:</strong> Before placing forces, place 2 sensor buoy remotes beyond range 2 of any edge. %LINEBREAK% Before you engage, you may acquire a lock on a ship at range 0-1 of a friendly sensor buoy, ignoring range restrictions."""
+        "Deadeye Shot":
+           text: """While you perform a primary attack, if the defender is in your %BULLSEYEARC%, you may spend 1 %HIT% result or change 1 %CRIT% result to a %HIT% result. If you do, the defender exposes 1 of its damage cards."""
 
 
         # Epic upgrades
