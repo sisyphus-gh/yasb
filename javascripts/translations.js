@@ -5982,8 +5982,8 @@
         text: "<strong>设置:</strong> 在部署军力前，将2个浮空传感器遥控机放在任何桌边的距离2外。 %LINEBREAK% 在你交战前，你可以选择对在一个友方浮空传感器距离0-1的一个战机的锁定，无视距离限制。"
       },
       "Kalani": {
-        display_name: "",
-        text: "After an enemy ship executes a maneuver, if it is in the %BULLSEYEARC% of a friendly ship at range 0-3, you may spend 1 %CHARGE%. If you do, that friendly ship acquires a lock on that enemy ship, then gains 1 stress token."
+        display_name: "卡拉尼",
+        text: "在一个敌方战机执行一次移动后，如果它在一个在距离0-3的友方战机的【靶心范围】，你可以选择花费1【充能】。如此的话，该友方战机获得一个对该敌方战机的锁定，然后获得1枚压力标记。"
       }
     };
     condition_translations = {
