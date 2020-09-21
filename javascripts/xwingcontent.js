@@ -4781,7 +4781,7 @@ exportObj.basicCardData = function() {
         skill: 1,
         ship: "TIE/rb Heavy",
         points: 200,
-        slots: ["Crew", "Modification", "Configuration"]
+        slots: ["Cannon", "Cannon", "Modification", "Configuration"]
       }, {
         name: "Onyx Squadron Sentry",
         id: 417,
@@ -4789,7 +4789,7 @@ exportObj.basicCardData = function() {
         skill: 3,
         ship: "TIE/rb Heavy",
         points: 200,
-        slots: ["Talent", "Cannon", "Modification", "Configuration"]
+        slots: ["Talent", "Cannon", "Cannon", "Modification", "Configuration"]
       }, {
         name: "Lyttan Dree",
         id: 418,
@@ -4798,7 +4798,7 @@ exportObj.basicCardData = function() {
         unique: true,
         ship: "TIE/rb Heavy",
         points: 200,
-        slots: ["Talent", "Cannon", "Modification", "Configuration"]
+        slots: ["Talent", "Cannon", "Cannon", "Modification", "Configuration"]
       }, {
         name: '"Rampage"',
         id: 419,
@@ -4807,7 +4807,7 @@ exportObj.basicCardData = function() {
         unique: true,
         ship: "TIE/rb Heavy",
         points: 200,
-        slots: ["Talent", "Cannon", "Modification", "Configuration"]
+        slots: ["Talent", "Cannon", "Cannon", "Modification", "Configuration"]
       }, {
         name: "Limited I3",
         id: 420,
@@ -6220,7 +6220,7 @@ exportObj.basicCardData = function() {
         name: "Squad Leader",
         id: 131,
         slot: "Talent",
-        pointsarray: [2, 4, 6, 8, 10, 12, 14, 16, 18],
+        pointsarray: [2, 4, 6, 8, 10, 12, 14],
         variableinit: true,
         unique: true,
         modifier_func: function(stats) {
@@ -6232,7 +6232,7 @@ exportObj.basicCardData = function() {
         name: "Swarm Tactics",
         id: 132,
         slot: "Talent",
-        pointsarray: [3, 3, 3, 3, 3, 4, 5, 6, 7],
+        pointsarray: [3, 3, 3, 3, 3, 4, 5],
         variableinit: true
       }, {
         name: "Trick Shot",
@@ -6663,7 +6663,7 @@ exportObj.basicCardData = function() {
         name: "Primed Thrusters",
         id: 178,
         slot: "Tech",
-        pointsarray: [4, 5, 6, 7, 8, 9, 10, 11, 12],
+        pointsarray: [4, 5, 6, 7, 8, 9, 10],
         variableinit: true,
         restriction_func: function(ship) {
           return !((ship.data.large != null) || (ship.data.medium != null) || (ship.data.huge != null));
@@ -6967,7 +6967,7 @@ exportObj.basicCardData = function() {
         id: 212,
         faction: "Galactic Republic",
         slot: "Force",
-        pointsarray: [4, 4, 4, 4, 6, 8, 10],
+        pointsarray: [0, 0, 2, 4, 6, 8, 10],
         variableinit: true,
         modifier_func: function(stats) {
           if (__indexOf.call(stats.actions, 'F-Coordinate') < 0) {
@@ -7244,7 +7244,7 @@ exportObj.basicCardData = function() {
         slot: "Sensor",
         charge: 1,
         recurring: true,
-        pointsarray: [2, 2, 2, 2, 2, 4, 6, 7, 8],
+        pointsarray: [2, 2, 2, 2, 2, 4, 6, 8, 10],
         variableinit: true
       }, {
         name: "R2-A6",
@@ -8272,7 +8272,7 @@ exportObj.basicCardData = function() {
         modifier_func: function(stats) {
           stats.actions.push('Calculate');
           stats.actions.push('*Barrel Roll');
-          return stats.actions.push('> F-Coordinate');
+          return stats.actions.push('*R> Calculate');
         }
       }, {
         name: "Ion Limiter Override",
@@ -8486,6 +8486,18 @@ exportObj.basicCardData = function() {
         charge: 3,
         points: 200,
         applies_condition: 'Concussion Bomb'.canonicalize()
+      }, {
+        name: "Target-Assist MGK-300",
+        id: 356,
+        slot: "Configuration",
+        ship: "TIE/rb Heavy",
+        faction: "Galactic Empire",
+        points: 200,
+        modifier_func: function(stats) {
+          stats.actions.push('Calculate');
+          stats.actions.push('*Rotate Arc');
+          return stats.actions.push('> Calculate');
+        }
       }
     ],
     conditionsById: [
@@ -12297,7 +12309,7 @@ exportObj.hyperspaceShipInclusions = [
 
 exportObj.hyperspacePilotExclusions = ['Wedge Antilles', 'Biggs Darklighter', 'Kullbee Sperado', 'Cavern Angels Zealot', 'Outer Rim Smuggler', '"Chopper"', 'Lothal Rebel', 'Fenn Rau (Sheathipede)', 'AP-5', '"Wampa"', '"Howlrunner"', '"Night Beast"', '"Wampa"', 'Valen Rudor', 'Scarif Base Pilot', 'Patrol Leader', 'Grand Inquisitor', 'Inquisitor', 'Soontir Fel', 'Old Teroch', 'Foreman Proach', 'Captain Seevor', 'Lando Calrissian (Scum)', 'Freighter Captain', 'Outer Rim Pioneer', 'L3-37 (Escape Craft)', 'Autopilot Drone', 'Moralo Eval', 'Trandoshan Slaver', 'Binayre Pirate', 'Finn', "L'ulo L'ampar", '"Quickdraw"', '"Sinker"', '104th Battalion Pilot', 'Anakin Skywalker', 'Mace Windu', 'Saesee Tiin', '"Kickback"', '"Axe"', 'Gold Squadron Trooper', 'Dark Courier', 'Captain Sear'];
 
-exportObj.hyperspaceUpgradeExclusions = ['Jyn Erso', 'Bistan', 'Ezra Bridger', '"Chopper" (Astromech)', 'Pivot Wing', 'Baze Malbus', 'Cassian Andor', 'Hera Syndulla', 'Magva Yarro', 'R2-D2 (Crew)', 'Saw Gerrera', 'Han Solo', 'Luke Skywalker', 'Admiral Sloane', 'Ciena Ree', 'Darth Vader', 'Grand Moff Tarkin', 'Minister Tua', 'Moff Jerjerrod', 'ISB Slicer', 'Emperor Palpatine', '"Genius"', 'R5-TK', '4-LOM', 'Cad Bane', 'Cikatro Vizago', 'IG-88D', 'Ketsu Onyo', 'Unkar Plutt', 'Zuckuss', 'Jabba the Hutt', 'Greedo', 'Chewbacca (Scum)', 'L3-37', 'Lando Calrissian (Scum)', "Qi'ra", 'Tobias Beckett', 'Han Solo (Scum)', "Marauder", 'Virago', 'M9-G8', 'C-3PO (Resistance)', 'Chewbacca (Resistance)', 'GA-97', 'Han Solo (Resistance)', 'Rose Tico', 'Finn', 'Rey', 'Paige Tico', "Rey's Millennium Falcon", 'Captain Phasma', 'General Hux', 'Kylo Ren', 'Petty Officer Thanisson', 'Supreme Leader Snoke', 'Biohexacrypt Codes', 'Hyperspace Tracking Data', 'C1-10P', 'R2-A6', 'R2-C4', 'R4-P44', 'Delta-7B', 'Chancellor Palpatine', 'Ahsoka Tano', 'Clone Commander Cody', 'Chancellor Palpatine', 'Energy-Shell Charges', 'Impervium Plating', 'Ensnare', 'Jamming Beam', 'Heavy Laser Cannon', 'GNK "Gonk" Droid', 'Seasoned Navigator', 'Bomblet Generator', 'Electro-Proton Bomb', 'Proximity Mines', 'Hate', 'Precognitive Reflexes', 'Sense', 'Supernatural Reflexes', 'Freelance Slicer', 'Cloaking Device', 'Feedback Array', 'Ablative Plating', 'Debris Gambit', 'Saturation Salvo', 'Hotshot Gunner', 'Skilled Bombardier', 'Veteran Turret Gunner', 'Feedback Array', 'Barrage Rockets', 'Cluster Missiles', 'Homing Missiles', 'Proton Rockets', 'Afterburners', 'Electronic Baffle', 'Shield Upgrade', 'Static Discharge Vanes', 'Stealth Device', 'Tactical Scrambler', 'Advanced Sensors', 'Collision Detector', 'Trajectory Simulator', 'Composure', 'Crack Shot', 'Elusive', 'Juke', 'Lone Wolf', 'Predator', 'Swarm Tactics', 'Trick Shot', 'Pattern Analyzer', 'Ion Torpedoes'];
+exportObj.hyperspaceUpgradeExclusions = ['Jyn Erso', 'Bistan', 'Ezra Bridger', '"Chopper" (Astromech)', 'Pivot Wing', 'Baze Malbus', 'Cassian Andor', 'Hera Syndulla', 'Magva Yarro', 'R2-D2 (Crew)', 'Saw Gerrera', 'Han Solo', 'Luke Skywalker', 'Admiral Sloane', 'Ciena Ree', 'Darth Vader', 'Grand Moff Tarkin', 'Minister Tua', 'Moff Jerjerrod', 'ISB Slicer', 'Emperor Palpatine', '"Genius"', 'R5-TK', '4-LOM', 'Cad Bane', 'Cikatro Vizago', 'IG-88D', 'Ketsu Onyo', 'Unkar Plutt', 'Zuckuss', 'Jabba the Hutt', 'Greedo', 'Chewbacca (Scum)', 'L3-37', 'Lando Calrissian (Scum)', "Qi'ra", 'Tobias Beckett', 'Han Solo (Scum)', 'Virago', 'C-3PO (Resistance)', 'Chewbacca (Resistance)', 'GA-97', 'Han Solo (Resistance)', 'Rose Tico', 'Finn', 'Rey', 'Paige Tico', "Rey's Millennium Falcon", 'Captain Phasma', 'General Hux', 'Kylo Ren', 'Petty Officer Thanisson', 'Supreme Leader Snoke', 'Biohexacrypt Codes', 'Hyperspace Tracking Data', 'C1-10P', 'R2-A6', 'R2-C4', 'R4-P44', 'Delta-7B', 'Chancellor Palpatine', 'Ahsoka Tano', 'Clone Commander Cody', 'Chancellor Palpatine', 'Energy-Shell Charges', 'Impervium Plating', 'Ensnare', 'Jamming Beam', 'Heavy Laser Cannon', 'GNK "Gonk" Droid', 'Seasoned Navigator', 'Bomblet Generator', 'Electro-Proton Bomb', 'Proximity Mines', 'Hate', 'Precognitive Reflexes', 'Sense', 'Supernatural Reflexes', 'Freelance Slicer', 'Cloaking Device', 'Feedback Array', 'Ablative Plating', 'Debris Gambit', 'Saturation Salvo', 'Hotshot Gunner', 'Skilled Bombardier', 'Veteran Turret Gunner', 'Feedback Array', 'Barrage Rockets', 'Cluster Missiles', 'Homing Missiles', 'Proton Rockets', 'Afterburners', 'Electronic Baffle', 'Shield Upgrade', 'Static Discharge Vanes', 'Stealth Device', 'Tactical Scrambler', 'Advanced Sensors', 'Collision Detector', 'Trajectory Simulator', 'Composure', 'Crack Shot', 'Elusive', 'Juke', 'Lone Wolf', 'Predator', 'Swarm Tactics', 'Trick Shot', 'Pattern Analyzer', 'Ion Torpedoes'];
 
 exportObj.epicExclusionsList = ['CR90 Corellian Corvette', 'Raider-class Corvette', 'GR-75 Medium Transport', 'Gozanti-class Cruiser', 'C-ROC Cruiser'];
 
@@ -14154,7 +14166,7 @@ exportObj.cardLoaders.English = function() {
       text: " %LINEBREAK%<strong>Networked Calculations:</strong> While you defend or perform an attack, you may spend 1 calculate token from a friendly ship at range&nbsp;0-1 to change 1&nbsp;%FOCUS% result to an %EVADE% or %HIT% result."
     },
     "Lyttan Dree": {
-      text: "While a friendly ship at range 0-2 performs an attack, if you are in the defender's %LEFTSIDEARC% or %RIGHTSIDEARC%, the attacker may reroll 1 attack die. %LINEBREAK% <strong>Rotating Cannons:</strong> You can rotate your %SINGLETURRETARC% indicator only to your %FRONTARC% or %REARARC%. You must treat the %FRONTARC% requirement of your equipped %CANNON% upgrades as %SINGLETURRETARC%."
+      text: "While a friendly ship at range 0-2 performs an attack, if you are in the defender's %LEFTARC% or %RIGHTARC%, the attacker may reroll 1 attack die. %LINEBREAK% <strong>Rotating Cannons:</strong> You can rotate your %SINGLETURRETARC% indicator only to your %FRONTARC% or %REARARC%. You must treat the %FRONTARC% requirement of your equipped %CANNON% upgrades as %SINGLETURRETARC%."
     },
     '"Rampage"': {
       text: "After you execute a speed 3-4 maneuver, you may choose a ship in your %SINGLETURRETARC% at range 0-1. If you do, that ship gains 1 strain token, or 2 strain tokens if you are damaged. %LINEBREAK% <strong>Rotating Cannons:</strong> You can rotate your %SINGLETURRETARC% indicator only to your %FRONTARC% or %REARARC%. You must treat the %FRONTARC% requirement of your equipped %CANNON% upgrades as %SINGLETURRETARC%."
@@ -14524,7 +14536,7 @@ exportObj.cardLoaders.English = function() {
     },
     "Delta-7B": {
       display_name: "Delta-7B",
-      text: "<i class = flavor_text>The Delta-7B was designed as a heavier variant of the Delta-7 Aethersprite-class Interceptor, identifiable by the repositioned astromech slot. Many Jedi Generals favor this craft’s greater firepower and durability.</i>"
+      text: "<i>Adds 1 attack and 2 shields. Removes 1 agility. %LINEBREAK%</i><i class = flavor_text>The Delta-7B was designed as a heavier variant of the Delta-7 Aethersprite-class Interceptor, identifiable by the repositioned astromech slot. Many Jedi Generals favor this craft’s greater firepower and durability.</i>"
     },
     "Dengar": {
       display_name: "Dengar",
@@ -15312,7 +15324,10 @@ exportObj.cardLoaders.English = function() {
       text: "During the System Phase, if any of this card's %CHARGE% are inactive, you <b>must</b> spend 1 %CHARGE% to drop 1 concussion bomb, if able. Otherwise, you may spend 1 %CHARGE% to drop 1 concussion bomb."
     },
     "Maneuver-Assist MGK-300": {
-      text: "Reduce the difficulty of your 3 straight (%STRAIGHT%) and bank (%BANKLEFT% or %BANKRIGHT%) maneuvers."
+      text: "<i>Adds %CALCULATE%, %BARRELROLL% <i class=\"xwing-miniatures-font xwing-miniatures-font-linked\"></i> <r>%CALCULATE%</r></i>%LINEBREAK% Reduce the difficulty of your 3 straight (%STRAIGHT%) and bank (%BANKLEFT% or %BANKRIGHT%) maneuvers."
+    },
+    "Target-Assist MGK-300": {
+      text: "<i>Adds %CALCULATE%, %ROTATEARC% <i class=\"xwing-miniatures-font xwing-miniatures-font-linked\"></i> %CALCULATE%</i>%LINEBREAK% Before you engage, if you have no green tokens and you are not stressed, gain 1 calculate token for each enemy ship at range 2-3 in your firing arc, to a maximum of 2."
     },
     "Deadeye Shot": {
       text: "While you perform a primary attack, if the defender is in your %BULLSEYEARC%, you may spend 1 %HIT% result or change 1 %CRIT% result to a %HIT% result. If you do, the defender exposes 1 of its damage cards."
@@ -15460,7 +15475,7 @@ exportObj.cardLoaders.English = function() {
     },
     "Quick-Release Locks": {
       display_name: "Quick-Release Locks",
-      text: "During the System Phase, you may spend 1 %CHARGE% to drop 1 cargo crate drift using the [2 %BANKLEFT%], [2 %STRAIGHT%], or [2 %BANKRIGHT%] template. %LINEBREAK% This card's %CHARGE% cannot be recovered."
+      text: "During the System Phase, you may spend 1 %CHARGE% to place 1 cargo crate drift in your %REARARC% at range 0. It cannot overlap a ship this way.%LINEBREAK% This card's %CHARGE% cannot be recovered."
     },
     "Saboteur's Map": {
       display_name: "Saboteur's Map",
