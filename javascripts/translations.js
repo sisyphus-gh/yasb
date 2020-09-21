@@ -2938,6 +2938,13 @@
     exportObj.renameShip("Gozanti-class Cruiser", "哥赞提级巡洋舰");
     exportObj.renameShip("GR-75 Medium Transport", "GT-75中型运输船");
     exportObj.renameShip("Raider-class Corvette", "袭击者级护卫舰");
+    exportObj.renameShip("Xi-class Light Shuttle", "克西级轻型穿梭机");
+    exportObj.renameShip("LAAT/i Gunship", "LAAT/i炮艇");
+    exportObj.renameShip("HMP Droid Gunship", "HMP机器人炮艇");
+    exportObj.renameShip("TIE/rb Heavy", "TIE/rb Heavy");
+    exportObj.renameShip("Droid Tri-Fighter", "Droid Tri-Fighter");
+    exportObj.renameShip("Nimbus-class V-Wing", "Nimbus-class V-Wing");
+    exportObj.renameShip("ETA-2 Actis", "ETA-2 Actis");
     pilot_translations = {
       "0-66": {
         display_name: "0-66",
@@ -3680,7 +3687,6 @@
         text: "在你执行一次攻击时，如果该防御者将被分配一张正面朝上的伤害卡，改为抽3张伤害卡选择其一，然后丢弃其余的卡。%LINEBREAK%<strong>高级锁定计算机:</strong> 在你对一个你有锁定的防御者执行一次基础攻击时，投1个额外的攻击骰并将1个%HIT%结果改为1个%CRIT%结果。"
       },
       "Mace Windu": {
-        display_name: "Mace Windu",
         display_name: "梅斯·温杜",
         text: "在你完整地执行一个红色移动后，恢复1%FORCE% 。%LINEBREAK%<strong>精调控制:</strong> 在你完整地执行一个移动后，你可以选择花费"
       },
@@ -4502,6 +4508,62 @@
       "Colossus Station Mechanic": {
         display_name: "巨像站机械师",
         text: "<strong>爆炸机翼:</strong> 你被分配1张正面朝下的伤害卡。在你执行一个【猛冲】 行动后，你可以选择展示1张伤害卡来移除1个解除武装标记。"
+      },
+      "Commander Malarus (Xi Shuttle)": {
+        display_name: "指挥官马拉鲁斯",
+        text: "当一个友方战机在距离0-2执行一次基础攻击时，如果它有1个或更多空白结果，如可以的话，该战机<strong>必须</strong>获得1个扭力标记，来重投1个空白的结果。"
+      },
+      "First Order Courier": {
+        display_name: "第一秩序信使",
+        text: ""
+      },
+      "Agent Terex": {
+        display_name: "特雷克斯特工",
+        text: "设置：在部署军力后，指定任意数量的你装备的【违禁】升级，并把他们装备给友方TIE/fo或TIE/sf战机。每个战机以此方式只能分配1个【违禁】。%LINEBREAK% 游戏结束：将所有【违禁】升级归还到原有战机上。"
+      },
+      "Gideon Hask (Xi Shuttle)": {
+        display_name: "吉迪恩·哈斯克",
+        text: "在你或一个友方小型战机在距离0-2对一个有伤害的防御者执行一次基础攻击时，如果该攻击者投了2个或更少的攻击骰，它可以选择获得1个扭力标记，来投1枚额外的攻击骰。"
+      },
+      "212th Battalion Pilot": {
+        display_name: "212团驾驶员",
+        text: "<strong>火力聚合：</strong> 在一个友方战机执行一次非【炮塔】攻击时，如果该防御者在你的【炮塔范围】，你可以选择花费1【充能】。如此的话，该攻击者重投最多2枚骰子。"
+      },
+      '"Hound"': {
+        display_name: "“猎犬”",
+        text: "在一个友方小型战机在你的【炮塔范围】获得一个耗竭或扭力标记后，如果你没有该类别的标记，你可以选择将该标记转移给你自己。%LINEBREAK% <strong>火力聚合：</strong> 在一个友方战机执行一次非【炮塔】攻击时，如果该防御者在你的【炮塔范围】，你可以选择花费1【充能】。如此的话，该攻击者重投最多2枚骰子。"
+      },
+      '"Warthog"': {
+        display_name: "“豪猪”",
+        text: "在你或一个在距离0-2的友方非限制战机在交战阶段中被消灭后，该战机直到该阶段结束前不会被移除。%LINEBREAK% <strong>火力聚合：</strong> 在一个友方战机执行一次非【炮塔】攻击时，如果该防御者在你的【炮塔范围】，你可以选择花费1【充能】。如此的话，该攻击者重投最多2枚骰子。"
+      },
+      '"Hawk"': {
+        display_name: "“老鹰”",
+        text: "在结束阶段开始时，每个在距离0-1，展示的移动速度在3-5的友方战机可以选择获得1个扭力标记，来执行一次【桶滚】或【推进】行动。%LINEBREAK% <strong>火力聚合：</strong> 在一个友方战机执行一次非【炮塔】攻击时，如果该防御者在你的【炮塔范围】，你可以选择花费1【充能】。如此的话，该攻击者重投最多2枚骰子。"
+      },
+      "Onderon Oppressor": {
+        display_name: "翁德伦压迫者",
+        text: "在你桶滚或侧移后，如果你有压力，获得1枚计算标记。 %LINEBREAK% <strong>网络瞄准：</strong>你不可花费你的锁定来重投攻击骰。在你执行一次攻击时，你可以选择重投一定数量的攻击骰，数量最多等于该防御者上的友方锁定数量。"
+      },
+      "DGS-286": {
+        display_name: "DGS-286",
+        text: "在你交战前，你可以选择指定另一个在距离0-1的友方战机。该战机将1枚计算标记转移给你。 %LINEBREAK% <strong>网络瞄准：</strong>你不可花费你的锁定来重投攻击骰。在你执行一次攻击时，你可以选择重投一定数量的攻击骰，数量最多等于该防御者上的友方锁定数量。"
+      },
+      "Geonosian Prototype": {
+        display_name: "吉奥诺西斯原型机",
+        text: "在你执行一次【导弹】或【加农炮】攻击时，你可以选择从该防御者移除1个牵引标记，来重投最多2枚攻击骰。 %LINEBREAK% <strong>网络瞄准：</strong>你不可花费你的锁定来重投攻击骰。在你执行一次攻击时，你可以选择重投一定数量的攻击骰，数量最多等于该防御者上的友方锁定数量。"
+      },
+      "DGS-047": {
+        display_name: "DGS-047",
+        text: "在你执行一次攻击后，如果该防御者在你的【正面范围】，你可以选择获得1个对它的锁定。然后，如果该防御者在你的【靶心范围】，它获得1个扭力标记。 %LINEBREAK% <strong>网络瞄准：</strong>你不可花费你的锁定来重投攻击骰。在你执行一次攻击时，你可以选择重投一定数量的攻击骰，数量最多等于该防御者上的友方锁定数量。"
+      },
+      "Baktoid Drone": {
+        display_name: "巴克托伊德无人机",
+        text: "<strong>网络瞄准：</strong>你不可花费你的锁定来重投攻击骰。在你执行一次攻击时，你可以选择重投一定数量的攻击骰，数量最多等于该防御者上的友方锁定数量。"
+      },
+      "Separatist Predator": {
+        display_name: "分离主义掠食者",
+        text: "<strong>网络瞄准：</strong>你不可花费你的锁定来重投攻击骰。在你执行一次攻击时，你可以选择重投一定数量的攻击骰，数量最多等于该防御者上的友方锁定数量。"
       },
       "Republic Judiciary": {
         display_name: "共和国司法部",
@@ -5794,6 +5856,134 @@
       "Corsair Refit": {
         display_name: "海盗改装",
         text: "<i>要求:</i><i>添加 2 hull and 1 energy. Removes 2 shields. %LINEBREAK%</i> 添加 %CANNON%, %TURRET% 和 %MISSILE% 槽位。 %LINEBREAK% 额外攻击：花费1%ENERGY%来执行一次%CANNON%, %TURRET% 或 %MISSILE% 攻击。"
+      },
+      "Agent Terex": {
+        display_name: "特雷克斯特工",
+        text: "<strong>设置:</strong> 以此面朝上装备此卡，并在此卡上放置3个计算标记。 %LINEBREAK% 在交战阶段开始时，你可以选择指定一个在距离0-3的友方战机并从此卡上移除1个计算标记，来让该战机获得对应的计算标记。然后，如果此卡上没有计算标记，将此卡翻面。%LINEBREAK%<strong>半机器人Cyborg:</strong> 在系统阶段中，投1枚攻击骰。结果为【命中】或【暴击】时，获得1枚计算标记。否则获得1枚干扰标记。 %LINEBREAK% <strong>行动:</strong> 将1枚计算标记或1枚干扰标记转移给一个在距离0-3的战机。"
+      },
+      "Clone Captain Rex": {
+        display_name: "克隆人上尉雷克斯",
+        text: "在你执行一次攻击时，你可以选择花费1【专注】结果。如此的话，每个自己【靶心范围】内有该防御者的友方战机可以选择获得1个扭力来执行一次【专注】行动。"
+      },
+      '"Fives"': {
+        display_name: "“五号”",
+        text: "在你执行一次未命中的攻击后，如果该防御者的先攻大于或等于你的先攻，将1个闪避或专注标记放在此卡上。 %LINEBREAK% 在你交战前，你可以选择将此卡上的1个标记移除，来获得1个对应的标记。"
+      },
+      "Suppressive Gunner": {
+        display_name: "压制炮手",
+        text: "在你执行一次攻击时，你可以选择花费1个【专注】结果。如此的话，该防御者获得1个耗竭标记，除非它选择承受1点【命中】伤害。"
+      },
+      "Ghost Company": {
+        display_name: "幽灵连",
+        text: "<i>要求 %ROTATEARC%</i> %LINEBREAK% 在你执行一次基础攻击后，如果你有专注，你可以选择对1个此轮你未攻击过的战机执行一次【炮塔】攻击作为一次额外攻击。"
+      },
+      "Wolf Pack": {
+        display_name: "狼群",
+        text: "在一个在距离0-3的友方战机防御后，如果该攻击者在你的开火范围，该防御者可以选择获得1个扭力标记来获得一个对该攻击者的锁定。"
+      },
+      "Yoda": {
+        display_name: "尤达",
+        text: "<i>添加 <f>%COORDINATE%</f></i> %LINEBREAK% 在另一个在距离0-2的友方战机完整地执行一次紫色移动或执行一个紫色行动后，你可以选择花费1【原力】。如此的话，该战机恢复1【原力】。"
+      },
+      "Kit Fisto": {
+        display_name: "基特·菲斯托",
+        text: "<i>添加 <f>%EVADE%</f></i> %LINEBREAK% 在交战阶段开始时，你可以选择指定1个在距离0-1的友方战机并花费1【原力】。如此的话，它可以选择执行一次红色【闪避】行动。"
+      },
+      "Plo Koon": {
+        display_name: "普洛·孔",
+        text: "<i>添加 <f>%REINFORCE%</f></i> %LINEBREAK% 在结束阶段开始时，如果你有强化，你可以选择指定1个在距离0，或在你的【左侧范围】或【右侧范围】距离1的友方战机。该战机移除1个耗竭或扭力标记，或修复1张面朝上的伤害卡。"
+      },
+      "Aayla Secura": {
+        display_name: "艾拉·塞库拉",
+        text: "<i>添加 %FOCUS% <i class=\"xwing-miniatures-font xwing-miniatures-font-linked\"></i> <f>%COORDINATE%</f></i> %LINEBREAK% 在一个在你【靶心范围】的敌方战机执行一次攻击时，如果该防御者是友方且在距离0-2，该防御者可以选择将1个空白结果改为1个【专注】结果。"
+      },
+      "Repulsorlift Stabilizers": {
+        display_name: "反重力稳定器",
+        text: "<strong>非激活: 设置:</strong> 以此面朝上装备此卡。降低你直行([直行])移动的难度。%LINEBREAK% 在你完整地执行一次移动后，你可以选择将此卡翻面。 %LINEBREAK%<strong>激活: </strong> 在你展示一个倾斜（[左倾]或[右倾]）或拐弯（[左拐]或[右拐]）移动后，你必须将该移动作为一次侧移来执行，然后将此卡翻面。 %LINEBREAK% 在你完整地执行一次非侧移移动后，你可以选择将此卡翻面。"
+      },
+      "Multi-Missle Pods": {
+        display_name: "多重导弹巢",
+        text: "<strong>攻击 (%CALCULATE% or %LOCK%):</strong> 花费1【充能】。如果该防御者在你的【正面范围】，你可以选择花费1【充能】来投1枚额外的攻击骰。如果该防御者在你的【靶心范围】，你可以选择花费最多2【充能】，改为投对应数量的额外攻击骰。"
+      },
+      "Synced Laser Cannons": {
+        display_name: "同步激光炮",
+        text: "<strong>攻击:</strong> 如果你有计算，该防御者不适用距离加成。"
+      },
+      "Concussion Bombs": {
+        display_name: "冲击炸弹",
+        text: "在系统阶段中，如果此卡的任何【充能】是非激活的，如可能的话，你必须花费1【充能】来投放1个冲击炸弹。否则，你可以选择花费1【充能】来投放1个冲击炸弹。"
+      },
+      "Maneuver-Assist MGK-300": {
+        display_name: "",
+        text: "<i>Adds %CALCULATE%, %BARRELROLL% <i class=\"xwing-miniatures-font xwing-miniatures-font-linked\"></i> <r>%CALCULATE%</r></i>%LINEBREAK% Reduce the difficulty of your 3 straight (%STRAIGHT%) and bank (%BANKLEFT% or %BANKRIGHT%) maneuvers."
+      },
+      "Target-Assist MGK-300": {
+        display_name: "",
+        text: "<i>Adds %CALCULATE%, %ROTATEARC% <i class=\"xwing-miniatures-font xwing-miniatures-font-linked\"></i> %CALCULATE%</i>%LINEBREAK% Before you engage, if you have no green tokens and you are not stressed, gain 1 calculate token for each enemy ship at range 2-3 in your firing arc, to a maximum of 2."
+      },
+      "Deadeye Shot": {
+        display_name: "死眼射击",
+        text: "在你执行一次基础攻击时，如果该防御者在你的【靶心范围】，你可以选择花费1【命中】结果或将1个【暴击】结果改为1个【命中】结果。如此的话，该防御者展示1张它的伤害卡。"
+      },
+      "Ion Limiter Override": {
+        display_name: "",
+        text: "After you fully execute a red maneuver, you may perform a %BARRELROLL% action, even while stressed. If you do, roll an attack die: On a %HIT% result gain 1 strain token, and on a %CRIT% result gain 1 ion token."
+      },
+      "Marg Sabl Closure": {
+        display_name: "",
+        text: "After you fully execute a maneuver, if you moved through an obstacle, structure, or huge ship, or if you deployed, you may choose 1 enemy ship in your %FRONTARC% at range 1-2. That ship gains 1 strain token."
+      },
+      "Hondo Ohnaka": {
+        display_name: "",
+        text: "<strong>Action:</strong> Choose 2 ships at range 1-3 of you that are friendly to each other. Coordinate one of the chosen ships, then jam the other, ignoring range restrictions."
+      },
+      "Boba Fett (Separatist)": {
+        display_name: "",
+        text: "While you perform an attack, if there are no other ships in the attack arc, you may change 1 of your %FOCUS% results to a %HIT% result."
+      },
+      'Alpha-3B "Besh"': {
+        display_name: "",
+        text: "While you perform a primary attack, you may spend your lock on the defender to change 1 of your blank or %FOCUS% results to a %HIT% result. %LINEBREAK% Add %DEVICE% slot."
+      },
+      "R2-D2 (Republic)": {
+        display_name: "",
+        text: "After you activate, you may spend 1 %CHARGE% and gain 1 deplete token to repair 1 damage card, recover 1 shield or remove 1 device at range 0-1."
+      },
+      "Patience": {
+        display_name: "",
+        text: "At the start of the Engagement Phase, if there is an enemy ship in your %FRONTARC%, you may gain 1 deplete token to revover 1 %FORCE%."
+      },
+      "Evasive Maneuvers": {
+        display_name: "",
+        text: "While you perform a %BOOST% action, you may spend 1 %FORCE% to use the turn template instead."
+      },
+      "Starbird Slash": {
+        display_name: "",
+        text: "After you fully execute a maneuver, you may choose 1 enemy ship you moved through. That ship gains 1 strain token. Then, if you are in that ship's firing arc, you gain 1 strain token."
+      },
+      "Overdrive Thruster": {
+        display_name: "",
+        text: "While you perform a red %BOOST%. %BARRELROLL%, or %SLAM% action, you <b>must</b> use a template of 1 speed higher if able."
+      },
+      "Commander Pyre": {
+        display_name: "指挥官派尔",
+        text: "<strong>设置:</strong> 在部署军力后，指定一个敌方战机，它获得2枚压力标记。 %LINEBREAK% 在你防御时，如果该攻击者有压力，你可以选择重投1枚防御骰。"
+      },
+      "Commander Malarus": {
+        display_name: "指挥官马拉鲁斯",
+        text: "<strong>设置:</strong> 以此面朝上装备此卡。 %LINEBREAK% 在一个友方非限制战机在距离0-1执行一次基础攻击时，该战机可以选择重投1个空白结果。如果它如此做，且该攻击未命中，你必须将此卡翻面。 %LINEBREAK%<strong>优化:</strong> 在你执行一次攻击时，如果该防御者在你的【靶心范围】，你必须将所有【专注】结果改为【命中】结果，并获得1枚压力标记。然后，如果你有2个或更多的压力标记，承受1【命中】伤害。"
+      },
+      "Automated Target Priority": {
+        display_name: "主动优先处理",
+        text: "在你执行一次攻击时，你必须指定在最近的合法攻击距离的一个防御者。 %LINEBREAK% 在你执行一次未命中的攻击后，将1枚计算标记放在此卡上。 %LINEBREAK% 在你交战前，你可以选择从此卡上移除1枚计算标记，来获得1个对应的标记。"
+      },
+      "Sensor Buoy Suite": {
+        display_name: "浮空传感扫描器",
+        text: "<strong>设置:</strong> 在部署军力前，将2个浮空传感器遥控机放在任何桌边的距离2外。 %LINEBREAK% 在你交战前，你可以选择对在一个友方浮空传感器距离0-1的一个战机的锁定，无视距离限制。"
+      },
+      "Kalani": {
+        display_name: "",
+        text: "After an enemy ship executes a maneuver, if it is in the %BULLSEYEARC% of a friendly ship at range 0-3, you may spend 1 %CHARGE%. If you do, that friendly ship acquires a lock on that enemy ship, then gains 1 stress token."
       }
     };
     condition_translations = {
