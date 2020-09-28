@@ -4554,7 +4554,7 @@ exportObj.cardLoaders['简体中文'] = () ->
         "Repulsorlift Stabilizers":
            display_name: """反重力稳定器"""
            text: """<strong>非激活: 设置:</strong> 以此面朝上装备此卡。降低你直行([直行])移动的难度。%LINEBREAK% 在你完整地执行一次移动后，你可以选择将此卡翻面。 %LINEBREAK%<strong>激活: </strong> 在你展示一个倾斜（[左倾]或[右倾]）或拐弯（[左拐]或[右拐]）移动后，你必须将该移动作为一次侧移来执行，然后将此卡翻面。 %LINEBREAK% 在你完整地执行一次非侧移移动后，你可以选择将此卡翻面。"""
-        "Multi-Missle Pods":
+        "Multi-Missile Pods":
            display_name: """多重导弹巢"""
            text: """<strong>攻击 (%CALCULATE% or %LOCK%):</strong> 花费1【充能】。如果该防御者在你的【正面范围】，你可以选择花费1【充能】来投1枚额外的攻击骰。如果该防御者在你的【靶心范围】，你可以选择花费最多2【充能】，改为投对应数量的额外攻击骰。"""
         "Synced Laser Cannons":
