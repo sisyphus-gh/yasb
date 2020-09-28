@@ -2207,6 +2207,7 @@ exportObj.translations['简体中文'] =
         # Top tab bar
         '#browserTab' : '卡片浏览'
         '#aboutTab' : '关于'
+        '#rulesTab' : '规则'
         # Obstacles
         '.choose-obstacles' : '<i class="fa fa-cloud"></i>&nbsp;选择障碍'
         '.choose-obstacles-description' : 'Choose up to three obstacles to include in the permalink for use in external programs. (Support for displaying which obstacles were selected in the printout is not yet supported.)'
