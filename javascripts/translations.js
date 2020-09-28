@@ -3595,8 +3595,8 @@
         display_name: "L3-37",
         text: "如果你没有护盾，你的倾斜（ [左倾]和[右倾]）移动的难度降低。"
       },
-      "L3-37 (逃生船)": {
-        display_name: "L3-37",
+      "L3-37 (Escape Craft)": {
+        display_name: "L3-37 (逃生船)",
         text: "如果你没有护盾，你的倾斜（ [左倾]和[右倾]）移动的难度降低。%LINEBREAK%<strong>副驾驶:</strong> 在你已对接时，在你的运输战机自己的驾驶员能力。"
       },
       "Laetin A'shera": {
@@ -3611,8 +3611,8 @@
         display_name: "蓝多·卡瑞辛",
         text: "在你投骰后，如果你没有压力，你可以选择获得1个压力标记来重投你全部的空白结果。"
       },
-      "Lando Calrissian (Scum) (逃生船)": {
-        display_name: "蓝多·卡瑞辛",
+      "Lando Calrissian (Scum) (Escape Craft)": {
+        display_name: "蓝多·卡瑞辛 (逃生船)",
         text: "在你投骰后，如果你没有压力，你可以选择获得1个压力标记来重投你全部的空白结果。%LINEBREAK%<strong>副驾驶:</strong> 在你已对接时，在你的运输战机自己的驾驶员能力。"
       },
       "Latts Razzi": {
