@@ -11704,7 +11704,7 @@ class exportObj.SquadBuilder
                     
             # Notes, if present
             @printable_container.find('.printable-body').append $.trim """
-                <div class="version">Points Version: 1.6.1 July 2020</div>
+                <div class="version">Points Version: 1.7.0 September 2020</div>
             """            
             if $.trim(@notes.val()) != ''
                 @printable_container.find('.printable-body').append $.trim """
@@ -12502,25 +12502,23 @@ class exportObj.SquadBuilder
 
     formatActions: (action) ->
         color = ""
-        actionname = ""
         prefix = ""
         # Search and filter each type of action by its prefix and then reformat it for html
-        if action.search('F-') != -1 
-            color = "force "
-            actionname = action.toLowerCase().replace(/F-/gi, '').replace(/[^0-9a-z]/gi, '')
-        else if action.search('R-') != -1 
+        if action.search('R> ') != -1
             color = "red "
-            actionname = action.toLowerCase().replace(/R-/gi, '').replace(/[^0-9a-z]/gi, '')
-        else if action.search('R> ') != -1
-            color = "red "
-            actionname = action.toLowerCase().replace(/R> /gi, '').replace(/[^0-9a-z]/gi, '')
+            action = action.replace(/R> /gi, '')
             prefix = """<i class="xwing-miniatures-font xwing-miniatures-font-linked red"></i> """
         else if action.search('> ') != -1
-            actionname = action.toLowerCase().replace(/> /gi, '').replace(/[^0-9a-z]/gi, '')
+            action = action.replace(/> /gi, '')
             prefix = """<i class="xwing-miniatures-font xwing-miniatures-font-linked"></i> """
-        else
-            actionname = action.toLowerCase().replace(/[^0-9a-z]/gi, '')
-        return (prefix + """<i class="xwing-miniatures-font """ + color + """xwing-miniatures-font-""" + actionname + """"></i> """)
+        if action.search('F-') != -1 
+            color = "force "
+            action = action.replace(/F-/gi, '')
+        else if action.search('R-') != -1 
+            color = "red "
+            action = action.replace(/R-/gi, '')
+        action = action.toLowerCase().replace(/[^0-9a-z]/gi, '')
+        return (prefix + """<i class="xwing-miniatures-font """ + color + """xwing-miniatures-font-""" + action + """"></i> """)
         
     showTooltip: (type, data, additional_opts, container = @info_container, force_update = false) ->
 
