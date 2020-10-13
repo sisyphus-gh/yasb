@@ -1668,7 +1668,19 @@ exportObj.basicCardData = ->
                 [ 0, 0, 2, 0, 0, 3, 0, 0, 0, 0 ]
                 [ 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 ]
            ]
-    
+        "Syliure-class Hyperspace Ring":
+           name: "Syliure-class Hyperspace Ring"
+           xws: "Syliure-class Hyperspace Ring".canonicalize()
+           factions: ["Galactic Republic"]
+           agility: 1
+           hull: 1
+           shields: 2
+           actions: [
+           ]
+           maneuvers: [
+                [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+           ]
+
         # Epic Section
         "CR90 Corellian Corvette":
            name: "CR90 Corellian Corvette"
@@ -4497,7 +4509,7 @@ exportObj.basicCardData = ->
             unique: true
             faction: "Scum and Villainy"
             ship: "Z-95 Headhunter"
-            skill: 0
+            skill: "*"
             points: 6
             slots: [
                 "Missile"
@@ -8470,8 +8482,15 @@ exportObj.basicCardData = ->
             ]
         }
         {
+            name: "TransGalMeg Control Link"
             id: 406
-            skip: true
+            faction: "Galactic Republic"
+            skill: "*"
+            ship: "Syliure-class Hyperspace Ring"
+            points: 200
+            slots: [
+                "Configuration"
+            ]
         }
         {
             name: "Separatist Predator"
@@ -8954,7 +8973,7 @@ exportObj.basicCardData = ->
             ]
         }
         {
-            name: "Jedi Knight (ETA-2)"
+            name: "Jedi General"
             id: 436
             faction: "Galactic Republic"
             skill: 4
@@ -8964,7 +8983,6 @@ exportObj.basicCardData = ->
                 "Force"
                 "Astromech"
                 "Modification"
-                "Configuration"
             ]
         }
         {
@@ -8979,7 +8997,6 @@ exportObj.basicCardData = ->
                 "Force"
                 "Astromech"
                 "Modification"
-                "Configuration"
             ]
         }
         {
@@ -8994,7 +9011,6 @@ exportObj.basicCardData = ->
                 "Force"
                 "Astromech"
                 "Modification"
-                "Configuration"
             ]
         }
         {
@@ -9009,7 +9025,6 @@ exportObj.basicCardData = ->
                 "Force"
                 "Astromech"
                 "Modification"
-                "Configuration"
             ]
         }
         {
@@ -9025,7 +9040,6 @@ exportObj.basicCardData = ->
                 "Force"
                 "Astromech"
                 "Modification"
-                "Configuration"
             ]
         }
         {
@@ -9041,7 +9055,6 @@ exportObj.basicCardData = ->
                 "Force"
                 "Astromech"
                 "Modification"
-                "Configuration"
             ]
         }
         {
@@ -12537,10 +12550,12 @@ exportObj.basicCardData = ->
             points: 200
        }
        {
-            name: "Evasive Maneuvers"
+            name: "Extreme Maneuvers"
             id: 341
-            slot: "Force"
             points: 200
+            slot: "Force"
+            restriction_func: (ship) ->
+                (("Boost" or "R-Boost") in ship.effectiveStats().actions) and (not (ship.data.large? or ship.data.medium? or ship.data.huge?))
        }
        {
             name: "Patience"
@@ -12630,7 +12645,7 @@ exportObj.basicCardData = ->
                 stats.actions.push 'R> Focus'
        }
        {
-            name: "Wolf Pack"
+            name: "Wolfpack"
             id: 352
             faction: "Galactic Republic"
             unique: true
@@ -12641,7 +12656,7 @@ exportObj.basicCardData = ->
             validation_func: (ship, upgrade_obj) ->
                 upgrade_obj.occupiesAnUpgradeSlot "Gunner"
             also_occupies_upgrades: [ "Gunner" ]
-       }       
+       }
        {
             name: "Kalani"
             id: 353
@@ -12726,6 +12741,19 @@ exportObj.basicCardData = ->
                 ship.data.name?.includes("X-Wing")
             modifier_func: (stats) ->
                 stats.actions.push 'Rotate Arc' if 'Rotate Arc' not in stats.actions
+       }
+       {
+            name: "Jedi Commander"
+            id: 361
+            points: 200
+            slot: "Command"
+       }
+       {
+            name: "Syliure-31 Hyperdrive"
+            id: 362
+            points: 200
+            slot: "Configuration"
+            ship: "Syliure-class Hyperspace Ring"
        }
     ]
 
@@ -18773,7 +18801,7 @@ exportObj.hyperspacePilotExclusions = [
 
     # FO
     '"Quickdraw"'
-    
+
     # Galactic Republic
     '"Sinker"'
     '104th Battalion Pilot'
@@ -19004,7 +19032,7 @@ exportObj.translations.English =
         "Tech": "Tech"
         "Title": "Title"
         "Tactical Relay": "Tactical Relay"
-    
+
     sources: # needed?
         "Second Edition Core Set": "Second Edition Core Set"
         "Rebel Alliance Conversion Kit": "Rebel Alliance Conversion Kit"
@@ -19061,7 +19089,8 @@ exportObj.translations.English =
         '.save-list-as' : '<i class="far fa-file"></i>&nbsp;Save as…'
         '.delete-list' : '<i class="fa fa-trash"></i>&nbsp;Delete'
         '.backend-list-my-squads' : '<i class="fa fa-download"></i>&nbsp;Load Squad'
-        '.view-as-text' : '<span class="d-none d-lg-block"><i class="fa fa-print"></i>&nbsp;Print/View as Text</span><span class="d-lg-none"><i class="fa fa-print"></i></span>'
+        '.import-squad' : '<i class="fa fa-file-import"></i>&nbsp;Import'
+        '.view-as-text' : '<span class="d-none d-lg-block"><i class="fa fa-print"></i>&nbsp;Print/Export List</span><span class="d-lg-none"><i class="fa fa-print"></i></span>'
         '.collection': '<span class="d-none d-lg-block"><i class="fa fa-folder-open"></i> Your Collection</span><span class="d-lg-none"><i class="fa fa-folder-open"></i></span>'
         '.randomize' : '<span class="d-none d-lg-block"><i class="fa fa-random"></i> Randomize!</span><span class="d-lg-none"><i class="fa fa-random"></i></span>'
         '.randomize-options' : 'Randomizer options…'
@@ -20309,13 +20338,13 @@ exportObj.cardLoaders.English = () ->
         "Colossus Station Mechanic":
            text: """<strong>Explosion with Wings:</strong> You are dealt 1 facedown damage card. After you perform a %SLAM% action, you may expose 1 damage card to remove 1 disarm token."""
         "212th Battalion Pilot":
-           text: """<strong>Fire Ordinance:</strong> While a friendly ship performs a non-%SINGLETURRETARC% attack, if the defender is in your turret arc you may spend 1 charge token, if you do the attacker may reroll up to 2 results."""
+           text: """<strong>Fire Convergence:</strong> While a friendly ship performs a non-%SINGLETURRETARC% attack, if the defender is in your turret arc you may spend 1 charge token, if you do the attacker may reroll up to 2 results."""
         '"Hawk"':
-           text: """At the start of the End Phase, each friendly ship at range 0-1 that has a revealed maneuver of speed 3-5 may gain 1 strain token to perform a %BARRELROLL% or %BOOST% action. %LINEBREAK%<strong>Fire Ordinance:</strong> While a friendly ship performs a non-%SINGLETURRETARC% attack, if the defender is in your turret arc you may spend 1 charge token, if you do the attacker may reroll up to 2 results."""
+           text: """At the start of the End Phase, each friendly ship at range 0-1 that has a revealed maneuver of speed 3-5 may gain 1 strain token to perform a %BARRELROLL% or %BOOST% action. %LINEBREAK%<strong>Fire Convergence:</strong> While a friendly ship performs a non-%SINGLETURRETARC% attack, if the defender is in your turret arc you may spend 1 charge token, if you do the attacker may reroll up to 2 results."""
         '"Hound"':
-           text: """After a friendly ship in your %SINGLETURRETARC% gains a deplete or strain token, if you have no tokens of that type, you may transfer that token to yourself. %LINEBREAK%<strong>Fire Ordinance:</strong> While a friendly ship performs a non-%SINGLETURRETARC% attack, if the defender is in your turret arc you may spend 1 charge token, if you do the attacker may reroll up to 2 results."""
+           text: """After a friendly ship in your %SINGLETURRETARC% gains a deplete or strain token, if you have no tokens of that type, you may transfer that token to yourself. %LINEBREAK%<strong>Fire Convergence:</strong> While a friendly ship performs a non-%SINGLETURRETARC% attack, if the defender is in your turret arc you may spend 1 charge token, if you do the attacker may reroll up to 2 results."""
         '"Warthog"':
-           text: """After you or a friendly non-limited ship at range 0-2 are destroyed during the Engagement Phase, that ship is not removed until the end of that phase. %LINEBREAK%<strong>Fire Ordinance:</strong> While a friendly ship performs a non-%SINGLETURRETARC% attack, if the defender is in your turret arc you may spend 1 charge token, if you do the attacker may reroll up to 2 results."""
+           text: """After you or a friendly non-limited ship at range 0-2 are destroyed during the Engagement Phase, that ship is not removed until the end of that phase. %LINEBREAK%<strong>Fire Convergence:</strong> While a friendly ship performs a non-%SINGLETURRETARC% attack, if the defender is in your turret arc you may spend 1 charge token, if you do the attacker may reroll up to 2 results."""
         "Baktoid Drone":
            text: """%LINEBREAK%<strong>Networked Aim:</strong> You cannot spend your locks to reroll attack dice. While you perform an attack, you may reroll a number of attack dice up to the number of friendly locks on the defender."""
         "Separatist Predator":
@@ -20328,20 +20357,22 @@ exportObj.cardLoaders.English = () ->
            text: """While you perform a %MISSILE% or %CANNON% attack, you may remove 1 tractor token from the defender to reroll up to 2 attack dice. %LINEBREAK%<strong>Networked Aim:</strong> You cannot spend your locks to reroll attack dice. While you perform an attack, you may reroll a number of attack dice up to the number of friendly locks on the defender."""
         "Onderon Oppressor":
            text: """After you barrel roll or sideslip, if you are stressed. Gain 1 calculate token. %LINEBREAK%<strong>Networked Aim:</strong> You cannot spend your locks to reroll attack dice. While you perform an attack, you may reroll a number of attack dice up to the number of friendly locks on the defender."""
-        "Jedi Knight (ETA-2)":
+        "Jedi General":
            text: """<strong>Intuitive Controls:</strong> During the System Phase, you may perform a purple %BARRELROLL% or purple %BOOST% action."""
         "Yoda":
-           text: """  %LINEBREAK%<strong>Intuitive Controls:</strong> During the System Phase, you may perform a purple %BARRELROLL% or purple %BOOST% action."""
+           text: """After another friendly ship at range 0-3 spends 1 or more %FORCE%, you may spend 1 %FORCE%. If you do, that ship recovers 1 %FORCE%. %LINEBREAK% <strong>Intuitive Controls:</strong> During the System Phase, you may perform a purple %BARRELROLL% or purple %BOOST% action."""
         "Shaak Ti":
-           text: """  %LINEBREAK%<strong>Intuitive Controls:</strong> During the System Phase, you may perform a purple %BARRELROLL% or purple %BOOST% action."""
+           text: """At the start of the End Phase, you may spend any number of %FORCE% to choose that many friendly ships at range 0-2. Each chosen ship does not remove 1 focus or evade token during this End Phase. %LINEBREAK% <strong>Intuitive Controls:</strong> During the System Phase, you may perform a purple %BARRELROLL% or purple %BOOST% action."""
         "Aayla Secura":
-           text: """  %LINEBREAK%<strong>Intuitive Controls:</strong> During the System Phase, you may perform a purple %BARRELROLL% or purple %BOOST% action."""
+           text: """While and enemy ship in your %FRONTARC% at range 0-1 performs an attack, the defender may change 1 blank result to a %FOCUS% result. %LINEBREAK% <strong>Intuitive Controls:</strong> During the System Phase, you may perform a purple %BARRELROLL% or purple %BOOST% action."""
         "Obi-Wan Kenobi (ETA-2)":
            display_name: """Obi-Wan Kenobi"""
-           text: """After you or a friendly <b>Anakin Skywalker</b> at range 0-3 executes a maneuver, if there are more enemy ships than other friendly ships at range 0-1 of that ship, you may spend 1 %FORCE%. If you do, that ship gains 1 focus token. %LINEBREAK%<strong>Intuitive Controls:</strong> During the System Phase, you may perform a purple %BARRELROLL% or purple %BOOST% action."""
+           text: """After you or a friendly <b>Anakin Skywalker</b> at range 0-3 executes a maneuver, if there are more enemy ships than other friendly ships at range 0-1 of that ship, you may spend 1 %FORCE%. If you do, that ship gains 1 focus token. %LINEBREAK% <strong>Intuitive Controls:</strong> During the System Phase, you may perform a purple %BARRELROLL% or purple %BOOST% action."""
         "Anakin Skywalker (ETA-2)":
            display_name: """Anakin Skywalker"""
-           text: """After you or a friendly <b>Obi-Wan Kenobi</b> ship at range 0-3 executes a maneuver, if there are more enemy ships than other friendly ships at range 0-1 of that ship, you may spend 1 %FORCE%. If you do, that ship removes 1 red token of your choice. %LINEBREAK%<strong>Intuitive Controls:</strong> During the System Phase, you may perform a purple %BARRELROLL% or purple %BOOST% action."""
+           text: """After you or a friendly <b>Obi-Wan Kenobi</b> ship at range 0-3 executes a maneuver, if there are more enemy ships than other friendly ships at range 0-1 of that ship, you may spend 1 %FORCE%. If you do, that ship removes 1 red token of your choice. %LINEBREAK% <strong>Intuitive Controls:</strong> During the System Phase, you may perform a purple %BARRELROLL% or purple %BOOST% action."""
+        "TransGalMeg Control Link":
+           text: """<strong>Hyperspace Docking Ring:</strong> 1 Delta-7 Aethersprite, Eta-2 Actiss, or Nimbus-class V-wing can dock with you. %LINEBREAK% While a ship is docked with you, you gaiin that ship's initiative and are assigned that ship's dial. While you execute a maneuver, reduce its speed to 1. Before you execute an advanced maneuver, execute a white stationary maneuver (%STOP%) instead, then you may rotate 90º or 180º. %LINEBREAK% While no ship is docked with you, you are not assigned a maneuver dial and do note activate or engage."""
         "Wilhuff Tarkin":
            text: """During the System Phase, you may choose an object that you have locked at range 1. Another friendly ship at range 1-3 may acquire a lock on that object. %LINEBREAK%<strong>Twin Ion Engines:</strong> Ignore the "TIE" ship restriction on upgrade cards."""
         "Jango Fett":
@@ -20385,7 +20416,7 @@ exportObj.cardLoaders.English = () ->
            display_name: """Gideon Hask"""
            text: """While you or a friendly small ship at range 0-2 performs a primary attack against a damaged defender, if the attacker rolled 2 or fewer attack dice, it may gain 1 strain token to roll 1 additiional attack die."""
 
-            
+
         # Epic Ships
         "Republic Judiciary":
            display_name: """Republic Judiciary"""
@@ -20417,8 +20448,8 @@ exportObj.cardLoaders.English = () ->
         "Syndicate Smugglers":
            display_name: """Syndicate Smugglers"""
            text: """<i class = flavor_text>Vessels like the C-ROC Cruiser allow criminal operations across the Outer Rim to move massive amounts of illicit materials, or project power that can bully small colonies into compliance.</i> %LINEBREAK% <strong>Overdrive Burners:</strong> While you defend, if your revealed maneuver is speed 3-5, roll 1 additional defense die."""
-            
-            
+
+
 
     upgrade_translations =
         "0-0-0":
@@ -21162,7 +21193,7 @@ exportObj.cardLoaders.English = () ->
         "Angled Deflectors":
            display_name: """Angled Deflectors"""
            text: """<i>Requires: Small or Medium Ship with at least 1 shield %LINEBREAK% Adds %REINFORCE% </i>%LINEBREAK% <strong>Removes:</strong> 1 Shield """
-            
+
         "C1-10P":
            display_name: """C1-10P"""
            text: """<strong>C1-10P: </strong>Setup: Equip this side faceup. %LINEBREAK% After you execute a maneuver, you may spend 1 %CHARGE% to perform a red %EVADE% action, even while stressed. %LINEBREAK% During the End Phase, if this card has 0 active %CHARGE%, flip it. %LINEBREAK% <strong>C1-10P (Erratic):</strong> After you execute a maneuver, you <strong>must</strong> choose a ship at range 0-1. It gains 1 jam token."""
@@ -21211,7 +21242,7 @@ exportObj.cardLoaders.English = () ->
            text: """While you perform an attack, you may spend 1 %FOCUS% result. If you do, the defender gains 1 deplete token unless it chooses to suffer 1 %HIT% damage."""
         "Ghost Company":
            text: """<i>Requires %ROTATEARC%</i>, <i>Adds %ROTATEARC% <i class="xwing-miniatures-font xwing-miniatures-font-linked"></i> <r>%FOCUS%</r></i> %LINEBREAK% After you perform a primary attack, if you are focused, you may perform a %SINGLETURRETARC% attack against a ship you have not attacked this round as a bonus attack."""
-        "Wolf Pack":
+        "Wolfpack":
            text: """After a friendly ship at range 0-3 defends, if the attacker is in your firing arc, the defender may gain 1 strain token to acquire a lock on the attacker."""
         "Yoda":
            text: """<i>Adds <f>%COORDINATE%</f></i> %LINEBREAK% After another friendly ship at range 0-2 fully executes a purple maneuver or performs a purple action, you may spend 1 %FORCE%. If you do, that ship recovers 1 %FORCE%."""
@@ -21249,8 +21280,12 @@ exportObj.cardLoaders.English = () ->
            text: """After you activate, you may spend 1 %CHARGE% and gain 1 deplete token to repair 1 damage card, recover 1 shield or remove 1 device at range 0-1."""
         "Patience":
            text: """At the start of the Engagement Phase, if there is an enemy ship in your %FRONTARC%, you may gain 1 deplete token to revover 1 %FORCE%."""
-        "Evasive Maneuvers":
-           text: """While you perform a %BOOST% action, you may spend 1 %FORCE% to use the turn template instead."""
+        "Syliure-31 Hyperdrive":
+           text: """<strong>Setup:</strong> You can be placed anywhere in the play area beyond range 1 of obstacles, beyond range 3 of enemy ships, and beyond range 3 of the enemy table edge."""
+        "Jedi Commander":
+           text: """While your wingmates execute purple maneuvers, they treat those maneuvers as red instead. %LINEBREAK% While you defend, up to 2 of your wingmages in the attack arc may each suffer 1 %HIT%/%CRIT% damage to cancel 1 matching result."""
+        "Extreme Maneuvers":
+           text: """While you perform a %BOOST% action, you may spend 1 %FORCE% to use the turn (%TURNLEFT% or %TURNRIGHT%) template instead."""
         "Starbird Slash":
            text: """After you fully execute a maneuver, you may choose 1 enemy ship you moved through. That ship gains 1 strain token. Then, if you are in that ship's firing arc, you gain 1 strain token."""
         "Backwards Tailslide":
@@ -21432,9 +21467,9 @@ exportObj.cardLoaders.English = () ->
         "Corsair Refit":
            display_name: """Corsair Refit"""
            text: """<i>Adds 2 hull and 1 energy. Removes 2 shields. %LINEBREAK%</i> Adds %CANNON%, %TURRET%, and %MISSILE% slots. %LINEBREAK% Bonus Attack: Spend 1 %ENERGY% to perform a %CANNON%, %TURRET%, or %MISSILE% attack."""
-            
-            
-        
+
+
+
     condition_translations =
         'Suppressive Fire':
            text: '''While you perform an attack against a ship other than <strong>Captain Rex</strong>, roll 1 fewer attack die. %LINEBREAK% After <strong>Captain Rex</strong> defends, remove this card.  %LINEBREAK% At the end of the Combat Phase, if <strong>Captain Rex</strong> did not perform an attack this phase, remove this card. %LINEBREAK% After <strong>Captain Rex</strong> is destroyed, remove this card.'''
@@ -21446,7 +21481,7 @@ exportObj.cardLoaders.English = () ->
            text: '''After a bomb or mine at range 0-1 detonates, suffer 1 %CRIT%. Then, remove this card. %LINEBREAK% Action: If there are no bombs or mines at range 0-1, remove this card.'''
         'Optimized Prototype':
            text: '''While you perform a %FRONTARC% primary attack against a ship locked by a friendly ship with the <strong>Director Krennic</strong> upgrade, you may spend 1 %HIT%/%CRIT%/%FOCUS% result. If you do, choose one: the defender loses 1 shield or the defender flips 1 of its facedown damage cards.'''
-        '''I'll Show You the Dark Side''': 
+        '''I'll Show You the Dark Side''':
            text: ''' When this card is assigned, if there is no faceup damage card on it, the player who assigned it searches the damage deck for 1 Pilot damage card and places it faceup on this card. Then shuffle the damage deck. When you would suffer 1 %CRIT% damage, you are instead dealt the faceup damage card on this card. Then, remove this card. '''
         'Proton Bomb':
            text: '''(Bomb Token) - At the end of the Activation Phase, this device detonates. When this device detonates, each ship and remote at range 0–1 suffers 1 %CRIT% damage.%LINEBREAK%<i>Errata (Official Rulings Thread 03/2019): Added: "and remote"</i>'''
@@ -21473,7 +21508,7 @@ exportObj.cardLoaders.English = () ->
         'Compromising Intel':
            text: '''During the System Phase, if the enemy <strong>Vi Morandi</strong> is at range 0-3, flip your dial faceup. %LINEBREAK% While you defend or perform an attack against the enemy <strong>Vi Morandi</strong>, you cannot spend focus tokens.'''
         'Cluster Mine':
-           text: '''(Mine Tokens) - A Cluster Mine Set consists of 3 individual Cluster Mine devices. %LINEBREAK% When a Cluster Mines set is placed, the center Cluster Mine is placed as normal, then two additional Cluster Mines are placed in the recesses as shown. After a ship overlaps or moves through any individual Cluster Mine, it detonates. Other Cluster Mines in the set that were not overlapped or moved through do not detonate. %LINEBREAK% When each of these devices detonates, that ship rolls 2 attack dice. That ship then suffers 1 %HIT%/%CRIT% damage for each matching result.'''
+           text: '''(Mine Tokens) - A Cluster Mine Set consists of 3 individual Cluster Mine devices. %LINEBREAK% When a Cluster Mines set is placed, the center Cluster Mine is placed as normal, then two additional Cluster Mines are placed in the recesses as shown. %LINEBREAK% After a ship overlaps or moves through any individual Cluster Mine, it detonates. Other Cluster Mines in the set that were not overlapped or moved through do not detonate. %LINEBREAK% When each of these devices detonates, each ship at range 0 rolls 2 attack dice. That ship then suffers 1 %HIT%/%CRIT% damage for each matching result.'''
         'Ion Bomb':
            text: '''(Bomb Token) - At the end of the Activation Phase, this device detonates. When this device detonates, each ship at range 0–1 gains 3 ion tokens, and each remote at range 0–1 suffers 1 %HIT% damage.'''
         'Concussion Bomb':
@@ -21482,7 +21517,7 @@ exportObj.cardLoaders.English = () ->
            text: '''(Bomb Token) - At the end of the Activation Phase, this device detonates. When this device detonates, each ship and remote at range 0–1 rolls 1 attack die. Each ship gains 1 strain token for each %FOCUS% result, and each ship and remote suffers 1 %HIT%/%CRIT% damage for each matching result.'''
         'Sensor Buoy':
            text: '''INIT: 0 <br>AGILITY: 3 <br>HULL: 2 %LINEBREAK% (Remote) - Sensor buoys are remotes that come in pairs (one red, and one blue, each with its own remote card), and are placed by the <strong>Sensor Buoy Suite</strong> upgrade card. Beyond being remotes and interacting with that card, they have no additional rules.'''
-            
+
     exportObj.setupTranslationCardData pilot_translations, upgrade_translations, condition_translations
 
 # This must be loaded before any of the card language modules!
