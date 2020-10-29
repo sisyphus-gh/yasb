@@ -10852,6 +10852,11 @@ class exportObj.SquadBuilder
                 []
             Slot:
                 []
+        @standard_list =
+            Upgrade:
+                []
+            Ship:
+                []
         @suppress_automatic_new_ship = false
         @tooltip_currently_displaying = null
         @randomizer_options =
@@ -12138,6 +12143,15 @@ class exportObj.SquadBuilder
             @container.trigger 'xwing:shipUpdated'
         cb()
 
+    addStandardizedToList: (ship) ->
+        if ship.data?.name?
+            idx = @standard_list['Ship'].indexOf ship.data.name
+            if idx > -1
+                for ship_upgrade in ship.upgrades
+                    if ship_upgrade.slot == @standard_list['Upgrade'][idx].slot
+                        ship_upgrade.setData @standard_list['Upgrade'][idx]
+                        break
+
     onPointsUpdated: (cb=$.noop) =>
         tot_points = 0
         points_dest = 0
@@ -12148,6 +12162,9 @@ class exportObj.SquadBuilder
             ship = @ships[i]
             ship.validate()
             continue unless ship # if the ship has been removed, we no longer care about it
+            # Standardized Loop, will integrate later for efficiency
+            @addStandardizedToList(ship)
+
             tot_points += ship.getPoints()
             if ship.destroystate == 1
                 points_dest += Math.ceil ship.getPoints() / 2
@@ -12156,6 +12173,7 @@ class exportObj.SquadBuilder
             ship_uses_unreleased_content = ship.checkUnreleasedContent()
             unreleased_content_used = ship_uses_unreleased_content if ship_uses_unreleased_content
         
+
         @total_points = tot_points
         @points_destroyed = points_dest
         @total_points_span.text @total_points
@@ -12855,26 +12873,28 @@ class exportObj.SquadBuilder
         outTable += "</tbody></table>"
         outTable
 
-    formatActions: (action) ->
-        color = ""
-        prefix = ""
-        # Search and filter each type of action by its prefix and then reformat it for html
-        if action.search('R> ') != -1
-            color = "red "
-            action = action.replace(/R> /gi, '')
-            prefix = """<i class="xwing-miniatures-font xwing-miniatures-font-linked red"></i> """
-        else if action.search('> ') != -1
-            action = action.replace(/> /gi, '')
-            prefix = """<i class="xwing-miniatures-font xwing-miniatures-font-linked"></i> """
-        if action.search('F-') != -1 
-            color = "force "
-            action = action.replace(/F-/gi, '')
-        else if action.search('R-') != -1 
-            color = "red "
-            action = action.replace(/R-/gi, '')
-        action = action.toLowerCase().replace(/[^0-9a-z]/gi, '')
-        return (prefix + """<i class="xwing-miniatures-font """ + color + """xwing-miniatures-font-""" + action + """"></i> """)
-        
+    formatActions: (actions,seperation,keyword=[]) ->
+        action_icons = []
+        for action in actions
+            color = ""
+            prefix = seperation
+            if "Droid" in keyword
+                action = action.replace('Focus', 'Calculate')
+            # Search and filter each type of action by its prefix and then reformat it for html
+            if action.search('> ') != -1
+                action = action.replace(/> /gi, '')
+                prefix = """ <i class="xwing-miniatures-font xwing-miniatures-font-linked"></i> """
+            if action.search('F-') != -1 
+                color = "force "
+                action = action.replace(/F-/gi, '')
+            else if action.search('R-') != -1 
+                color = "red "
+                action = action.replace(/R-/gi, '')
+            action = action.toLowerCase().replace(/[^0-9a-z]/gi, '')
+            action_icons.push """#{prefix}<i class="xwing-miniatures-font #{color}xwing-miniatures-font-#{action}"></i>"""
+        actionlist = action_icons.join ''
+        return actionlist.replace(seperation,'')
+
     showTooltip: (type, data, additional_opts, container = @info_container, force_update = false) ->
 
         if data != @tooltip_currently_displaying or force_update
@@ -13006,7 +13026,7 @@ class exportObj.SquadBuilder
         
                     container.find('tr.info-charge').hide()
         
-                    container.find('tr.info-actions td.info-data').html (((@formatActions(action) for action in data.actions).join(', ')).replace(/, <i class="xwing-miniatures-font xwing-miniatures-font-linked/g,' <i class="xwing-miniatures-font xwing-miniatures-font-linked'))
+                    container.find('tr.info-actions td.info-data').html @formatActions(data.actions, ", ", data.keyword ? [])
                     container.find('tr.info-actions').show()
 
                     # Display all available slots, put brackets around slots that are only available for some pilots
@@ -13035,10 +13055,6 @@ class exportObj.SquadBuilder
                     # if the pilot is already selected and has uprades, some stats may be modified
                     if additional_opts?.effectiveStats?
                         effective_stats = additional_opts.effectiveStats()
-                        extra_actions = $.grep effective_stats.actions, (el, i) ->
-                            el not in (data.ship_override?.actions ? additional_opts.data.actions)
-                    else
-                        extra_actions = []
                     #logic to determine how many dots to use for uniqueness
                     if data.unique?
                         uniquedots = "&middot;&nbsp;"
@@ -13149,7 +13165,7 @@ class exportObj.SquadBuilder
                     else
                         container.find('tr.info-charge').hide()
 
-                    container.find('tr.info-actions td.info-data').html ((@formatActions(a) for a in (data.ship_override?.actions ? ship.actions).concat("#{action}" for action in extra_actions)).join ', ').replace(/, <i class="xwing-miniatures-font xwing-miniatures-font-linked/g,' <i class="xwing-miniatures-font xwing-miniatures-font-linked')
+                    container.find('tr.info-actions td.info-data').html @formatActions(effective_stats?.actions ? ship.actions, ", ", data.keyword ? [])
                     
                     container.find('tr.info-actions').show()
                     if @isQuickbuild
@@ -13251,7 +13267,7 @@ class exportObj.SquadBuilder
                     else
                         container.find('tr.info-charge').hide()
 
-                    container.find('tr.info-actions td.info-data').html ((@formatActions(action) for action in (pilot.ship_override?.actions ? exportObj.ships[data.ship].actions)).join(', ')).replace(/, <i class="xwing-miniatures-font xwing-miniatures-font-linked/g,' <i class="xwing-miniatures-font xwing-miniatures-font-linked')
+                    container.find('tr.info-actions td.info-data').html @formatActions(pilot.ship_override?.actions ? exportObj.ships[data.ship].actions, ", ", pilot.keyword ? [])
     
                     container.find('tr.info-actions').show()
                     container.find('tr.info-upgrades').show()
@@ -13883,64 +13899,50 @@ class Ship
         #console.log "Attempt to copy #{other?.pilot?.name}"
         return unless other.pilot? and other.data?
         #console.log "Setting pilot to ID=#{other.pilot.id}"
-        if other.pilot.unique or (other.pilot.max_per_squad? and @builder.countPilots(other.pilot.canonical_name) >= other.pilot.max_per_squad)
-            # Look for cheapest generic or available unique, otherwise do nothing
-            available_pilots = (pilot_data for pilot_data in @builder.getAvailablePilotsForShipIncluding(other.data.name) when not pilot_data.disabled)
-            if available_pilots.length > 0
-                @setPilotById available_pilots[0].id, true
-                # Can't just copy upgrades since slots may be different
-                # Similar to setPilot() when ship is the same
+        if @builder.isQuickbuild        
+            if not (other.pilot.unique or (other.pilot.max_per_squad? and @builder.countPilots(other.pilot.canonical_name) >= other.pilot.max_per_squad))
+                # check if any upgrades are unique. In that case the whole ship may not be copied
+                no_uniques_involved = true
+                for upgrade in other.upgrades
+                    if (upgrade.data?.unique? and upgrade.data.unique) or (upgrade.data?.max_per_squad? and @builder.countUpgrades(upgrade.data.canonical_name) >= upgrade.data.max_per_squad) or upgrade.data?.solitary?
+                        no_uniques_involved = false
+                        # select cheapest generic like above
+                        available_pilots = (pilot_data for pilot_data in @builder.getAvailablePilotsForShipIncluding(other.data.name) when not pilot_data.disabled)
+                        if available_pilots.length > 0
+                            @setPilotById available_pilots[0].id, true
+                            break
+                        else
+                            return
+                if no_uniques_involved
+                    @setPilotById other.quickbuildId
+        else 
+            if other.pilot.unique or (other.pilot.max_per_squad? and @builder.countPilots(other.pilot.canonical_name) >= other.pilot.max_per_squad)
+                # Look for cheapest generic or available unique, otherwise do nothing
+                available_pilots = (pilot_data for pilot_data in @builder.getAvailablePilotsForShipIncluding(other.data.name) when not pilot_data.disabled)
+                if available_pilots.length > 0
+                    @setPilotById available_pilots[0].id, true
 
-                if not @builder.isQuickbuild 
-                # In case of quick build upgrades are equipped when setPilotById is called, so no need to copy anything. 
-                    other_upgrades = {}
-                    for upgrade in other.upgrades
-                        if upgrade?.data? and not upgrade.data.unique and ((not upgrade.data.max_per_squad?) or @builder.countUpgrades(upgrade.data.canonical_name) < upgrade.data.max_per_squad)
-                            other_upgrades[upgrade.slot] ?= []
-                            other_upgrades[upgrade.slot].push upgrade
-                    delayed_upgrades = {}
-                    for upgrade in @upgrades
-                        other_upgrade = (other_upgrades[upgrade.slot] ? []).shift()
-                        if other_upgrade?
-                            upgrade.setById other_upgrade.data.id
-                            if not upgrades.lastSetValid
-                                delayed_upgrades[other_upgrade.data.id] = upgrade
-                    for id, upgrade of delayed_upgrades
-                        upgrade.setById id
+                else
+                    return
             else
-                return
-        else if @builder.isQuickbuild        
-            # check if any upgrades are unique. In that case the whole ship may not be copied
-            no_uniques_involved = true
+                @setPilotById other.pilot.id, true
+
+            # Can't just copy upgrades since slots may be different
+            other_upgrades = {}
             for upgrade in other.upgrades
-                if (upgrade.data?.unique? and upgrade.data.unique) or (upgrade.data?.max_per_squad? and @builder.countUpgrades(upgrade.data.canonical_name) >= upgrade.data.max_per_squad) or upgrade.data?.solitary?
-                    no_uniques_involved = false
-                    # select cheapest generic like above
-                    available_pilots = (pilot_data for pilot_data in @builder.getAvailablePilotsForShipIncluding(other.data.name) when not pilot_data.disabled)
-                    if available_pilots.length > 0
-                        @setPilotById available_pilots[0].id, true
-                        break
-                    else
-                        return
-            if no_uniques_involved
-                @setPilotById other.quickbuildId
-        else
-            # Exact clone, so we can copy things over directly
-            @setPilotById other.pilot.id, true
-
+                if upgrade?.data? and not upgrade.data.unique and ((not upgrade.data.max_per_squad?) or @builder.countUpgrades(upgrade.data.canonical_name) < upgrade.data.max_per_squad)
+                    other_upgrades[upgrade.slot] ?= []
+                    other_upgrades[upgrade.slot].push upgrade
             delayed_upgrades = {}
-            #console.log "Looking for conferred upgrades..."
-            for other_upgrade, i in other.upgrades
-                # console.log "Examining upgrade #{other_upgrade}"
-                if other_upgrade.data? and not other_upgrade.data.unique and i < @upgrades.length and ((not other_upgrade.data.max_per_squad?) or @builder.countUpgrades(other_upgrade.data.canonical_name) < other_upgrade.data.max_per_squad)
-                    #console.log "Copying non-unique upgrade #{other_upgrade} into slot #{i}"
-                    @upgrades[i].setById other_upgrade.data.id
-                    if not @upgrades[i].lastSetValid
-                        delayed_upgrades[i] = other_upgrade.data.id
-            for i, id of delayed_upgrades
-                @upgrades[i].setById id
-
-
+            for upgrade in @upgrades
+                other_upgrade = (other_upgrades[upgrade.slot] ? []).shift()
+                if other_upgrade?
+                    upgrade.setById other_upgrade.data.id
+                    if not upgrades.lastSetValid
+                        delayed_upgrades[other_upgrade.data.id] = upgrade
+            for id, upgrade of delayed_upgrades
+                upgrade.setById id
+            @addStandardizedUpgrades()
         @updateSelections()
         @builder.container.trigger 'xwing:pointsUpdated'
         @builder.current_squad.dirty = true
@@ -14063,7 +14065,14 @@ class Ship
                     @copy_button.hide()
                 @builder.container.trigger 'xwing:pointsUpdated'
                 @builder.container.trigger 'xwing-backend:squadDirtinessChanged'
-            
+
+    addStandardizedUpgrades: ->
+        idx = @builder.standard_list['Ship'].indexOf @data.name
+        if idx > -1
+            for upgrade in @upgrades
+                if exportObj.slotsMatching(upgrade.slot, @builder.standard_list['Upgrade'][idx].slot)
+                    upgrade.setData @builder.standard_list['Upgrade'][idx]
+                    break
 
     setPilot: (new_pilot, noautoequip = false) ->
         # don't call this method directly, unless you know what you do. Use setPilotById for proper quickbuild handling
@@ -14088,6 +14097,7 @@ class Ship
                 @setupAddons() if @pilot?
                 @copy_button.show()
                 @setShipType @pilot.ship
+                @addStandardizedUpgrades()
                 if (@pilot.autoequip? or (exportObj.ships[@pilot.ship].autoequip? and not same_ship)) and not noautoequip
                     autoequip = (@pilot.autoequip ? []).concat(exportObj.ships[@pilot.ship].autoequip ? [])
                     for upgrade_name in autoequip
@@ -14469,34 +14479,7 @@ class Ship
 
     toHTML: ->
         effective_stats = @effectiveStats()
-        action_icons = []
-        action_icons_red = []
-        for action in effective_stats.actions
-            color = "action "
-            actionname = ""
-            prefix = ""
-            suffix = ""
-            # Search and filter each type of action by its prefix and then reformat it for html
-            if action.search('F-') != -1 
-                color = "force "
-                actionname = action.toLowerCase().replace(/F-/gi, '').replace(/[^0-9a-z]/gi, '')
-            else if action.search('R-') != -1 
-                color = "red "
-                actionname = action.toLowerCase().replace(/R-/gi, '').replace(/[^0-9a-z]/gi, '')
-            else if action.search('R> ') != -1
-                color = "red "
-                actionname = action.toLowerCase().replace(/R> /gi, '').replace(/[^0-9a-z]/gi, '')
-                prefix = """<i class="xwing-miniatures-font xwing-miniatures-font-linked red"></i> """
-                suffix = "&nbsp;"
-            else if action.search('> ') != -1
-                actionname = action.toLowerCase().replace(/> /gi, '').replace(/[^0-9a-z]/gi, '')
-                prefix = """<i class="xwing-miniatures-font xwing-miniatures-font-linked"></i> """
-                suffix = "&nbsp;"
-            else
-                actionname = action.toLowerCase().replace(/[^0-9a-z]/gi, '')
-            action_icons.push (prefix + """<i class="xwing-miniatures-font """ + color + """xwing-miniatures-font-""" + actionname + """"></i> """ + suffix)
-
-        action_bar = action_icons.join ' '
+        action_bar = @builder.formatActions(effective_stats.actions,"&nbsp;&nbsp;", @pilot.keyword ? [])
 
         attack_icon = @data.attack_icon ? 'xwing-miniatures-font-frontarc'
 
@@ -14913,6 +14896,13 @@ class Ship
         for s in [0 ... (@data.maneuvers ? []).length]
             stats.maneuvers[s] = @data.maneuvers[s].slice 0
 
+        # Droid conversion of Focus to Calculate
+        if @pilot.keyword? and ("Droid" in @pilot.keyword) and stats.actions?
+            new_stats = []
+            for statentry in stats.actions
+                new_stats.push statentry.replace("Focus","Calculate")
+            stats.actions = new_stats
+
         for upgrade in @upgrades
             upgrade.data.modifier_func(stats) if upgrade?.data?.modifier_func?
         @pilot.modifier_func(stats) if @pilot?.modifier_func?
@@ -14997,13 +14987,30 @@ class Ship
                 return true
         false
     
-    
     isSlotOccupied: (slot_name) ->
         for upgrade in @upgrades
             if exportObj.slotsMatching(upgrade.slot, slot_name)
                 return true unless upgrade.isOccupied()
         false
 
+    checkKeyword: (keyword) ->
+        if @data.name?.includes(keyword)
+            return true
+        else if @data.keyword?
+            for words in @data.keyword
+                if words == keyword
+                    return true
+        else if @pilot.keyword?
+            for words in @pilot.keyword
+                if words == keyword
+                    return true
+        false
+
+    checkListForUnique: (name) ->
+        for t, things of @builder.uniques_in_use
+            if t != 'Slot'
+                return true if name in (thing.canonical_name.getXWSBaseName() for thing in things)
+        false
 
     toXWS: ->
         xws =
@@ -15076,6 +15083,8 @@ class GenericAddon
         return cb(args) if @destroyed
         if @data?.unique?
             await @ship.builder.container.trigger 'xwing:releaseUnique', [ @data, @type, defer() ]
+        if @data?.standardized?
+            @removeStandardized()
         @destroyed = true
         @rescindAddons()
         @deoccupyOtherUpgrades()
@@ -15166,6 +15175,8 @@ class GenericAddon
         if new_data?.id != @data?.id
             if @data?.unique? or @data?.solitary?
                 await @ship.builder.container.trigger 'xwing:releaseUnique', [ @unadjusted_data, @type, defer() ]
+            if @data?.standardized?
+                @removeStandardized()
             @rescindAddons()
             @deoccupyOtherUpgrades()
             if new_data?.unique? or new_data?.solitary?
@@ -15186,12 +15197,39 @@ class GenericAddon
                 @unequipOtherUpgrades()
                 @occupyOtherUpgrades()
                 @conferAddons()
+                if @data.standardized?
+                    @addToStandardizedList()
             else
                 @deoccupyOtherUpgrades()
 
             # this will remove not allowed upgrades (is also done on pointsUpdated). We do it explicitly so we can tell if the setData was successfull
             @lastSetValid = @ship.validate()
             @ship.builder.container.trigger 'xwing:pointsUpdated'
+
+    addToStandardizedList: ->
+        # check first if standard combo exists and return if it does
+        idx = @ship.builder.standard_list['Ship'].indexOf @ship.data.name
+        if idx > -1
+            if @ship.builder.standard_list['Upgrade'][idx]?.name == @data.name
+                return
+        @ship.builder.standard_list['Upgrade'].push @data
+        @ship.builder.standard_list['Ship'].push @ship.data.name
+
+    removeStandardized: ->
+        # removes the ship upgrade combo from the stanard list array
+        idx = @ship.builder.standard_list['Ship'].indexOf @ship.data.name
+        if idx > -1
+            if @ship.builder.standard_list['Upgrade'][idx]?.name == @data.name
+                @ship.builder.standard_list['Upgrade'].splice idx,1 
+                @ship.builder.standard_list['Ship'].splice idx,1
+                
+                # now remove all upgrades of the same name
+                nameToRemove = @data.name
+                for ship in @ship.builder.ships
+                    if ship.data?.name == @ship.data.name
+                        for upgrade in ship.upgrades
+                            if upgrade.data?.name == nameToRemove
+                                upgrade.data = null
 
     conferAddons: ->
         if @data.confersAddons? and !@ship.builder.isQuickbuild and @data.confersAddons.length > 0
