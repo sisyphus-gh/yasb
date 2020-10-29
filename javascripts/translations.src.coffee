@@ -3545,6 +3545,45 @@ exportObj.cardLoaders['简体中文'] = () ->
         "Separatist Predator":
            display_name: "分离主义掠食者"
            text: "<strong>网络瞄准：</strong>你不可花费你的锁定来重投攻击骰。在你执行一次攻击时，你可以选择重投一定数量的攻击骰，数量最多等于该防御者上的友方锁定数量。"
+        "Cardia Academy Pilot":
+           display_name: "卡里达军校学员"
+           text: "<strong>旋转加农炮</strong>你只可将你的【炮塔】指示物旋转至你的【正面范围】或【背面范围】。你必须将你所装备的【加农炮】升级的【正面范围】要求视为【炮塔范围】。"    
+        "Onyx Squadron Sentry":
+           display_name: "缟玛瑙中队哨兵"
+           text:"<strong>旋转加农炮</strong>你只可将你的【炮塔】指示物旋转至你的【正面范围】或【背面范围】。你必须将你所装备的【加农炮】升级的【正面范围】要求视为【炮塔范围】。" 
+        "Lyttan Dree":
+           display_name: "利坦·德里"
+           text:"在一个在距离0-2的友方战机执行一次攻击时，如果在该防御者的【左侧范围】或【右侧范围】，该攻击者可以选择重投1枚攻击骰。 %LINEBREAK% <strong>旋转加农炮</strong>你只可将你的【炮塔】指示物旋转至你的【正面范围】或【背面范围】。你必须将你所装备的【加农炮】升级的【正面范围】要求视为【炮塔范围】。" 
+        '"Rampage"':
+           display_name: "“暴怒”"
+           text:"在你执行一次速度3-4的移动后，你可以选择指定一个在你【炮塔范围】距离0-1的战机。如此的话，该战机获得1枚扭力标记，或如果你有伤害，则2枚扭力标记。 %LINEBREAK% <strong>旋转加农炮</strong>你只可将你的【炮塔】指示物旋转至你的【正面范围】或【背面范围】。你必须将你所装备的【加农炮】升级的【正面范围】要求视为【炮塔范围】。" 
+        "Poe Dameron (HoH)":
+           display_name: "波·达默龙（希望先锋）"
+           text: "在一个在距离0-2的友方战机在其激活中执行一次行动后，你可以选择花费2个【充能】。如此的话，该战机可以选择执行一次白色行动，将其视为红色。 %LINEBREAK% <strong>武器挂载:</strong> 你可装备1个【加农炮】 ， 【鱼雷】 或【导弹】升级。"
+        "Temmin Wexley (HoH)":
+           display_name: "特明·韦克斯利（希望先锋）"
+           text: "在交战阶段开始时，每个在距离0-3的友方T-70X翼战机可以选择获得1个扭力标记来将其装备的【构造】升级方面。如此的话，该战机获得1枚计算标记。 %LINEBREAK% <strong>武器挂载:</strong> 你可装备1个【加农炮】 ， 【鱼雷】 或【导弹】升级。"
+        "Nimi Chereen":
+           display_name: "妮米·奇里恩"
+           text: "在你执行一次攻击时，如果该防御者的先攻值比你的更高，你可以选择将1个空白结果改为1个【专注】结果。 %LINEBREAK% <strong>武器挂载:</strong> 你可装备1个【加农炮】 ， 【鱼雷】 或【导弹】升级。"
+        "C'ai Threnalli":
+           display_name: "恺·思雷纳利"
+           text: "在你完整地执行一次移动后，如果你移动穿过了一个友方战机，你可以选择执行一次【闪避】行动。 %LINEBREAK% <strong>武器挂载:</strong> 你可装备1个【加农炮】 ， 【鱼雷】 或【导弹】升级。"
+        "Merl Cobben":
+           display_name: "梅里·柯本"
+           text: """在一个在距离0-2的友方战机执行一次基础攻击时，如果你在该防御者的【靶心范围】，该防御者少投1枚防御骰。 %LINEBREAK% <strong>精炼稳定器:</strong> 你只可将你的【炮塔】指示物旋转到你的【正面范围】或【背面范围】。在你执行一次行动后，你可以选择执行一次红色【推进】或红色【旋转】行动。"""
+        "Seftin Vanik":
+           display_name: "赛福提·瓦尼克"
+           text: """在你执行一次【推进】行动后，可以选择将1枚闪避标记转移给一个在距离1的友方战机。 %LINEBREAK% <strong>精炼稳定器:</strong> 你只可将你的【炮塔】指示物旋转到你的【正面范围】或【背面范围】。在你执行一次行动后，你可以选择执行一次红色【推进】或红色【旋转】行动。"""
+        "Suralinda Javos":
+           display_name: "苏拉琳达·贾沃斯"
+           text: """在你部分地执行一次移动后，你可以选择获得1个扭力标记来旋转90°或180°。 %LINEBREAK% <strong>精炼稳定器:</strong> 你只可将你的【炮塔】指示物旋转到你的【正面范围】或【背面范围】。在你执行一次行动后，你可以选择执行一次红色【推进】或红色【旋转】行动。"""
+        "Wrobie Tyce":
+           display_name: "沃比·泰丝"
+           text: """在你在攻击距离1防御后，如果该攻击者修正过它的骰子，该攻击者获得1枚耗竭标记。 %LINEBREAK% <strong>精炼稳定器:</strong> 你只可将你的【炮塔】指示物旋转到你的【正面范围】或【背面范围】。在你执行一次行动后，你可以选择执行一次红色【推进】或红色【旋转】行动。"""
+
+
+
 
         # Epic Ships
         "Republic Judiciary":
@@ -4558,23 +4597,23 @@ exportObj.cardLoaders['简体中文'] = () ->
            display_name: """多重导弹巢"""
            text: """<strong>攻击 (%CALCULATE% or %LOCK%):</strong> 花费1【充能】。如果该防御者在你的【正面范围】，你可以选择花费1【充能】来投1枚额外的攻击骰。如果该防御者在你的【靶心范围】，你可以选择花费最多2【充能】，改为投对应数量的额外攻击骰。"""
         "Synced Laser Cannons":
-           display_name: """同步激光炮"""
+           display_name: """同步激光加农炮"""
            text: """<strong>攻击:</strong> 如果你有计算，该防御者不适用距离加成。"""
         "Concussion Bombs":
            display_name: """冲击炸弹"""
            text: """在系统阶段中，如果此卡的任何【充能】是非激活的，如可能的话，你必须花费1【充能】来投放1个冲击炸弹。否则，你可以选择花费1【充能】来投放1个冲击炸弹。"""
         "Maneuver-Assist MGK-300":
-           display_name: """"""
-           text: """<i>Adds %CALCULATE%, %BARRELROLL% <i class="xwing-miniatures-font xwing-miniatures-font-linked"></i> <r>%CALCULATE%</r></i>%LINEBREAK% Reduce the difficulty of your 3 straight (%STRAIGHT%) and bank (%BANKLEFT% or %BANKRIGHT%) maneuvers."""
+           display_name: """机动辅助MGK-300"""
+           text: """<i>Adds %CALCULATE%, %BARRELROLL% <i class="xwing-miniatures-font xwing-miniatures-font-linked"></i> <r>%CALCULATE%</r></i>%LINEBREAK% 将你的速度3执行（[直行]）与倾斜（[左倾]或[右倾]）移动的难度降低。"""
         "Target-Assist MGK-300":
-           display_name: """"""
-           text: """<i>Adds %CALCULATE%, %ROTATEARC% <i class="xwing-miniatures-font xwing-miniatures-font-linked"></i> %CALCULATE%</i>%LINEBREAK% Before you engage, if you have no green tokens and you are not stressed, gain 1 calculate token for each enemy ship at range 2-3 in your firing arc, to a maximum of 2."""
+           display_name: """锁定附属MGK-300"""
+           text: """<i>Adds %CALCULATE%, %ROTATEARC% <i class="xwing-miniatures-font xwing-miniatures-font-linked"></i> %CALCULATE%</i>%LINEBREAK% 在你交战前，如果你没有绿色标记且你没有压力，在你距离2-3开火范围内每有一个敌方战机，获得1枚计算标记，最多2枚。"""
         "Deadeye Shot":
            display_name: "死眼射击"
            text: """在你执行一次基础攻击时，如果该防御者在你的【靶心范围】，你可以选择花费1【命中】结果或将1个【暴击】结果改为1个【命中】结果。如此的话，该防御者展示1张它的伤害卡。"""
         "Ion Limiter Override":
-           display_name: """"""
-           text: """After you fully execute a red maneuver, you may perform a %BARRELROLL% action, even while stressed. If you do, roll an attack die: On a %HIT% result gain 1 strain token, and on a %CRIT% result gain 1 ion token."""
+           display_name: """离子限制器过载"""
+           text: """在你完整地执行一次红色移动后，即使有压力，你可以选择执行一次【桶滚】行动。如此的话，投一枚攻击骰；结果为1个【命中】时获得1没扭力标记，结果为1个【暴击】是获得1枚离子标记。"""
         "Marg Sabl Closure":
            display_name: """"""
            text: """After you fully execute a maneuver, if you moved through an obstacle, structure, or huge ship, or if you deployed, you may choose 1 enemy ship in your %FRONTARC% at range 1-2. That ship gains 1 strain token."""
@@ -4597,8 +4636,23 @@ exportObj.cardLoaders['简体中文'] = () ->
            display_name: """"""
            text: """While you perform a %BOOST% action, you may spend 1 %FORCE% to use the turn template instead."""
         "Starbird Slash":
-           display_name: """"""
-           text: """After you fully execute a maneuver, you may choose 1 enemy ship you moved through. That ship gains 1 strain token. Then, if you are in that ship's firing arc, you gain 1 strain token."""
+           display_name: """星鸟穿行"""
+           text: """在你完整地执行一次移动后，你可以选择指定一个你移动穿过的敌方战机。该战机获得1个扭力标记。然后如果你在该战机的开火范围，你获得1个扭力标记。"""
+        "Backwards Tailslide":
+           display_name: """后方尾冲"""
+           text: """在你推进或桶滚时，如果你装备【构造】且“（关闭）”面朝上，你可以移动穿过并与障碍物重叠。在你推进或桶滚穿过一个障碍物后，如果你不在它的距离0，获得1枚闪避标记。"""
+        "Overdrive Thruster":
+           display_name: """过载推进器"""
+           text: """在你执行一次红色【推进】，【桶滚】或【猛冲】行动后，如果可能的话，你必须使用速度高1的移动条。"""
+        "R2-D2 (Resistance)":
+           display_name: """星鸟穿行"""
+           text: """在结束阶段中，你可以选择花费1【充能】和1【护盾】来移除1个红色标记。<br>在结束阶段中，如果你没有激活的【护盾】，你可以选择花费2【充能】来恢复1【护盾】并获得1个耗竭标记。"""
+        "R6-D8":
+           display_name: """星鸟穿行"""
+           text: """在你执行一次攻击时，你可以选择最多重投一定数量的骰子，该数量等于在你距离0-3，【靶心范围】内有该防御者的友方战机的数量。"""
+        "Underslung Blaster Cannon":
+           display_name: """下悬爆能炮"""
+           text: """在一个敌方战机执行一次移动后，你可以选择对他执行此攻击作为一次额外攻击。攻击（【锁定】）：你的骰子只可通过花费锁定并执行其默认效果来进行修正。"""
         "Overdrive Thruster":
            display_name: """"""
            text: """While you perform a red %BOOST%. %BARRELROLL%, or %SLAM% action, you <b>must</b> use a template of 1 speed higher if able."""
@@ -4617,6 +4671,26 @@ exportObj.cardLoaders['简体中文'] = () ->
         "Kalani":
            display_name: """卡拉尼"""
            text: """在一个敌方战机执行一次移动后，如果它在一个在距离0-3的友方战机的【靶心范围】，你可以选择花费1【充能】。如此的话，该友方战机获得一个对该敌方战机的锁定，然后获得1枚压力标记。"""
+        'Alpha-3B "Besh"':
+           text: """While you perform a primary attack, you may spend your lock on the defender to change 1 of your blank or %FOCUS% results to a %HIT% result. %LINEBREAK% Add %DEVICE% slot."""
+        'Alpha-3E "Esk"':
+           text: """While you perform a primary attack, before rolling attack dice, you may spend 2 charges. If you do, your %CRIT% results inflict ion tokens instead of damage."""
+        "Thermal Detonators":
+           text: """During the System Phase, you may spend up to 2 %CHARGE% to drop that many Thermal Detonators using the [1 %STRAIGHT%] or [2 %STRAIGHT%] template. Each must be placed using a different template. %LINEBREAK% When you reload this card, recover 1 additional %CHARGE%."""
+        "R7-A7":
+           text: """While you perform an attack, you may spend 1 %CHARGE% to change 1 %HIT% result to a %CRIT% result."""
+        "Q7 Astromech":
+           text: """While you barrel roll or boost, you can move through and overlap obstacles."""
+        "Ion Limiter Override":
+           text: """After you fully execute a red maneuver, you may perform a %BARRELROLL% action, even while stressed. If you do, roll an attack die: On a %HIT% result gain 1 strain token, and on a %CRIT% result gain 1 ion token."""
+        "Precision Ion Engines":
+           text: """Before you execute a speed 1-3 Koiogran Turn [%KTURN%] maneuver, you may spend 1 %CHARGE% to execute that maneuver as a Segnor's Loop [%SLOOPLEFT% or %SLOOPRIGHT%] maneuver instead."""
+        "Intercept Booster":
+           text: """<strong>Attached: Setup:</strong> Equip this side faceup. %LINEBREAK% During the System Phase, gain 1 disarm token unless you flip this card. %LINEBREAK% At the end of the End Phase, if you have no active %CHARGE%, flip this card. %LINEBREAK% <strong>Detached:</strong> <i>Empty</i>"""
+        "XX-23 S-Thread Tracers":
+           text: """<strong>Attack: [%FOCUS%, %CALCULATE%, or %LOCK%]</strong>Spend 1 %CHARGE%. If this attack hits, each friendly ship at range 1-3 of the defender may acquire a lock on the defender. Then cancel all dice results."""
+        "Independent Calculations":
+           text: """Replace your <strong>Networked Calculations</strong> ship ability with the following: %LINEBREAK% <strong>Independent Calculations:</strong> While you perform a white %CALCULATE% action, you may treat it as red to gain 1 additiional calculate token. Other ships cannot spend your caclulate tokens using the <strong>Networked Calculations</strong> ship ability."""
 
 
 
