@@ -4568,19 +4568,19 @@
       },
       "Cardia Academy Pilot": {
         display_name: "卡里达军校学员",
-        text: "<strong>旋转加农炮</strong>你只可将你的【炮塔】指示物旋转至你的【正面范围】或【背面范围】。你必须将你所装备的【加农炮】升级的【正面范围】要求视为【炮塔范围】。"
+        text: "<strong>旋转加农炮：</strong>你只可将你的【炮塔】指示物旋转至你的【正面范围】或【背面范围】。你必须将你所装备的【加农炮】升级的【正面范围】要求视为【炮塔范围】。"
       },
       "Onyx Squadron Sentry": {
         display_name: "缟玛瑙中队哨兵",
-        text: "<strong>旋转加农炮</strong>你只可将你的【炮塔】指示物旋转至你的【正面范围】或【背面范围】。你必须将你所装备的【加农炮】升级的【正面范围】要求视为【炮塔范围】。"
+        text: "<strong>旋转加农炮：</strong>你只可将你的【炮塔】指示物旋转至你的【正面范围】或【背面范围】。你必须将你所装备的【加农炮】升级的【正面范围】要求视为【炮塔范围】。"
       },
       "Lyttan Dree": {
         display_name: "利坦·德里",
-        text: "在一个在距离0-2的友方战机执行一次攻击时，如果在该防御者的【左侧范围】或【右侧范围】，该攻击者可以选择重投1枚攻击骰。 %LINEBREAK% <strong>旋转加农炮</strong>你只可将你的【炮塔】指示物旋转至你的【正面范围】或【背面范围】。你必须将你所装备的【加农炮】升级的【正面范围】要求视为【炮塔范围】。"
+        text: "在一个在距离0-2的友方战机执行一次攻击时，如果在该防御者的【左侧范围】或【右侧范围】，该攻击者可以选择重投1枚攻击骰。 %LINEBREAK% <strong>旋转加农炮：</strong>你只可将你的【炮塔】指示物旋转至你的【正面范围】或【背面范围】。你必须将你所装备的【加农炮】升级的【正面范围】要求视为【炮塔范围】。"
       },
       '"Rampage"': {
         display_name: "“暴怒”",
-        text: "在你执行一次速度3-4的移动后，你可以选择指定一个在你【炮塔范围】距离0-1的战机。如此的话，该战机获得1枚扭力标记，或如果你有伤害，则2枚扭力标记。 %LINEBREAK% <strong>旋转加农炮</strong>你只可将你的【炮塔】指示物旋转至你的【正面范围】或【背面范围】。你必须将你所装备的【加农炮】升级的【正面范围】要求视为【炮塔范围】。"
+        text: "在你执行一次速度3-4的移动后，你可以选择指定一个在你【炮塔范围】距离0-1的战机。如此的话，该战机获得1枚扭力标记，或如果你有伤害，则2枚扭力标记。 %LINEBREAK% <strong>旋转加农炮：</strong>你只可将你的【炮塔】指示物旋转至你的【正面范围】或【背面范围】。你必须将你所装备的【加农炮】升级的【正面范围】要求视为【炮塔范围】。"
       },
       "Poe Dameron (HoH)": {
         display_name: "波·达默龙（希望先锋）",
@@ -4784,7 +4784,7 @@
         text: "<strong>攻击:</strong>If the defender is in your %BULLSEYEARC%, roll 1 additional die. During the Neutralize Results step, if you are not in the defenders %FRONTARC%, %EVADE% results do not cancel %CRIT% results."
       },
       "BB Astromech": {
-        display_name: "BB Astromech",
+        display_name: "BB 宇航技工机器人",
         text: "<i>条件：抵抗组织</i>%LINEBREAK%在你执行一个蓝色移动前，你可以选择花费1【充能】来执行一次【桶滚】 行动。"
       },
       "BB-8": {
@@ -5964,11 +5964,11 @@
       },
       "Maneuver-Assist MGK-300": {
         display_name: "机动辅助MGK-300",
-        text: "<i>Adds %CALCULATE%, %BARRELROLL% <i class=\"xwing-miniatures-font xwing-miniatures-font-linked\"></i> <r>%CALCULATE%</r></i>%LINEBREAK% 将你的速度3执行（[直行]）与倾斜（[左倾]或[右倾]）移动的难度降低。"
+        text: "<i>加入 %CALCULATE%, %BARRELROLL% <i class=\"xwing-miniatures-font xwing-miniatures-font-linked\"></i> <r>%CALCULATE%</r></i>%LINEBREAK% 将你的速度3执行（[直行]）与倾斜（[左倾]或[右倾]）移动的难度降低。"
       },
       "Target-Assist MGK-300": {
         display_name: "锁定附属MGK-300",
-        text: "<i>Adds %CALCULATE%, %ROTATEARC% <i class=\"xwing-miniatures-font xwing-miniatures-font-linked\"></i> %CALCULATE%</i>%LINEBREAK% 在你交战前，如果你没有绿色标记且你没有压力，在你距离2-3开火范围内每有一个敌方战机，获得1枚计算标记，最多2枚。"
+        text: "<i>加入 %CALCULATE%, %ROTATEARC% <i class=\"xwing-miniatures-font xwing-miniatures-font-linked\"></i> %CALCULATE%</i>%LINEBREAK% 在你交战前，如果你没有绿色标记且你没有压力，在你距离2-3开火范围内每有一个敌方战机，获得1枚计算标记，最多2枚。"
       },
       "Deadeye Shot": {
         display_name: "死眼射击",
@@ -6019,20 +6019,16 @@
         text: "在你执行一次红色【推进】，【桶滚】或【猛冲】行动后，如果可能的话，你必须使用速度高1的移动条。"
       },
       "R2-D2 (Resistance)": {
-        display_name: "星鸟穿行",
+        display_name: "R2-D2",
         text: "在结束阶段中，你可以选择花费1【充能】和1【护盾】来移除1个红色标记。<br>在结束阶段中，如果你没有激活的【护盾】，你可以选择花费2【充能】来恢复1【护盾】并获得1个耗竭标记。"
       },
       "R6-D8": {
-        display_name: "星鸟穿行",
+        display_name: "R6-D8",
         text: "在你执行一次攻击时，你可以选择最多重投一定数量的骰子，该数量等于在你距离0-3，【靶心范围】内有该防御者的友方战机的数量。"
       },
       "Underslung Blaster Cannon": {
         display_name: "下悬爆能炮",
         text: "在一个敌方战机执行一次移动后，你可以选择对他执行此攻击作为一次额外攻击。攻击（【锁定】）：你的骰子只可通过花费锁定并执行其默认效果来进行修正。"
-      },
-      "Overdrive Thruster": {
-        display_name: "",
-        text: "While you perform a red %BOOST%. %BARRELROLL%, or %SLAM% action, you <b>must</b> use a template of 1 speed higher if able."
       },
       "Commander Pyre": {
         display_name: "指挥官派尔",
