@@ -2942,7 +2942,7 @@
     exportObj.renameShip("Xi-class Light Shuttle", "克西级轻型穿梭机");
     exportObj.renameShip("LAAT/i Gunship", "LAAT/i炮艇");
     exportObj.renameShip("HMP Droid Gunship", "HMP机器人炮艇");
-    exportObj.renameShip("TIE/rb Heavy", "TIE/rb Heavy");
+    exportObj.renameShip("TIE/rb Heavy", "TIE/rb 重型");
     exportObj.renameShip("Droid Tri-Fighter", "Droid Tri-Fighter");
     exportObj.renameShip("Nimbus-class V-Wing", "Nimbus-class V-Wing");
     exportObj.renameShip("ETA-2 Actis", "ETA-2 Actis");
