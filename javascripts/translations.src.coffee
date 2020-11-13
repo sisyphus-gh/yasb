@@ -2164,13 +2164,15 @@ exportObj.translations['简体中文'] =
         '.unreleased-content-used .translated': 'This squad uses unreleased content!'
         '.loading-failed-container .translated': 'It appears that you followed a broken link. No squad could be loaded!'
         '.collection-invalid .translated': 'You cannot field this list with your collection!'
-        '.ship-number-invalid-container .translated': 'A tournament legal squad must contain 2-8 ships!'
+        '.ship-number-invalid-container .translated': '在合法的比赛中，中队必须包含两到八架战机！'
         # Type selector
         '.game-type-selector option[value="standard"]': '拓展'
         '.game-type-selector option[value="hyperspace"]': '超空间'
         '.game-type-selector option[value="epic"]': '史诗'
         '.game-type-selector option[value="quickbuild"]': '快速构建'
         # Card browser
+        ##中文
+      #   '.select2-choice' : '<span>选择赛制</span><abbr class="select2-search-choice-close"></abbr>   <div><b></b></div></a>'  # default-option
         '.xwing-card-browser option[value="name"]': '名称'
         '.xwing-card-browser option[value="source"]': '来源'
         '.xwing-card-browser option[value="type-by-points"]': '类型(驾驶员)'
@@ -2186,6 +2188,7 @@ exportObj.translations['简体中文'] =
         '.info-well .info-sources.info-header': '来源'
         # Squadron edit buttons
         '.clear-squad' : '<i class="fa fa-plus-circle"></i>&nbsp;新建军表'
+        '.import-squad': '<i class="fa fa-file-import"></i>&nbsp;导入军表'
         '.save-list' : '<i class="far fa-save"></i>&nbsp;保存'
         '.save-list-as' : '<i class="far fa-file"></i>&nbsp;另存为…'
         '.delete-list' : '<i class="fa fa-trash"></i>&nbsp;删除'
