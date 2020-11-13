@@ -2943,8 +2943,8 @@
     exportObj.renameShip("LAAT/i Gunship", "LAAT/i炮艇");
     exportObj.renameShip("HMP Droid Gunship", "HMP机器人炮艇");
     exportObj.renameShip("TIE/rb Heavy", "TIE/rb 重型");
-    exportObj.renameShip("Droid Tri-Fighter", "Droid Tri-Fighter");
-    exportObj.renameShip("Nimbus-class V-Wing", "Nimbus-class V-Wing");
+    exportObj.renameShip("Droid Tri-Fighter", "三联无人战斗机");
+    exportObj.renameShip("Nimbus-class V-Wing", "光环级 V翼战机");
     exportObj.renameShip("ETA-2 Actis", "ETA-2 Actis");
     pilot_translations = {
       "0-66": {
@@ -12476,7 +12476,7 @@
       "C'ai Threnalli": {
         text: "Miután teljesen végrehajtasz egy manővert, ha átmozogtál egy baráti hajón, végrehajthatsz egy %EVADE% akciót.<br><strong>Weapon Hardpoint:</strong> Felszerelhetsz 1&nbsp;%CANNON%, %TORPEDO% vagy %MISSILE% fejlesztést."
       },
-      "Nimi Chereen": {
+      "Nimi Chireen": {
         text: "Amikor végrehajtasz egy támadást, ha a védekező kezdeményező értéke magasabb, mint a tiéd, 1 üres eredményt %FOCUS% eredményre cserélhetsz.<br><strong>Weapon Hardpoint:</strong> Felszerelhetsz 1&nbsp;%CANNON%, %TORPEDO% vagy %MISSILE% fejlesztést."
       },
       "Merl Cobben": {

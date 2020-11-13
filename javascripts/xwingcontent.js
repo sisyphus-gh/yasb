@@ -851,6 +851,7 @@ exportObj.basicCardData = function() {
         attackt: 2,
         agility: 1,
         hull: 8,
+        shields: 0,
         medium: true,
         actions: ["Focus", "Reinforce", "Lock", "R-Barrel Roll", "Rotate Arc", "R-> Calculate"],
         maneuvers: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [3, 1, 2, 1, 3, 0, 0, 0, 0, 0], [1, 2, 2, 2, 1, 0, 0, 0, 0, 0], [3, 1, 1, 1, 3, 0, 0, 0, 3, 3], [0, 0, 1, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
@@ -862,6 +863,7 @@ exportObj.basicCardData = function() {
         attack: 3,
         agility: 3,
         hull: 3,
+        shields: 0,
         keyword: ["Networked Calculations"],
         actions: ["Calculate", "Evade", "Lock", "Barrel Roll", "R-> Evade", "Boost", "R-> Calculate"],
         maneuvers: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 1, 0, 0, 0, 3, 3], [2, 1, 2, 1, 2, 0, 0, 0, 0, 0], [2, 1, 2, 1, 2, 3, 0, 0, 0, 0], [0, 0, 2, 0, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 3, 0, 0, 0, 0]]
@@ -886,6 +888,7 @@ exportObj.basicCardData = function() {
         attack: 2,
         agility: 3,
         hull: 3,
+        shields: 0,
         actions: ["Focus", "Evade", "Lock", "Barrel Roll", "Boost"],
         maneuvers: [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 1, 0, 0, 0, 0, 0], [1, 2, 2, 2, 1, 0, 0, 0, 4, 4], [1, 2, 2, 2, 1, 0, 0, 0, 0, 0], [0, 0, 2, 0, 0, 3, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0, 0, 0]]
       },
@@ -5112,6 +5115,7 @@ exportObj.basicCardData = function() {
       }, {
         name: "Poe Dameron (HoH)",
         canonical_name: 'Poe Dameron'.canonicalize(),
+        xws: 'poedameron-swz68',
         id: 442,
         unique: true,
         faction: "Resistance",
@@ -5124,6 +5128,7 @@ exportObj.basicCardData = function() {
       }, {
         name: "Temmin Wexley (HoH)",
         canonical_name: 'Temmin Wexley'.canonicalize(),
+        xws: 'temminwexley-swz68',
         id: 443,
         unique: true,
         faction: "Resistance",
@@ -5168,7 +5173,7 @@ exportObj.basicCardData = function() {
         points: 36,
         slots: ["Talent", "Talent", "Missile", "Tech"]
       }, {
-        name: "Nimi Chereen",
+        name: "Nimi Chireen",
         id: 448,
         unique: true,
         faction: "Resistance",
@@ -6788,7 +6793,7 @@ exportObj.basicCardData = function() {
         unique: true,
         faction: "First Order",
         restriction_func: function(ship) {
-          return __indexOf.call(ship.effectiveStats().actions, "Coordinate") >= 0;
+          return __indexOf.call(ship.effectiveStats().actions, "Coordinate") >= 0 || __indexOf.call(ship.effectiveStats().actions, "R-Coordinate") >= 0;
         }
       }, {
         name: "Fanatical",
@@ -8520,6 +8525,7 @@ exportObj.basicCardData = function() {
         name: "Overdrive Thruster",
         id: 345,
         ship: "T-70 X-Wing",
+        unique: true,
         slot: "Modification",
         pointsarray: [0, 1, 2, 3, 4, 5, 6],
         variableinit: true
@@ -12161,6 +12167,34 @@ exportObj.basicCardData = function() {
         ship: "TIE Advanced Prototype",
         threat: 3,
         upgrades: ["Elusive", "Outmaneuver", "Afterburners"]
+      }, {
+        id: 457,
+        faction: "First Order",
+        pilot: "First Order Courier",
+        ship: "Xi-class Light Shuttle",
+        threat: 2,
+        upgrades: ["Tactical Officer", "Automated Target Priority", "Shield Upgrade"]
+      }, {
+        id: 458,
+        faction: "First Order",
+        pilot: "Gideon Hask (Xi Shuttle)",
+        ship: "Xi-class Light Shuttle",
+        threat: 2,
+        upgrades: ["Deadeye Shot", "Sensor Buoy Suite", "Commander Pyre", "Rigged Cargo Chute"]
+      }, {
+        id: 459,
+        faction: "First Order",
+        pilot: "Commander Malarus",
+        ship: "Xi-class Light Shuttle",
+        threat: 2,
+        upgrades: ["Snap Shot", "Sensor Buoy Suite", "Agent Terex", "Hull Upgrade"]
+      }, {
+        id: 460,
+        faction: "First Order",
+        pilot: "Agent Terex",
+        ship: "Xi-class Light Shuttle",
+        threat: 2,
+        upgrades: ["Inertial Dampeners", "Deadman's Switch", "Commander Malarus", "Contraband Cybernetics"]
       }
     ]
   };
@@ -14484,7 +14518,7 @@ exportObj.cardLoaders.English = function() {
     "C'ai Threnalli": {
       text: "After you fully execute a maneuver, if you moved through a friendly ship, you may perform an %EVADE% action. %LINEBREAK%<strong>Weapon Hardpoint:</strong> You can equip 1&nbsp;%CANNON%, %TORPEDO%, or %MISSILE% upgrade."
     },
-    "Nimi Chereen": {
+    "Nimi Chireen": {
       text: "While you perform an attack, if the defender's initiative is higher than yours, you may change 1 blank result to a %FOCUS% result. %LINEBREAK%<strong>Weapon Hardpoint:</strong> You can equip 1&nbsp;%CANNON%, %TORPEDO%, or %MISSILE% upgrade."
     },
     "Merl Cobben": {
@@ -14508,7 +14542,7 @@ exportObj.cardLoaders.English = function() {
     },
     "Gideon Hask (Xi Shuttle)": {
       display_name: "Gideon Hask",
-      text: "While you or a friendly small ship at range 0-2 performs a primary attack against a damaged defender, if the attacker rolled 2 or fewer attack dice, it may gain 1 strain token to roll 1 additiional attack die."
+      text: "While you or a friendly small ship at range 0-2 performs a primary attack against a damaged defender, if the attacker rolled 2 or fewer attack dice, it may gain 1 strain token to roll 1 additional attack die."
     },
     "Loyalist Volunteer": {
       text: "<strong>Twin Ion Engines:</strong> Ignore the \"TIE\" ship restriction on upgrade cards."
@@ -15615,7 +15649,7 @@ exportObj.cardLoaders.English = function() {
       text: "Adds %CALCULATE%, %JAM% %LINEBREAK% During the System Phase, you may choose a friendly ship at range 0-3. That ship gains 1 calculate token and 1 stress token."
     },
     "Proud Tradition": {
-      text: "<strong>Proud Tradition</strong>%LINEBREAK%<strong>Setup:</strong> Equip this side faceup. %LINEBREAK% While you have 2 or fewer stress tokens, you may peform %FOCUS% actions even while stressed. After you perform an attack, if you are stressed, the defender may spend 1 focus token or suffer 1 %CRIT% damage to flip this card. %LINEBREAK% <strong>False Tradition</strong>%LINEBREAK% Treat your %FOCUS% actions as red."
+      text: "<strong>Proud Tradition</strong>%LINEBREAK%<strong>Setup:</strong> Equip this side faceup. %LINEBREAK% While you have 2 or fewer stress tokens, you may perform %FOCUS% actions even while stressed. After you perform an attack, if you are stressed, the defender may spend 1 focus token or suffer 1 %CRIT% damage to flip this card. %LINEBREAK% <strong>False Tradition</strong>%LINEBREAK% Treat your %FOCUS% actions as red."
     },
     "Cluster Mines": {
       text: "During the System Phase, you may spend 1 %CHARGE% to drop a Cluster Mine set using the [1 %STRAIGHT%] template. %LINEBREAK% This card's %CHARGE% cannot be recovered."
@@ -15708,7 +15742,7 @@ exportObj.cardLoaders.English = function() {
       text: "While you perform a red %BOOST%. %BARRELROLL%, or %SLAM% action, you <b>must</b> use a template of 1 speed higher if able."
     },
     "R2-D2 (Resistance)": {
-      text: "During the End Phase, you may spend 1 %CHARGE% and 1 %SHIELD% to remove 1 red token. %LINEBREAK% During the End Phase, if you have no active %SHIELD%, you may spend 2 %CHARGE% to recover 1 %SHIELD% aqnd gain 1 deplete token."
+      text: "During the End Phase, you may spend 1 %CHARGE% and 1 %SHIELD% to remove 1 red token. %LINEBREAK% During the End Phase, if you have no active %SHIELD%, you may spend 2 %CHARGE% to recover 1 %SHIELD% and gain 1 deplete token."
     },
     "R6-D8": {
       text: "While you perform an attack, you may reroll a number of attack dice up to the number of friendly ships at range 0-3 that have the defender in their %BULLSEYEARC%."
@@ -15723,7 +15757,7 @@ exportObj.cardLoaders.English = function() {
       text: "<strong>Setup:</strong> Equip this side face up. %LINEBREAK% While a friendly non-limited ship at range 0-1 performs a primary attack, that ship may reroll 1 blank result. If it does and the attack does not hit, you <b>must</b> flip thiss card. %LINEBREAK%<strong>Perfected:</strong> While you perform an attack, if the defender is in your %BULLSEYEARC%, you <b>must</b> convert all %FOCUS% results to %HIT% results and gain 1 stress token. Then, if you have 2 or more stress tokens, suffer 1 %HIT% damage."
     },
     "Automated Target Priority": {
-      text: "While you perfom an attack, you <b>must</b> choose a defender at the closest valid attack range. %LINEBREAK% After you perform an attack that missed, place 1 calculate token on this card. %LINEBREAK% Before you engage, you may remove 1 calculate token from this card to gain a matching token."
+      text: "While you perform an attack, you <b>must</b> choose a defender at the closest valid attack range. %LINEBREAK% After you perform an attack that missed, place 1 calculate token on this card. %LINEBREAK% Before you engage, you may remove 1 calculate token from this card to gain a matching token."
     },
     "Sensor Buoy Suite": {
       text: "<strong>Setup:</strong> Before placing forces, place 2 sensor buoy remotes beyond range 2 of any edge. %LINEBREAK% Before you engage, you may acquire a lock on a ship at range 0-1 of a friendly sensor buoy, ignoring range restrictions."
@@ -15759,7 +15793,7 @@ exportObj.cardLoaders.English = function() {
       text: "<strong>Attack: [%FOCUS%, %CALCULATE%, or %LOCK%]</strong>Spend 1 %CHARGE%. If this attack hits, each friendly ship at range 1-3 of the defender may acquire a lock on the defender. Then cancel all dice results."
     },
     "Independent Calculations": {
-      text: "Replace your <strong>Networked Calculations</strong> ship ability with the following: %LINEBREAK% <strong>Independent Calculations:</strong> While you perform a white %CALCULATE% action, you may treat it as red to gain 1 additiional calculate token. Other ships cannot spend your caclulate tokens using the <strong>Networked Calculations</strong> ship ability."
+      text: "Replace your <strong>Networked Calculations</strong> ship ability with the following: %LINEBREAK% <strong>Independent Calculations:</strong> While you perform a white %CALCULATE% action, you may treat it as red to gain 1 additional calculate token. Other ships cannot spend your calculate tokens using the <strong>Networked Calculations</strong> ship ability."
     },
     "Jango Fett": {
       text: "While you defend or perform an attack, you may spend your lock on the enemy ship to change 1 of the enemy ship's %FOCUS% results to a blank result."
@@ -22496,6 +22530,10 @@ exportObj.manifestByExpansion = {
       type: 'pilot',
       count: 1
     }, {
+      name: "C'ai Threnalli",
+      type: 'pilot',
+      count: 1
+    }, {
       name: 'Seftin Vanik',
       type: 'pilot',
       count: 1
@@ -22508,27 +22546,95 @@ exportObj.manifestByExpansion = {
       type: 'pilot',
       count: 1
     }, {
-      name: 'Nimi Chereen',
+      name: 'Nimi Chireen',
       type: 'pilot',
       count: 1
+    }, {
+      name: 'Black Squadron Ace',
+      type: 'pilot',
+      count: 2
+    }, {
+      name: 'Red Squadron Expert',
+      type: 'pilot',
+      count: 2
+    }, {
+      name: 'Blue Squadron Rookie',
+      type: 'pilot',
+      count: 2
+    }, {
+      name: 'Green Squadron Expert',
+      type: 'pilot',
+      count: 1
+    }, {
+      name: 'Blue Squadron Recruit',
+      type: 'pilot',
+      count: 2
     }, {
       name: 'R2-D2 (Resistance)',
       type: 'upgrade',
       count: 1
     }, {
-      name: 'Underslung Blaster Cannon',
+      name: 'R6-D8',
       type: 'upgrade',
       count: 1
+    }, {
+      name: 'R4 Astromech',
+      type: 'upgrade',
+      count: 1
+    }, {
+      name: 'Integrated S-Foils',
+      type: 'upgrade',
+      count: 2
+    }, {
+      name: 'Backwards Tailslide',
+      type: 'upgrade',
+      count: 3
+    }, {
+      name: 'Daredevil',
+      type: 'upgrade',
+      count: 1
+    }, {
+      name: 'Deadeye Shot',
+      type: 'upgrade',
+      count: 2
+    }, {
+      name: 'Starbird Slash',
+      type: 'upgrade',
+      count: 2
+    }, {
+      name: 'Snap Shot',
+      type: 'upgrade',
+      count: 2
     }, {
       name: 'Overdrive Thruster',
       type: 'upgrade',
       count: 1
     }, {
-      name: 'Backwards Tailslide',
+      name: 'Ion Missiles',
       type: 'upgrade',
       count: 1
     }, {
-      name: 'Starbird Slash',
+      name: 'Concussion Missiles',
+      type: 'upgrade',
+      count: 1
+    }, {
+      name: 'Integrated S-Foils',
+      type: 'upgrade',
+      count: 2
+    }, {
+      name: 'Underslung Blaster Cannon',
+      type: 'upgrade',
+      count: 2
+    }, {
+      name: 'Automated Target Priority',
+      type: 'upgrade',
+      count: 2
+    }, {
+      name: 'Primed Thrusters',
+      type: 'upgrade',
+      count: 1
+    }, {
+      name: 'Black One',
       type: 'upgrade',
       count: 1
     }
@@ -22565,9 +22671,29 @@ exportObj.manifestByExpansion = {
     }, {
       name: 'Deadeye Shot',
       type: 'upgrade',
-      count: 1
+      count: 2
     }, {
       name: 'Ion Limiter Override',
+      type: 'upgrade',
+      count: 2
+    }, {
+      name: 'Snap Shot',
+      type: 'upgrade',
+      count: 1
+    }, {
+      name: 'Ablative Plating',
+      type: 'upgrade',
+      count: 1
+    }, {
+      name: 'Ion Cannon',
+      type: 'upgrade',
+      count: 1
+    }, {
+      name: 'Heavy Laser Cannon',
+      type: 'upgrade',
+      count: 1
+    }, {
+      name: 'Synced Laser Cannons',
       type: 'upgrade',
       count: 1
     }
