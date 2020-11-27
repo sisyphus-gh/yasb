@@ -2527,7 +2527,10 @@ exportObj.slotsMatching = function(slota, slotb) {
 };
 
 $.isMobile = function() {
-  return navigator.userAgent.match(/(iPhone|iPod|iPad|Android)/i);
+  if ((navigator.userAgent.match(/(iPhone|iPod|iPad|Android)/i)) || navigator.maxTouchPoints > 1) {
+    return true;
+  }
+  return false;
 };
 
 $.randomInt = function(n) {
@@ -2657,6 +2660,7 @@ exportObj.SquadBuilder = (function() {
       points: 200,
       bid_goal: 5,
       ships_or_upgrades: 3,
+      ship_limit: 0,
       collection_only: true,
       fill_zero_pts: false
     };
@@ -2740,11 +2744,12 @@ exportObj.SquadBuilder = (function() {
   };
 
   SquadBuilder.prototype.setupUI = function() {
-    var DEFAULT_RANDOMIZER_BID_GOAL, DEFAULT_RANDOMIZER_POINTS, DEFAULT_RANDOMIZER_SHIPS_OR_UPGRADES, DEFAULT_RANDOMIZER_TIMEOUT_SEC, content_container, expansion, opt, _i, _len, _ref;
+    var DEFAULT_RANDOMIZER_BID_GOAL, DEFAULT_RANDOMIZER_POINTS, DEFAULT_RANDOMIZER_SHIPS_OR_UPGRADES, DEFAULT_RANDOMIZER_SHIP_LIMIT, DEFAULT_RANDOMIZER_TIMEOUT_SEC, content_container, expansion, opt, _i, _len, _ref;
     DEFAULT_RANDOMIZER_POINTS = 200;
     DEFAULT_RANDOMIZER_TIMEOUT_SEC = 4;
     DEFAULT_RANDOMIZER_BID_GOAL = 5;
     DEFAULT_RANDOMIZER_SHIPS_OR_UPGRADES = 3;
+    DEFAULT_RANDOMIZER_SHIP_LIMIT = 0;
     this.status_container = $(document.createElement('DIV'));
     this.status_container.addClass('container-fluid');
     this.status_container.append($.trim('<div class="row squad-name-and-points-row">\n    <div class="col-md-3 squad-name-container">\n        <div class="display-name">\n            <span class="squad-name"></span>\n            <i class="far fa-edit"></i>\n        </div>\n        <div class="input-append">\n            <input type="text" maxlength="64" placeholder="Name your squad..." />\n            <button class="btn save"><i class="fa fa-pen-square"></i></button>\n        </div>\n        <br />\n        <select class="game-type-selector">\n            <option value="standard">Extended</option>\n            <option value="hyperspace">Hyperspace</option>\n            <option value="epic">Epic</option>\n            <option value="quickbuild">Quickbuild</option>\n        </select>\n    </div>\n    <div class="col-md-4 points-display-container">\n        Points: <span class="total-points">0</span> / <input type="number" class="desired-points" value="200">\n        <span class="points-remaining-container">(<span class="points-remaining"></span>&nbsp;left) <span class="points-destroyed red"></span></span>\n        <span class="content-warning unreleased-content-used d-none"><br /><i class="fa fa-exclamation-circle"></i>&nbsp;<span class="translated"></span></span>\n        <span class="content-warning loading-failed-container d-none"><br /><i class="fa fa-exclamation-circle"></i>&nbsp;<span class="translated"></span></span>\n        <span class="content-warning collection-invalid d-none"><br /><i class="fa fa-exclamation-circle"></i>&nbsp;<span class="translated"></span></span>\n        <span class="content-warning ship-number-invalid-container d-none"><br /><i class="fa fa-exclamation-circle"></i>&nbsp;<span class="translated">A tournament legal squad must contain 2-8 ships!</span></span>\n    </div>\n    <div class="col-md-5 float-right button-container">\n        <div class="btn-group float-right">\n\n            <button class="btn btn-info view-as-text"><span class="d-none d-lg-block"><i class="fa fa-print"></i>&nbsp;Print/Export</span><span class="d-lg-none"><i class="fa fa-print"></i></span></button>\n            <a class="btn btn-primary d-none collection"><span class="d-none d-lg-block"><i class="fa fa-folder-open"></i> Your Collection</span><span class="d-lg-none"><i class="fa fa-folder-open"></i></span></a>\n            <!-- Randomize button is marked as danger, since it creates a new squad -->\n            <button class="btn btn-danger randomize"><span class="d-none d-lg-block"><i class="fa fa-random"></i> Randomize!</span><span class="d-lg-none"><i class="fa fa-random"></i></span></button>\n            <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown">\n                <span class="caret"></span>\n            </button>\n            <ul class="dropdown-menu">\n                <li><a class="dropdown-item randomize-options">Randomizer Options</a></li>\n                <li><a class="dropdown-item misc-settings">Misc Settings</a></li>\n            </ul>\n            \n\n        </div>\n    </div>\n</div>\n\n<div class="row squad-save-buttons">\n    <div class="col-md-12">\n        <button class="show-authenticated btn btn-primary save-list"><i class="far fa-save"></i>&nbsp;Save</button>\n        <button class="show-authenticated btn btn-primary save-list-as"><i class="far fa-file"></i>&nbsp;Save As...</button>\n        <button class="show-authenticated btn btn-primary delete-list disabled"><i class="fa fa-trash"></i>&nbsp;Delete</button>\n        <button class="show-authenticated btn btn-info backend-list-my-squads show-authenticated"><i class="fa fa-download"></i>&nbsp;Load Squad</button>\n        <button class="btn btn-info import-squad"><i class="fa fa-file-import"></i>&nbsp;Import</button>\n        <button class="btn btn-danger clear-squad"><i class="fa fa-plus-circle"></i>&nbsp;New Squad</button>\n        <span class="show-authenticated backend-status"></span>\n    </div>\n</div>'));
@@ -3136,7 +3141,7 @@ exportObj.SquadBuilder = (function() {
     this.randomizer_options_modal.tabindex = "-1";
     this.randomizer_options_modal.role = "dialog";
     $('body').append(this.randomizer_options_modal);
-    this.randomizer_options_modal.append($.trim("<div class=\"modal-dialog modal-dialog-scrollable modal-dialog-centered\" role=\"document\">\n    <div class=\"modal-content\">\n        <div class=\"modal-header\">\n            <h3>Random Squad Builder Options</h3>\n            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n        </div>\n        <div class=\"modal-body\">\n            <form>\n                <label>\n                    Maximal desired bid\n                    <input type=\"number\" class=\"randomizer-bid-goal\" value=\"" + DEFAULT_RANDOMIZER_BID_GOAL + "\" placeholder=\"" + DEFAULT_RANDOMIZER_BID_GOAL + "\" />\n                </label><br />\n                <label>\n                    More upgrades\n                    <input type=\"range\" min=\"0\" max=\"10\" class=\"randomizer-ships-or-upgrades\" value=\"" + DEFAULT_RANDOMIZER_SHIPS_OR_UPGRADES + "\" placeholder=\"" + DEFAULT_RANDOMIZER_SHIPS_OR_UPGRADES + "\" />\n                    Less upgrades\n                </label><br />\n                <label>\n                    <input type=\"checkbox\" class=\"randomizer-collection-only\" checked=\"checked\"/> \n                    Only use items from collection\n                </label><br />\n                <label>\n                    Sets and Expansions (default all)\n                    <select class=\"randomizer-sources\" multiple=\"1\" data-placeholder=\"Use all sets and expansions\">\n                    </select>\n                </label><br />\n                <label>\n                    <input type=\"checkbox\" class=\"randomizer-fill-zero-pts\" /> \n                    Always fill 0-point slots\n                </label><br />\n                <label>\n                    Maximum Seconds to Spend Randomizing\n                    <input type=\"number\" class=\"randomizer-timeout\" value=\"" + DEFAULT_RANDOMIZER_TIMEOUT_SEC + "\" placeholder=\"" + DEFAULT_RANDOMIZER_TIMEOUT_SEC + "\" />\n                </label>\n            </form>\n        </div>\n        <div class=\"modal-footer\">\n            <button class=\"btn btn-primary do-randomize\" aria-hidden=\"true\">Randomize!</button>\n            <button class=\"btn\" data-dismiss=\"modal\" aria-hidden=\"true\">Close</button>\n        </div>\n    </div>\n</div>"));
+    this.randomizer_options_modal.append($.trim("<div class=\"modal-dialog modal-dialog-scrollable modal-dialog-centered\" role=\"document\">\n    <div class=\"modal-content\">\n        <div class=\"modal-header\">\n            <h3>Random Squad Builder Options</h3>\n            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n        </div>\n        <div class=\"modal-body\">\n            <form>\n                <label>\n                    Maximal desired bid\n                    <input type=\"number\" class=\"randomizer-bid-goal\" value=\"" + DEFAULT_RANDOMIZER_BID_GOAL + "\" placeholder=\"" + DEFAULT_RANDOMIZER_BID_GOAL + "\" />\n                </label><br />\n                <label>\n                    Maximum Ship Count (0 for no limit)\n                    <input type=\"number\" class=\"randomizer-ship-limit\" value=\"" + DEFAULT_RANDOMIZER_SHIP_LIMIT + "\" placeholder=\"" + DEFAULT_RANDOMIZER_SHIP_LIMIT + "\" />\n                </label><br />\n                <label>\n                    More upgrades\n                    <input type=\"range\" min=\"0\" max=\"10\" class=\"randomizer-ships-or-upgrades\" value=\"" + DEFAULT_RANDOMIZER_SHIPS_OR_UPGRADES + "\" placeholder=\"" + DEFAULT_RANDOMIZER_SHIPS_OR_UPGRADES + "\" />\n                    Less upgrades\n                </label><br />\n                <label>\n                    <input type=\"checkbox\" class=\"randomizer-collection-only\" checked=\"checked\"/> \n                    Only use items from collection\n                </label><br />\n                <label>\n                    Sets and Expansions (default all)\n                    <select class=\"randomizer-sources\" multiple=\"1\" data-placeholder=\"Use all sets and expansions\">\n                    </select>\n                </label><br />\n                <label>\n                    <input type=\"checkbox\" class=\"randomizer-fill-zero-pts\" /> \n                    Always fill 0-point slots\n                </label><br />\n                <label>\n                    Maximum Seconds to Spend Randomizing\n                    <input type=\"number\" class=\"randomizer-timeout\" value=\"" + DEFAULT_RANDOMIZER_TIMEOUT_SEC + "\" placeholder=\"" + DEFAULT_RANDOMIZER_TIMEOUT_SEC + "\" />\n                </label>\n            </form>\n        </div>\n        <div class=\"modal-footer\">\n            <button class=\"btn btn-primary do-randomize\" aria-hidden=\"true\">Randomize!</button>\n            <button class=\"btn\" data-dismiss=\"modal\" aria-hidden=\"true\">Close</button>\n        </div>\n    </div>\n</div>"));
     this.randomizer_source_selector = $(this.randomizer_options_modal.find('select.randomizer-sources'));
     _ref = exportObj.expansions;
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -3153,7 +3158,7 @@ exportObj.SquadBuilder = (function() {
     this.randomizer_fill_zero_pts = ($(this.randomizer_options_modal.find('.randomizer-fill-zero-pts')))[0];
     this.randomize_button.click((function(_this) {
       return function(e) {
-        var bid_goal, points, ships_or_upgrades, timeout_sec;
+        var bid_goal, points, ship_limit, ships_or_upgrades, timeout_sec;
         e.preventDefault();
         if (_this.current_squad.dirty && (_this.backend != null)) {
           return _this.backend.warnUnsaved(_this, function() {
@@ -3168,6 +3173,10 @@ exportObj.SquadBuilder = (function() {
           if (isNaN(bid_goal) || bid_goal < 0) {
             bid_goal = DEFAULT_RANDOMIZER_BID_GOAL;
           }
+          ship_limit = parseInt($(_this.randomizer_options_modal.find('.randomizer-ship-limit')).val());
+          if (isNaN(ship_limit) || ship_limit < 0) {
+            ship_limit = DEFAULT_RANDOMIZER_SHIP_LIMIT;
+          }
           ships_or_upgrades = parseInt($(_this.randomizer_options_modal.find('.randomizer-ships-or-upgrades')).val());
           if (isNaN(ships_or_upgrades) || ships_or_upgrades < 0) {
             ships_or_upgrades = DEFAULT_RANDOMIZER_SHIPS_OR_UPGRADES;
@@ -3176,7 +3185,7 @@ exportObj.SquadBuilder = (function() {
           if (isNaN(timeout_sec) || timeout_sec <= 0) {
             timeout_sec = DEFAULT_RANDOMIZER_TIMEOUT_SEC;
           }
-          return _this.randomSquad(points, _this.randomizer_source_selector.val(), timeout_sec * 1000, bid_goal, ships_or_upgrades, _this.randomizer_collection_selector.checked, _this.randomizer_fill_zero_pts.checked);
+          return _this.randomSquad(points, _this.randomizer_source_selector.val(), timeout_sec * 1000, bid_goal, ship_limit, ships_or_upgrades, _this.randomizer_collection_selector.checked, _this.randomizer_fill_zero_pts.checked);
         }
       };
     })(this));
@@ -3310,7 +3319,7 @@ exportObj.SquadBuilder = (function() {
                   return results = arguments[0];
                 };
               })(),
-              lineno: 3004
+              lineno: 3014
             }));
             __iced_deferrals._fulfill();
           })(function() {
@@ -3617,7 +3626,7 @@ exportObj.SquadBuilder = (function() {
         if (_this.isEpic) {
           _this.printable_container.find('.squad-name').append(" <i class=\"xwing-miniatures-font xwing-miniatures-font-energy\"></i>");
         }
-        _this.printable_container.find('.printable-body').append($.trim("<div class=\"version\">Points Version: 1.7.1 October 2020</div>"));
+        _this.printable_container.find('.printable-body').append($.trim("<div class=\"version\">Points Version: 1.8.0 November 2020</div>"));
         if ($.trim(_this.notes.val()) !== '') {
           _this.printable_container.find('.printable-body').append($.trim("<h5 class=\"print-notes\">Notes:</h5>\n<pre class=\"print-notes\"></pre>"));
           _this.printable_container.find('.printable-body pre.print-notes').text(_this.notes.val());
@@ -4206,7 +4215,7 @@ exportObj.SquadBuilder = (function() {
               funcname: "SquadBuilder.removeShip"
             });
             ship.destroy(__iced_deferrals.defer({
-              lineno: 3843
+              lineno: 3853
             }));
             __iced_deferrals._fulfill();
           })(function() {
@@ -4216,7 +4225,7 @@ exportObj.SquadBuilder = (function() {
                 funcname: "SquadBuilder.removeShip"
               });
               _this.container.trigger('xwing:pointsUpdated', __iced_deferrals.defer({
-                lineno: 3844
+                lineno: 3854
               }));
               __iced_deferrals._fulfill();
             })(function() {
@@ -4287,18 +4296,16 @@ exportObj.SquadBuilder = (function() {
       ship_data = _ref[ship_name];
       if (this.isOurFaction(ship_data.factions) && (this.matcher(ship_data.name, term) || (ship_data.display_name && this.matcher(ship_data.display_name, term)))) {
         if (this.isItemAvailable(ship_data, true)) {
-          if (this.isEpic || this.isQuickbuild || (!this.isEpic && !ship_data.huge)) {
-            if (!collection_only || ((this.collection != null) && (this.collection.checks.collectioncheck === "true") && this.collection.checkShelf('ship', ship_data.name))) {
-              ships.push({
-                id: ship_data.name,
-                text: ship_data.display_name ? ship_data.display_name : ship_data.name,
-                name: ship_data.name,
-                display_name: ship_data.display_name,
-                canonical_name: ship_data.canonical_name,
-                xws: ship_data.xws,
-                icon: ship_data.icon ? ship_data.icon : ship_data.xws
-              });
-            }
+          if (!collection_only || ((this.collection != null) && (this.collection.checks.collectioncheck === "true") && this.collection.checkShelf('ship', ship_data.name))) {
+            ships.push({
+              id: ship_data.name,
+              text: ship_data.display_name ? ship_data.display_name : ship_data.name,
+              name: ship_data.name,
+              display_name: ship_data.display_name,
+              canonical_name: ship_data.canonical_name,
+              xws: ship_data.xws,
+              icon: ship_data.icon ? ship_data.icon : ship_data.xws
+            });
           }
         }
       }
@@ -4725,9 +4732,9 @@ exportObj.SquadBuilder = (function() {
           color = (function() {
             switch (maneuvers[speed][turn]) {
               case 1:
-                return "white";
-              case 2:
                 return "dodgerblue";
+              case 2:
+                return "white";
               case 3:
                 return "red";
               case 4:
@@ -4737,9 +4744,9 @@ exportObj.SquadBuilder = (function() {
           maneuverClass = (function() {
             switch (maneuvers[speed][turn]) {
               case 1:
-                return "svg-white-maneuver";
-              case 2:
                 return "svg-blue-maneuver";
+              case 2:
+                return "svg-white-maneuver";
               case 3:
                 return "svg-red-maneuver";
               case 4:
@@ -5549,7 +5556,7 @@ exportObj.SquadBuilder = (function() {
               available_ships = this.getAvailableShipsMatching('', false, data.collection_only);
             }
           }
-          if (available_ships.length > 0) {
+          if ((available_ships.length > 0) && ((this.ships.length < data.ship_limit) || (data.ship_limit === 0))) {
             ship_type = available_ships[$.randomInt(available_ships.length)].name;
             available_pilots = this.getAvailablePilotsForShipIncluding(ship_type);
             if (available_pilots.length === 0) {
@@ -5695,7 +5702,7 @@ exportObj.SquadBuilder = (function() {
     })(this);
   };
 
-  SquadBuilder.prototype.randomSquad = function(max_points, allowed_sources, timeout_ms, bid_goal, ships_or_upgrades, collection_only, fill_zero_pts) {
+  SquadBuilder.prototype.randomSquad = function(max_points, allowed_sources, timeout_ms, bid_goal, ship_limit, ships_or_upgrades, collection_only, fill_zero_pts) {
     var data, stopHandler;
     if (max_points == null) {
       max_points = 200;
@@ -5708,6 +5715,9 @@ exportObj.SquadBuilder = (function() {
     }
     if (bid_goal == null) {
       bid_goal = 5;
+    }
+    if (ship_limit == null) {
+      ship_limit = 0;
     }
     if (ships_or_upgrades == null) {
       ships_or_upgrades = 3;
@@ -5732,6 +5742,7 @@ exportObj.SquadBuilder = (function() {
     data = {
       max_points: max_points,
       bid_goal: bid_goal,
+      ship_limit: ship_limit,
       ships_or_upgrades: ships_or_upgrades,
       keep_running: true,
       allowed_sources: allowed_sources != null ? allowed_sources : exportObj.expansions,
@@ -6138,7 +6149,7 @@ Ship = (function() {
                       funcname: "Ship.destroy"
                     });
                     _this.builder.removeShip(_this.linkedShip, __iced_deferrals.defer({
-                      lineno: 5215
+                      lineno: 5225
                     }));
                     __iced_deferrals._fulfill();
                   })(__iced_k);
@@ -6355,7 +6366,7 @@ Ship = (function() {
                       });
                       _this.builder.container.trigger('xwing:claimUnique', [
                         new_pilot, 'Pilot', __iced_deferrals.defer({
-                          lineno: 5325
+                          lineno: 5335
                         })
                       ]);
                       __iced_deferrals._fulfill();
@@ -6405,7 +6416,7 @@ Ship = (function() {
                                   funcname: "Ship.setPilotById"
                                 });
                                 _this.builder.removeShip(_this.linkedShip, __iced_deferrals.defer({
-                                  lineno: 5358
+                                  lineno: 5368
                                 }));
                                 __iced_deferrals._fulfill();
                               })(__iced_k);
@@ -6503,7 +6514,7 @@ Ship = (function() {
                   });
                   _this.builder.container.trigger('xwing:claimUnique', [
                     new_pilot, 'Pilot', __iced_deferrals.defer({
-                      lineno: 5416
+                      lineno: 5426
                     })
                   ]);
                   __iced_deferrals._fulfill();
@@ -6584,7 +6595,7 @@ Ship = (function() {
             });
             _this.builder.container.trigger('xwing:releaseUnique', [
               _this.pilot, 'Pilot', __iced_deferrals.defer({
-                lineno: 5446
+                lineno: 5456
               })
             ]);
             __iced_deferrals._fulfill();
@@ -6653,7 +6664,7 @@ Ship = (function() {
           upgrade = _ref[_i];
           if (upgrade != null) {
             upgrade.destroy(__iced_deferrals.defer({
-              lineno: 5475
+              lineno: 5485
             }));
           }
         }
@@ -6745,7 +6756,7 @@ Ship = (function() {
                 funcname: "Ship.setWingmates"
               });
               _this.builder.removeShip(dyingMate, __iced_deferrals.defer({
-                lineno: 5531
+                lineno: 5541
               }));
               __iced_deferrals._fulfill();
             })(_next);
@@ -7703,22 +7714,31 @@ Ship = (function() {
   };
 
   Ship.prototype.checkKeyword = function(keyword) {
-    var words, _i, _j, _len, _len1, _ref, _ref1, _ref2;
+    var upgrade, word, words, _i, _j, _k, _l, _len, _len1, _len2, _len3, _ref, _ref1, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8;
     if ((_ref = this.data.name) != null ? _ref.includes(keyword) : void 0) {
       return true;
-    } else if (this.data.keyword != null) {
-      _ref1 = this.data.keyword;
-      for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
-        words = _ref1[_i];
-        if (words === keyword) {
-          return true;
-        }
+    }
+    _ref2 = (_ref1 = this.data.keyword) != null ? _ref1 : [];
+    for (_i = 0, _len = _ref2.length; _i < _len; _i++) {
+      words = _ref2[_i];
+      if (words === keyword) {
+        return true;
       }
-    } else if (this.pilot.keyword != null) {
-      _ref2 = this.pilot.keyword;
-      for (_j = 0, _len1 = _ref2.length; _j < _len1; _j++) {
-        words = _ref2[_j];
-        if (words === keyword) {
+    }
+    _ref4 = (_ref3 = this.pilot.keyword) != null ? _ref3 : [];
+    for (_j = 0, _len1 = _ref4.length; _j < _len1; _j++) {
+      words = _ref4[_j];
+      if (words === keyword) {
+        return true;
+      }
+    }
+    _ref5 = this.upgrades;
+    for (_k = 0, _len2 = _ref5.length; _k < _len2; _k++) {
+      upgrade = _ref5[_k];
+      _ref8 = (_ref6 = upgrade != null ? (_ref7 = upgrade.data) != null ? _ref7.keyword : void 0 : void 0) != null ? _ref6 : [];
+      for (_l = 0, _len3 = _ref8.length; _l < _len3; _l++) {
+        word = _ref8[_l];
+        if (word === keyword) {
           return true;
         }
       }
@@ -7860,7 +7880,7 @@ GenericAddon = (function() {
             });
             _this.ship.builder.container.trigger('xwing:releaseUnique', [
               _this.data, _this.type, __iced_deferrals.defer({
-                lineno: 6406
+                lineno: 6418
               })
             ]);
             __iced_deferrals._fulfill();
@@ -8018,7 +8038,7 @@ GenericAddon = (function() {
               });
               _this.ship.builder.container.trigger('xwing:releaseUnique', [
                 _this.unadjusted_data, _this.type, __iced_deferrals.defer({
-                  lineno: 6498
+                  lineno: 6510
                 })
               ]);
               __iced_deferrals._fulfill();
@@ -8045,7 +8065,7 @@ GenericAddon = (function() {
                   });
                   _this.ship.builder.container.trigger('xwing:claimUnique', [
                     new_data, _this.type, __iced_deferrals.defer({
-                      lineno: 6505
+                      lineno: 6517
                     })
                   ]);
                   __iced_deferrals._fulfill();
@@ -8188,7 +8208,7 @@ GenericAddon = (function() {
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           addon = _ref[_i];
           addon.destroy(__iced_deferrals.defer({
-            lineno: 6577
+            lineno: 6589
           }));
         }
         __iced_deferrals._fulfill();
