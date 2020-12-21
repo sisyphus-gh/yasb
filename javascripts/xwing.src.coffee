@@ -1654,12 +1654,14 @@ class exportObj.CardBrowser
                        faction_matches = true
                        break
                return false unless faction_matches
+        else
+            selected_factions = all_factions
 
         # check if hyperspace only matches
         if @hyperspace_checkbox.checked
             # check all factions specified by the card (which might be a single faction or an array of factions), or all selected factions if card does not specify any
-            for faction in (if card.data.faction? then (if Array.isArray(card.data.faction) then card.data.faction else [card.data.faction]) else (selected_factions ? all_factions))
-                continue unless faction in (selected_factions ? all_factions) # e.g. ships should only be displayed if a legal faction is selected
+            for faction in (if card.data.faction? then (if Array.isArray(card.data.faction) then card.data.faction else [card.data.faction]) else selected_factions)
+                continue unless faction in selected_factions # e.g. ships should only be displayed if a legal faction is selected
                 hyperspace_legal = hyperspace_legal or exportObj.hyperspaceCheck(card.data, faction, card.orig_type == 'Ship' )
             return false unless hyperspace_legal
 
@@ -1669,7 +1671,7 @@ class exportObj.CardBrowser
             slots = card.data.slots
             if card.orig_type == 'Ship'
                 slots = []
-                for faction in selected_factions ? all_factions
+                for faction in selected_factions
                     if faction != undefined
                         for name, pilots of exportObj.pilotsByFactionCanonicalName[faction]
                             for pilot in pilots # there are sometimes multiple pilots with the same name, so we have another array layer here
@@ -1710,7 +1712,7 @@ class exportObj.CardBrowser
                 return false unless matching_points
             if card.orig_type == 'Ship' # check if pilot matching points exist
                 matching_points = false
-                for faction in selected_factions ? all_factions
+                for faction in selected_factions
                     for name, pilots of exportObj.pilotsByFactionCanonicalName[faction]
                         for pilot in pilots
                             if pilot.ship == card.data.name
@@ -1825,6 +1827,7 @@ class exportObj.CardBrowser
         #TODO: Add logic of addiditional search criteria here. Have a look at card.data, to see what data is available. Add search inputs at the todo marks above. 
 
         return true
+
 ###
     X-Wing Rules Browser
     Stephen Kim <raithos@gmail.com>
@@ -3117,7 +3120,6 @@ class exportObj.SquadBuilder
                 <div class="info-name"></div>
                 <div class="info-type"></div>
                 <span class="info-collection"></span>
-                <span class="info-solitary"><br />Solitary</span>
                 <table class="table-sm">
                     <tbody>
                         <tr class="info-ship">
@@ -3206,6 +3208,7 @@ class exportObj.SquadBuilder
                         </tr>
                     </tbody>
                 </table>
+                <p class="info-restrictions"></p>
                 <p class="info-text"></p>
                 <p class="info-maneuvers"></p>
                 <br />
@@ -4012,7 +4015,7 @@ class exportObj.SquadBuilder
             false
         else
             ship == name
-            
+
     getAvailableUpgradesIncluding: (slot, include_upgrade, ship, this_upgrade_obj, term='', filter_func=@dfl_filter_func, sorted=true) ->
         # Returns data formatted for Select2
         upgrades_in_use = (upgrade.data for upgrade in ship.upgrades)
@@ -4022,7 +4025,7 @@ class exportObj.SquadBuilder
         if filter_func != @dfl_filter_func
             available_upgrades = (upgrade for upgrade in available_upgrades when filter_func(upgrade))
 
-        eligible_upgrades = (upgrade for upgrade_name, upgrade of available_upgrades when (not upgrade.unique? or upgrade not in @uniques_in_use['Upgrade']) and (not (ship? and upgrade.restriction_func?) or upgrade.restriction_func(ship, this_upgrade_obj)) and upgrade not in upgrades_in_use and ((not upgrade.max_per_squad?) or ship.builder.countUpgrades(upgrade.canonical_name) < upgrade.max_per_squad) and (not upgrade.solitary? or (upgrade.slot not in @uniques_in_use['Slot'] or include_upgrade?.solitary?)))
+        eligible_upgrades = (upgrade for upgrade_name, upgrade of available_upgrades when (not upgrade.unique? or upgrade not in @uniques_in_use['Upgrade']) and (not (ship? and upgrade.restrictions?) or ship.restriction_check(upgrade.restrictions, this_upgrade_obj)) and upgrade not in upgrades_in_use and ((not upgrade.max_per_squad?) or ship.builder.countUpgrades(upgrade.canonical_name) < upgrade.max_per_squad) and (not upgrade.solitary? or (upgrade.slot not in @uniques_in_use['Slot'] or include_upgrade?.solitary?)))
         
         
 
@@ -4310,7 +4313,6 @@ class exportObj.SquadBuilder
                     container.find('tr.info-attack-doubleturret').toggle(data.attackdt?)
                 
                     container.find('tr.info-ship').hide()        
-                    container.find('.info-solitary').hide()         
                     if data.large?
                         container.find('tr.info-base td.info-data').text "Large"
                     else if data.medium?
@@ -4400,12 +4402,19 @@ class exportObj.SquadBuilder
                         uniquedots = ""
                         
                     container.find('.info-name').html """#{uniquedots}#{if data.display_name then data.display_name else data.name}#{if exportObj.isReleased(data) then "" else " (#{exportObj.translate(@language, 'ui', 'unreleased')})"}"""
+
+                    restriction_info = @restriction_text(data) + @upgrade_effect(data)
+                    if restriction_info != ''
+                        container.find('p.info-restrictions').html restriction_info ? ''
+                        container.find('p.info-restrictions').show()
+                    else
+                        container.find('p.info-restrictions').hide()
+
                     container.find('p.info-text').html data.text ? ''
                     container.find('p.info-text').show()
                     ship = exportObj.ships[data.ship]
                     container.find('tr.info-ship td.info-data').text data.ship
                     container.find('tr.info-ship').show()
-                    container.find('.info-solitary').hide()
                     
                     if ship.large?
                         container.find('tr.info-base td.info-data').text "Large"
@@ -4528,12 +4537,19 @@ class exportObj.SquadBuilder
                         uniquedots = ""
                         
                     container.find('.info-name').html """#{uniquedots}#{if pilot.display_name then pilot.display_name else pilot.name}#{if data.suffix? then data.suffix else ""}#{if exportObj.isReleased(pilot) then "" else " (#{exportObj.translate(@language, 'ui', 'unreleased')})"}"""
+
+
+                    restriction_info = @restriction_text(data) + @upgrade_effect(data)
+                    if restriction_info != ''
+                        container.find('p.info-restrictions').html restriction_info ? ''
+                        container.find('p.info-restrictions').show()
+                    else
+                        container.find('p.info-restrictions').hide()
+
                     container.find('p.info-text').html pilot.text ? ''
                     container.find('p.info-text').show()
                     container.find('tr.info-ship td.info-data').text data.ship
                     container.find('tr.info-ship').show()
-                    container.find('.info-solitary').hide()
-
 
                     if ship.large?
                         container.find('tr.info-base td.info-data').text "Large"
@@ -4556,14 +4572,13 @@ class exportObj.SquadBuilder
                     
                     container.find('tr.info-attack-bullseye td.info-data').text(ship.attackbull)
                     container.find('tr.info-attack-bullseye').toggle(ship.attackbull?)
-                    
                     container.find('tr.info-attack-left td.info-data').text(ship.attackl)
                     container.find('tr.info-attack-left').toggle(ship.attackl?)
-                    container.find('tr.info-attack-left td.info-data').text(ship.attackr)
-                    container.find('tr.info-attack-left').toggle(ship.attackr?)
-                    container.find('tr.info-attack-back td.info-data').text(ship.attackb)
+                    container.find('tr.info-attack-right td.info-data').text(ship.attackr)
+                    container.find('tr.info-attack-right').toggle(ship.attackr?)
+                    container.find('tr.info-attack-back td.info-data').text(ship.attackb?)
                     container.find('tr.info-attack-back').toggle(ship.attackb?)
-                    container.find('tr.info-attack-turret td.info-data').text(ship.attackt)
+                    container.find('tr.info-attack-turret td.info-data').text(ship.attackt?)
                     container.find('tr.info-attack-turret').toggle(ship.attackt?)
                     container.find('tr.info-attack-doubleturret td.info-data').text(ship.attackdt)
                     container.find('tr.info-attack-doubleturret').toggle(ship.attackdt?)
@@ -4632,21 +4647,25 @@ class exportObj.SquadBuilder
                         container.find('.info-collection').hide()
                     container.find('.info-name').html """#{uniquedots}#{if data.display_name then data.display_name else data.name}#{if exportObj.isReleased(data) then  "" else " (#{exportObj.translate(@language, 'ui', 'unreleased')})"}"""
                     if data.pointsarray? 
-                        point_info = "<i>Point cost " + data.pointsarray + " when "
+                        point_info = "<i><b>Point cost:</b> " + data.pointsarray + " when "
                         if data.variableagility? and data.variableagility
                             point_info += "agility is " + [0..data.pointsarray.length-1]
                         else if data.variableinit? and data.variableinit
                             point_info += "initiative is " + [0..data.pointsarray.length-1]
                         else if data.variablebase? and data.variablebase
                             point_info += " base size is small, medium, large or huge"
-                        point_info += "</i><br/><br/>"
+                        point_info += "</i>"
 
-                    if data.solitary?
-                        container.find('.info-solitary').show()
+                    restriction_info = @restriction_text(data) + @upgrade_effect(data)
+                    if point_info? or (restriction_info != '')
+                        if point_info? and (restriction_info != '')
+                            point_info += "<br/>"
+                        container.find('p.info-restrictions').html (point_info ? '') + restriction_info
+                        container.find('p.info-restrictions').show()
                     else
-                        container.find('.info-solitary').hide()
+                        container.find('p.info-restrictions').hide()
 
-                    container.find('p.info-text').html (point_info ? '') + (data.text ? '')
+                    container.find('p.info-text').html (data.text ? '')
                     container.find('p.info-text').show()
                     container.find('tr.info-ship').hide()
                     container.find('tr.info-base').hide()
@@ -4670,13 +4689,13 @@ class exportObj.SquadBuilder
                         container.find('tr.info-attack-turret').hide()
 
                     if data.attackr?
-                        container.find('tr.info-attack-right td.info-data').text data.attackl
+                        container.find('tr.info-attack-right td.info-data').text data.attackr
                         container.find('tr.info-attack-right').show()
                     else
                         container.find('tr.info-attack-right').hide()
 
                     if data.attackl?
-                        container.find('tr.info-attack-left td.info-data').text data.attackr
+                        container.find('tr.info-attack-left td.info-data').text data.attackl
                         container.find('tr.info-attack-left').show()
                     else
                         container.find('tr.info-attack-right').hide()
@@ -4736,7 +4755,7 @@ class exportObj.SquadBuilder
                     container.find('.info-collection').hide()
                     container.find('.info-name').html data.name
                     container.find('.info-name').show()
-                    container.find('.info-solitary').hide()
+                    container.find('p.info-restrictions').hide()
                     container.find('p.info-text').html data.text
                     container.find('p.info-text').show()
                     container.find('tr.info-ship').hide()
@@ -4765,7 +4784,6 @@ class exportObj.SquadBuilder
                     container.find('.info-collection').hide()
                     container.find('.info-name').html "Missing items"
                     container.find('.info-name').show()
-                    container.find('.info-solitary').hide()
                     missingStuffInfoText = "To field this squad you need the following additional items: <ul>"
                     for item in data
                         missingStuffInfoText += """<li><strong>#{(if item.display_name? then item.display_name else item.name)}</strong> ("""
@@ -4777,6 +4795,7 @@ class exportObj.SquadBuilder
                             first = false
                         missingStuffInfoText += ")</li>"
                     missingStuffInfoText +="</ul>"
+                    container.find('p.info-restrictions').hide()
                     container.find('p.info-text').html missingStuffInfoText
                     container.find('p.info-text').show()
                     container.find('tr.info-ship').hide()
@@ -4962,6 +4981,152 @@ class exportObj.SquadBuilder
         if @waiting_for_backend?
             for meth in @waiting_for_backend
                 meth()
+
+    upgrade_effect: (card) ->
+        removestext = text = comma = ''
+        if card.modifier_func
+            statchange =
+                attack: 0
+                attackf: 0
+                attackbull: 0
+                attackb: 0
+                attackt: 0
+                attackl: 0
+                attackr: 0
+                attackdt: 0
+                energy: 0
+                agility: 0
+                hull: 0
+                shields: 0
+                force: 0
+                actions: []
+                maneuvers: [0, 0]
+            card.modifier_func(statchange)
+            if statchange.attack != 0
+                text += comma + "%FRONTARC% (#{statchange.attack})"
+                comma = ', '
+            if statchange.attackf != 0
+                text += comma + "%FULLFRONTARC% (#{statchange.attackf})"
+                comma = ', '
+            if statchange.attackbull != 0
+                text += comma + "%BULLSEYEARC% (#{statchange.attackbull})"
+                comma = ', '
+            if statchange.attackb != 0
+                text += comma + "%REARARC% (#{statchange.attackb})"
+                comma = ', '
+            if statchange.attackt != 0
+                text += comma + "%SINGLETURRETARC% (#{statchange.attackt})"
+                comma = ', '
+            if statchange.attackl != 0
+                text += comma + "%LEFTARC% (#{statchange.attackl})"
+                comma = ', '
+            if statchange.attackr != 0
+                text += comma + "%RIGHTARC% (#{statchange.attackr})"
+                comma = ', '
+            if statchange.attackdt != 0
+                text += comma + "%DOUBLETURRETARC% (#{statchange.attackdt})"
+                comma = ', '
+            if statchange.energy != 0
+                text += comma + "%ENERGY% (#{statchange.energy})"
+                comma = ', '
+            if statchange.agility != 0
+                text += comma + "%AGILITY% (#{statchange.agility})"
+                comma = ', '
+            if statchange.hull != 0
+                text += comma + "%HULL% (#{statchange.hull})"
+                comma = ', '
+            if statchange.shields != 0
+                text += comma + "%SHIELD% (#{statchange.shields})"
+                comma = ', '
+            if statchange.actions.length > 0
+                text += comma + @formatActions(statchange.actions, ", ", [])
+                comma = ', '
+        if card.confersAddons
+            for addonname in card.confersAddons
+                text += comma + "%#{addonname.slot.toUpperCase().replace(/[^a-z0-9]/gi, '')}%" 
+                comma = ', '
+        if card.unequips_upgrades
+            comma = ''
+            for slot in card.unequips_upgrades
+                removestext += comma + "%#{slot.toUpperCase().replace(/[^a-z0-9]/gi, '')}%" 
+                comma = ', '
+        if text != ''
+            data = 
+                text: "</br><b>Adds:</b> #{text}"
+            if removestext != ''
+                data.text += "</br><b>Removes:</b> #{removestext}"
+            return exportObj.fixIcons(data)
+        else
+            return ''
+
+    restriction_text: (card) ->
+        uniquetext = comma = othertext = text = ''
+        if card.restrictions
+            for r in card.restrictions
+                if r[0] == "orUnique"
+                    uniquetext = exportObj.translate(@language, 'restrictions', " or Squad Including") + " #{r[1]}"
+                    continue
+                switch r[0]
+                    when "Base"
+                        text += comma + "#{r[1]} " + exportObj.translate(@language, 'restrictions', "Ship")
+                    when "Action"
+                        array = [r[1]]
+                        text += comma + @formatActions(array,"", [])
+                    when "Equipped"
+                        text += comma + "%#{r[1].toUpperCase().replace(/[^a-z0-9]/gi, '')}% Equipped"
+                    when "Slot"
+                        text += comma + exportObj.translate(@language, 'restrictions', "Extra") + " %#{r[1].toUpperCase().replace(/[^a-z0-9]/gi, '')}%"
+                    when "Keyword"
+                        text += comma + exportObj.translate(@language, 'restrictions', "#{r[1]}")
+                    when "AttackArc"
+                        text += comma + "%REARARC%"
+                    when "ShieldsGreaterThan"
+                        text += comma + "%SHIELD% > #{r[1]}"
+                    when "EnergyGreatterThan"
+                        text += comma + "%ENERGY% > #{r[1]}"
+                    when "InitiativeGreaterThan"
+                        text += comma + exportObj.translate(@language, 'restrictions', "Initiative") + " > #{r[1]}"
+                    when "InitiativeLessThan"
+                        text += comma + exportObj.translate(@language, 'restrictions', "Initiative")+ " < #{r[1]}"
+                    when "AgilityEquals"
+                        text += comma + exportObj.translate(@language, 'restrictions', "Agility") + " = #{r[1]}"
+                    when "notUnique"
+                        text += comma + exportObj.translate(@language, 'restrictions', "Non-Limited")
+                    when "Faction"
+                        othertext += comma + exportObj.translate(@language, 'faction', "#{r[1]}")
+                comma = ', '
+        if not card.skill
+            if othertext == ''
+                if card.faction
+                    if card.faction instanceof Array
+                        for factionitem in card.faction
+                            othertext += comma + exportObj.translate(@language, 'faction', "#{factionitem}")
+                            comma = ' or '
+                    else
+                        othertext += comma + exportObj.translate(@language, 'faction', "#{card.faction}")
+                    comma = ', '
+            if card.ship
+                if card.ship instanceof Array
+                    for shipname in card.ship
+                        othertext += comma + shipname
+                        comma = ' or '
+                else
+                    othertext += comma + card.ship
+                comma = ', '
+            if card.solitary
+                othertext += comma + exportObj.translate(@language, 'faction', "Solitary")
+                comma = ', '
+            if card.standardized
+                othertext += comma + exportObj.translate(@language, 'faction', "Standardized")
+                comma = ', '
+        text += othertext + uniquetext
+        if text != ''
+            data = 
+                text: "<i><b>" + exportObj.translate(@language, 'restrictions', "Restrictions") + ":</b> " + text + "</i>"
+            return exportObj.fixIcons(data)
+        else
+            return ''
+
 
     describeSquad: ->
         if @getNotes().trim() == '' then  ((ship.pilot.name for ship in @ships when ship.pilot?).join ', ') else @getNotes()
@@ -6220,7 +6385,6 @@ class Ship
             shields: @pilot.ship_override?.shields ? @data.shields
             force: (@pilot.ship_override?.force ? @pilot.force) ? 0
             charge: @pilot.ship_override?.charge ? @pilot.charge
-            darkside: (@pilot.ship_override?.darkside ? @pilot.darkside) ? false
             actions: (@pilot.ship_override?.actions ? @data.actions).slice 0
 
         # need a deep copy of maneuvers array
@@ -6280,10 +6444,12 @@ class Ship
             # everything is limited in X-Wing 2.0, so we need to check if any upgrade is equipped more than once
             equipped_upgrades = []
             for upgrade in @upgrades
-                func = upgrade?.data?.validation_func ? upgrade?.data?.restriction_func ? undefined
+                func = upgrade?.data?.validation_func ? undefined
+                if upgrade?.data?.restrictions and (not func?)
+                    func = @restriction_check(upgrade.data.restrictions, upgrade)
                 # check if either a) validation func not met or b) upgrade already equipped (in 2.0 everything is limited) or c) upgrade is not available (e.g. not Hyperspace legal)
                 # ignore those checks if this is a quickbuild squad, as quickbuild does whatever it wants to do...
-                if ((func? and not func(this, upgrade)) or (upgrade?.data? and (upgrade.data in equipped_upgrades or not @builder.isItemAvailable(upgrade.data)))) and not @builder.isQuickbuild
+                if ((func? and not func) or (upgrade?.data? and (upgrade.data in equipped_upgrades or not @builder.isItemAvailable(upgrade.data)))) and not @builder.isQuickbuild
                     #console.log "Invalid upgrade: #{upgrade?.data?.name}"
                     upgrade.setById null
                     valid = false
@@ -6308,10 +6474,67 @@ class Ship
         false
 
     hasAnotherUnoccupiedSlotLike: (upgrade_obj, upgradeslot) ->
+        if upgrade_obj?.data?.restrictions?
+            for r in upgrade_obj.data.restrictions
+                if r[0] == "Slot"
+                    extraslot = r[1]
+
         for upgrade in @upgrades
             continue if upgrade == upgrade_obj or upgrade.slot != upgradeslot
-            return true unless upgrade.isOccupied()
+            if upgrade.isOccupied()
+                if extraslot?
+                    if extraslot == upgradeslot
+                        return true
+            else
+                return true
         false
+
+    restriction_check: (restrictions, upgrade_obj) ->
+        effective_stats = @effectiveStats()
+        for r in restrictions
+            if r[0] == "orUnique"
+                if @checkListForUnique(r[1].toLowerCase().replace(/[^0-9a-z]/gi, '').replace(/\s+/g, '-'))
+                    return true
+            switch r[0]
+                when "Base"  
+                    switch r[1]
+                        when "Small"
+                            if @data.medium? or @data.large? or @data.huge? then return false
+                        when "Small or Medium"
+                            if @data.large? or @data.huge? then return false
+                        when "Medium" 
+                            if not (@data.medium?) then return false
+                        when "Medium or Large"
+                            if not (@data.medium? or @data.large?) then return false
+                        when "Large" 
+                            if not (@data.large?) then return false
+                        when "Huge" 
+                            if not (@data.huge?) then return false
+                when "Action"
+                    if not ((r[1] in effective_stats.actions) or ("R-#{r[1]}" in effective_stats.actions)) then return false
+                when "Keyword"
+                    if not (@checkKeyword(r[1])) then return false
+                when "Equipped"
+                    if not ((@doesSlotExist(r[1]) and not @hasAnotherUnoccupiedSlotLike(upgrade_obj, r[1]))) then return false
+                when "Slot"
+                    if not @hasAnotherUnoccupiedSlotLike(upgrade_obj, r[1]) then return false
+                when "AttackArc"
+                    if not @data.attackb? then return false
+                when "ShieldsGreaterThan"
+                    if not (@data.shields > r[1]) then return false
+                when "EnergyGreatterThan"
+                    if not (effective_stats.energy > r[1]) then return false
+                when "InitiativeGreaterThan"
+                    if not (@pilot.skill > r[1]) then return false
+                when "InitiativeLessThan"
+                    if not (@pilot.skill < r[1]) then return false
+                when "AgilityEquals"
+                    if not (effective_stats.agility == r[1]) then return false
+                when "notUnique"
+                    if @pilot.unique? then return false
+                when "Faction"
+                    if @builder.faction != r[1] then return false
+        return true
 
     doesSlotExist: (slot) ->
         for upgrade in @upgrades
@@ -6500,7 +6723,6 @@ class GenericAddon
 
     setById: (id) ->
         @setData @dataById[parseInt id]
-        
 
     setByName: (name) ->
         @setData @dataByName[$.trim name]
