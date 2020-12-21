@@ -8852,7 +8852,7 @@
       },
       "Nodin Chavdri": {
         display_name: "Nodin Chavdri",
-        text: "Miután koordinálsz vagy koordinálnak, ha 2 vagy kevesebb stressz jelződ van, végrehajthatsz 1 akciót az akciósávodról pirosk��nt kezelve, még ha stresszes is vagy."
+        text: "Miután koordinálsz vagy koordinálnak, ha 2 vagy kevesebb stressz jelződ van, végrehajthatsz 1 akciót az akciósávodról pirosként kezelve, még ha stresszes is vagy."
       },
       "Vi Moradi": {
         display_name: "Vi Moradi",

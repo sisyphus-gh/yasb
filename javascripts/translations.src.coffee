@@ -6824,7 +6824,7 @@ exportObj.cardLoaders.Magyar = () ->
            text: """Amikor védekezel vagy elsődleges támadást hajtasz végre, ha a felfedett manővered piros, dobj 1-gyel több kockával."""
         "Nodin Chavdri":
            display_name: """Nodin Chavdri"""
-           text: """Miután koordinálsz vagy koordinálnak, ha 2 vagy kevesebb stressz jelződ van, végrehajthatsz 1 akciót az akciósávodról pirosk��nt kezelve, még ha stresszes is vagy."""
+           text: """Miután koordinálsz vagy koordinálnak, ha 2 vagy kevesebb stressz jelződ van, végrehajthatsz 1 akciót az akciósávodról pirosként kezelve, még ha stresszes is vagy."""
         "Vi Moradi":
            display_name: """Vi Moradi"""
            text: """<strong>Felhelyezés:</strong> Miután felhelyezed a hajóid, rendeld hozzá a <strong>Compromising Intel</strong> kondíciót 1 ellenséges hajóhoz."""
@@ -12113,6 +12113,8 @@ exportObj.translations.Português =
 exportObj.cardLoaders ?= {}
 exportObj.cardLoaders.Português = () ->
     exportObj.cardLanguage = 'Português'
+
+ 
 
     pilot_translations =
         "4-LOM":
