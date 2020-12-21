@@ -2100,27 +2100,27 @@ exportObj.cardLoaders['简体中文'] = () ->
            text: """<b>攻击 (%LOCK%):</b> 花费1%CHARGE%。将1个%HIT%结果改为1个%CRIT%结果。"""
         "Proximity Mines":
            display_name: """贴附诡雷"""
-           text: """<b>诡雷</b>%LINEBREAK%在系统阶段中，你可以选择花费1个%CHARGE%来使用[1%STRAIGHT%]移动条投放一个贴附诡雷。%LINEBREAK%此卡的%CHARGE%不能被恢复。"""
+           text: """<b>诡雷</b> %LINEBREAK% 在系统阶段中，你可以选择花费1个%CHARGE%来使用[1%STRAIGHT%]移动条投放一个贴附诡雷。%LINEBREAK%此卡的%CHARGE%不能被恢复。"""
         "Qi'ra":
            display_name: """琦拉"""
-           text: """<i>条件：不法者</i>%LINEBREAK%在你位移及执行攻击时，你无视你锁定中的障碍物。"""
+           text: """<i>条件：不法者</i> %LINEBREAK% 在你位移及执行攻击时，你无视你锁定中的障碍物。"""
         "R2 Astromech":
            display_name: """R2宇航技工机器人"""
            text: """在你展示你的转盘后，你可以选择花费1%CHARGE%获得1个解除武装标记来恢复1个护盾。"""
         "R2-C4":
-           text: """<i>条件：共和国</i>%LINEBREAK%While you perform an attack, you may spend 1 evade token to change 1 %FOCUS% result to a %HIT% result."""
+           text: """<i>条件：共和国</i> %LINEBREAK% While you perform an attack, you may spend 1 evade token to change 1 %FOCUS% result to a %HIT% result."""
         "R2-D2 (Crew)":
            display_name: """R2-D2"""
-           text: """<i>条件：义军</i>%LINEBREAK%在结束阶段中，如果你有伤害且没有护盾，你可以选择投1枚攻击骰来恢复1个护盾。如果结果为一个HIT% ，将你的伤害卡中的1张展示。"""
+           text: """<i>条件：义军</i> %LINEBREAK% 在结束阶段中，如果你有伤害且没有护盾，你可以选择投1枚攻击骰来恢复1个护盾。如果结果为一个HIT% ，将你的伤害卡中的1张展示。"""
         "R2-D2":
            display_name: """R2-D2"""
-           text: """<i>条件：义军</i>%LINEBREAK%在你展示你的转盘后，你可以选择花费1%CHARGE%并获得1个解除武装标记来恢复1个护盾。"""
+           text: """<i>条件：义军</i> %LINEBREAK% 在你展示你的转盘后，你可以选择花费1%CHARGE%并获得1个解除武装标记来恢复1个护盾。"""
         "R2-HA":
            display_name: """R2-HA"""
-           text: """<i>条件：抵抗组织</i>%LINEBREAK%在你防御时，你可以选择花费你对该攻击者的锁定来重投你任意数量的防御骰。"""
+           text: """<i>条件：抵抗组织</i> %LINEBREAK% 在你防御时，你可以选择花费你对该攻击者的锁定来重投你任意数量的防御骰。"""
         "R3 Astromech":
            display_name: """R3宇航技工机器人"""
-           text: """你可维持最多2个锁定。每个锁定必须在不同的物体上。%LINEBREAK%在你执行一个%LOCK%行动后，你可以选择获得1个锁定。"""
+           text: """你可维持最多2个锁定。每个锁定必须在不同的物体上。 %LINEBREAK% 在你执行一个%LOCK%行动后，你可以选择获得1个锁定。"""
         "R4 Astromech":
            display_name: """R4宇航技工机器人"""
            text: """ <i>条件：小型战机</i>%LINEBREAK%你速度1-2的基础移动(%TURNLEFT%, %BANKLEFT%, %STRAIGHT%, %BANKRIGHT%, %TURNRIGHT%)难度降低。"""
