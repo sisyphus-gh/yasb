@@ -220,11 +220,11 @@ exportObj.cardLoaders['简体中文'] = () ->
     exportObj.renameShip """Raider-class Corvette""", """袭击者级护卫舰"""
     exportObj.renameShip """Xi-class Light Shuttle""", """克西级轻型穿梭机"""
     exportObj.renameShip """LAAT/i Gunship""", """LAAT/i炮艇"""
-    exportObj.renameShip "HMP Droid Gunship", """HMP机器人炮艇"""
+    exportObj.renameShip """HMP Droid Gunship""", """HMP机器人炮艇"""
     exportObj.renameShip """TIE/rb Heavy""", """TIE/rb 重型"""
     exportObj.renameShip """Droid Tri-Fighter""", """机器人三联战斗机"""
     exportObj.renameShip """Nimbus-class V-Wing""", """圣光级 V翼战机"""
-    exportObj.renameShip """ETA-2 Actis""", """埃塔-2 阿克蒂斯"""
+    exportObj.renameShip """Eta-2 Actis""", """埃塔-2 阿克蒂斯"""
     exportObj.renameShip """Syliure-class Hyperspace Ring""", """西利尤尔级超空间环"""
 
     pilot_translations =
@@ -1548,9 +1548,6 @@ exportObj.cardLoaders['简体中文'] = () ->
            display_name: """跨星兆控制连接"""
            text: """<b>超空间环:</b> 1 <b>德尔塔-7天外飞仙</b>, <b>埃塔-2阿克蒂斯</b>或<b>圣光级 V翼战机</b> 可以与你对接。 %LINEBREAK% 当一个战机与你对接时，你获得该战机的先攻值，并且被分配该战机的转盘。在你执行一次移动时，将其速度降低至1。在你执行一次高级移动前，改为执行一次白色悬停移动，然后你可以选择旋转90度或180度。%LINEBREAK% 在没有战机与你对接时，你不被分配移动转盘，且不能激活，也不能交战。"""
         
-# 汉化飞行员
-
-
         # Epic Ships
         "Republic Judiciary":
            display_name: """共和国司法部"""

@@ -230,7 +230,7 @@
     exportObj.renameShip("TIE/rb Heavy", "TIE/rb 重型");
     exportObj.renameShip("Droid Tri-Fighter", "机器人三联战斗机");
     exportObj.renameShip("Nimbus-class V-Wing", "圣光级 V翼战机");
-    exportObj.renameShip("ETA-2 Actis", "埃塔-2 阿克蒂斯");
+    exportObj.renameShip("Eta-2 Actis", "埃塔-2 阿克蒂斯");
     exportObj.renameShip("Syliure-class Hyperspace Ring", "西利尤尔级超空间环");
     pilot_translations = {
       "0-66": {
