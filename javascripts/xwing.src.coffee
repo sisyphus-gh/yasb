@@ -1291,6 +1291,9 @@ class exportObj.CardBrowser
                         <div class="card-selector-container">
 
                         </div>
+                        <br>
+                        <div class="card-viewer-conditions-container">
+                        </div>
                     </div>
                     <div class="col-md-4">
                         <div class="card card-viewer-placeholder info-well">
@@ -1306,6 +1309,8 @@ class exportObj.CardBrowser
         @card_selector_container = $ @container.find('.xwing-card-browser .card-selector-container')
         @card_viewer_container = $ @container.find('.xwing-card-browser .card-viewer-container')
         @card_viewer_container.append $.trim exportObj.builders[0].createInfoContainerUI()
+        @card_viewer_container.hide()
+        @card_viewer_conditions_container = $ @container.find('.xwing-card-browser .card-viewer-conditions-container')
         @card_viewer_container.hide()
         @card_viewer_placeholder = $ @container.find('.xwing-card-browser .card-viewer-placeholder')
         @advanced_search_container = $ @container.find('.xwing-card-browser .advanced-search-container')
@@ -1585,6 +1590,25 @@ class exportObj.CardBrowser
         exportObj.builders[0].showTooltip(orig_type, data, add_opts ? {}, @card_viewer_container) # we use the render method from the squad builder, cause it works.
 
         @card_viewer_container.show()
+
+        # Conditions
+        if data?.applies_condition?
+            conditions = new Set()
+            if data.applies_condition instanceof Array
+                for condition in data.applies_condition
+                    conditions.add(exportObj.conditionsByCanonicalName[condition])
+            else
+                conditions.add(exportObj.conditionsByCanonicalName[data.applies_condition])
+            @card_viewer_conditions_container.text ''
+            conditions.forEach (condition) =>
+                condition_container = $ document.createElement('div')
+                condition_container.addClass 'conditions-container d-flex flex-wrap'
+                condition_container.append conditionToHTML(condition)
+                @card_viewer_conditions_container.append condition_container
+            @card_viewer_conditions_container.show()
+        else
+            @card_viewer_conditions_container.hide()
+
         @card_viewer_placeholder.hide()
 
     addCardTo: (container, card) ->
@@ -1632,9 +1656,6 @@ class exportObj.CardBrowser
             else
                 return false unless ship.toLowerCase().indexOf(search_text) > -1 or (exportObj.ships[ship].display_name and exportObj.ships[ship].display_name.toLowerCase().indexOf(search_text) > -1)
     
-        # prevent the three virtual hardpoint cards from beeing displayed
-        return false unless card.data.slot != "Hardpoint"
-        
         all_factions = (faction for faction, pilot of exportObj.pilotsByFactionXWS)
         selected_factions = @faction_selection.val()
         if selected_factions.length > 0
@@ -1675,11 +1696,13 @@ class exportObj.CardBrowser
                     if faction != undefined
                         for name, pilots of exportObj.pilotsByFactionCanonicalName[faction]
                             for pilot in pilots # there are sometimes multiple pilots with the same name, so we have another array layer here
-                                if pilot.ship == card.data.name
+                                if pilot.ship == card.data.name 
                                     slots.push.apply(slots, pilot.slots)
             
             for slot in required_slots
-                return false unless slots? and slot in slots
+                # special case for hardpoints
+                if not(((slot == "Torpedo") or (slot == "Missile") or (slot == "Cannon")) and (slots? and ("HardpointShip" in slots)))
+                    return false unless slots? and slot in slots
                 # check for duplciates
                 if @duplicateslots.checked
                     hasDuplicates = slots.filter (x, i, self) ->
@@ -1968,8 +1991,7 @@ class exportObj.RulesBrowser
     https://raithos.github.io
 ###
 
-DFL_LANGUAGE = 'English' # fallback and default language
-SND_LANGUAGE = 'Magyar' # second fallback
+DFL_LANGUAGE = 'English' # default language
 
 builders = []
 
@@ -1984,12 +2006,6 @@ exportObj.loadCards = (language) ->
     # Set up the common card data (e.g. stats)
     exportObj.setupCommonCardData basic_cards
 
-    # Load languages in following order: polish, english, selected language. 
-    # This way it is assured, that if no data is available for the selected language, 
-    # english will be displayed instead, and if no english data is available polish. 
-    # This is the common order of spoiler/releases. 
-    exportObj.cardLoaders[SND_LANGUAGE]()
-    exportObj.cardLoaders[DFL_LANGUAGE]()
     exportObj.cardLoaders[language]()
 
 exportObj.translate = (language, category, what, args...) ->
@@ -2019,13 +2035,20 @@ exportObj.setupTranslationSupport = ->
         $(exportObj).on 'xwing:languageChanged', (e, language, cb=$.noop) =>
             if language of exportObj.translations
                 $('.language-placeholder').text language
+                currentfaction = $.getParameterByName 'f'
                 for builder in builders
-                    await builder.container.trigger 'xwing:beforeLanguageLoad', defer()
+                    if currentfaction == builder.faction
+                        builder.container.trigger 'xwing:beforeLanguageLoad'
+                    else
+                        await builder.container.trigger 'xwing:beforeLanguageLoad', defer()
                 exportObj.loadCards language
                 for own selector, html of exportObj.translations[language].byCSSSelector
                     $(selector).html html
                 for builder in builders
-                    builder.container.trigger 'xwing:afterLanguageLoad', language
+                    if currentfaction == builder.faction
+                        builder.container.trigger 'xwing:afterLanguageLoad', language
+                    else
+                        await builder.container.trigger 'xwing:afterLanguageLoad', language, defer()
 
     exportObj.loadCards DFL_LANGUAGE
     $(exportObj).trigger 'xwing:languageChanged', DFL_LANGUAGE
@@ -2108,13 +2131,6 @@ $.getParameterByName = (name) ->
     else
         return decodeURIComponent(results[1].replace(/\+/g, " "))
 
-#jQuery.event.special.touchstart = setup: (_, ns, handle) ->
-#  if ns.includes('noPreventDefault')
-#    @addEventListener 'touchstart', handle, passive: false
-#  else
-#    @addEventListener 'touchstart', handle, passive: true
-#  return
-    
 Array::intersects = (other) ->
     for item in this
         if item in other
@@ -2302,6 +2318,7 @@ class exportObj.SquadBuilder
                     <span class="content-warning loading-failed-container d-none"><br /><i class="fa fa-exclamation-circle"></i>&nbsp;<span class="translated"></span></span>
                     <span class="content-warning collection-invalid d-none"><br /><i class="fa fa-exclamation-circle"></i>&nbsp;<span class="translated"></span></span>
                     <span class="content-warning ship-number-invalid-container d-none"><br /><i class="fa fa-exclamation-circle"></i>&nbsp;<span class="translated">A tournament legal squad must contain 2-8 ships!</span></span>
+                    <span class="content-warning multi-faction-warning-container d-none"><br /><i class="fa fa-exclamation-circle"></i>&nbsp;<span class="translated">Multi-Faction Lists are NEVER tournament legal!</span></span>
                 </div>
                 <div class="col-md-5 float-right button-container">
                     <div class="btn-group float-right">
@@ -2465,7 +2482,7 @@ class exportObj.SquadBuilder
                     <button class="btn btn-modal select-simple-view">Simple</button>
                     <button class="btn btn-modal select-fancy-view d-none d-sm-block">Fancy</button>
                     <button class="btn btn-modal select-simplecopy-view">Text</button>
-                    <button class="btn btn-modal select-tts-view d-none d-sm-block">TTS</button>
+                    <button class="btn btn-modal select-tts-view">TTS</button>
                     <button class="btn btn-modal select-reddit-view">Reddit</button>
                     <button class="btn btn-modal select-bbcode-view">BBCode</button>
                     <button class="btn btn-modal select-html-view">HTML</button>
@@ -2736,6 +2753,7 @@ class exportObj.SquadBuilder
         @unreleased_content_used_container = $ @points_container.find('.unreleased-content-used')
         @loading_failed_container = $ @points_container.find('.loading-failed-container')
         @ship_number_invalid_container = $ @points_container.find('.ship-number-invalid-container')
+        @multi_faction_warning_container = $ @points_container.find('.multi-faction-warning-container')
         @collection_invalid_container = $ @points_container.find('.collection-invalid')
         @view_list_button = $ @status_container.find('div.button-container button.view-as-text')
         @randomize_button = $ @status_container.find('div.button-container button.randomize')
@@ -3241,17 +3259,15 @@ class exportObj.SquadBuilder
             @pretranslation_serialized = @serialize()
             cb()
         .on 'xwing:afterLanguageLoad', (e, language, cb=$.noop) =>
-            if @language != language
-                @language = language
-                old_dirty = @current_squad.dirty
-                if @pretranslation_serialized.length?
-                    @removeAllShips()
-                    @loadFromSerialized @pretranslation_serialized
-                for ship in @ships
-                    ship.updateSelections()
-                @current_squad.dirty = old_dirty
-                @pretranslation_serialized = undefined
-                cb()
+            @language = language
+            old_dirty = @current_squad.dirty
+            if @pretranslation_serialized.length?
+                @loadFromSerialized @pretranslation_serialized
+            for ship in @ships
+                ship.updateSelections()
+            @current_squad.dirty = old_dirty
+            @pretranslation_serialized = undefined
+            cb()
         # Recently moved this here.  Did this ever work?
         .on 'xwing:shipUpdated', (e, cb=$.noop) =>
             all_allocated = true
@@ -3270,7 +3286,7 @@ class exportObj.SquadBuilder
             @collection = collection
             # console.log "#{@faction}: Collection created, checking squad"
             @collection.onLanguageChange null, @language
-            # @checkCollection()
+            @checkCollection()
             @collection_button.removeClass 'd-none'
         .on 'xwing-collection:changed', (e, collection) =>
             # console.log "#{@faction}: Collection changed, checking squad"
@@ -3349,6 +3365,8 @@ class exportObj.SquadBuilder
                             'republic'
                         when 'Separatist Alliance'
                             'separatists'
+                        when 'All'
+                            'first-player-4'
                     @printable_container.find('.squad-faction').html """<i class="xwing-miniatures-font xwing-miniatures-font-#{faction}"></i>"""
             # List type
             if @isHyperspace
@@ -3359,7 +3377,7 @@ class exportObj.SquadBuilder
                     
             # Notes, if present
             @printable_container.find('.printable-body').append $.trim """
-                <div class="version">Points Version: 1.8.0 November 2020</div>
+                <div class="version">Points Version: 1.9.0 March 2021</div>
             """            
             if $.trim(@notes.val()) != ''
                 @printable_container.find('.printable-body').append $.trim """
@@ -3850,6 +3868,7 @@ class exportObj.SquadBuilder
             container: @ship_container
         @ships.push new_ship
         @ship_number_invalid_container.toggleClass 'd-none', (@ships.length < 10 and @ships.length > 2) # bounds are 2..10 as we always have a "empty" ship at the bottom
+        @multi_faction_warning_container.toggleClass 'd-none', (@faction != "All")
         new_ship
 
     removeShip: (ship, cb=$.noop) ->
@@ -3859,19 +3878,26 @@ class exportObj.SquadBuilder
             @current_squad.dirty = true
             @container.trigger 'xwing-backend:squadDirtinessChanged'
             @ship_number_invalid_container.toggleClass 'd-none', (@ships.length < 10 and @ships.length > 2)
+            @multi_faction_warning_container.toggleClass 'd-none', (@faction != "All")
         cb()
     
     matcher: (item, term) ->
         item.toUpperCase().indexOf(term.toUpperCase()) >= 0
 
-    isOurFaction: (faction) ->
+    isOurFaction: (faction, alt_faction = '') ->
+        check_faction = @faction
+        if @faction == "All"
+            if alt_faction != ''
+                check_faction = alt_faction
+            else
+                return true
         if faction instanceof Array
             for f in faction
-                if getPrimaryFaction(f) == @faction
+                if getPrimaryFaction(f) == check_faction
                     return true
             false
         else
-            getPrimaryFaction(faction) == @faction
+            getPrimaryFaction(faction) == check_faction
 
     isItemAvailable: (item_data, shipCheck=false) ->
         # this method is not even invoked by most quickbuild stuff to check availability for quickbuild squads, as the method was formerly just telling apart extended/hyperspace
@@ -4020,7 +4046,9 @@ class exportObj.SquadBuilder
         # Returns data formatted for Select2
         upgrades_in_use = (upgrade.data for upgrade in ship.upgrades)
 
-        available_upgrades = (upgrade for upgrade_name, upgrade of exportObj.upgrades when exportObj.slotsMatching(upgrade.slot, slot) and ( @matcher(upgrade_name, term) or (upgrade.display_name and @matcher(upgrade.display_name, term)) ) and (not upgrade.ship? or @isShip(upgrade.ship, ship.data.name)) and (not upgrade.faction? or @isOurFaction(upgrade.faction)) and (@isItemAvailable(upgrade)))
+        available_upgrades = (upgrade for upgrade_name, upgrade of exportObj.upgrades when exportObj.slotsMatching(upgrade.slot, slot) and ( @matcher(upgrade_name, term) or (upgrade.display_name and @matcher(upgrade.display_name, term)) ) and (not upgrade.ship? or @isShip(upgrade.ship, ship.data.name)) and (not upgrade.faction? or @isOurFaction(upgrade.faction, ship.pilot.faction)) and (@isItemAvailable(upgrade)))
+
+        # available_upgrades = (upgrade for upgrade_name, upgrade of exportObj.upgrades when exportObj.slotsMatching(upgrade.slot, slot) and ( @matcher(upgrade_name, term) or (upgrade.display_name and @matcher(upgrade.display_name, term)) ) and (not upgrade.ship? or @isShip(upgrade.ship, ship.data.name)) and (not upgrade.faction? or ((@faction != "All") and @isOurFaction(upgrade.faction)) or ((@faction == "All") and (not ship.pilot? or (ship.pilot.faction == upgrade.faction)))) and (@isItemAvailable(upgrade)))
 
         if filter_func != @dfl_filter_func
             available_upgrades = (upgrade for upgrade in available_upgrades when filter_func(upgrade))
@@ -4339,16 +4367,16 @@ class exportObj.SquadBuilder
                     if data.shieldrecurr?
                         count = 0
                         while count < data.shieldrecurr
-                            recurringicon += '<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>'
+                            recurringicon += '<sup><i class="fas fa-caret-up"></i></sup>'
                             ++count
                     container.find('tr.info-shields td.info-data').html (data.shields + recurringicon)
-                    container.find('tr.info-shields').toggle(data.shields?)
+                    container.find('tr.info-shields').show()
 
                     recurringicon = ''
                     if data.energyrecurr?
                         count = 0
                         while count < data.energyrecurr
-                            recurringicon += '<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>'
+                            recurringicon += '<sup><i class="fas fa-caret-up"></i></sup>'
                             ++count
                     container.find('tr.info-energy td.info-data').html (data.energy + recurringicon)
                     container.find('tr.info-energy').toggle(data.energy?)
@@ -4475,37 +4503,47 @@ class exportObj.SquadBuilder
                     if ship.shieldrecurr?
                         count = 0
                         while count < ship.shieldrecurr
-                            recurringicon += '<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>'
+                            recurringicon += '<sup><i class="fas fa-caret-up"></i></sup>'
                             ++count
                     container.find('tr.info-shields td.info-data').html (statAndEffectiveStat((data.ship_override?.shields ? ship.shields), effective_stats, 'shields') + recurringicon)
-                    container.find('tr.info-shields').toggle(data.ship_override?.shields? or ship.shields?)
+                    container.find('tr.info-shields').show()
 
                     recurringicon = ''
                     if ship.energyrecurr?
                         count = 0
                         while count < ship.energyrecurr
-                            recurringicon += '<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>'
+                            recurringicon += '<sup><i class="fas fa-caret-up"></i></sup>'
                             ++count
                     container.find('tr.info-energy td.info-data').html (statAndEffectiveStat((data.ship_override?.energy ? ship.energy), effective_stats, 'energy') + recurringicon)
                     container.find('tr.info-energy').toggle(data.ship_override?.energy? or ship.energy?)
                     
                     
                     if (effective_stats?.force? and effective_stats.force > 0) or data.force?
-                        container.find('tr.info-force td.info-data').html (statAndEffectiveStat((data.ship_override?.force ? data.force), effective_stats, 'force') + '<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>')
+                        container.find('tr.info-force td.info-data').html (statAndEffectiveStat((data.ship_override?.force ? data.force), effective_stats, 'force') + '<sup><i class="fas fa-caret-up"></i></sup>')
                         container.find('tr.info-force').show()
                     else
                         container.find('tr.info-force').hide()
 
                     if data.charge?
+                        recurringicon = ''
                         if data.recurring?
-                            container.find('tr.info-charge td.info-data').html (data.charge + '<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>')
-                        else
-                            container.find('tr.info-charge td.info-data').text data.charge
+                            if data.recurring > 0
+                                count = 0
+                                while count < data.recurring
+                                    recurringicon += '<sup><i class="fas fa-caret-up"></i></sup>'
+                                    ++count
+                            else
+                                count = data.recurring
+                                while count < 0
+                                    recurringicon += '<sub><i class="fas fa-caret-down"></i></sub>'
+                                    ++count
+                        chargeHTML = $.trim """#{data.charge}#{recurringicon}"""
+                        container.find('tr.info-charge td.info-data').html (chargeHTML)
                         container.find('tr.info-charge').show()
                     else
                         container.find('tr.info-charge').hide()
 
-                    container.find('tr.info-actions td.info-data').html @formatActions(effective_stats?.actions ? ship.actions, ", ", data.keyword ? [])
+                    container.find('tr.info-actions td.info-data').html @formatActions(data.ship_override?.actions ? (effective_stats?.actions ? ship.actions), ", ", data.keyword ? [])
                     
                     container.find('tr.info-actions').show()
                     if @isQuickbuild
@@ -4599,16 +4637,26 @@ class exportObj.SquadBuilder
                     container.find('tr.info-shields').show()
 
                     if effective_stats?.force? or data.force?
-                        container.find('tr.info-force td.info-data').html ((pilot.ship_override?.force ? pilot.force)+ '<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>')
+                        container.find('tr.info-force td.info-data').html ((pilot.ship_override?.force ? pilot.force)+ '<sup><i class="fas fa-caret-up"></i></sup>')
                         container.find('tr.info-force').show()
                     else
                         container.find('tr.info-force').hide()
 
                     if data.charge?
+                        recurringicon = ''
                         if data.recurring?
-                            container.find('tr.info-charge td.info-data').html (pilot.charge + '<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>')
-                        else
-                            container.find('tr.info-charge td.info-data').text pilot.charge
+                            if data.recurring > 0
+                                count = 0
+                                while count < data.recurring
+                                    recurringicon += '<sup><i class="fas fa-caret-up"></i></sup>'
+                                    ++count
+                            else
+                                count = data.recurring
+                                while count < 0
+                                    recurringicon += '<sub><i class="fas fa-caret-down"></i></sub>'
+                                    ++count
+                        chargeHTML = $.trim """#{data.charge}#{recurringicon}"""
+                        container.find('tr.info-charge td.info-data').html (chargeHTML)
                         container.find('tr.info-charge').show()
                     else
                         container.find('tr.info-charge').hide()
@@ -4722,12 +4770,23 @@ class exportObj.SquadBuilder
                     container.find('tr.info-attack-left').hide()
                     container.find('tr.info-attack-back').hide()
 
-                    if data.recurring?
-                        container.find('tr.info-charge td.info-data').html (data.charge + """<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>""")
-                    else                
-                        container.find('tr.info-charge td.info-data').text data.charge
-                    container.find('tr.info-charge').toggle(data.charge?)                        
-                    
+                    if data.charge?
+                        recurringicon = ''
+                        if data.recurring?
+                            if data.recurring > 0
+                                count = 0
+                                while count < data.recurring
+                                    recurringicon += '<sup><i class="fas fa-caret-up"></i></sup>'
+                                    ++count
+                            else
+                                count = data.recurring
+                                while count < 0
+                                    recurringicon += '<sub><i class="fas fa-caret-down"></i></sub>'
+                                    ++count
+                        chargeHTML = $.trim """#{data.charge}#{recurringicon}"""
+                        container.find('tr.info-charge td.info-data').html (chargeHTML)
+                    container.find('tr.info-charge').toggle(data.charge?)
+
                     if data.range?
                         container.find('tr.info-range td.info-data').text data.range
                         container.find('tr.info-range').show()
@@ -4740,7 +4799,7 @@ class exportObj.SquadBuilder
                         container.find('td.info-rangebonus').hide()
                         
                         
-                    container.find('tr.info-force td.info-data').html (data.force + '<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>')
+                    container.find('tr.info-force td.info-data').html (data.force + '<sup><i class="fas fa-caret-up"></i></sup>')
                     container.find('tr.info-force').toggle(data.force?)                        
 
                     container.find('tr.info-agility').hide()
@@ -5090,8 +5149,13 @@ class exportObj.SquadBuilder
                         text += comma + exportObj.translate(@language, 'restrictions', "Initiative")+ " < #{r[1]}"
                     when "AgilityEquals"
                         text += comma + exportObj.translate(@language, 'restrictions', "Agility") + " = #{r[1]}"
-                    when "notUnique"
-                        text += comma + exportObj.translate(@language, 'restrictions', "Non-Limited")
+                    when "isUnique"
+                        if r[1] == true
+                            text += comma + exportObj.translate(@language, 'restrictions', "Limited")
+                        else
+                            text += comma + exportObj.translate(@language, 'restrictions', "Non-Limited")
+                    when "Format"
+                        text += comma + exportObj.translate(@language, 'restrictions', "#{r[1]} Ship")
                     when "Faction"
                         othertext += comma + exportObj.translate(@language, 'faction', "#{r[1]}")
                 comma = ', '
@@ -5150,13 +5214,11 @@ class exportObj.SquadBuilder
         @current_obstacles
 
     isSquadPossibleWithCollection: ->
-        # console.log "#{@faction}: isSquadPossibleWithCollection()"
         # If the collection is uninitialized or empty, don't actually check it.
         if Object.keys(@collection?.expansions ? {}).length == 0
             # console.log "collection not ready or is empty"
             return [true, []]
-        @collection.reset()
-        if @collection?.checks.collectioncheck != "true"
+        else if @collection?.checks.collectioncheck != "true"
             # console.log "collection check not enabled"
             return [true, []]
         @collection.reset()
@@ -5186,8 +5248,6 @@ class exportObj.SquadBuilder
             [squadPossible, missingStuff] = @isSquadPossibleWithCollection()
             @collection_invalid_container.toggleClass 'd-none', squadPossible
             @collection_invalid_container.on 'mouseover', (e) =>
-                @showTooltip 'MissingStuff', missingStuff
-            @collection_invalid_container.on 'touchstart', (e) =>
                 @showTooltip 'MissingStuff', missingStuff
 
     toXWS: ->
@@ -5853,8 +5913,6 @@ class Ship
             @builder.showTooltip 'Ship', exportObj.ships[select2_data.id] if select2_data?.id?
         @ship_selector.data('select2').container.on 'mouseover', (e) =>
             @builder.showTooltip 'Ship', exportObj.ships[@pilot.ship] if @pilot
-        @ship_selector.data('select2').container.on 'touchstart', (e) =>
-            @builder.showTooltip 'Ship', exportObj.ships[@pilot.ship] if @pilot
 
         @pilot_selector.select2
             width: '100%'
@@ -5900,8 +5958,6 @@ class Ship
                 @builder.showTooltip 'Pilot', exportObj.pilotsById[select2_data.id] if select2_data?.id?
         @pilot_selector.data('select2').container.on 'mouseover', (e) =>
             @builder.showTooltip 'Pilot', @pilot, @ if @pilot
-        @pilot_selector.data('select2').container.on 'touchstart', (e) =>
-            @builder.showTooltip 'Pilot', @pilot, @ if @pilot
 
         @pilot_selector.data('select2').container.hide()
 
@@ -5920,8 +5976,6 @@ class Ship
 #                else
 #                    @builder.showTooltip 'Pilot', exportObj.wingmatesById[select2_data.id] if select2_data?.id?
 #            @wingmate_selector.on 'mouseover', (e) =>
-#                @builder.showTooltip 'Pilot', @wingmate, @ if @wingmate
-#            @wingmate_selector.on 'touchstart', (e) =>
 #                @builder.showTooltip 'Pilot', @wingmate, @ if @wingmate
 #    
         @wingmate_selector.parent().hide()
@@ -6036,7 +6090,7 @@ class Ship
         if @data.energyrecurr?
             count = 0
             while count < @data.energyrecurr
-                recurringicon += '<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>'
+                recurringicon += '<sup><i class="fas fa-caret-up"></i></sup>'
                 ++count
         
         energyHTML = if (@pilot.ship_override?.energy? or @data.energy?) then $.trim """
@@ -6047,13 +6101,22 @@ class Ship
     
         forceHTML = if (@pilot.force?) then $.trim """
             <i class="xwing-miniatures-font header-force xwing-miniatures-font-forcecharge"></i>
-            <span class="info-data info-force">#{statAndEffectiveStat((@pilot.ship_override?.force ? @pilot.force), effective_stats, 'force')}<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i></span>
+            <span class="info-data info-force">#{statAndEffectiveStat((@pilot.ship_override?.force ? @pilot.force), effective_stats, 'force')}<sup><i class="fas fa-caret-up"></i></sup></span>
         """ else ''
 
         if @pilot.charge?
             recurringicon = ''
-            if @pilot.recurring?
-                recurringicon = """<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>"""
+            if  @pilot.recurring?
+                if @pilot.recurring > 0
+                    count = 0
+                    while count < @pilot.recurring
+                        recurringicon += '<sup><i class="fas fa-caret-up"></i></sup>'
+                        ++count
+                else
+                    count = @pilot.recurring
+                    while count < 0
+                        recurringicon += '<sub><i class="fas fa-caret-down"></i></sub>'
+                        ++count
             chargeHTML = $.trim """<i class="xwing-miniatures-font header-charge xwing-miniatures-font-charge"></i><span class="info-data info-charge">#{statAndEffectiveStat((@pilot.ship_override?.charge ? @pilot.charge), effective_stats, 'charge')}#{recurringicon}</span>"""
         else 
             chargeHTML = ''
@@ -6062,18 +6125,18 @@ class Ship
         if @data.shieldrecurr?
             count = 0
             while count < @data.shieldrecurr
-                shieldRECUR += """<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>"""
+                shieldRECUR += """<sup><i class="fas fa-caret-up"></i></sup>"""
                 ++count
             
         shieldIconHTML = ''
         if effective_stats.shields
-            for _ in [1..(effective_stats.shields - 1)]
+            for _ in [effective_stats.shields..2] by -1
                 shieldIconHTML += """<i class="xwing-miniatures-font header-shield xwing-miniatures-font-shield expanded-hull-or-shield"></i>"""
             shieldIconHTML += """<i class="xwing-miniatures-font header-shield xwing-miniatures-font-shield"></i>"""
 
         hullIconHTML = ''
         if effective_stats.hull
-            for _ in [1..(effective_stats.hull - 1)]
+            for _ in [effective_stats.hull..2] by -1
                 hullIconHTML += """<i class="xwing-miniatures-font header-hull xwing-miniatures-font-hull expanded-hull-or-shield"></i>"""
             hullIconHTML += """<i class="xwing-miniatures-font header-hull xwing-miniatures-font-hull"></i>"""
 
@@ -6445,11 +6508,13 @@ class Ship
             equipped_upgrades = []
             for upgrade in @upgrades
                 func = upgrade?.data?.validation_func ? undefined
-                if upgrade?.data?.restrictions and (not func?)
-                    func = @restriction_check(upgrade.data.restrictions, upgrade)
+                if func?
+                    func_result = upgrade?.data?.validation_func(this, upgrade)
+                else if upgrade?.data?.restrictions
+                    func_result = @restriction_check(upgrade.data.restrictions, upgrade)
                 # check if either a) validation func not met or b) upgrade already equipped (in 2.0 everything is limited) or c) upgrade is not available (e.g. not Hyperspace legal)
                 # ignore those checks if this is a quickbuild squad, as quickbuild does whatever it wants to do...
-                if ((func? and not func) or (upgrade?.data? and (upgrade.data in equipped_upgrades or not @builder.isItemAvailable(upgrade.data)))) and not @builder.isQuickbuild
+                if ((func_result? and not func_result) or (upgrade?.data? and (upgrade.data in equipped_upgrades or (upgrade.data.faction? and not @builder.isOurFaction(upgrade.data.faction,@pilot.faction)) or not @builder.isItemAvailable(upgrade.data)))) and not @builder.isQuickbuild
                     #console.log "Invalid upgrade: #{upgrade?.data?.name}"
                     upgrade.setById null
                     valid = false
@@ -6474,19 +6539,9 @@ class Ship
         false
 
     hasAnotherUnoccupiedSlotLike: (upgrade_obj, upgradeslot) ->
-        if upgrade_obj?.data?.restrictions?
-            for r in upgrade_obj.data.restrictions
-                if r[0] == "Slot"
-                    extraslot = r[1]
-
         for upgrade in @upgrades
             continue if upgrade == upgrade_obj or upgrade.slot != upgradeslot
-            if upgrade.isOccupied()
-                if extraslot?
-                    if extraslot == upgradeslot
-                        return true
-            else
-                return true
+            return true unless upgrade.isOccupied()
         false
 
     restriction_check: (restrictions, upgrade_obj) ->
@@ -6510,8 +6565,10 @@ class Ship
                             if not (@data.large?) then return false
                         when "Huge" 
                             if not (@data.huge?) then return false
+                        when "Standard" 
+                            if @data.huge? then return false
                 when "Action"
-                    if not ((r[1] in effective_stats.actions) or ("R-#{r[1]}" in effective_stats.actions)) then return false
+                    if not ((r[1] in effective_stats.actions) or ("*#{r[1]}" in effective_stats.actions) or ("F-#{r[1]}" in effective_stats.actions) or ("R-#{r[1]}" in effective_stats.actions)) then return false
                 when "Keyword"
                     if not (@checkKeyword(r[1])) then return false
                 when "Equipped"
@@ -6530,10 +6587,16 @@ class Ship
                     if not (@pilot.skill < r[1]) then return false
                 when "AgilityEquals"
                     if not (effective_stats.agility == r[1]) then return false
-                when "notUnique"
-                    if @pilot.unique? then return false
+                when "isUnique"
+                    if r[1] != @pilot.unique? then return false
+                when "Format"
+                    switch r[1]
+                        when "Epic"
+                            if not (@data.name in exportObj.epicExclusionsList) then return false
+                        when "Standard"
+                            if @data.name in exportObj.epicExclusionsList then return false
                 when "Faction"
-                    if @builder.faction != r[1] then return false
+                    if @pilot.faction != r[1] then return false
         return true
 
     doesSlotExist: (slot) ->
@@ -6718,8 +6781,6 @@ class GenericAddon
             @ship.builder.showTooltip 'Addon', @dataById[select2_data.id], {addon_type: @type} if select2_data?.id?
         @selector.data('select2').container.on 'mouseover', (e) =>
             @ship.builder.showTooltip 'Addon', @data, {addon_type: @type} if @data?
-        @selector.data('select2').container.on 'touchstart', (e) =>
-            @ship.builder.showTooltip 'Addon', @data, {addon_type: @type} if @data?
 
     setById: (id) ->
         @setData @dataById[parseInt id]
@@ -6898,28 +6959,32 @@ class GenericAddon
                     </div>
                 """
 
-            if (@data.charge?)
-                if  (@data.recurring?)
-                    chargeHTML = $.trim """
-                        <div class="upgrade-charge">
-                            <span class="info-data info-charge">#{@data.charge}</span>
-                            <i class="xwing-miniatures-font xwing-miniatures-font-charge"></i><i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>
-                        </div>
-                        """
-                else
-                    chargeHTML = $.trim """
-                        <div class="upgrade-charge">
-                            <span class="info-data info-charge">#{@data.charge}</span>
-                            <i class="xwing-miniatures-font xwing-miniatures-font-charge"></i>
-                        </div>
-                        """
+            if @data.charge?
+                recurringicon = ''
+                if  @data.recurring?
+                    if @data.recurring > 0
+                        count = 0
+                        while count < @data.recurring
+                            recurringicon += '<sup><i class="fas fa-caret-up"></i></sup>'
+                            ++count
+                    else
+                        count = @data.recurring
+                        while count < 0
+                            recurringicon += '<sub><i class="fas fa-caret-down"></i></sub>'
+                            ++count
+                chargeHTML = $.trim """
+                    <div class="upgrade-charge">
+                        <span class="info-data info-charge">#{@data.charge}</span>
+                        <i class="xwing-miniatures-font xwing-miniatures-font-charge"></i>#{recurringicon}
+                    </div>
+                    """
             else chargeHTML = $.trim ''
 
             if (@data.force?)
                 forceHTML = $.trim """
                     <div class="upgrade-force">
                         <span class="info-data info-force">#{@data.force}</span>
-                        <i class="xwing-miniatures-font xwing-miniatures-font-forcecharge"></i><i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>
+                        <i class="xwing-miniatures-font xwing-miniatures-font-forcecharge"></i><sup><i class="fas fa-caret-up"></i></sup>
                     </div>
                     """
             else forceHTML = $.trim ''

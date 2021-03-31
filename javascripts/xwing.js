@@ -4,7 +4,7 @@
     Stephen Kim <raithos@gmail.com>
     https://raithos.github.io
  */
-var DFL_LANGUAGE, GenericAddon, SERIALIZATION_CODE_TO_CLASS, SND_LANGUAGE, SPEC_URL, SQUAD_DISPLAY_NAME_MAX_LENGTH, Ship, TYPES, URL_BASE, builders, byName, byPoints, conditionToHTML, exportObj, getPrimaryFaction, statAndEffectiveStat,
+var DFL_LANGUAGE, GenericAddon, SERIALIZATION_CODE_TO_CLASS, SPEC_URL, SQUAD_DISPLAY_NAME_MAX_LENGTH, Ship, TYPES, URL_BASE, builders, byName, byPoints, conditionToHTML, exportObj, getPrimaryFaction, statAndEffectiveStat,
   __slice = [].slice,
   __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
   __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
@@ -1220,10 +1220,12 @@ exportObj.CardBrowser = (function() {
 
   CardBrowser.prototype.setupUI = function() {
     var action, faction, factionless_option, linkedaction, opt, pilot, slot, _i, _j, _len, _len1, _ref, _ref1, _ref2;
-    this.container.append($.trim("<div class=\"container-fluid xwing-card-browser\">\n    <div class=\"row\">\n        <div class=\"col-md-4\">\n            <div class=\"card card-search-container\">\n            <h5 class=\"card-title\">Card Search</h5>\n                <div class=\"advanced-search-container\">\n                    <div class = \"card search-container general-search-container\">\n                        <h6 class=\"card-subtitle mb-3 text-muted version\">General</h6>\n                        <label class = \"text-search advanced-search-label\">\n                        <strong>Textsearch: </strong>\n                            <input type=\"search\" placeholder=\"Search for name, text or ship\" class = \"card-search-text\">\n                        </label>\n                        <div class= \"advanced-search-faction-selection-container\">\n                            <label class = \"advanced-search-label select-available-slots\">\n                                <strong>Factions: </strong>\n                                <select class=\"advanced-search-selection faction-selection\" multiple=\"1\" data-placeholder=\"All factions\"></select>\n                            </label>\n                        </div>\n                        <div class = \"advanced-search-point-selection-container\">\n                            <strong>Point costs:</strong>\n                            <label class = \"advanced-search-label set-minimum-points\">\n                                from <input type=\"number\" class=\"minimum-point-cost advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-points\">\n                                to <input type=\"number\" class=\"maximum-point-cost advanced-search-number-input\" value=\"200\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-collection-container\">\n                            <strong>Owned copies:</strong>\n                            <label class = \"advanced-search-label set-minimum-owned-copies\">\n                                from <input type=\"number\" class=\"minimum-owned-copies advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-owened-copies\">\n                                to <input type=\"number\" class=\"maximum-owned-copies advanced-search-number-input\" value=\"100\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-misc-container\">\n                            <strong>Misc:</strong>\n                            <label class = \"advanced-search-label toggle-unique\">\n                                <input type=\"checkbox\" class=\"unique-checkbox advanced-search-checkbox\" /> Is unique\n                            </label>\n                            <label class = \"advanced-search-label toggle-non-unique\">\n                                <input type=\"checkbox\" class=\"non-unique-checkbox advanced-search-checkbox\" /> Is not unique\n                            </label>\n                            <label class = \"advanced-search-label toggle-hyperspace\">\n                                <input type=\"checkbox\" class=\"hyperspace-checkbox advanced-search-checkbox\" /> Hyperspace legal\n                            </label>\n                        </div>\n                    </div>\n                    <div class = \"card search-container ship-search-container\">\n                        <h6 class=\"card-subtitle mb-3 text-muted version\">Ships and Pilots</h6>\n                        <div class = \"advanced-search-slot-available-container\">\n                            <label class = \"advanced-search-label select-available-slots\">\n                                <strong>Slots: </strong>\n                                <select class=\"advanced-search-selection slot-available-selection\" multiple=\"1\" data-placeholder=\"No slots selected\"></select>\n                            </label>\n                            <br />\n                            <label class = \"advanced-search-label toggle-unique\">\n                                <input type=\"checkbox\" class=\"duplicate-slots-checkbox advanced-search-checkbox\" /> Has multiple of the chosen slots\n                            </label>\n                        </div>\n                        <div class = \"advanced-search-actions-available-container\">\n                            <label class = \"advanced-search-label select-available-actions\">\n                                <strong>Actions: </strong>\n                                <select class=\"advanced-search-selection action-available-selection\" multiple=\"1\" data-placeholder=\"No actions selected\"></select>\n                            </label>\n                        </div>\n                        <div class = \"advanced-search-linkedactions-available-container\">\n                            <label class = \"advanced-search-label select-available-linkedactions\">\n                                <strong>Linked actions: </strong>\n                                <select class=\"advanced-search-selection linkedaction-available-selection\" multiple=\"1\" data-placeholder=\"No actions selected\"></select>\n                            </label>\n                        </div>\n                        <div class = \"advanced-search-ini-container\">\n                            <strong>Initiative:</strong>\n                            <label class = \"advanced-search-label set-minimum-ini\">\n                                from <input type=\"number\" class=\"minimum-ini advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-ini\">\n                                to <input type=\"number\" class=\"maximum-ini advanced-search-number-input\" value=\"6\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-hull-container\">\n                            <strong>Hull:</strong>\n                            <label class = \"advanced-search-label set-minimum-hull\">\n                                from <input type=\"number\" class=\"minimum-hull advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-hull\">\n                                to <input type=\"number\" class=\"maximum-hull advanced-search-number-input\" value=\"12\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-shields-container\">\n                            <strong>Shields:</strong>\n                            <label class = \"advanced-search-label set-minimum-shields\">\n                                from <input type=\"number\" class=\"minimum-shields advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-shields\">\n                                to <input type=\"number\" class=\"maximum-shields advanced-search-number-input\" value=\"6\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-agility-container\">\n                            <strong>Agility:</strong>\n                            <label class = \"advanced-search-label set-minimum-agility\">\n                                from <input type=\"number\" class=\"minimum-agility advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-agility\">\n                                to <input type=\"number\" class=\"maximum-agility advanced-search-number-input\" value=\"3\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-base-size-container\">\n                            <strong>Base size:</strong>\n                            <label class = \"advanced-search-label toggle-small-base\">\n                                <input type=\"checkbox\" class=\"small-base-checkbox advanced-search-checkbox\" checked=\"checked\"/> Small\n                            </label>\n                            <label class = \"advanced-search-label toggle-medium-base\">\n                                <input type=\"checkbox\" class=\"medium-base-checkbox advanced-search-checkbox\" checked=\"checked\"/> Medium\n                            </label>\n                            <label class = \"advanced-search-label toggle-large-base\">\n                                <input type=\"checkbox\" class=\"large-base-checkbox advanced-search-checkbox\" checked=\"checked\"/> Large\n                            </label>\n                        </div>\n                        <div class = \"advanced-search-attack-container\">\n                            <strong>Attack  <i class=\"xwing-miniatures-font xwing-miniatures-font-frontarc\"></i>:</strong>\n                            <label class = \"advanced-search-label set-minimum-attack\">\n                                from <input type=\"number\" class=\"minimum-attack advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-attack\">\n                                to <input type=\"number\" class=\"maximum-attack advanced-search-number-input\" value=\"5\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-attackt-container\">\n                            <strong>Attack  <i class=\"xwing-miniatures-font xwing-miniatures-font-singleturretarc\"></i>:</strong>\n                            <label class = \"advanced-search-label set-minimum-attackt\">\n                                from <input type=\"number\" class=\"minimum-attackt advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-attackt\">\n                                to <input type=\"number\" class=\"maximum-attackt advanced-search-number-input\" value=\"5\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-attackdt-container\">\n                            <strong>Attack <i class=\"xwing-miniatures-font xwing-miniatures-font-doubleturretarc\"></i>:</strong>\n                            <label class = \"advanced-search-label set-minimum-attackdt\">\n                                from <input type=\"number\" class=\"minimum-attackdt advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-attackdt\">\n                                to <input type=\"number\" class=\"maximum-attackdt advanced-search-number-input\" value=\"5\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-attackf-container\">\n                            <strong>Attack <i class=\"xwing-miniatures-font xwing-miniatures-font-fullfrontarc\"></i>:</strong>\n                            <label class = \"advanced-search-label set-minimum-attackf\">\n                                from <input type=\"number\" class=\"minimum-attackf advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-attackf\">\n                                to <input type=\"number\" class=\"maximum-attackf advanced-search-number-input\" value=\"5\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-attackb-container\">\n                            <strong>Attack <i class=\"xwing-miniatures-font xwing-miniatures-font-reararc\"></i>:</strong>\n                            <label class = \"advanced-search-label set-minimum-attackb\">\n                                from <input type=\"number\" class=\"minimum-attackb advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-attackb\">\n                                to <input type=\"number\" class=\"maximum-attackb advanced-search-number-input\" value=\"5\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-attackbull-container\">\n                            <strong>Attack <i class=\"xwing-miniatures-font xwing-miniatures-font-bullseyearc\"></i>:</strong>\n                            <label class = \"advanced-search-label set-minimum-attackbull\">\n                                from <input type=\"number\" class=\"minimum-attackbull advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-attackbull\">\n                                to <input type=\"number\" class=\"maximum-attackbull advanced-search-number-input\" value=\"5\" /> \n                            </label>\n                        </div>\n                    </div>\n                    <div class = \"card search-container other-stuff-search-container\">\n                        <h6 class=\"card-subtitle mb-3 text-muted version\">Other Stuff</h6>\n                        <div class = \"advanced-search-slot-used-container\">\n                            <label class = \"advanced-search-label select-used-slots\">\n                                <strong>Used slot: </strong>\n                                <select class=\"advanced-search-selection slot-used-selection\" multiple=\"1\" data-placeholder=\"No slots selected\"></select>\n                            </label>\n                        </div>\n                        <div class = \"advanced-search-slot-used-second-slot-container\">\n                            <label class = \"advanced-search-label select-used-second-slots\">\n                                <strong>Used second slot: </strong>\n                                <select class=\"advanced-search-selection slot-used-second-selection\" multiple=\"1\" data-placeholder=\"No slots selected\"></select>\n                            </label>\n                            <br />\n                            <label class = \"advanced-search-label has-a-second-slot\">\n                                <input type=\"checkbox\" class=\"advanced-search-checkbox has-a-second-slot-checkbox\" /> Show only upgrades with a second slot\n                            </label>\n                        </div>\n                        <div class = \"advanced-search-charge-container\">\n                            <strong>Charges:</strong>\n                            <label class = \"advanced-search-label set-minimum-charge\">\n                                from <input type=\"number\" class=\"minimum-charge advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-charge\">\n                                to <input type=\"number\" class=\"maximum-charge advanced-search-number-input\" value=\"5\" /> \n                            </label>\n                            <br />\n                            <label class = \"advanced-search-label has-recurring-charge\">\n                                <input type=\"checkbox\" class=\"advanced-search-checkbox has-recurring-charge-checkbox\" checked=\"checked\"/> Recurring\n                            </label>\n                            <label class = \"advanced-search-label has-not-recurring-charge\">\n                                <input type=\"checkbox\" class=\"advanced-search-checkbox has-not-recurring-charge-checkbox\" checked=\"checked\"/> Not recurring\n                            </label>\n                        <div class = \"advanced-search-force-container\">\n                            <strong>Force:</strong>\n                            <label class = \"advanced-search-label set-minimum-force\">\n                                from <input type=\"number\" class=\"minimum-force advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-force\">\n                                to <input type=\"number\" class=\"maximum-force advanced-search-number-input\" value=\"3\" /> \n                            </label>\n                        </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-md-4 card-selecting-area\">\n            <span class=\"translate sort-cards-by\">Sort cards by</span>: <select class=\"sort-by\">\n                <option value=\"name\">Name</option>\n                <option value=\"source\">Source</option>\n                <option value=\"type-by-points\">Type (by Points)</option>\n                <option value=\"type-by-name\" selected=\"1\">Type (by Name)</option>\n            </select>\n            <div class=\"card-selector-container\">\n\n            </div>\n        </div>\n        <div class=\"col-md-4\">\n            <div class=\"card card-viewer-placeholder info-well\">\n                <p class=\"translate select-a-card\">Select a card from the list at the left.</p>\n            </div>\n            <div class=\"card card-viewer-container\">\n            </div>\n        </div>\n    </div>\n</div>"));
+    this.container.append($.trim("<div class=\"container-fluid xwing-card-browser\">\n    <div class=\"row\">\n        <div class=\"col-md-4\">\n            <div class=\"card card-search-container\">\n            <h5 class=\"card-title\">Card Search</h5>\n                <div class=\"advanced-search-container\">\n                    <div class = \"card search-container general-search-container\">\n                        <h6 class=\"card-subtitle mb-3 text-muted version\">General</h6>\n                        <label class = \"text-search advanced-search-label\">\n                        <strong>Textsearch: </strong>\n                            <input type=\"search\" placeholder=\"Search for name, text or ship\" class = \"card-search-text\">\n                        </label>\n                        <div class= \"advanced-search-faction-selection-container\">\n                            <label class = \"advanced-search-label select-available-slots\">\n                                <strong>Factions: </strong>\n                                <select class=\"advanced-search-selection faction-selection\" multiple=\"1\" data-placeholder=\"All factions\"></select>\n                            </label>\n                        </div>\n                        <div class = \"advanced-search-point-selection-container\">\n                            <strong>Point costs:</strong>\n                            <label class = \"advanced-search-label set-minimum-points\">\n                                from <input type=\"number\" class=\"minimum-point-cost advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-points\">\n                                to <input type=\"number\" class=\"maximum-point-cost advanced-search-number-input\" value=\"200\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-collection-container\">\n                            <strong>Owned copies:</strong>\n                            <label class = \"advanced-search-label set-minimum-owned-copies\">\n                                from <input type=\"number\" class=\"minimum-owned-copies advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-owened-copies\">\n                                to <input type=\"number\" class=\"maximum-owned-copies advanced-search-number-input\" value=\"100\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-misc-container\">\n                            <strong>Misc:</strong>\n                            <label class = \"advanced-search-label toggle-unique\">\n                                <input type=\"checkbox\" class=\"unique-checkbox advanced-search-checkbox\" /> Is unique\n                            </label>\n                            <label class = \"advanced-search-label toggle-non-unique\">\n                                <input type=\"checkbox\" class=\"non-unique-checkbox advanced-search-checkbox\" /> Is not unique\n                            </label>\n                            <label class = \"advanced-search-label toggle-hyperspace\">\n                                <input type=\"checkbox\" class=\"hyperspace-checkbox advanced-search-checkbox\" /> Hyperspace legal\n                            </label>\n                        </div>\n                    </div>\n                    <div class = \"card search-container ship-search-container\">\n                        <h6 class=\"card-subtitle mb-3 text-muted version\">Ships and Pilots</h6>\n                        <div class = \"advanced-search-slot-available-container\">\n                            <label class = \"advanced-search-label select-available-slots\">\n                                <strong>Slots: </strong>\n                                <select class=\"advanced-search-selection slot-available-selection\" multiple=\"1\" data-placeholder=\"No slots selected\"></select>\n                            </label>\n                            <br />\n                            <label class = \"advanced-search-label toggle-unique\">\n                                <input type=\"checkbox\" class=\"duplicate-slots-checkbox advanced-search-checkbox\" /> Has multiple of the chosen slots\n                            </label>\n                        </div>\n                        <div class = \"advanced-search-actions-available-container\">\n                            <label class = \"advanced-search-label select-available-actions\">\n                                <strong>Actions: </strong>\n                                <select class=\"advanced-search-selection action-available-selection\" multiple=\"1\" data-placeholder=\"No actions selected\"></select>\n                            </label>\n                        </div>\n                        <div class = \"advanced-search-linkedactions-available-container\">\n                            <label class = \"advanced-search-label select-available-linkedactions\">\n                                <strong>Linked actions: </strong>\n                                <select class=\"advanced-search-selection linkedaction-available-selection\" multiple=\"1\" data-placeholder=\"No actions selected\"></select>\n                            </label>\n                        </div>\n                        <div class = \"advanced-search-ini-container\">\n                            <strong>Initiative:</strong>\n                            <label class = \"advanced-search-label set-minimum-ini\">\n                                from <input type=\"number\" class=\"minimum-ini advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-ini\">\n                                to <input type=\"number\" class=\"maximum-ini advanced-search-number-input\" value=\"6\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-hull-container\">\n                            <strong>Hull:</strong>\n                            <label class = \"advanced-search-label set-minimum-hull\">\n                                from <input type=\"number\" class=\"minimum-hull advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-hull\">\n                                to <input type=\"number\" class=\"maximum-hull advanced-search-number-input\" value=\"12\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-shields-container\">\n                            <strong>Shields:</strong>\n                            <label class = \"advanced-search-label set-minimum-shields\">\n                                from <input type=\"number\" class=\"minimum-shields advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-shields\">\n                                to <input type=\"number\" class=\"maximum-shields advanced-search-number-input\" value=\"6\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-agility-container\">\n                            <strong>Agility:</strong>\n                            <label class = \"advanced-search-label set-minimum-agility\">\n                                from <input type=\"number\" class=\"minimum-agility advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-agility\">\n                                to <input type=\"number\" class=\"maximum-agility advanced-search-number-input\" value=\"3\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-base-size-container\">\n                            <strong>Base size:</strong>\n                            <label class = \"advanced-search-label toggle-small-base\">\n                                <input type=\"checkbox\" class=\"small-base-checkbox advanced-search-checkbox\" checked=\"checked\"/> Small\n                            </label>\n                            <label class = \"advanced-search-label toggle-medium-base\">\n                                <input type=\"checkbox\" class=\"medium-base-checkbox advanced-search-checkbox\" checked=\"checked\"/> Medium\n                            </label>\n                            <label class = \"advanced-search-label toggle-large-base\">\n                                <input type=\"checkbox\" class=\"large-base-checkbox advanced-search-checkbox\" checked=\"checked\"/> Large\n                            </label>\n                        </div>\n                        <div class = \"advanced-search-attack-container\">\n                            <strong>Attack  <i class=\"xwing-miniatures-font xwing-miniatures-font-frontarc\"></i>:</strong>\n                            <label class = \"advanced-search-label set-minimum-attack\">\n                                from <input type=\"number\" class=\"minimum-attack advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-attack\">\n                                to <input type=\"number\" class=\"maximum-attack advanced-search-number-input\" value=\"5\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-attackt-container\">\n                            <strong>Attack  <i class=\"xwing-miniatures-font xwing-miniatures-font-singleturretarc\"></i>:</strong>\n                            <label class = \"advanced-search-label set-minimum-attackt\">\n                                from <input type=\"number\" class=\"minimum-attackt advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-attackt\">\n                                to <input type=\"number\" class=\"maximum-attackt advanced-search-number-input\" value=\"5\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-attackdt-container\">\n                            <strong>Attack <i class=\"xwing-miniatures-font xwing-miniatures-font-doubleturretarc\"></i>:</strong>\n                            <label class = \"advanced-search-label set-minimum-attackdt\">\n                                from <input type=\"number\" class=\"minimum-attackdt advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-attackdt\">\n                                to <input type=\"number\" class=\"maximum-attackdt advanced-search-number-input\" value=\"5\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-attackf-container\">\n                            <strong>Attack <i class=\"xwing-miniatures-font xwing-miniatures-font-fullfrontarc\"></i>:</strong>\n                            <label class = \"advanced-search-label set-minimum-attackf\">\n                                from <input type=\"number\" class=\"minimum-attackf advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-attackf\">\n                                to <input type=\"number\" class=\"maximum-attackf advanced-search-number-input\" value=\"5\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-attackb-container\">\n                            <strong>Attack <i class=\"xwing-miniatures-font xwing-miniatures-font-reararc\"></i>:</strong>\n                            <label class = \"advanced-search-label set-minimum-attackb\">\n                                from <input type=\"number\" class=\"minimum-attackb advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-attackb\">\n                                to <input type=\"number\" class=\"maximum-attackb advanced-search-number-input\" value=\"5\" /> \n                            </label>\n                        </div>\n                        <div class = \"advanced-search-attackbull-container\">\n                            <strong>Attack <i class=\"xwing-miniatures-font xwing-miniatures-font-bullseyearc\"></i>:</strong>\n                            <label class = \"advanced-search-label set-minimum-attackbull\">\n                                from <input type=\"number\" class=\"minimum-attackbull advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-attackbull\">\n                                to <input type=\"number\" class=\"maximum-attackbull advanced-search-number-input\" value=\"5\" /> \n                            </label>\n                        </div>\n                    </div>\n                    <div class = \"card search-container other-stuff-search-container\">\n                        <h6 class=\"card-subtitle mb-3 text-muted version\">Other Stuff</h6>\n                        <div class = \"advanced-search-slot-used-container\">\n                            <label class = \"advanced-search-label select-used-slots\">\n                                <strong>Used slot: </strong>\n                                <select class=\"advanced-search-selection slot-used-selection\" multiple=\"1\" data-placeholder=\"No slots selected\"></select>\n                            </label>\n                        </div>\n                        <div class = \"advanced-search-slot-used-second-slot-container\">\n                            <label class = \"advanced-search-label select-used-second-slots\">\n                                <strong>Used second slot: </strong>\n                                <select class=\"advanced-search-selection slot-used-second-selection\" multiple=\"1\" data-placeholder=\"No slots selected\"></select>\n                            </label>\n                            <br />\n                            <label class = \"advanced-search-label has-a-second-slot\">\n                                <input type=\"checkbox\" class=\"advanced-search-checkbox has-a-second-slot-checkbox\" /> Show only upgrades with a second slot\n                            </label>\n                        </div>\n                        <div class = \"advanced-search-charge-container\">\n                            <strong>Charges:</strong>\n                            <label class = \"advanced-search-label set-minimum-charge\">\n                                from <input type=\"number\" class=\"minimum-charge advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-charge\">\n                                to <input type=\"number\" class=\"maximum-charge advanced-search-number-input\" value=\"5\" /> \n                            </label>\n                            <br />\n                            <label class = \"advanced-search-label has-recurring-charge\">\n                                <input type=\"checkbox\" class=\"advanced-search-checkbox has-recurring-charge-checkbox\" checked=\"checked\"/> Recurring\n                            </label>\n                            <label class = \"advanced-search-label has-not-recurring-charge\">\n                                <input type=\"checkbox\" class=\"advanced-search-checkbox has-not-recurring-charge-checkbox\" checked=\"checked\"/> Not recurring\n                            </label>\n                        <div class = \"advanced-search-force-container\">\n                            <strong>Force:</strong>\n                            <label class = \"advanced-search-label set-minimum-force\">\n                                from <input type=\"number\" class=\"minimum-force advanced-search-number-input\" value=\"0\" /> \n                            </label>\n                            <label class = \"advanced-search-label set-maximum-force\">\n                                to <input type=\"number\" class=\"maximum-force advanced-search-number-input\" value=\"3\" /> \n                            </label>\n                        </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-md-4 card-selecting-area\">\n            <span class=\"translate sort-cards-by\">Sort cards by</span>: <select class=\"sort-by\">\n                <option value=\"name\">Name</option>\n                <option value=\"source\">Source</option>\n                <option value=\"type-by-points\">Type (by Points)</option>\n                <option value=\"type-by-name\" selected=\"1\">Type (by Name)</option>\n            </select>\n            <div class=\"card-selector-container\">\n\n            </div>\n            <br>\n            <div class=\"card-viewer-conditions-container\">\n            </div>\n        </div>\n        <div class=\"col-md-4\">\n            <div class=\"card card-viewer-placeholder info-well\">\n                <p class=\"translate select-a-card\">Select a card from the list at the left.</p>\n            </div>\n            <div class=\"card card-viewer-container\">\n            </div>\n        </div>\n    </div>\n</div>"));
     this.card_selector_container = $(this.container.find('.xwing-card-browser .card-selector-container'));
     this.card_viewer_container = $(this.container.find('.xwing-card-browser .card-viewer-container'));
     this.card_viewer_container.append($.trim(exportObj.builders[0].createInfoContainerUI()));
+    this.card_viewer_container.hide();
+    this.card_viewer_conditions_container = $(this.container.find('.xwing-card-browser .card-viewer-conditions-container'));
     this.card_viewer_container.hide();
     this.card_viewer_placeholder = $(this.container.find('.xwing-card-browser .card-viewer-placeholder'));
     this.advanced_search_container = $(this.container.find('.xwing-card-browser .advanced-search-container'));
@@ -1804,7 +1806,7 @@ exportObj.CardBrowser = (function() {
   };
 
   CardBrowser.prototype.renderCard = function(card) {
-    var add_opts, data, display_name, name, orig_type;
+    var add_opts, condition, conditions, data, display_name, name, orig_type, _i, _len, _ref;
     display_name = card.data('display_name');
     name = card.data('name');
     data = card.data('card');
@@ -1817,6 +1819,31 @@ exportObj.CardBrowser = (function() {
     }
     exportObj.builders[0].showTooltip(orig_type, data, add_opts != null ? add_opts : {}, this.card_viewer_container);
     this.card_viewer_container.show();
+    if ((data != null ? data.applies_condition : void 0) != null) {
+      conditions = new Set();
+      if (data.applies_condition instanceof Array) {
+        _ref = data.applies_condition;
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          condition = _ref[_i];
+          conditions.add(exportObj.conditionsByCanonicalName[condition]);
+        }
+      } else {
+        conditions.add(exportObj.conditionsByCanonicalName[data.applies_condition]);
+      }
+      this.card_viewer_conditions_container.text('');
+      conditions.forEach((function(_this) {
+        return function(condition) {
+          var condition_container;
+          condition_container = $(document.createElement('div'));
+          condition_container.addClass('conditions-container d-flex flex-wrap');
+          condition_container.append(conditionToHTML(condition));
+          return _this.card_viewer_conditions_container.append(condition_container);
+        };
+      })(this));
+      this.card_viewer_conditions_container.show();
+    } else {
+      this.card_viewer_conditions_container.hide();
+    }
     return this.card_viewer_placeholder.hide();
   };
 
@@ -1880,9 +1907,6 @@ exportObj.CardBrowser = (function() {
           return false;
         }
       }
-    }
-    if (card.data.slot === "Hardpoint") {
-      return false;
     }
     all_factions = (function() {
       var _ref, _results;
@@ -1966,8 +1990,10 @@ exportObj.CardBrowser = (function() {
       }
       for (_o = 0, _len6 = required_slots.length; _o < _len6; _o++) {
         slot = required_slots[_o];
-        if (!((slots != null) && __indexOf.call(slots, slot) >= 0)) {
-          return false;
+        if (!(((slot === "Torpedo") || (slot === "Missile") || (slot === "Cannon")) && ((slots != null) && (__indexOf.call(slots, "HardpointShip") >= 0)))) {
+          if (!((slots != null) && __indexOf.call(slots, slot) >= 0)) {
+            return false;
+          }
         }
         if (this.duplicateslots.checked) {
           hasDuplicates = slots.filter(function(x, i, self) {
@@ -2327,8 +2353,6 @@ exportObj.RulesBrowser = (function() {
 
 DFL_LANGUAGE = 'English';
 
-SND_LANGUAGE = 'Magyar';
-
 builders = [];
 
 exportObj = typeof exports !== "undefined" && exports !== null ? exports : this;
@@ -2339,8 +2363,6 @@ exportObj.loadCards = function(language) {
   exportObj.canonicalizeShipNames(basic_cards);
   exportObj.ships = basic_cards.ships;
   exportObj.setupCommonCardData(basic_cards);
-  exportObj.cardLoaders[SND_LANGUAGE]();
-  exportObj.cardLoaders[DFL_LANGUAGE]();
   return exportObj.cardLoaders[language]();
 };
 
@@ -2376,7 +2398,7 @@ exportObj.setupTranslationSupport = function() {
   (function(builders) {
     return $(exportObj).on('xwing:languageChanged', (function(_this) {
       return function(e, language, cb) {
-        var builder, html, selector, ___iced_passed_deferral, __iced_deferrals, __iced_k;
+        var builder, currentfaction, html, selector, ___iced_passed_deferral, __iced_deferrals, __iced_k;
         __iced_k = __iced_k_noop;
         ___iced_passed_deferral = iced.findDeferral(arguments);
         if (cb == null) {
@@ -2384,6 +2406,7 @@ exportObj.setupTranslationSupport = function() {
         }
         if (language in exportObj.translations) {
           $('.language-placeholder').text(language);
+          currentfaction = $.getParameterByName('f');
           (function(__iced_k) {
             var _i, _len, _ref, _results, _while;
             _ref = builders;
@@ -2404,19 +2427,25 @@ exportObj.setupTranslationSupport = function() {
               } else {
                 builder = _ref[_i];
                 (function(__iced_k) {
-                  __iced_deferrals = new iced.Deferrals(__iced_k, {
-                    parent: ___iced_passed_deferral
-                  });
-                  builder.container.trigger('xwing:beforeLanguageLoad', __iced_deferrals.defer({
-                    lineno: 2022
-                  }));
-                  __iced_deferrals._fulfill();
+                  if (currentfaction === builder.faction) {
+                    return __iced_k(builder.container.trigger('xwing:beforeLanguageLoad'));
+                  } else {
+                    (function(__iced_k) {
+                      __iced_deferrals = new iced.Deferrals(__iced_k, {
+                        parent: ___iced_passed_deferral
+                      });
+                      builder.container.trigger('xwing:beforeLanguageLoad', __iced_deferrals.defer({
+                        lineno: 2042
+                      }));
+                      __iced_deferrals._fulfill();
+                    })(__iced_k);
+                  }
                 })(_next);
               }
             };
             _while(__iced_k);
           })(function() {
-            var _i, _len, _ref;
+            var _ref;
             exportObj.loadCards(language);
             _ref = exportObj.translations[language].byCSSSelector;
             for (selector in _ref) {
@@ -2424,11 +2453,44 @@ exportObj.setupTranslationSupport = function() {
               html = _ref[selector];
               $(selector).html(html);
             }
-            for (_i = 0, _len = builders.length; _i < _len; _i++) {
-              builder = builders[_i];
-              builder.container.trigger('xwing:afterLanguageLoad', language);
-            }
-            return __iced_k();
+            (function(__iced_k) {
+              var _i, _len, _ref1, _results, _while;
+              _ref1 = builders;
+              _len = _ref1.length;
+              _i = 0;
+              _while = function(__iced_k) {
+                var _break, _continue, _next;
+                _break = __iced_k;
+                _continue = function() {
+                  return iced.trampoline(function() {
+                    ++_i;
+                    return _while(__iced_k);
+                  });
+                };
+                _next = _continue;
+                if (!(_i < _len)) {
+                  return _break();
+                } else {
+                  builder = _ref1[_i];
+                  (function(__iced_k) {
+                    if (currentfaction === builder.faction) {
+                      return __iced_k(builder.container.trigger('xwing:afterLanguageLoad', language));
+                    } else {
+                      (function(__iced_k) {
+                        __iced_deferrals = new iced.Deferrals(__iced_k, {
+                          parent: ___iced_passed_deferral
+                        });
+                        builder.container.trigger('xwing:afterLanguageLoad', language, __iced_deferrals.defer({
+                          lineno: 2050
+                        }));
+                        __iced_deferrals._fulfill();
+                      })(__iced_k);
+                    }
+                  })(_next);
+                }
+              };
+              _while(__iced_k);
+            })(__iced_k);
           });
         } else {
           return __iced_k();
@@ -2752,7 +2814,7 @@ exportObj.SquadBuilder = (function() {
     DEFAULT_RANDOMIZER_SHIP_LIMIT = 0;
     this.status_container = $(document.createElement('DIV'));
     this.status_container.addClass('container-fluid');
-    this.status_container.append($.trim('<div class="row squad-name-and-points-row">\n    <div class="col-md-3 squad-name-container">\n        <div class="display-name">\n            <span class="squad-name"></span>\n            <i class="far fa-edit"></i>\n        </div>\n        <div class="input-append">\n            <input type="text" maxlength="64" placeholder="Name your squad..." />\n            <button class="btn save"><i class="fa fa-pen-square"></i></button>\n        </div>\n        <br />\n        <select class="game-type-selector">\n            <option value="standard">Extended</option>\n            <option value="hyperspace">Hyperspace</option>\n            <option value="epic">Epic</option>\n            <option value="quickbuild">Quickbuild</option>\n        </select>\n    </div>\n    <div class="col-md-4 points-display-container">\n        Points: <span class="total-points">0</span> / <input type="number" class="desired-points" value="200">\n        <span class="points-remaining-container">(<span class="points-remaining"></span>&nbsp;left) <span class="points-destroyed red"></span></span>\n        <span class="content-warning unreleased-content-used d-none"><br /><i class="fa fa-exclamation-circle"></i>&nbsp;<span class="translated"></span></span>\n        <span class="content-warning loading-failed-container d-none"><br /><i class="fa fa-exclamation-circle"></i>&nbsp;<span class="translated"></span></span>\n        <span class="content-warning collection-invalid d-none"><br /><i class="fa fa-exclamation-circle"></i>&nbsp;<span class="translated"></span></span>\n        <span class="content-warning ship-number-invalid-container d-none"><br /><i class="fa fa-exclamation-circle"></i>&nbsp;<span class="translated">A tournament legal squad must contain 2-8 ships!</span></span>\n    </div>\n    <div class="col-md-5 float-right button-container">\n        <div class="btn-group float-right">\n\n            <button class="btn btn-info view-as-text"><span class="d-none d-lg-block"><i class="fa fa-print"></i>&nbsp;Print/Export</span><span class="d-lg-none"><i class="fa fa-print"></i></span></button>\n            <a class="btn btn-primary d-none collection"><span class="d-none d-lg-block"><i class="fa fa-folder-open"></i> Your Collection</span><span class="d-lg-none"><i class="fa fa-folder-open"></i></span></a>\n            <!-- Randomize button is marked as danger, since it creates a new squad -->\n            <button class="btn btn-danger randomize"><span class="d-none d-lg-block"><i class="fa fa-random"></i> Randomize!</span><span class="d-lg-none"><i class="fa fa-random"></i></span></button>\n            <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown">\n                <span class="caret"></span>\n            </button>\n            <ul class="dropdown-menu">\n                <li><a class="dropdown-item randomize-options">Randomizer Options</a></li>\n                <li><a class="dropdown-item misc-settings">Misc Settings</a></li>\n            </ul>\n            \n\n        </div>\n    </div>\n</div>\n\n<div class="row squad-save-buttons">\n    <div class="col-md-12">\n        <button class="show-authenticated btn btn-primary save-list"><i class="far fa-save"></i>&nbsp;Save</button>\n        <button class="show-authenticated btn btn-primary save-list-as"><i class="far fa-file"></i>&nbsp;Save As...</button>\n        <button class="show-authenticated btn btn-primary delete-list disabled"><i class="fa fa-trash"></i>&nbsp;Delete</button>\n        <button class="show-authenticated btn btn-info backend-list-my-squads show-authenticated"><i class="fa fa-download"></i>&nbsp;Load Squad</button>\n        <button class="btn btn-info import-squad"><i class="fa fa-file-import"></i>&nbsp;Import</button>\n        <button class="btn btn-danger clear-squad"><i class="fa fa-plus-circle"></i>&nbsp;New Squad</button>\n        <span class="show-authenticated backend-status"></span>\n    </div>\n</div>'));
+    this.status_container.append($.trim('<div class="row squad-name-and-points-row">\n    <div class="col-md-3 squad-name-container">\n        <div class="display-name">\n            <span class="squad-name"></span>\n            <i class="far fa-edit"></i>\n        </div>\n        <div class="input-append">\n            <input type="text" maxlength="64" placeholder="Name your squad..." />\n            <button class="btn save"><i class="fa fa-pen-square"></i></button>\n        </div>\n        <br />\n        <select class="game-type-selector">\n            <option value="standard">Extended</option>\n            <option value="hyperspace">Hyperspace</option>\n            <option value="epic">Epic</option>\n            <option value="quickbuild">Quickbuild</option>\n        </select>\n    </div>\n    <div class="col-md-4 points-display-container">\n        Points: <span class="total-points">0</span> / <input type="number" class="desired-points" value="200">\n        <span class="points-remaining-container">(<span class="points-remaining"></span>&nbsp;left) <span class="points-destroyed red"></span></span>\n        <span class="content-warning unreleased-content-used d-none"><br /><i class="fa fa-exclamation-circle"></i>&nbsp;<span class="translated"></span></span>\n        <span class="content-warning loading-failed-container d-none"><br /><i class="fa fa-exclamation-circle"></i>&nbsp;<span class="translated"></span></span>\n        <span class="content-warning collection-invalid d-none"><br /><i class="fa fa-exclamation-circle"></i>&nbsp;<span class="translated"></span></span>\n        <span class="content-warning ship-number-invalid-container d-none"><br /><i class="fa fa-exclamation-circle"></i>&nbsp;<span class="translated">A tournament legal squad must contain 2-8 ships!</span></span>\n        <span class="content-warning multi-faction-warning-container d-none"><br /><i class="fa fa-exclamation-circle"></i>&nbsp;<span class="translated">Multi-Faction Lists are NEVER tournament legal!</span></span>\n    </div>\n    <div class="col-md-5 float-right button-container">\n        <div class="btn-group float-right">\n\n            <button class="btn btn-info view-as-text"><span class="d-none d-lg-block"><i class="fa fa-print"></i>&nbsp;Print/Export</span><span class="d-lg-none"><i class="fa fa-print"></i></span></button>\n            <a class="btn btn-primary d-none collection"><span class="d-none d-lg-block"><i class="fa fa-folder-open"></i> Your Collection</span><span class="d-lg-none"><i class="fa fa-folder-open"></i></span></a>\n            <!-- Randomize button is marked as danger, since it creates a new squad -->\n            <button class="btn btn-danger randomize"><span class="d-none d-lg-block"><i class="fa fa-random"></i> Randomize!</span><span class="d-lg-none"><i class="fa fa-random"></i></span></button>\n            <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown">\n                <span class="caret"></span>\n            </button>\n            <ul class="dropdown-menu">\n                <li><a class="dropdown-item randomize-options">Randomizer Options</a></li>\n                <li><a class="dropdown-item misc-settings">Misc Settings</a></li>\n            </ul>\n            \n\n        </div>\n    </div>\n</div>\n\n<div class="row squad-save-buttons">\n    <div class="col-md-12">\n        <button class="show-authenticated btn btn-primary save-list"><i class="far fa-save"></i>&nbsp;Save</button>\n        <button class="show-authenticated btn btn-primary save-list-as"><i class="far fa-file"></i>&nbsp;Save As...</button>\n        <button class="show-authenticated btn btn-primary delete-list disabled"><i class="fa fa-trash"></i>&nbsp;Delete</button>\n        <button class="show-authenticated btn btn-info backend-list-my-squads show-authenticated"><i class="fa fa-download"></i>&nbsp;Load Squad</button>\n        <button class="btn btn-info import-squad"><i class="fa fa-file-import"></i>&nbsp;Import</button>\n        <button class="btn btn-danger clear-squad"><i class="fa fa-plus-circle"></i>&nbsp;New Squad</button>\n        <span class="show-authenticated backend-status"></span>\n    </div>\n</div>'));
     this.container.append(this.status_container);
     this.xws_import_modal = $(document.createElement('DIV'));
     this.xws_import_modal.addClass('modal fade import-modal d-print-none');
@@ -2780,7 +2842,7 @@ exportObj.SquadBuilder = (function() {
     this.list_modal.tabindex = "-1";
     this.list_modal.role = "dialog";
     this.container.append(this.list_modal);
-    this.list_modal.append($.trim("<div class=\"modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable\" role=\"document\">\n    <div class=\"modal-content\">\n        <div class=\"modal-header\">\n            <div class=\"d-print-none\">\n                <h4 class=\"modal-title\"><span class=\"squad-name\"></span> (<span class=\"total-points\"></span>)</h4>\n            </div>\n            <div class=\"d-none d-print-block\">\n                <div class=\"fancy-header\">\n                    <div class=\"squad-name\"></div>\n                    <div class=\"squad-faction\"></div>\n                    <div class=\"mask\">\n                        <div class=\"outer-circle\">\n                            <div class=\"inner-circle\">\n                                <span class=\"total-points\"></span>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"fancy-under-header\"></div>\n            </div>\n            <button type=\"button\" class=\"close d-print-none\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n        </div>\n        <div class=\"modal-body\">\n            <div class=\"fancy-list\"></div>\n            <div class=\"simple-list\"></div>\n            <div class=\"simplecopy-list\">\n                <p>Copy the below and paste it elsewhere.</p>\n                <textarea></textarea><button class=\"btn btn-modal btn-copy\">Copy</button>\n            </div>\n            <div class=\"reddit-list\">\n                <p>Copy the below and paste it into your reddit post.</p>\n                <p>Make sure that the post editor is set to markdown mode.</p>\n                <textarea></textarea><button class=\"btn btn-modal btn-copy\">Copy</button>\n            </div>\n            <div class=\"tts-list\">\n                <p>Copy the below and paste it into the Tabletop Simulator.</p>\n                <textarea></textarea><br /><button class=\"btn btn-modal btn-copy\">Copy</button>\n            </div>\n            <div class=\"bbcode-list\">\n                <p>Copy the BBCode below and paste it into your forum post.</p>\n                <textarea></textarea><button class=\"btn btn-modal btn-copy\">Copy</button>\n            </div>\n            <div class=\"html-list\">\n                <textarea></textarea><button class=\"btn btn-modal btn-copy\">Copy</button>\n            </div>\n            <div class=\"xws-list\">\n                <p>Copy and paste this into an XWS-compliant application.\n                <div class=\"row full-row\">\n                    <div class=\"col d-inline-block d-none d-sm-block\"><textarea></textarea><br /><button class=\"btn btn-modal btn-copy\">Copy</button></div>\n                    <div class=\"col d-inline-block d-none d-sm-block qrcode-container\" id=\"xws-qrcode-container\"></div>\n                </div>\n            </div>\n        </div>\n        <div class=\"container-fluid modal-footer d-print-none\">\n            <div class=\"row full-row\">\n                <div class=\"col d-inline-block d-none d-sm-block right-col\">\n                    <label class=\"color-skip-text-checkbox\">\n                        Skip Card Text <input type=\"checkbox\" class=\"toggle-skip-text-print\" />\n                    </label><br />\n                    <label class=\"vertical-space-checkbox\">\n                        Add Space for Cards <input type=\"checkbox\" class=\"toggle-vertical-space\" />\n                    </label><br />\n                    <label class=\"maneuver-print-checkbox\">\n                        Include Maneuvers Chart <input type=\"checkbox\" class=\"toggle-maneuver-print\" />\n                    </label><br />\n                    <label class=\"expanded-shield-hull-print-checkbox\">\n                        Expand Shield and Hull <input type=\"checkbox\" class=\"toggle-expanded-shield-hull-print\" />\n                    </label>\n                </div>\n                <div class=\"col d-inline-block d-none d-sm-block right-col\">\n                    <label class=\"color-print-checkbox\">\n                        Print Color <input type=\"checkbox\" class=\"toggle-color-print\" checked=\"checked\" />\n                    </label><br />\n                    <label class=\"qrcode-checkbox\">\n                        Include QR codes <input type=\"checkbox\" class=\"toggle-juggler-qrcode\" checked=\"checked\" />\n                    </label><br />\n                    <label class=\"obstacles-checkbox\">\n                        Include Obstacle Choices <input type=\"checkbox\" class=\"toggle-obstacles\" />\n                    </label>\n                </div>\n            </div>\n            <div class=\"row btn-group list-display-mode\">\n                <button class=\"btn btn-modal select-simple-view\">Simple</button>\n                <button class=\"btn btn-modal select-fancy-view d-none d-sm-block\">Fancy</button>\n                <button class=\"btn btn-modal select-simplecopy-view\">Text</button>\n                <button class=\"btn btn-modal select-tts-view d-none d-sm-block\">TTS</button>\n                <button class=\"btn btn-modal select-reddit-view\">Reddit</button>\n                <button class=\"btn btn-modal select-bbcode-view\">BBCode</button>\n                <button class=\"btn btn-modal select-html-view\">HTML</button>\n                <button class=\"btn btn-modal select-xws-view\">XWS</button>\n            </div>\n            <button class=\"btn btn-modal print-list d-none d-sm-block\"><i class=\"fa fa-print\"></i>&nbsp;Print</button>\n        </div>\n    </div>\n</div>"));
+    this.list_modal.append($.trim("<div class=\"modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable\" role=\"document\">\n    <div class=\"modal-content\">\n        <div class=\"modal-header\">\n            <div class=\"d-print-none\">\n                <h4 class=\"modal-title\"><span class=\"squad-name\"></span> (<span class=\"total-points\"></span>)</h4>\n            </div>\n            <div class=\"d-none d-print-block\">\n                <div class=\"fancy-header\">\n                    <div class=\"squad-name\"></div>\n                    <div class=\"squad-faction\"></div>\n                    <div class=\"mask\">\n                        <div class=\"outer-circle\">\n                            <div class=\"inner-circle\">\n                                <span class=\"total-points\"></span>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"fancy-under-header\"></div>\n            </div>\n            <button type=\"button\" class=\"close d-print-none\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n        </div>\n        <div class=\"modal-body\">\n            <div class=\"fancy-list\"></div>\n            <div class=\"simple-list\"></div>\n            <div class=\"simplecopy-list\">\n                <p>Copy the below and paste it elsewhere.</p>\n                <textarea></textarea><button class=\"btn btn-modal btn-copy\">Copy</button>\n            </div>\n            <div class=\"reddit-list\">\n                <p>Copy the below and paste it into your reddit post.</p>\n                <p>Make sure that the post editor is set to markdown mode.</p>\n                <textarea></textarea><button class=\"btn btn-modal btn-copy\">Copy</button>\n            </div>\n            <div class=\"tts-list\">\n                <p>Copy the below and paste it into the Tabletop Simulator.</p>\n                <textarea></textarea><br /><button class=\"btn btn-modal btn-copy\">Copy</button>\n            </div>\n            <div class=\"bbcode-list\">\n                <p>Copy the BBCode below and paste it into your forum post.</p>\n                <textarea></textarea><button class=\"btn btn-modal btn-copy\">Copy</button>\n            </div>\n            <div class=\"html-list\">\n                <textarea></textarea><button class=\"btn btn-modal btn-copy\">Copy</button>\n            </div>\n            <div class=\"xws-list\">\n                <p>Copy and paste this into an XWS-compliant application.\n                <div class=\"row full-row\">\n                    <div class=\"col d-inline-block d-none d-sm-block\"><textarea></textarea><br /><button class=\"btn btn-modal btn-copy\">Copy</button></div>\n                    <div class=\"col d-inline-block d-none d-sm-block qrcode-container\" id=\"xws-qrcode-container\"></div>\n                </div>\n            </div>\n        </div>\n        <div class=\"container-fluid modal-footer d-print-none\">\n            <div class=\"row full-row\">\n                <div class=\"col d-inline-block d-none d-sm-block right-col\">\n                    <label class=\"color-skip-text-checkbox\">\n                        Skip Card Text <input type=\"checkbox\" class=\"toggle-skip-text-print\" />\n                    </label><br />\n                    <label class=\"vertical-space-checkbox\">\n                        Add Space for Cards <input type=\"checkbox\" class=\"toggle-vertical-space\" />\n                    </label><br />\n                    <label class=\"maneuver-print-checkbox\">\n                        Include Maneuvers Chart <input type=\"checkbox\" class=\"toggle-maneuver-print\" />\n                    </label><br />\n                    <label class=\"expanded-shield-hull-print-checkbox\">\n                        Expand Shield and Hull <input type=\"checkbox\" class=\"toggle-expanded-shield-hull-print\" />\n                    </label>\n                </div>\n                <div class=\"col d-inline-block d-none d-sm-block right-col\">\n                    <label class=\"color-print-checkbox\">\n                        Print Color <input type=\"checkbox\" class=\"toggle-color-print\" checked=\"checked\" />\n                    </label><br />\n                    <label class=\"qrcode-checkbox\">\n                        Include QR codes <input type=\"checkbox\" class=\"toggle-juggler-qrcode\" checked=\"checked\" />\n                    </label><br />\n                    <label class=\"obstacles-checkbox\">\n                        Include Obstacle Choices <input type=\"checkbox\" class=\"toggle-obstacles\" />\n                    </label>\n                </div>\n            </div>\n            <div class=\"row btn-group list-display-mode\">\n                <button class=\"btn btn-modal select-simple-view\">Simple</button>\n                <button class=\"btn btn-modal select-fancy-view d-none d-sm-block\">Fancy</button>\n                <button class=\"btn btn-modal select-simplecopy-view\">Text</button>\n                <button class=\"btn btn-modal select-tts-view\">TTS</button>\n                <button class=\"btn btn-modal select-reddit-view\">Reddit</button>\n                <button class=\"btn btn-modal select-bbcode-view\">BBCode</button>\n                <button class=\"btn btn-modal select-html-view\">HTML</button>\n                <button class=\"btn btn-modal select-xws-view\">XWS</button>\n            </div>\n            <button class=\"btn btn-modal print-list d-none d-sm-block\"><i class=\"fa fa-print\"></i>&nbsp;Print</button>\n        </div>\n    </div>\n</div>"));
     this.fancy_container = $(this.list_modal.find('.fancy-list'));
     this.fancy_total_points_container = $(this.list_modal.find('div.modal-header .total-points'));
     this.simple_container = $(this.list_modal.find('div.modal-body .simple-list'));
@@ -3075,6 +3137,7 @@ exportObj.SquadBuilder = (function() {
     this.unreleased_content_used_container = $(this.points_container.find('.unreleased-content-used'));
     this.loading_failed_container = $(this.points_container.find('.loading-failed-container'));
     this.ship_number_invalid_container = $(this.points_container.find('.ship-number-invalid-container'));
+    this.multi_faction_warning_container = $(this.points_container.find('.multi-faction-warning-container'));
     this.collection_invalid_container = $(this.points_container.find('.collection-invalid'));
     this.view_list_button = $(this.status_container.find('div.button-container button.view-as-text'));
     this.randomize_button = $(this.status_container.find('div.button-container button.randomize'));
@@ -3319,7 +3382,7 @@ exportObj.SquadBuilder = (function() {
                   return results = arguments[0];
                 };
               })(),
-              lineno: 3017
+              lineno: 3035
             }));
             __iced_deferrals._fulfill();
           })(function() {
@@ -3439,22 +3502,19 @@ exportObj.SquadBuilder = (function() {
         if (cb == null) {
           cb = $.noop;
         }
-        if (_this.language !== language) {
-          _this.language = language;
-          old_dirty = _this.current_squad.dirty;
-          if (_this.pretranslation_serialized.length != null) {
-            _this.removeAllShips();
-            _this.loadFromSerialized(_this.pretranslation_serialized);
-          }
-          _ref = _this.ships;
-          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-            ship = _ref[_i];
-            ship.updateSelections();
-          }
-          _this.current_squad.dirty = old_dirty;
-          _this.pretranslation_serialized = void 0;
-          return cb();
+        _this.language = language;
+        old_dirty = _this.current_squad.dirty;
+        if (_this.pretranslation_serialized.length != null) {
+          _this.loadFromSerialized(_this.pretranslation_serialized);
         }
+        _ref = _this.ships;
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          ship = _ref[_i];
+          ship.updateSelections();
+        }
+        _this.current_squad.dirty = old_dirty;
+        _this.pretranslation_serialized = void 0;
+        return cb();
       };
     })(this)).on('xwing:shipUpdated', (function(_this) {
       return function(e, cb) {
@@ -3484,6 +3544,7 @@ exportObj.SquadBuilder = (function() {
       return function(e, collection) {
         _this.collection = collection;
         _this.collection.onLanguageChange(null, _this.language);
+        _this.checkCollection();
         return _this.collection_button.removeClass('d-none');
       };
     })(this)).on('xwing-collection:changed', (function(_this) {
@@ -3616,6 +3677,8 @@ exportObj.SquadBuilder = (function() {
                   return 'republic';
                 case 'Separatist Alliance':
                   return 'separatists';
+                case 'All':
+                  return 'first-player-4';
               }
             }).call(_this);
             _this.printable_container.find('.squad-faction').html("<i class=\"xwing-miniatures-font xwing-miniatures-font-" + faction + "\"></i>");
@@ -3626,7 +3689,7 @@ exportObj.SquadBuilder = (function() {
         if (_this.isEpic) {
           _this.printable_container.find('.squad-name').append(" <i class=\"xwing-miniatures-font xwing-miniatures-font-energy\"></i>");
         }
-        _this.printable_container.find('.printable-body').append($.trim("<div class=\"version\">Points Version: 1.8.0 November 2020</div>"));
+        _this.printable_container.find('.printable-body').append($.trim("<div class=\"version\">Points Version: 1.9.0 March 2021</div>"));
         if ($.trim(_this.notes.val()) !== '') {
           _this.printable_container.find('.printable-body').append($.trim("<h5 class=\"print-notes\">Notes:</h5>\n<pre class=\"print-notes\"></pre>"));
           _this.printable_container.find('.printable-body pre.print-notes').text(_this.notes.val());
@@ -4196,6 +4259,7 @@ exportObj.SquadBuilder = (function() {
     });
     this.ships.push(new_ship);
     this.ship_number_invalid_container.toggleClass('d-none', this.ships.length < 10 && this.ships.length > 2);
+    this.multi_faction_warning_container.toggleClass('d-none', this.faction !== "All");
     return new_ship;
   };
 
@@ -4215,7 +4279,7 @@ exportObj.SquadBuilder = (function() {
               funcname: "SquadBuilder.removeShip"
             });
             ship.destroy(__iced_deferrals.defer({
-              lineno: 3856
+              lineno: 3875
             }));
             __iced_deferrals._fulfill();
           })(function() {
@@ -4225,13 +4289,14 @@ exportObj.SquadBuilder = (function() {
                 funcname: "SquadBuilder.removeShip"
               });
               _this.container.trigger('xwing:pointsUpdated', __iced_deferrals.defer({
-                lineno: 3857
+                lineno: 3876
               }));
               __iced_deferrals._fulfill();
             })(function() {
               _this.current_squad.dirty = true;
               _this.container.trigger('xwing-backend:squadDirtinessChanged');
-              return __iced_k(_this.ship_number_invalid_container.toggleClass('d-none', _this.ships.length < 10 && _this.ships.length > 2));
+              _this.ship_number_invalid_container.toggleClass('d-none', _this.ships.length < 10 && _this.ships.length > 2);
+              return __iced_k(_this.multi_faction_warning_container.toggleClass('d-none', _this.faction !== "All"));
             });
           });
         } else {
@@ -4249,18 +4314,29 @@ exportObj.SquadBuilder = (function() {
     return item.toUpperCase().indexOf(term.toUpperCase()) >= 0;
   };
 
-  SquadBuilder.prototype.isOurFaction = function(faction) {
-    var f, _i, _len;
+  SquadBuilder.prototype.isOurFaction = function(faction, alt_faction) {
+    var check_faction, f, _i, _len;
+    if (alt_faction == null) {
+      alt_faction = '';
+    }
+    check_faction = this.faction;
+    if (this.faction === "All") {
+      if (alt_faction !== '') {
+        check_faction = alt_faction;
+      } else {
+        return true;
+      }
+    }
     if (faction instanceof Array) {
       for (_i = 0, _len = faction.length; _i < _len; _i++) {
         f = faction[_i];
-        if (getPrimaryFaction(f) === this.faction) {
+        if (getPrimaryFaction(f) === check_faction) {
           return true;
         }
       }
       return false;
     } else {
-      return getPrimaryFaction(faction) === this.faction;
+      return getPrimaryFaction(faction) === check_faction;
     }
   };
 
@@ -4590,7 +4666,7 @@ exportObj.SquadBuilder = (function() {
       _results = [];
       for (upgrade_name in _ref) {
         upgrade = _ref[upgrade_name];
-        if (exportObj.slotsMatching(upgrade.slot, slot) && (this.matcher(upgrade_name, term) || (upgrade.display_name && this.matcher(upgrade.display_name, term))) && ((upgrade.ship == null) || this.isShip(upgrade.ship, ship.data.name)) && ((upgrade.faction == null) || this.isOurFaction(upgrade.faction)) && (this.isItemAvailable(upgrade))) {
+        if (exportObj.slotsMatching(upgrade.slot, slot) && (this.matcher(upgrade_name, term) || (upgrade.display_name && this.matcher(upgrade.display_name, term))) && ((upgrade.ship == null) || this.isShip(upgrade.ship, ship.data.name)) && ((upgrade.faction == null) || this.isOurFaction(upgrade.faction, ship.pilot.faction)) && (this.isItemAvailable(upgrade))) {
           _results.push(upgrade);
         }
       }
@@ -4871,7 +4947,7 @@ exportObj.SquadBuilder = (function() {
   };
 
   SquadBuilder.prototype.showTooltip = function(type, data, additional_opts, container, force_update) {
-    var addon_count, cls, count, effective_stats, first, ini, inis, item, missingStuffInfoText, name, pilot, pilot_count, point_info, possible_inis, recurringicon, restriction_info, ship, ship_count, slot, slot_types, source, sources, state, uniquedots, upgrade, well, _i, _j, _k, _l, _len, _len1, _len2, _len3, _m, _n, _ref, _ref1, _ref10, _ref11, _ref12, _ref13, _ref14, _ref15, _ref16, _ref17, _ref18, _ref19, _ref2, _ref20, _ref21, _ref22, _ref23, _ref24, _ref25, _ref26, _ref27, _ref28, _ref29, _ref3, _ref30, _ref31, _ref32, _ref33, _ref34, _ref35, _ref36, _ref37, _ref38, _ref39, _ref4, _ref40, _ref41, _ref42, _ref43, _ref44, _ref45, _ref46, _ref47, _ref48, _ref49, _ref5, _ref50, _ref51, _ref52, _ref53, _ref54, _ref55, _ref56, _ref57, _ref58, _ref59, _ref6, _ref60, _ref61, _ref62, _ref63, _ref64, _ref65, _ref66, _ref67, _ref68, _ref69, _ref7, _ref70, _ref71, _ref72, _ref73, _ref74, _ref8, _ref9, _results, _results1;
+    var addon_count, chargeHTML, cls, count, effective_stats, first, ini, inis, item, missingStuffInfoText, name, pilot, pilot_count, point_info, possible_inis, recurringicon, restriction_info, ship, ship_count, slot, slot_types, source, sources, state, uniquedots, upgrade, well, _i, _j, _k, _l, _len, _len1, _len2, _len3, _m, _n, _ref, _ref1, _ref10, _ref11, _ref12, _ref13, _ref14, _ref15, _ref16, _ref17, _ref18, _ref19, _ref2, _ref20, _ref21, _ref22, _ref23, _ref24, _ref25, _ref26, _ref27, _ref28, _ref29, _ref3, _ref30, _ref31, _ref32, _ref33, _ref34, _ref35, _ref36, _ref37, _ref38, _ref39, _ref4, _ref40, _ref41, _ref42, _ref43, _ref44, _ref45, _ref46, _ref47, _ref48, _ref49, _ref5, _ref50, _ref51, _ref52, _ref53, _ref54, _ref55, _ref56, _ref57, _ref58, _ref59, _ref6, _ref60, _ref61, _ref62, _ref63, _ref64, _ref65, _ref66, _ref67, _ref68, _ref69, _ref7, _ref70, _ref71, _ref72, _ref73, _ref74, _ref75, _ref8, _ref9, _results, _results1;
     if (container == null) {
       container = this.info_container;
     }
@@ -5011,17 +5087,17 @@ exportObj.SquadBuilder = (function() {
           if (data.shieldrecurr != null) {
             count = 0;
             while (count < data.shieldrecurr) {
-              recurringicon += '<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>';
+              recurringicon += '<sup><i class="fas fa-caret-up"></i></sup>';
               ++count;
             }
           }
           container.find('tr.info-shields td.info-data').html(data.shields + recurringicon);
-          container.find('tr.info-shields').toggle(data.shields != null);
+          container.find('tr.info-shields').show();
           recurringicon = '';
           if (data.energyrecurr != null) {
             count = 0;
             while (count < data.energyrecurr) {
-              recurringicon += '<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>';
+              recurringicon += '<sup><i class="fas fa-caret-up"></i></sup>';
               ++count;
             }
           }
@@ -5152,57 +5228,70 @@ exportObj.SquadBuilder = (function() {
           if (ship.shieldrecurr != null) {
             count = 0;
             while (count < ship.shieldrecurr) {
-              recurringicon += '<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>';
+              recurringicon += '<sup><i class="fas fa-caret-up"></i></sup>';
               ++count;
             }
           }
           container.find('tr.info-shields td.info-data').html(statAndEffectiveStat((_ref37 = (_ref38 = data.ship_override) != null ? _ref38.shields : void 0) != null ? _ref37 : ship.shields, effective_stats, 'shields') + recurringicon);
-          container.find('tr.info-shields').toggle((((_ref39 = data.ship_override) != null ? _ref39.shields : void 0) != null) || (ship.shields != null));
+          container.find('tr.info-shields').show();
           recurringicon = '';
           if (ship.energyrecurr != null) {
             count = 0;
             while (count < ship.energyrecurr) {
-              recurringicon += '<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>';
+              recurringicon += '<sup><i class="fas fa-caret-up"></i></sup>';
               ++count;
             }
           }
-          container.find('tr.info-energy td.info-data').html(statAndEffectiveStat((_ref40 = (_ref41 = data.ship_override) != null ? _ref41.energy : void 0) != null ? _ref40 : ship.energy, effective_stats, 'energy') + recurringicon);
-          container.find('tr.info-energy').toggle((((_ref42 = data.ship_override) != null ? _ref42.energy : void 0) != null) || (ship.energy != null));
+          container.find('tr.info-energy td.info-data').html(statAndEffectiveStat((_ref39 = (_ref40 = data.ship_override) != null ? _ref40.energy : void 0) != null ? _ref39 : ship.energy, effective_stats, 'energy') + recurringicon);
+          container.find('tr.info-energy').toggle((((_ref41 = data.ship_override) != null ? _ref41.energy : void 0) != null) || (ship.energy != null));
           if ((((effective_stats != null ? effective_stats.force : void 0) != null) && effective_stats.force > 0) || (data.force != null)) {
-            container.find('tr.info-force td.info-data').html(statAndEffectiveStat((_ref43 = (_ref44 = data.ship_override) != null ? _ref44.force : void 0) != null ? _ref43 : data.force, effective_stats, 'force') + '<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>');
+            container.find('tr.info-force td.info-data').html(statAndEffectiveStat((_ref42 = (_ref43 = data.ship_override) != null ? _ref43.force : void 0) != null ? _ref42 : data.force, effective_stats, 'force') + '<sup><i class="fas fa-caret-up"></i></sup>');
             container.find('tr.info-force').show();
           } else {
             container.find('tr.info-force').hide();
           }
           if (data.charge != null) {
+            recurringicon = '';
             if (data.recurring != null) {
-              container.find('tr.info-charge td.info-data').html(data.charge + '<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>');
-            } else {
-              container.find('tr.info-charge td.info-data').text(data.charge);
+              if (data.recurring > 0) {
+                count = 0;
+                while (count < data.recurring) {
+                  recurringicon += '<sup><i class="fas fa-caret-up"></i></sup>';
+                  ++count;
+                }
+              } else {
+                count = data.recurring;
+                while (count < 0) {
+                  recurringicon += '<sub><i class="fas fa-caret-down"></i></sub>';
+                  ++count;
+                }
+              }
             }
+            chargeHTML = $.trim("" + data.charge + recurringicon);
+            container.find('tr.info-charge td.info-data').html(chargeHTML);
             container.find('tr.info-charge').show();
           } else {
             container.find('tr.info-charge').hide();
           }
-          container.find('tr.info-actions td.info-data').html(this.formatActions((_ref45 = effective_stats != null ? effective_stats.actions : void 0) != null ? _ref45 : ship.actions, ", ", (_ref46 = data.keyword) != null ? _ref46 : []));
+          container.find('tr.info-actions td.info-data').html(this.formatActions((_ref44 = (_ref45 = data.ship_override) != null ? _ref45.actions : void 0) != null ? _ref44 : (_ref46 = effective_stats != null ? effective_stats.actions : void 0) != null ? _ref46 : ship.actions, ", ", (_ref47 = data.keyword) != null ? _ref47 : []));
           container.find('tr.info-actions').show();
           if (this.isQuickbuild) {
             container.find('tr.info-upgrades').hide();
           } else {
             container.find('tr.info-upgrades').show();
             container.find('tr.info-upgrades td.info-data').html(((function() {
-              var _k, _len2, _ref47, _results;
-              _ref47 = data.slots;
+              var _k, _len2, _ref48, _results;
+              _ref48 = data.slots;
               _results = [];
-              for (_k = 0, _len2 = _ref47.length; _k < _len2; _k++) {
-                slot = _ref47[_k];
+              for (_k = 0, _len2 = _ref48.length; _k < _len2; _k++) {
+                slot = _ref48[_k];
                 _results.push(exportObj.translate(this.language, 'sloticon', slot));
               }
               return _results;
             }).call(this)).join(' ') || 'None');
           }
           container.find('p.info-maneuvers').show();
-          container.find('p.info-maneuvers').html(this.getManeuverTableHTML((_ref47 = effective_stats != null ? effective_stats.maneuvers : void 0) != null ? _ref47 : ship.maneuvers, ship.maneuvers));
+          container.find('p.info-maneuvers').html(this.getManeuverTableHTML((_ref48 = effective_stats != null ? effective_stats.maneuvers : void 0) != null ? _ref48 : ship.maneuvers, ship.maneuvers));
           break;
         case 'Quickbuild':
           container.find('.info-type').text('Quickbuild');
@@ -5231,7 +5320,7 @@ exportObj.SquadBuilder = (function() {
           } else {
             container.find('p.info-restrictions').hide();
           }
-          container.find('p.info-text').html((_ref48 = pilot.text) != null ? _ref48 : '');
+          container.find('p.info-text').html((_ref49 = pilot.text) != null ? _ref49 : '');
           container.find('p.info-text').show();
           container.find('tr.info-ship td.info-data').text(data.ship);
           container.find('tr.info-ship').show();
@@ -5247,8 +5336,8 @@ exportObj.SquadBuilder = (function() {
           container.find('tr.info-skill').show();
           container.find('tr.info-engagement td.info-data').text(pilot.skill);
           container.find('tr.info-engagement').show();
-          container.find('tr.info-attack td.info-data').text((_ref49 = (_ref50 = pilot.ship_override) != null ? _ref50.attack : void 0) != null ? _ref49 : ship.attack);
-          container.find('tr.info-attack').toggle((((_ref51 = pilot.ship_override) != null ? _ref51.attack : void 0) != null) || (ship.attack != null));
+          container.find('tr.info-attack td.info-data').text((_ref50 = (_ref51 = pilot.ship_override) != null ? _ref51.attack : void 0) != null ? _ref50 : ship.attack);
+          container.find('tr.info-attack').toggle((((_ref52 = pilot.ship_override) != null ? _ref52.attack : void 0) != null) || (ship.attack != null));
           container.find('tr.info-attack-fullfront td.info-data').text(ship.attackf);
           container.find('tr.info-attack-fullfront').toggle(ship.attackf != null);
           container.find('tr.info-attack-bullseye td.info-data').text(ship.attackbull);
@@ -5263,42 +5352,55 @@ exportObj.SquadBuilder = (function() {
           container.find('tr.info-attack-turret').toggle(ship.attackt != null);
           container.find('tr.info-attack-doubleturret td.info-data').text(ship.attackdt);
           container.find('tr.info-attack-doubleturret').toggle(ship.attackdt != null);
-          container.find('tr.info-attack td.info-header i.xwing-miniatures-font').addClass((_ref52 = ship.attack_icon) != null ? _ref52 : 'xwing-miniatures-font-frontarc');
-          container.find('tr.info-energy td.info-data').text((_ref53 = (_ref54 = pilot.ship_override) != null ? _ref54.energy : void 0) != null ? _ref53 : ship.energy);
-          container.find('tr.info-energy').toggle((((_ref55 = pilot.ship_override) != null ? _ref55.energy : void 0) != null) || (ship.energy != null));
+          container.find('tr.info-attack td.info-header i.xwing-miniatures-font').addClass((_ref53 = ship.attack_icon) != null ? _ref53 : 'xwing-miniatures-font-frontarc');
+          container.find('tr.info-energy td.info-data').text((_ref54 = (_ref55 = pilot.ship_override) != null ? _ref55.energy : void 0) != null ? _ref54 : ship.energy);
+          container.find('tr.info-energy').toggle((((_ref56 = pilot.ship_override) != null ? _ref56.energy : void 0) != null) || (ship.energy != null));
           container.find('tr.info-range').hide();
           container.find('td.info-rangebonus').hide();
-          container.find('tr.info-agility td.info-data').text((_ref56 = (_ref57 = pilot.ship_override) != null ? _ref57.agility : void 0) != null ? _ref56 : ship.agility);
+          container.find('tr.info-agility td.info-data').text((_ref57 = (_ref58 = pilot.ship_override) != null ? _ref58.agility : void 0) != null ? _ref57 : ship.agility);
           container.find('tr.info-agility').show();
-          container.find('tr.info-hull td.info-data').text((_ref58 = (_ref59 = pilot.ship_override) != null ? _ref59.hull : void 0) != null ? _ref58 : ship.hull);
+          container.find('tr.info-hull td.info-data').text((_ref59 = (_ref60 = pilot.ship_override) != null ? _ref60.hull : void 0) != null ? _ref59 : ship.hull);
           container.find('tr.info-hull').show();
-          container.find('tr.info-shields td.info-data').text((_ref60 = (_ref61 = pilot.ship_override) != null ? _ref61.shields : void 0) != null ? _ref60 : ship.shields);
+          container.find('tr.info-shields td.info-data').text((_ref61 = (_ref62 = pilot.ship_override) != null ? _ref62.shields : void 0) != null ? _ref61 : ship.shields);
           container.find('tr.info-shields').show();
           if (((effective_stats != null ? effective_stats.force : void 0) != null) || (data.force != null)) {
-            container.find('tr.info-force td.info-data').html(((_ref62 = (_ref63 = pilot.ship_override) != null ? _ref63.force : void 0) != null ? _ref62 : pilot.force) + '<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>');
+            container.find('tr.info-force td.info-data').html(((_ref63 = (_ref64 = pilot.ship_override) != null ? _ref64.force : void 0) != null ? _ref63 : pilot.force) + '<sup><i class="fas fa-caret-up"></i></sup>');
             container.find('tr.info-force').show();
           } else {
             container.find('tr.info-force').hide();
           }
           if (data.charge != null) {
+            recurringicon = '';
             if (data.recurring != null) {
-              container.find('tr.info-charge td.info-data').html(pilot.charge + '<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>');
-            } else {
-              container.find('tr.info-charge td.info-data').text(pilot.charge);
+              if (data.recurring > 0) {
+                count = 0;
+                while (count < data.recurring) {
+                  recurringicon += '<sup><i class="fas fa-caret-up"></i></sup>';
+                  ++count;
+                }
+              } else {
+                count = data.recurring;
+                while (count < 0) {
+                  recurringicon += '<sub><i class="fas fa-caret-down"></i></sub>';
+                  ++count;
+                }
+              }
             }
+            chargeHTML = $.trim("" + data.charge + recurringicon);
+            container.find('tr.info-charge td.info-data').html(chargeHTML);
             container.find('tr.info-charge').show();
           } else {
             container.find('tr.info-charge').hide();
           }
-          container.find('tr.info-actions td.info-data').html(this.formatActions((_ref64 = (_ref65 = pilot.ship_override) != null ? _ref65.actions : void 0) != null ? _ref64 : exportObj.ships[data.ship].actions, ", ", (_ref66 = pilot.keyword) != null ? _ref66 : []));
+          container.find('tr.info-actions td.info-data').html(this.formatActions((_ref65 = (_ref66 = pilot.ship_override) != null ? _ref66.actions : void 0) != null ? _ref65 : exportObj.ships[data.ship].actions, ", ", (_ref67 = pilot.keyword) != null ? _ref67 : []));
           container.find('tr.info-actions').show();
           container.find('tr.info-upgrades').show();
           container.find('tr.info-upgrades td.info-data').html(((function() {
-            var _k, _len2, _ref67, _ref68, _results;
-            _ref68 = (_ref67 = data.upgrades) != null ? _ref67 : [];
+            var _k, _len2, _ref68, _ref69, _results;
+            _ref69 = (_ref68 = data.upgrades) != null ? _ref68 : [];
             _results = [];
-            for (_k = 0, _len2 = _ref68.length; _k < _len2; _k++) {
-              upgrade = _ref68[_k];
+            for (_k = 0, _len2 = _ref69.length; _k < _len2; _k++) {
+              upgrade = _ref69[_k];
               _results.push(exportObj.upgrades[upgrade].display_name != null ? exportObj.upgrades[upgrade].display_name : upgrade);
             }
             return _results;
@@ -5309,11 +5411,11 @@ exportObj.SquadBuilder = (function() {
         case 'Addon':
           container.find('.info-type').text(additional_opts.addon_type);
           container.find('.info-sources.info-data').text(((function() {
-            var _k, _len2, _ref67, _results;
-            _ref67 = data.sources;
+            var _k, _len2, _ref68, _results;
+            _ref68 = data.sources;
             _results = [];
-            for (_k = 0, _len2 = _ref67.length; _k < _len2; _k++) {
-              source = _ref67[_k];
+            for (_k = 0, _len2 = _ref68.length; _k < _len2; _k++) {
+              source = _ref68[_k];
               _results.push(exportObj.translate(this.language, 'sources', source));
             }
             return _results;
@@ -5332,8 +5434,8 @@ exportObj.SquadBuilder = (function() {
           } else {
             uniquedots = "";
           }
-          if (((_ref67 = this.collection) != null ? _ref67.counts : void 0) != null) {
-            addon_count = (_ref68 = (_ref69 = this.collection.counts) != null ? (_ref70 = _ref69['upgrade']) != null ? _ref70[data.name] : void 0 : void 0) != null ? _ref68 : 0;
+          if (((_ref68 = this.collection) != null ? _ref68.counts : void 0) != null) {
+            addon_count = (_ref69 = (_ref70 = this.collection.counts) != null ? (_ref71 = _ref70['upgrade']) != null ? _ref71[data.name] : void 0 : void 0) != null ? _ref69 : 0;
             container.find('.info-collection').text("You have " + addon_count + " in your collection.");
             container.find('.info-collection').show();
           } else {
@@ -5345,13 +5447,13 @@ exportObj.SquadBuilder = (function() {
             if ((data.variableagility != null) && data.variableagility) {
               point_info += "agility is " + (function() {
                 _results = [];
-                for (var _k = 0, _ref71 = data.pointsarray.length - 1; 0 <= _ref71 ? _k <= _ref71 : _k >= _ref71; 0 <= _ref71 ? _k++ : _k--){ _results.push(_k); }
+                for (var _k = 0, _ref72 = data.pointsarray.length - 1; 0 <= _ref72 ? _k <= _ref72 : _k >= _ref72; 0 <= _ref72 ? _k++ : _k--){ _results.push(_k); }
                 return _results;
               }).apply(this);
             } else if ((data.variableinit != null) && data.variableinit) {
               point_info += "initiative is " + (function() {
                 _results1 = [];
-                for (var _l = 0, _ref72 = data.pointsarray.length - 1; 0 <= _ref72 ? _l <= _ref72 : _l >= _ref72; 0 <= _ref72 ? _l++ : _l--){ _results1.push(_l); }
+                for (var _l = 0, _ref73 = data.pointsarray.length - 1; 0 <= _ref73 ? _l <= _ref73 : _l >= _ref73; 0 <= _ref73 ? _l++ : _l--){ _results1.push(_l); }
                 return _results1;
               }).apply(this);
             } else if ((data.variablebase != null) && data.variablebase) {
@@ -5369,7 +5471,7 @@ exportObj.SquadBuilder = (function() {
           } else {
             container.find('p.info-restrictions').hide();
           }
-          container.find('p.info-text').html((_ref73 = data.text) != null ? _ref73 : '');
+          container.find('p.info-text').html((_ref74 = data.text) != null ? _ref74 : '');
           container.find('p.info-text').show();
           container.find('tr.info-ship').hide();
           container.find('tr.info-base').hide();
@@ -5426,10 +5528,25 @@ exportObj.SquadBuilder = (function() {
           container.find('tr.info-attack-right').hide();
           container.find('tr.info-attack-left').hide();
           container.find('tr.info-attack-back').hide();
-          if (data.recurring != null) {
-            container.find('tr.info-charge td.info-data').html(data.charge + "<i class=\"xwing-miniatures-font xwing-miniatures-font-recurring\"></i>");
-          } else {
-            container.find('tr.info-charge td.info-data').text(data.charge);
+          if (data.charge != null) {
+            recurringicon = '';
+            if (data.recurring != null) {
+              if (data.recurring > 0) {
+                count = 0;
+                while (count < data.recurring) {
+                  recurringicon += '<sup><i class="fas fa-caret-up"></i></sup>';
+                  ++count;
+                }
+              } else {
+                count = data.recurring;
+                while (count < 0) {
+                  recurringicon += '<sub><i class="fas fa-caret-down"></i></sub>';
+                  ++count;
+                }
+              }
+            }
+            chargeHTML = $.trim("" + data.charge + recurringicon);
+            container.find('tr.info-charge td.info-data').html(chargeHTML);
           }
           container.find('tr.info-charge').toggle(data.charge != null);
           if (data.range != null) {
@@ -5443,7 +5560,7 @@ exportObj.SquadBuilder = (function() {
           } else {
             container.find('td.info-rangebonus').hide();
           }
-          container.find('tr.info-force td.info-data').html(data.force + '<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>');
+          container.find('tr.info-force td.info-data').html(data.force + '<sup><i class="fas fa-caret-up"></i></sup>');
           container.find('tr.info-force').toggle(data.force != null);
           container.find('tr.info-agility').hide();
           container.find('tr.info-hull').hide();
@@ -5493,9 +5610,9 @@ exportObj.SquadBuilder = (function() {
             item = data[_m];
             missingStuffInfoText += "<li><strong>" + (item.display_name != null ? item.display_name : item.name) + "</strong> (";
             first = true;
-            _ref74 = item.sources;
-            for (_n = 0, _len3 = _ref74.length; _n < _len3; _n++) {
-              source = _ref74[_n];
+            _ref75 = item.sources;
+            for (_n = 0, _len3 = _ref75.length; _n < _len3; _n++) {
+              source = _ref75[_n];
               if (!first) {
                 missingStuffInfoText += ", ";
               }
@@ -5942,8 +6059,15 @@ exportObj.SquadBuilder = (function() {
           case "AgilityEquals":
             text += comma + exportObj.translate(this.language, 'restrictions', "Agility") + (" = " + r[1]);
             break;
-          case "notUnique":
-            text += comma + exportObj.translate(this.language, 'restrictions', "Non-Limited");
+          case "isUnique":
+            if (r[1] === true) {
+              text += comma + exportObj.translate(this.language, 'restrictions', "Limited");
+            } else {
+              text += comma + exportObj.translate(this.language, 'restrictions', "Non-Limited");
+            }
+            break;
+          case "Format":
+            text += comma + exportObj.translate(this.language, 'restrictions', "" + r[1] + " Ship");
             break;
           case "Faction":
             othertext += comma + exportObj.translate(this.language, 'faction', "" + r[1]);
@@ -6056,9 +6180,7 @@ exportObj.SquadBuilder = (function() {
     var missingStuff, pilot_is_available, ship, ship_is_available, upgrade, upgrade_is_available, validity, _i, _j, _len, _len1, _ref, _ref1, _ref2, _ref3, _ref4;
     if (Object.keys((_ref = (_ref1 = this.collection) != null ? _ref1.expansions : void 0) != null ? _ref : {}).length === 0) {
       return [true, []];
-    }
-    this.collection.reset();
-    if (((_ref2 = this.collection) != null ? _ref2.checks.collectioncheck : void 0) !== "true") {
+    } else if (((_ref2 = this.collection) != null ? _ref2.checks.collectioncheck : void 0) !== "true") {
       return [true, []];
     }
     this.collection.reset();
@@ -6102,12 +6224,7 @@ exportObj.SquadBuilder = (function() {
     if (this.collection != null) {
       _ref = this.isSquadPossibleWithCollection(), squadPossible = _ref[0], missingStuff = _ref[1];
       this.collection_invalid_container.toggleClass('d-none', squadPossible);
-      this.collection_invalid_container.on('mouseover', (function(_this) {
-        return function(e) {
-          return _this.showTooltip('MissingStuff', missingStuff);
-        };
-      })(this));
-      return this.collection_invalid_container.on('touchstart', (function(_this) {
+      return this.collection_invalid_container.on('mouseover', (function(_this) {
         return function(e) {
           return _this.showTooltip('MissingStuff', missingStuff);
         };
@@ -6374,7 +6491,7 @@ Ship = (function() {
                       funcname: "Ship.destroy"
                     });
                     _this.builder.removeShip(_this.linkedShip, __iced_deferrals.defer({
-                      lineno: 5390
+                      lineno: 5450
                     }));
                     __iced_deferrals._fulfill();
                   })(__iced_k);
@@ -6591,7 +6708,7 @@ Ship = (function() {
                       });
                       _this.builder.container.trigger('xwing:claimUnique', [
                         new_pilot, 'Pilot', __iced_deferrals.defer({
-                          lineno: 5500
+                          lineno: 5560
                         })
                       ]);
                       __iced_deferrals._fulfill();
@@ -6641,7 +6758,7 @@ Ship = (function() {
                                   funcname: "Ship.setPilotById"
                                 });
                                 _this.builder.removeShip(_this.linkedShip, __iced_deferrals.defer({
-                                  lineno: 5533
+                                  lineno: 5593
                                 }));
                                 __iced_deferrals._fulfill();
                               })(__iced_k);
@@ -6739,7 +6856,7 @@ Ship = (function() {
                   });
                   _this.builder.container.trigger('xwing:claimUnique', [
                     new_pilot, 'Pilot', __iced_deferrals.defer({
-                      lineno: 5591
+                      lineno: 5651
                     })
                   ]);
                   __iced_deferrals._fulfill();
@@ -6820,7 +6937,7 @@ Ship = (function() {
             });
             _this.builder.container.trigger('xwing:releaseUnique', [
               _this.pilot, 'Pilot', __iced_deferrals.defer({
-                lineno: 5621
+                lineno: 5681
               })
             ]);
             __iced_deferrals._fulfill();
@@ -6889,7 +7006,7 @@ Ship = (function() {
           upgrade = _ref[_i];
           if (upgrade != null) {
             upgrade.destroy(__iced_deferrals.defer({
-              lineno: 5650
+              lineno: 5710
             }));
           }
         }
@@ -6981,7 +7098,7 @@ Ship = (function() {
                 funcname: "Ship.setWingmates"
               });
               _this.builder.removeShip(dyingMate, __iced_deferrals.defer({
-                lineno: 5706
+                lineno: 5766
               }));
               __iced_deferrals._fulfill();
             })(_next);
@@ -7159,13 +7276,6 @@ Ship = (function() {
         }
       };
     })(this));
-    this.ship_selector.data('select2').container.on('touchstart', (function(_this) {
-      return function(e) {
-        if (_this.pilot) {
-          return _this.builder.showTooltip('Ship', exportObj.ships[_this.pilot.ship]);
-        }
-      };
-    })(this));
     this.pilot_selector.select2({
       width: '100%',
       placeholder: exportObj.translate(this.builder.language, 'ui', 'pilotSelectorPlaceholder'),
@@ -7243,13 +7353,6 @@ Ship = (function() {
       };
     })(this));
     this.pilot_selector.data('select2').container.on('mouseover', (function(_this) {
-      return function(e) {
-        if (_this.pilot) {
-          return _this.builder.showTooltip('Pilot', _this.pilot, _this);
-        }
-      };
-    })(this));
-    this.pilot_selector.data('select2').container.on('touchstart', (function(_this) {
       return function(e) {
         if (_this.pilot) {
           return _this.builder.showTooltip('Pilot', _this.pilot, _this);
@@ -7375,16 +7478,28 @@ Ship = (function() {
     if (this.data.energyrecurr != null) {
       count = 0;
       while (count < this.data.energyrecurr) {
-        recurringicon += '<i class="xwing-miniatures-font xwing-miniatures-font-recurring"></i>';
+        recurringicon += '<sup><i class="fas fa-caret-up"></i></sup>';
         ++count;
       }
     }
     energyHTML = (((_ref18 = this.pilot.ship_override) != null ? _ref18.energy : void 0) != null) || (this.data.energy != null) ? $.trim("<i class=\"xwing-miniatures-font header-energy xwing-miniatures-font-energy\"></i>\n<span class=\"info-data info-energy\">" + (statAndEffectiveStat((_ref19 = (_ref20 = this.pilot.ship_override) != null ? _ref20.energy : void 0) != null ? _ref19 : this.data.energy, effective_stats, 'energy')) + recurringicon + "</span>") : '';
-    forceHTML = (this.pilot.force != null) ? $.trim("<i class=\"xwing-miniatures-font header-force xwing-miniatures-font-forcecharge\"></i>\n<span class=\"info-data info-force\">" + (statAndEffectiveStat((_ref21 = (_ref22 = this.pilot.ship_override) != null ? _ref22.force : void 0) != null ? _ref21 : this.pilot.force, effective_stats, 'force')) + "<i class=\"xwing-miniatures-font xwing-miniatures-font-recurring\"></i></span>") : '';
+    forceHTML = (this.pilot.force != null) ? $.trim("<i class=\"xwing-miniatures-font header-force xwing-miniatures-font-forcecharge\"></i>\n<span class=\"info-data info-force\">" + (statAndEffectiveStat((_ref21 = (_ref22 = this.pilot.ship_override) != null ? _ref22.force : void 0) != null ? _ref21 : this.pilot.force, effective_stats, 'force')) + "<sup><i class=\"fas fa-caret-up\"></i></sup></span>") : '';
     if (this.pilot.charge != null) {
       recurringicon = '';
       if (this.pilot.recurring != null) {
-        recurringicon = "<i class=\"xwing-miniatures-font xwing-miniatures-font-recurring\"></i>";
+        if (this.pilot.recurring > 0) {
+          count = 0;
+          while (count < this.pilot.recurring) {
+            recurringicon += '<sup><i class="fas fa-caret-up"></i></sup>';
+            ++count;
+          }
+        } else {
+          count = this.pilot.recurring;
+          while (count < 0) {
+            recurringicon += '<sub><i class="fas fa-caret-down"></i></sub>';
+            ++count;
+          }
+        }
       }
       chargeHTML = $.trim("<i class=\"xwing-miniatures-font header-charge xwing-miniatures-font-charge\"></i><span class=\"info-data info-charge\">" + (statAndEffectiveStat((_ref23 = (_ref24 = this.pilot.ship_override) != null ? _ref24.charge : void 0) != null ? _ref23 : this.pilot.charge, effective_stats, 'charge')) + recurringicon + "</span>");
     } else {
@@ -7394,20 +7509,20 @@ Ship = (function() {
     if (this.data.shieldrecurr != null) {
       count = 0;
       while (count < this.data.shieldrecurr) {
-        shieldRECUR += "<i class=\"xwing-miniatures-font xwing-miniatures-font-recurring\"></i>";
+        shieldRECUR += "<sup><i class=\"fas fa-caret-up\"></i></sup>";
         ++count;
       }
     }
     shieldIconHTML = '';
     if (effective_stats.shields) {
-      for (_ = _i = 1, _ref25 = effective_stats.shields - 1; 1 <= _ref25 ? _i <= _ref25 : _i >= _ref25; _ = 1 <= _ref25 ? ++_i : --_i) {
+      for (_ = _i = _ref25 = effective_stats.shields; _i >= 2; _ = _i += -1) {
         shieldIconHTML += "<i class=\"xwing-miniatures-font header-shield xwing-miniatures-font-shield expanded-hull-or-shield\"></i>";
       }
       shieldIconHTML += "<i class=\"xwing-miniatures-font header-shield xwing-miniatures-font-shield\"></i>";
     }
     hullIconHTML = '';
     if (effective_stats.hull) {
-      for (_ = _j = 1, _ref26 = effective_stats.hull - 1; 1 <= _ref26 ? _j <= _ref26 : _j >= _ref26; _ = 1 <= _ref26 ? ++_j : --_j) {
+      for (_ = _j = _ref26 = effective_stats.hull; _j >= 2; _ = _j += -1) {
         hullIconHTML += "<i class=\"xwing-miniatures-font header-hull xwing-miniatures-font-hull expanded-hull-or-shield\"></i>";
       }
       hullIconHTML += "<i class=\"xwing-miniatures-font header-hull xwing-miniatures-font-hull\"></i>";
@@ -7818,7 +7933,7 @@ Ship = (function() {
   };
 
   Ship.prototype.validate = function() {
-    var addCommand, equipped_upgrades, func, i, max_checks, pilot_func, unchanged, upgrade, valid, _i, _j, _k, _l, _len, _len1, _ref, _ref1, _ref10, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9;
+    var addCommand, equipped_upgrades, func, func_result, i, max_checks, pilot_func, unchanged, upgrade, valid, _i, _j, _k, _l, _len, _len1, _ref, _ref1, _ref10, _ref11, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9;
     if (this.pilot == null) {
       return true;
     }
@@ -7863,10 +7978,12 @@ Ship = (function() {
       for (_l = 0, _len1 = _ref6.length; _l < _len1; _l++) {
         upgrade = _ref6[_l];
         func = (_ref7 = upgrade != null ? (_ref8 = upgrade.data) != null ? _ref8.validation_func : void 0 : void 0) != null ? _ref7 : void 0;
-        if ((upgrade != null ? (_ref9 = upgrade.data) != null ? _ref9.restrictions : void 0 : void 0) && (func == null)) {
-          func = this.restriction_check(upgrade.data.restrictions, upgrade);
+        if (func != null) {
+          func_result = upgrade != null ? (_ref9 = upgrade.data) != null ? _ref9.validation_func(this, upgrade) : void 0 : void 0;
+        } else if (upgrade != null ? (_ref10 = upgrade.data) != null ? _ref10.restrictions : void 0 : void 0) {
+          func_result = this.restriction_check(upgrade.data.restrictions, upgrade);
         }
-        if ((((func != null) && !func) || (((upgrade != null ? upgrade.data : void 0) != null) && ((_ref10 = upgrade.data, __indexOf.call(equipped_upgrades, _ref10) >= 0) || !this.builder.isItemAvailable(upgrade.data)))) && !this.builder.isQuickbuild) {
+        if ((((func_result != null) && !func_result) || (((upgrade != null ? upgrade.data : void 0) != null) && ((_ref11 = upgrade.data, __indexOf.call(equipped_upgrades, _ref11) >= 0) || ((upgrade.data.faction != null) && !this.builder.isOurFaction(upgrade.data.faction, this.pilot.faction)) || !this.builder.isItemAvailable(upgrade.data)))) && !this.builder.isQuickbuild) {
           upgrade.setById(null);
           valid = false;
           unchanged = false;
@@ -7900,29 +8017,14 @@ Ship = (function() {
   };
 
   Ship.prototype.hasAnotherUnoccupiedSlotLike = function(upgrade_obj, upgradeslot) {
-    var extraslot, r, upgrade, _i, _j, _len, _len1, _ref, _ref1, _ref2;
-    if ((upgrade_obj != null ? (_ref = upgrade_obj.data) != null ? _ref.restrictions : void 0 : void 0) != null) {
-      _ref1 = upgrade_obj.data.restrictions;
-      for (_i = 0, _len = _ref1.length; _i < _len; _i++) {
-        r = _ref1[_i];
-        if (r[0] === "Slot") {
-          extraslot = r[1];
-        }
-      }
-    }
-    _ref2 = this.upgrades;
-    for (_j = 0, _len1 = _ref2.length; _j < _len1; _j++) {
-      upgrade = _ref2[_j];
+    var upgrade, _i, _len, _ref;
+    _ref = this.upgrades;
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      upgrade = _ref[_i];
       if (upgrade === upgrade_obj || upgrade.slot !== upgradeslot) {
         continue;
       }
-      if (upgrade.isOccupied()) {
-        if (extraslot != null) {
-          if (extraslot === upgradeslot) {
-            return true;
-          }
-        }
-      } else {
+      if (!upgrade.isOccupied()) {
         return true;
       }
     }
@@ -7930,7 +8032,7 @@ Ship = (function() {
   };
 
   Ship.prototype.restriction_check = function(restrictions, upgrade_obj) {
-    var effective_stats, r, _i, _len, _ref, _ref1;
+    var effective_stats, r, _i, _len, _ref, _ref1, _ref2, _ref3, _ref4, _ref5;
     effective_stats = this.effectiveStats();
     for (_i = 0, _len = restrictions.length; _i < _len; _i++) {
       r = restrictions[_i];
@@ -7971,10 +8073,15 @@ Ship = (function() {
               if (!(this.data.huge != null)) {
                 return false;
               }
+              break;
+            case "Standard":
+              if (this.data.huge != null) {
+                return false;
+              }
           }
           break;
         case "Action":
-          if (!((_ref = r[1], __indexOf.call(effective_stats.actions, _ref) >= 0) || (_ref1 = "R-" + r[1], __indexOf.call(effective_stats.actions, _ref1) >= 0))) {
+          if (!((_ref = r[1], __indexOf.call(effective_stats.actions, _ref) >= 0) || (_ref1 = "*" + r[1], __indexOf.call(effective_stats.actions, _ref1) >= 0) || (_ref2 = "F-" + r[1], __indexOf.call(effective_stats.actions, _ref2) >= 0) || (_ref3 = "R-" + r[1], __indexOf.call(effective_stats.actions, _ref3) >= 0))) {
             return false;
           }
           break;
@@ -8023,13 +8130,26 @@ Ship = (function() {
             return false;
           }
           break;
-        case "notUnique":
-          if (this.pilot.unique != null) {
+        case "isUnique":
+          if (r[1] !== (this.pilot.unique != null)) {
             return false;
           }
           break;
+        case "Format":
+          switch (r[1]) {
+            case "Epic":
+              if (!(_ref4 = this.data.name, __indexOf.call(exportObj.epicExclusionsList, _ref4) >= 0)) {
+                return false;
+              }
+              break;
+            case "Standard":
+              if (_ref5 = this.data.name, __indexOf.call(exportObj.epicExclusionsList, _ref5) >= 0) {
+                return false;
+              }
+          }
+          break;
         case "Faction":
-          if (this.builder.faction !== r[1]) {
+          if (this.pilot.faction !== r[1]) {
             return false;
           }
       }
@@ -8230,7 +8350,7 @@ GenericAddon = (function() {
             });
             _this.ship.builder.container.trigger('xwing:releaseUnique', [
               _this.data, _this.type, __iced_deferrals.defer({
-                lineno: 6641
+                lineno: 6704
               })
             ]);
             __iced_deferrals._fulfill();
@@ -8344,16 +8464,7 @@ GenericAddon = (function() {
         }
       };
     })(this));
-    this.selector.data('select2').container.on('mouseover', (function(_this) {
-      return function(e) {
-        if (_this.data != null) {
-          return _this.ship.builder.showTooltip('Addon', _this.data, {
-            addon_type: _this.type
-          });
-        }
-      };
-    })(this));
-    return this.selector.data('select2').container.on('touchstart', (function(_this) {
+    return this.selector.data('select2').container.on('mouseover', (function(_this) {
       return function(e) {
         if (_this.data != null) {
           return _this.ship.builder.showTooltip('Addon', _this.data, {
@@ -8388,7 +8499,7 @@ GenericAddon = (function() {
               });
               _this.ship.builder.container.trigger('xwing:releaseUnique', [
                 _this.unadjusted_data, _this.type, __iced_deferrals.defer({
-                  lineno: 6732
+                  lineno: 6793
                 })
               ]);
               __iced_deferrals._fulfill();
@@ -8415,7 +8526,7 @@ GenericAddon = (function() {
                   });
                   _this.ship.builder.container.trigger('xwing:claimUnique', [
                     new_data, _this.type, __iced_deferrals.defer({
-                      lineno: 6739
+                      lineno: 6800
                     })
                   ]);
                   __iced_deferrals._fulfill();
@@ -8558,7 +8669,7 @@ GenericAddon = (function() {
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           addon = _ref[_i];
           addon.destroy(__iced_deferrals.defer({
-            lineno: 6811
+            lineno: 6872
           }));
         }
         __iced_deferrals._fulfill();
@@ -8627,7 +8738,7 @@ GenericAddon = (function() {
   };
 
   GenericAddon.prototype.toHTML = function(points) {
-    var attackHTML, attackIcon, attackStats, attackrangebonus, chargeHTML, forceHTML, match_array, restriction_html, text_str, upgrade_slot_font, _base, _ref;
+    var attackHTML, attackIcon, attackStats, attackrangebonus, chargeHTML, count, forceHTML, match_array, recurringicon, restriction_html, text_str, upgrade_slot_font, _base, _ref;
     if (this.data != null) {
       if ((this.data.slot != null) && this.data.slot === "HardpointShip") {
         upgrade_slot_font = "hardpoint";
@@ -8649,17 +8760,29 @@ GenericAddon = (function() {
         attackIcon = (this.data.attack != null) ? $.trim("<span class=\"info-data info-attack\">" + this.data.attack + "</span>\n<i class=\"xwing-miniatures-font xwing-miniatures-font-frontarc\"></i>") : (this.data.attackt != null) ? $.trim("<span class=\"info-data info-attack\">" + this.data.attackt + "</span>\n<i class=\"xwing-miniatures-font xwing-miniatures-font-singleturretarc\"></i>") : (this.data.attackdt != null) ? $.trim("<span class=\"info-data info-attack\">" + this.data.attackdt + "</span>\n<i class=\"xwing-miniatures-font xwing-miniatures-font-doubleturretarc\"></i>") : (this.data.attackl != null) ? $.trim("<span class=\"info-data info-attack\">" + this.data.attackl + "</span>\n<i class=\"xwing-miniatures-font xwing-miniatures-font-leftarc\"></i>") : (this.data.attackr != null) ? $.trim("<span class=\"info-data info-attack\">" + this.data.attackr + "</span>\n<i class=\"xwing-miniatures-font xwing-miniatures-font-rightarc\"></i>") : (this.data.attackbull != null) ? $.trim("<span class=\"info-data info-attack\">" + this.data.attackbull + "</span>\n<i class=\"xwing-miniatures-font xwing-miniatures-font-bullseyearc\"></i>") : '';
         attackHTML = $.trim("<div class=\"upgrade-attack\">\n    " + attackStats + "\n    " + attackIcon + "\n</div>");
       }
-      if ((this.data.charge != null)) {
-        if ((this.data.recurring != null)) {
-          chargeHTML = $.trim("<div class=\"upgrade-charge\">\n    <span class=\"info-data info-charge\">" + this.data.charge + "</span>\n    <i class=\"xwing-miniatures-font xwing-miniatures-font-charge\"></i><i class=\"xwing-miniatures-font xwing-miniatures-font-recurring\"></i>\n</div>");
-        } else {
-          chargeHTML = $.trim("<div class=\"upgrade-charge\">\n    <span class=\"info-data info-charge\">" + this.data.charge + "</span>\n    <i class=\"xwing-miniatures-font xwing-miniatures-font-charge\"></i>\n</div>");
+      if (this.data.charge != null) {
+        recurringicon = '';
+        if (this.data.recurring != null) {
+          if (this.data.recurring > 0) {
+            count = 0;
+            while (count < this.data.recurring) {
+              recurringicon += '<sup><i class="fas fa-caret-up"></i></sup>';
+              ++count;
+            }
+          } else {
+            count = this.data.recurring;
+            while (count < 0) {
+              recurringicon += '<sub><i class="fas fa-caret-down"></i></sub>';
+              ++count;
+            }
+          }
         }
+        chargeHTML = $.trim("<div class=\"upgrade-charge\">\n    <span class=\"info-data info-charge\">" + this.data.charge + "</span>\n    <i class=\"xwing-miniatures-font xwing-miniatures-font-charge\"></i>" + recurringicon + "\n</div>");
       } else {
         chargeHTML = $.trim('');
       }
       if ((this.data.force != null)) {
-        forceHTML = $.trim("<div class=\"upgrade-force\">\n    <span class=\"info-data info-force\">" + this.data.force + "</span>\n    <i class=\"xwing-miniatures-font xwing-miniatures-font-forcecharge\"></i><i class=\"xwing-miniatures-font xwing-miniatures-font-recurring\"></i>\n</div>");
+        forceHTML = $.trim("<div class=\"upgrade-force\">\n    <span class=\"info-data info-force\">" + this.data.force + "</span>\n    <i class=\"xwing-miniatures-font xwing-miniatures-font-forcecharge\"></i><sup><i class=\"fas fa-caret-up\"></i></sup>\n</div>");
       } else {
         forceHTML = $.trim('');
       }
