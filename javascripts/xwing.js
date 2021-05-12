@@ -1936,6 +1936,9 @@ exportObj.CardBrowser = (function() {
             break;
           }
         }
+        if (!faction_matches) {
+          return false;
+        }
       }
       if (card.orig_type === 'Ship') {
         faction_matches = false;
@@ -2358,11 +2361,6 @@ builders = [];
 exportObj = typeof exports !== "undefined" && exports !== null ? exports : this;
 
 exportObj.loadCards = function(language) {
-  var basic_cards;
-  basic_cards = exportObj.basicCardData();
-  exportObj.canonicalizeShipNames(basic_cards);
-  exportObj.ships = basic_cards.ships;
-  exportObj.setupCommonCardData(basic_cards);
   return exportObj.cardLoaders[language]();
 };
 
@@ -2395,10 +2393,11 @@ exportObj.translate = function() {
 };
 
 exportObj.setupTranslationSupport = function() {
+  var basic_cards;
   (function(builders) {
     return $(exportObj).on('xwing:languageChanged', (function(_this) {
       return function(e, language, cb) {
-        var builder, currentfaction, html, selector, ___iced_passed_deferral, __iced_deferrals, __iced_k;
+        var builder, current_language, html, selector, ___iced_passed_deferral, __iced_deferrals, __iced_k;
         __iced_k = __iced_k_noop;
         ___iced_passed_deferral = iced.findDeferral(arguments);
         if (cb == null) {
@@ -2406,7 +2405,7 @@ exportObj.setupTranslationSupport = function() {
         }
         if (language in exportObj.translations) {
           $('.language-placeholder').text(language);
-          currentfaction = $.getParameterByName('f');
+          current_language = "";
           (function(__iced_k) {
             var _i, _len, _ref, _results, _while;
             _ref = builders;
@@ -2426,71 +2425,35 @@ exportObj.setupTranslationSupport = function() {
                 return _break();
               } else {
                 builder = _ref[_i];
+                current_language = builder.language;
                 (function(__iced_k) {
-                  if (currentfaction === builder.faction) {
-                    return __iced_k(builder.container.trigger('xwing:beforeLanguageLoad'));
-                  } else {
-                    (function(__iced_k) {
-                      __iced_deferrals = new iced.Deferrals(__iced_k, {
-                        parent: ___iced_passed_deferral
-                      });
-                      builder.container.trigger('xwing:beforeLanguageLoad', __iced_deferrals.defer({
-                        lineno: 2042
-                      }));
-                      __iced_deferrals._fulfill();
-                    })(__iced_k);
-                  }
+                  __iced_deferrals = new iced.Deferrals(__iced_k, {
+                    parent: ___iced_passed_deferral
+                  });
+                  builder.container.trigger('xwing:beforeLanguageLoad', __iced_deferrals.defer({
+                    lineno: 2033
+                  }));
+                  __iced_deferrals._fulfill();
                 })(_next);
               }
             };
             _while(__iced_k);
           })(function() {
-            var _ref;
-            exportObj.loadCards(language);
+            var _i, _len, _ref;
+            if (language !== current_language) {
+              exportObj.loadCards(language);
+            }
             _ref = exportObj.translations[language].byCSSSelector;
             for (selector in _ref) {
               if (!__hasProp.call(_ref, selector)) continue;
               html = _ref[selector];
               $(selector).html(html);
             }
-            (function(__iced_k) {
-              var _i, _len, _ref1, _results, _while;
-              _ref1 = builders;
-              _len = _ref1.length;
-              _i = 0;
-              _while = function(__iced_k) {
-                var _break, _continue, _next;
-                _break = __iced_k;
-                _continue = function() {
-                  return iced.trampoline(function() {
-                    ++_i;
-                    return _while(__iced_k);
-                  });
-                };
-                _next = _continue;
-                if (!(_i < _len)) {
-                  return _break();
-                } else {
-                  builder = _ref1[_i];
-                  (function(__iced_k) {
-                    if (currentfaction === builder.faction) {
-                      return __iced_k(builder.container.trigger('xwing:afterLanguageLoad', language));
-                    } else {
-                      (function(__iced_k) {
-                        __iced_deferrals = new iced.Deferrals(__iced_k, {
-                          parent: ___iced_passed_deferral
-                        });
-                        builder.container.trigger('xwing:afterLanguageLoad', language, __iced_deferrals.defer({
-                          lineno: 2050
-                        }));
-                        __iced_deferrals._fulfill();
-                      })(__iced_k);
-                    }
-                  })(_next);
-                }
-              };
-              _while(__iced_k);
-            })(__iced_k);
+            for (_i = 0, _len = builders.length; _i < _len; _i++) {
+              builder = builders[_i];
+              builder.container.trigger('xwing:afterLanguageLoad', language);
+            }
+            return __iced_k();
           });
         } else {
           return __iced_k();
@@ -2498,6 +2461,10 @@ exportObj.setupTranslationSupport = function() {
       };
     })(this));
   })(builders);
+  basic_cards = exportObj.basicCardData();
+  exportObj.canonicalizeShipNames(basic_cards);
+  exportObj.ships = basic_cards.ships;
+  exportObj.setupCommonCardData(basic_cards);
   exportObj.loadCards(DFL_LANGUAGE);
   return $(exportObj).trigger('xwing:languageChanged', DFL_LANGUAGE);
 };
@@ -3382,7 +3349,7 @@ exportObj.SquadBuilder = (function() {
                   return results = arguments[0];
                 };
               })(),
-              lineno: 3035
+              lineno: 3032
             }));
             __iced_deferrals._fulfill();
           })(function() {
@@ -3502,18 +3469,20 @@ exportObj.SquadBuilder = (function() {
         if (cb == null) {
           cb = $.noop;
         }
-        _this.language = language;
-        old_dirty = _this.current_squad.dirty;
-        if (_this.pretranslation_serialized.length != null) {
-          _this.loadFromSerialized(_this.pretranslation_serialized);
+        if (_this.language !== language) {
+          _this.language = language;
+          old_dirty = _this.current_squad.dirty;
+          if (_this.pretranslation_serialized.length != null) {
+            _this.loadFromSerialized(_this.pretranslation_serialized);
+          }
+          _ref = _this.ships;
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            ship = _ref[_i];
+            ship.updateSelections();
+          }
+          _this.current_squad.dirty = old_dirty;
+          _this.pretranslation_serialized = void 0;
         }
-        _ref = _this.ships;
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          ship = _ref[_i];
-          ship.updateSelections();
-        }
-        _this.current_squad.dirty = old_dirty;
-        _this.pretranslation_serialized = void 0;
         return cb();
       };
     })(this)).on('xwing:shipUpdated', (function(_this) {
@@ -3931,14 +3900,6 @@ exportObj.SquadBuilder = (function() {
     }
     this.tts_textarea.val($.trim("" + (tts_ships.join(""))));
     this.bbcode_container.find('textarea').val($.trim("" + (bbcode_ships.join("\n\n")) + "\n[b][i]Total: " + this.total_points + "[/i][/b]\n\n[url=" + (this.getPermaLink()) + "]View in Yet Another Squad Builder 2.0[/url]"));
-    this.xws_textarea.val($.trim(JSON.stringify(this.toXWS())));
-    $('#xws-qrcode-container').text('');
-    $('#xws-qrcode-container').qrcode({
-      render: 'canvas',
-      text: JSON.stringify(this.toMinimalXWS()),
-      ec: 'L',
-      size: 128
-    });
     this.checkCollection();
     if (typeof Set !== "undefined" && Set !== null) {
       conditions_set = new Set();
@@ -3992,14 +3953,23 @@ exportObj.SquadBuilder = (function() {
   };
 
   SquadBuilder.prototype.onSquadDirtinessChanged = function() {
+    this.current_squad.name = $.trim(this.squad_name_input.val());
     this.backend_save_list_button.toggleClass('disabled', !(this.current_squad.dirty && this.total_points > 0));
     this.backend_save_list_as_button.toggleClass('disabled', this.total_points === 0);
     this.backend_delete_list_button.toggleClass('disabled', this.current_squad.id == null);
     if (this.ships.length > 1) {
-      return $('meta[property="og:description"]').attr("content", "X-Wing Squadron by YASB 2.0: " + this.current_squad.name + ": " + this.describeSquad());
+      $('meta[property="og:description"]').attr("content", "X-Wing Squadron by YASB 2.0: " + this.current_squad.name + ": " + this.describeSquad());
     } else {
-      return $('meta[property="og:description"]').attr("content", "YASB 2.0 is a simple, fast, and easy to use squad builder for X-Wing Miniatures by Fantasy Flight Games.");
+      $('meta[property="og:description"]').attr("content", "YASB 2.0 is a simple, fast, and easy to use squad builder for X-Wing Miniatures by Fantasy Flight Games.");
     }
+    this.xws_textarea.val($.trim(JSON.stringify(this.toXWS())));
+    $('#xws-qrcode-container').text('');
+    return $('#xws-qrcode-container').qrcode({
+      render: 'canvas',
+      text: JSON.stringify(this.toMinimalXWS()),
+      ec: 'L',
+      size: 128
+    });
   };
 
   SquadBuilder.prototype.onSquadNameChanged = function() {
@@ -4947,7 +4917,7 @@ exportObj.SquadBuilder = (function() {
   };
 
   SquadBuilder.prototype.showTooltip = function(type, data, additional_opts, container, force_update) {
-    var addon_count, chargeHTML, cls, count, effective_stats, first, ini, inis, item, missingStuffInfoText, name, pilot, pilot_count, point_info, possible_inis, recurringicon, restriction_info, ship, ship_count, slot, slot_types, source, sources, state, uniquedots, upgrade, well, _i, _j, _k, _l, _len, _len1, _len2, _len3, _m, _n, _ref, _ref1, _ref10, _ref11, _ref12, _ref13, _ref14, _ref15, _ref16, _ref17, _ref18, _ref19, _ref2, _ref20, _ref21, _ref22, _ref23, _ref24, _ref25, _ref26, _ref27, _ref28, _ref29, _ref3, _ref30, _ref31, _ref32, _ref33, _ref34, _ref35, _ref36, _ref37, _ref38, _ref39, _ref4, _ref40, _ref41, _ref42, _ref43, _ref44, _ref45, _ref46, _ref47, _ref48, _ref49, _ref5, _ref50, _ref51, _ref52, _ref53, _ref54, _ref55, _ref56, _ref57, _ref58, _ref59, _ref6, _ref60, _ref61, _ref62, _ref63, _ref64, _ref65, _ref66, _ref67, _ref68, _ref69, _ref7, _ref70, _ref71, _ref72, _ref73, _ref74, _ref75, _ref8, _ref9, _results, _results1;
+    var addon_count, chargeHTML, cls, count, effective_stats, first, ini, inis, item, missingStuffInfoText, name, pilot, pilot_count, point_info, possible_inis, recurringicon, restriction_info, ship, ship_count, slot, slot_types, source, sources, state, uniquedots, upgrade, well, _i, _j, _k, _l, _len, _len1, _len2, _len3, _m, _n, _ref, _ref1, _ref10, _ref11, _ref12, _ref13, _ref14, _ref15, _ref16, _ref17, _ref18, _ref19, _ref2, _ref20, _ref21, _ref22, _ref23, _ref24, _ref25, _ref26, _ref27, _ref28, _ref29, _ref3, _ref30, _ref31, _ref32, _ref33, _ref34, _ref35, _ref36, _ref37, _ref38, _ref39, _ref4, _ref40, _ref41, _ref42, _ref43, _ref44, _ref45, _ref46, _ref47, _ref48, _ref49, _ref5, _ref50, _ref51, _ref52, _ref53, _ref54, _ref55, _ref56, _ref57, _ref58, _ref59, _ref6, _ref60, _ref61, _ref62, _ref63, _ref64, _ref65, _ref66, _ref67, _ref68, _ref69, _ref7, _ref70, _ref71, _ref72, _ref73, _ref74, _ref75, _ref76, _ref8, _ref9, _results, _results1;
     if (container == null) {
       container = this.info_container;
     }
@@ -5273,25 +5243,29 @@ exportObj.SquadBuilder = (function() {
           } else {
             container.find('tr.info-charge').hide();
           }
-          container.find('tr.info-actions td.info-data').html(this.formatActions((_ref44 = (_ref45 = data.ship_override) != null ? _ref45.actions : void 0) != null ? _ref44 : (_ref46 = effective_stats != null ? effective_stats.actions : void 0) != null ? _ref46 : ship.actions, ", ", (_ref47 = data.keyword) != null ? _ref47 : []));
+          if ((effective_stats != null ? effective_stats.actions : void 0) != null) {
+            container.find('tr.info-actions td.info-data').html(this.formatActions((_ref44 = (_ref45 = data.ship_override) != null ? _ref45.actions : void 0) != null ? _ref44 : effective_stats.actions, ", "));
+          } else {
+            container.find('tr.info-actions td.info-data').html(this.formatActions((_ref46 = (_ref47 = data.ship_override) != null ? _ref47.actions : void 0) != null ? _ref46 : ship.actions, ", ", (_ref48 = data.keyword) != null ? _ref48 : []));
+          }
           container.find('tr.info-actions').show();
           if (this.isQuickbuild) {
             container.find('tr.info-upgrades').hide();
           } else {
             container.find('tr.info-upgrades').show();
             container.find('tr.info-upgrades td.info-data').html(((function() {
-              var _k, _len2, _ref48, _results;
-              _ref48 = data.slots;
+              var _k, _len2, _ref49, _results;
+              _ref49 = data.slots;
               _results = [];
-              for (_k = 0, _len2 = _ref48.length; _k < _len2; _k++) {
-                slot = _ref48[_k];
+              for (_k = 0, _len2 = _ref49.length; _k < _len2; _k++) {
+                slot = _ref49[_k];
                 _results.push(exportObj.translate(this.language, 'sloticon', slot));
               }
               return _results;
             }).call(this)).join(' ') || 'None');
           }
           container.find('p.info-maneuvers').show();
-          container.find('p.info-maneuvers').html(this.getManeuverTableHTML((_ref48 = effective_stats != null ? effective_stats.maneuvers : void 0) != null ? _ref48 : ship.maneuvers, ship.maneuvers));
+          container.find('p.info-maneuvers').html(this.getManeuverTableHTML((_ref49 = effective_stats != null ? effective_stats.maneuvers : void 0) != null ? _ref49 : ship.maneuvers, ship.maneuvers));
           break;
         case 'Quickbuild':
           container.find('.info-type').text('Quickbuild');
@@ -5320,7 +5294,7 @@ exportObj.SquadBuilder = (function() {
           } else {
             container.find('p.info-restrictions').hide();
           }
-          container.find('p.info-text').html((_ref49 = pilot.text) != null ? _ref49 : '');
+          container.find('p.info-text').html((_ref50 = pilot.text) != null ? _ref50 : '');
           container.find('p.info-text').show();
           container.find('tr.info-ship td.info-data').text(data.ship);
           container.find('tr.info-ship').show();
@@ -5336,8 +5310,8 @@ exportObj.SquadBuilder = (function() {
           container.find('tr.info-skill').show();
           container.find('tr.info-engagement td.info-data').text(pilot.skill);
           container.find('tr.info-engagement').show();
-          container.find('tr.info-attack td.info-data').text((_ref50 = (_ref51 = pilot.ship_override) != null ? _ref51.attack : void 0) != null ? _ref50 : ship.attack);
-          container.find('tr.info-attack').toggle((((_ref52 = pilot.ship_override) != null ? _ref52.attack : void 0) != null) || (ship.attack != null));
+          container.find('tr.info-attack td.info-data').text((_ref51 = (_ref52 = pilot.ship_override) != null ? _ref52.attack : void 0) != null ? _ref51 : ship.attack);
+          container.find('tr.info-attack').toggle((((_ref53 = pilot.ship_override) != null ? _ref53.attack : void 0) != null) || (ship.attack != null));
           container.find('tr.info-attack-fullfront td.info-data').text(ship.attackf);
           container.find('tr.info-attack-fullfront').toggle(ship.attackf != null);
           container.find('tr.info-attack-bullseye td.info-data').text(ship.attackbull);
@@ -5352,19 +5326,19 @@ exportObj.SquadBuilder = (function() {
           container.find('tr.info-attack-turret').toggle(ship.attackt != null);
           container.find('tr.info-attack-doubleturret td.info-data').text(ship.attackdt);
           container.find('tr.info-attack-doubleturret').toggle(ship.attackdt != null);
-          container.find('tr.info-attack td.info-header i.xwing-miniatures-font').addClass((_ref53 = ship.attack_icon) != null ? _ref53 : 'xwing-miniatures-font-frontarc');
-          container.find('tr.info-energy td.info-data').text((_ref54 = (_ref55 = pilot.ship_override) != null ? _ref55.energy : void 0) != null ? _ref54 : ship.energy);
-          container.find('tr.info-energy').toggle((((_ref56 = pilot.ship_override) != null ? _ref56.energy : void 0) != null) || (ship.energy != null));
+          container.find('tr.info-attack td.info-header i.xwing-miniatures-font').addClass((_ref54 = ship.attack_icon) != null ? _ref54 : 'xwing-miniatures-font-frontarc');
+          container.find('tr.info-energy td.info-data').text((_ref55 = (_ref56 = pilot.ship_override) != null ? _ref56.energy : void 0) != null ? _ref55 : ship.energy);
+          container.find('tr.info-energy').toggle((((_ref57 = pilot.ship_override) != null ? _ref57.energy : void 0) != null) || (ship.energy != null));
           container.find('tr.info-range').hide();
           container.find('td.info-rangebonus').hide();
-          container.find('tr.info-agility td.info-data').text((_ref57 = (_ref58 = pilot.ship_override) != null ? _ref58.agility : void 0) != null ? _ref57 : ship.agility);
+          container.find('tr.info-agility td.info-data').text((_ref58 = (_ref59 = pilot.ship_override) != null ? _ref59.agility : void 0) != null ? _ref58 : ship.agility);
           container.find('tr.info-agility').show();
-          container.find('tr.info-hull td.info-data').text((_ref59 = (_ref60 = pilot.ship_override) != null ? _ref60.hull : void 0) != null ? _ref59 : ship.hull);
+          container.find('tr.info-hull td.info-data').text((_ref60 = (_ref61 = pilot.ship_override) != null ? _ref61.hull : void 0) != null ? _ref60 : ship.hull);
           container.find('tr.info-hull').show();
-          container.find('tr.info-shields td.info-data').text((_ref61 = (_ref62 = pilot.ship_override) != null ? _ref62.shields : void 0) != null ? _ref61 : ship.shields);
+          container.find('tr.info-shields td.info-data').text((_ref62 = (_ref63 = pilot.ship_override) != null ? _ref63.shields : void 0) != null ? _ref62 : ship.shields);
           container.find('tr.info-shields').show();
           if (((effective_stats != null ? effective_stats.force : void 0) != null) || (data.force != null)) {
-            container.find('tr.info-force td.info-data').html(((_ref63 = (_ref64 = pilot.ship_override) != null ? _ref64.force : void 0) != null ? _ref63 : pilot.force) + '<sup><i class="fas fa-caret-up"></i></sup>');
+            container.find('tr.info-force td.info-data').html(((_ref64 = (_ref65 = pilot.ship_override) != null ? _ref65.force : void 0) != null ? _ref64 : pilot.force) + '<sup><i class="fas fa-caret-up"></i></sup>');
             container.find('tr.info-force').show();
           } else {
             container.find('tr.info-force').hide();
@@ -5392,15 +5366,15 @@ exportObj.SquadBuilder = (function() {
           } else {
             container.find('tr.info-charge').hide();
           }
-          container.find('tr.info-actions td.info-data').html(this.formatActions((_ref65 = (_ref66 = pilot.ship_override) != null ? _ref66.actions : void 0) != null ? _ref65 : exportObj.ships[data.ship].actions, ", ", (_ref67 = pilot.keyword) != null ? _ref67 : []));
+          container.find('tr.info-actions td.info-data').html(this.formatActions((_ref66 = (_ref67 = pilot.ship_override) != null ? _ref67.actions : void 0) != null ? _ref66 : exportObj.ships[data.ship].actions, ", ", (_ref68 = pilot.keyword) != null ? _ref68 : []));
           container.find('tr.info-actions').show();
           container.find('tr.info-upgrades').show();
           container.find('tr.info-upgrades td.info-data').html(((function() {
-            var _k, _len2, _ref68, _ref69, _results;
-            _ref69 = (_ref68 = data.upgrades) != null ? _ref68 : [];
+            var _k, _len2, _ref69, _ref70, _results;
+            _ref70 = (_ref69 = data.upgrades) != null ? _ref69 : [];
             _results = [];
-            for (_k = 0, _len2 = _ref69.length; _k < _len2; _k++) {
-              upgrade = _ref69[_k];
+            for (_k = 0, _len2 = _ref70.length; _k < _len2; _k++) {
+              upgrade = _ref70[_k];
               _results.push(exportObj.upgrades[upgrade].display_name != null ? exportObj.upgrades[upgrade].display_name : upgrade);
             }
             return _results;
@@ -5411,11 +5385,11 @@ exportObj.SquadBuilder = (function() {
         case 'Addon':
           container.find('.info-type').text(additional_opts.addon_type);
           container.find('.info-sources.info-data').text(((function() {
-            var _k, _len2, _ref68, _results;
-            _ref68 = data.sources;
+            var _k, _len2, _ref69, _results;
+            _ref69 = data.sources;
             _results = [];
-            for (_k = 0, _len2 = _ref68.length; _k < _len2; _k++) {
-              source = _ref68[_k];
+            for (_k = 0, _len2 = _ref69.length; _k < _len2; _k++) {
+              source = _ref69[_k];
               _results.push(exportObj.translate(this.language, 'sources', source));
             }
             return _results;
@@ -5434,8 +5408,8 @@ exportObj.SquadBuilder = (function() {
           } else {
             uniquedots = "";
           }
-          if (((_ref68 = this.collection) != null ? _ref68.counts : void 0) != null) {
-            addon_count = (_ref69 = (_ref70 = this.collection.counts) != null ? (_ref71 = _ref70['upgrade']) != null ? _ref71[data.name] : void 0 : void 0) != null ? _ref69 : 0;
+          if (((_ref69 = this.collection) != null ? _ref69.counts : void 0) != null) {
+            addon_count = (_ref70 = (_ref71 = this.collection.counts) != null ? (_ref72 = _ref71['upgrade']) != null ? _ref72[data.name] : void 0 : void 0) != null ? _ref70 : 0;
             container.find('.info-collection').text("You have " + addon_count + " in your collection.");
             container.find('.info-collection').show();
           } else {
@@ -5447,13 +5421,13 @@ exportObj.SquadBuilder = (function() {
             if ((data.variableagility != null) && data.variableagility) {
               point_info += "agility is " + (function() {
                 _results = [];
-                for (var _k = 0, _ref72 = data.pointsarray.length - 1; 0 <= _ref72 ? _k <= _ref72 : _k >= _ref72; 0 <= _ref72 ? _k++ : _k--){ _results.push(_k); }
+                for (var _k = 0, _ref73 = data.pointsarray.length - 1; 0 <= _ref73 ? _k <= _ref73 : _k >= _ref73; 0 <= _ref73 ? _k++ : _k--){ _results.push(_k); }
                 return _results;
               }).apply(this);
             } else if ((data.variableinit != null) && data.variableinit) {
               point_info += "initiative is " + (function() {
                 _results1 = [];
-                for (var _l = 0, _ref73 = data.pointsarray.length - 1; 0 <= _ref73 ? _l <= _ref73 : _l >= _ref73; 0 <= _ref73 ? _l++ : _l--){ _results1.push(_l); }
+                for (var _l = 0, _ref74 = data.pointsarray.length - 1; 0 <= _ref74 ? _l <= _ref74 : _l >= _ref74; 0 <= _ref74 ? _l++ : _l--){ _results1.push(_l); }
                 return _results1;
               }).apply(this);
             } else if ((data.variablebase != null) && data.variablebase) {
@@ -5471,7 +5445,7 @@ exportObj.SquadBuilder = (function() {
           } else {
             container.find('p.info-restrictions').hide();
           }
-          container.find('p.info-text').html((_ref74 = data.text) != null ? _ref74 : '');
+          container.find('p.info-text').html((_ref75 = data.text) != null ? _ref75 : '');
           container.find('p.info-text').show();
           container.find('tr.info-ship').hide();
           container.find('tr.info-base').hide();
@@ -5610,9 +5584,9 @@ exportObj.SquadBuilder = (function() {
             item = data[_m];
             missingStuffInfoText += "<li><strong>" + (item.display_name != null ? item.display_name : item.name) + "</strong> (";
             first = true;
-            _ref75 = item.sources;
-            for (_n = 0, _len3 = _ref75.length; _n < _len3; _n++) {
-              source = _ref75[_n];
+            _ref76 = item.sources;
+            for (_n = 0, _len3 = _ref76.length; _n < _len3; _n++) {
+              source = _ref76[_n];
               if (!first) {
                 missingStuffInfoText += ", ";
               }
@@ -5979,7 +5953,7 @@ exportObj.SquadBuilder = (function() {
         comma = ', ';
       }
       if (statchange.actions.length > 0) {
-        text += comma + this.formatActions(statchange.actions, ", ", []);
+        text += comma + this.formatActions(statchange.actions, ", ");
         comma = ', ';
       }
     }
@@ -6242,7 +6216,7 @@ exportObj.SquadBuilder = (function() {
       points: this.total_points,
       vendor: {
         yasb: {
-          builder: 'Yet Another Squad Builder 2.0',
+          builder: 'YASB 2.0',
           builder_url: window.location.href.split('?')[0],
           link: this.getPermaLink()
         }
@@ -6491,7 +6465,7 @@ Ship = (function() {
                       funcname: "Ship.destroy"
                     });
                     _this.builder.removeShip(_this.linkedShip, __iced_deferrals.defer({
-                      lineno: 5450
+                      lineno: 5453
                     }));
                     __iced_deferrals._fulfill();
                   })(__iced_k);
@@ -6708,7 +6682,7 @@ Ship = (function() {
                       });
                       _this.builder.container.trigger('xwing:claimUnique', [
                         new_pilot, 'Pilot', __iced_deferrals.defer({
-                          lineno: 5560
+                          lineno: 5563
                         })
                       ]);
                       __iced_deferrals._fulfill();
@@ -6758,7 +6732,7 @@ Ship = (function() {
                                   funcname: "Ship.setPilotById"
                                 });
                                 _this.builder.removeShip(_this.linkedShip, __iced_deferrals.defer({
-                                  lineno: 5593
+                                  lineno: 5596
                                 }));
                                 __iced_deferrals._fulfill();
                               })(__iced_k);
@@ -6856,7 +6830,7 @@ Ship = (function() {
                   });
                   _this.builder.container.trigger('xwing:claimUnique', [
                     new_pilot, 'Pilot', __iced_deferrals.defer({
-                      lineno: 5651
+                      lineno: 5654
                     })
                   ]);
                   __iced_deferrals._fulfill();
@@ -6937,7 +6911,7 @@ Ship = (function() {
             });
             _this.builder.container.trigger('xwing:releaseUnique', [
               _this.pilot, 'Pilot', __iced_deferrals.defer({
-                lineno: 5681
+                lineno: 5684
               })
             ]);
             __iced_deferrals._fulfill();
@@ -7006,7 +6980,7 @@ Ship = (function() {
           upgrade = _ref[_i];
           if (upgrade != null) {
             upgrade.destroy(__iced_deferrals.defer({
-              lineno: 5710
+              lineno: 5713
             }));
           }
         }
@@ -7098,7 +7072,7 @@ Ship = (function() {
                 funcname: "Ship.setWingmates"
               });
               _this.builder.removeShip(dyingMate, __iced_deferrals.defer({
-                lineno: 5766
+                lineno: 5769
               }));
               __iced_deferrals._fulfill();
             })(_next);
@@ -8350,7 +8324,7 @@ GenericAddon = (function() {
             });
             _this.ship.builder.container.trigger('xwing:releaseUnique', [
               _this.data, _this.type, __iced_deferrals.defer({
-                lineno: 6704
+                lineno: 6707
               })
             ]);
             __iced_deferrals._fulfill();
@@ -8499,7 +8473,7 @@ GenericAddon = (function() {
               });
               _this.ship.builder.container.trigger('xwing:releaseUnique', [
                 _this.unadjusted_data, _this.type, __iced_deferrals.defer({
-                  lineno: 6793
+                  lineno: 6796
                 })
               ]);
               __iced_deferrals._fulfill();
@@ -8526,7 +8500,7 @@ GenericAddon = (function() {
                   });
                   _this.ship.builder.container.trigger('xwing:claimUnique', [
                     new_data, _this.type, __iced_deferrals.defer({
-                      lineno: 6800
+                      lineno: 6803
                     })
                   ]);
                   __iced_deferrals._fulfill();
@@ -8669,7 +8643,7 @@ GenericAddon = (function() {
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
           addon = _ref[_i];
           addon.destroy(__iced_deferrals.defer({
-            lineno: 6872
+            lineno: 6875
           }));
         }
         __iced_deferrals._fulfill();

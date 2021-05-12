@@ -1668,6 +1668,7 @@ class exportObj.CardBrowser
                    if faction in selected_factions
                        faction_matches = true
                        break
+               return false unless faction_matches
             if card.orig_type == 'Ship'
                faction_matches = false
                for faction in card.data.factions
@@ -1998,14 +1999,6 @@ builders = []
 exportObj = exports ? this
 
 exportObj.loadCards = (language) ->
-    # Load cards
-    basic_cards = exportObj.basicCardData()
-    exportObj.canonicalizeShipNames basic_cards
-    exportObj.ships = basic_cards.ships
-
-    # Set up the common card data (e.g. stats)
-    exportObj.setupCommonCardData basic_cards
-
     exportObj.cardLoaders[language]()
 
 exportObj.translate = (language, category, what, args...) ->
@@ -2035,20 +2028,24 @@ exportObj.setupTranslationSupport = ->
         $(exportObj).on 'xwing:languageChanged', (e, language, cb=$.noop) =>
             if language of exportObj.translations
                 $('.language-placeholder').text language
-                currentfaction = $.getParameterByName 'f'
+                current_language = ""
                 for builder in builders
-                    if currentfaction == builder.faction
-                        builder.container.trigger 'xwing:beforeLanguageLoad'
-                    else
-                        await builder.container.trigger 'xwing:beforeLanguageLoad', defer()
-                exportObj.loadCards language
+                    current_language = builder.language
+                    await builder.container.trigger 'xwing:beforeLanguageLoad', defer()
+                if language != current_language
+                    exportObj.loadCards language
                 for own selector, html of exportObj.translations[language].byCSSSelector
                     $(selector).html html
                 for builder in builders
-                    if currentfaction == builder.faction
-                        builder.container.trigger 'xwing:afterLanguageLoad', language
-                    else
-                        await builder.container.trigger 'xwing:afterLanguageLoad', language, defer()
+                    builder.container.trigger 'xwing:afterLanguageLoad', language
+
+    # Load cards one time
+    basic_cards = exportObj.basicCardData()
+    exportObj.canonicalizeShipNames basic_cards
+    exportObj.ships = basic_cards.ships
+
+    # Set up the common card data (e.g. stats)
+    exportObj.setupCommonCardData basic_cards
 
     exportObj.loadCards DFL_LANGUAGE
     $(exportObj).trigger 'xwing:languageChanged', DFL_LANGUAGE
@@ -3259,14 +3256,15 @@ class exportObj.SquadBuilder
             @pretranslation_serialized = @serialize()
             cb()
         .on 'xwing:afterLanguageLoad', (e, language, cb=$.noop) =>
-            @language = language
-            old_dirty = @current_squad.dirty
-            if @pretranslation_serialized.length?
-                @loadFromSerialized @pretranslation_serialized
-            for ship in @ships
-                ship.updateSelections()
-            @current_squad.dirty = old_dirty
-            @pretranslation_serialized = undefined
+            if @language != language
+                @language = language
+                old_dirty = @current_squad.dirty
+                if @pretranslation_serialized.length?
+                    @loadFromSerialized @pretranslation_serialized
+                for ship in @ships
+                    ship.updateSelections()
+                @current_squad.dirty = old_dirty
+                @pretranslation_serialized = undefined
             cb()
         # Recently moved this here.  Did this ever work?
         .on 'xwing:shipUpdated', (e, cb=$.noop) =>
@@ -3586,14 +3584,6 @@ class exportObj.SquadBuilder
         
         @bbcode_container.find('textarea').val $.trim """#{bbcode_ships.join "\n\n"}\n[b][i]Total: #{@total_points}[/i][/b]\n\n[url=#{@getPermaLink()}]View in Yet Another Squad Builder 2.0[/url]"""
 
-        @xws_textarea.val $.trim JSON.stringify(@toXWS())
-        $('#xws-qrcode-container').text ''
-        $('#xws-qrcode-container').qrcode
-            render: 'canvas'
-            text: JSON.stringify(@toMinimalXWS())
-            ec: 'L'
-            size: 128
-
         # console.log "#{@faction}: Squad updated, checking collection"
         @checkCollection()
 
@@ -3639,6 +3629,7 @@ class exportObj.SquadBuilder
         @container.trigger 'xwing-backend:squadNameChanged'
 
     onSquadDirtinessChanged: () =>
+        @current_squad.name = $.trim(@squad_name_input.val())
         @backend_save_list_button.toggleClass 'disabled', not (@current_squad.dirty and @total_points > 0)
         @backend_save_list_as_button.toggleClass 'disabled', @total_points == 0
         @backend_delete_list_button.toggleClass 'disabled', not @current_squad.id?
@@ -3646,6 +3637,15 @@ class exportObj.SquadBuilder
             $('meta[property="og:description"]').attr("content", "X-Wing Squadron by YASB 2.0: " + @current_squad.name + ": " + @describeSquad())
         else
             $('meta[property="og:description"]').attr("content", "YASB 2.0 is a simple, fast, and easy to use squad builder for X-Wing Miniatures by Fantasy Flight Games.")
+        
+        # Moved XWS update to whenever the dirtyness changed rather than on points updated.
+        @xws_textarea.val $.trim JSON.stringify(@toXWS())
+        $('#xws-qrcode-container').text ''
+        $('#xws-qrcode-container').qrcode
+            render: 'canvas'
+            text: JSON.stringify(@toMinimalXWS())
+            ec: 'L'
+            size: 128
 
     onSquadNameChanged: () =>
         if @current_squad.name.length > SQUAD_DISPLAY_NAME_MAX_LENGTH
@@ -4543,7 +4543,10 @@ class exportObj.SquadBuilder
                     else
                         container.find('tr.info-charge').hide()
 
-                    container.find('tr.info-actions td.info-data').html @formatActions(data.ship_override?.actions ? (effective_stats?.actions ? ship.actions), ", ", data.keyword ? [])
+                    if effective_stats?.actions?
+                        container.find('tr.info-actions td.info-data').html @formatActions(data.ship_override?.actions ? effective_stats.actions, ", ")
+                    else
+                        container.find('tr.info-actions td.info-data').html @formatActions(data.ship_override?.actions ? ship.actions, ", ", data.keyword ? [])
                     
                     container.find('tr.info-actions').show()
                     if @isQuickbuild
@@ -5098,7 +5101,7 @@ class exportObj.SquadBuilder
                 text += comma + "%SHIELD% (#{statchange.shields})"
                 comma = ', '
             if statchange.actions.length > 0
-                text += comma + @formatActions(statchange.actions, ", ", [])
+                text += comma + @formatActions(statchange.actions, ", ")
                 comma = ', '
         if card.confersAddons
             for addonname in card.confersAddons
@@ -5260,7 +5263,7 @@ class exportObj.SquadBuilder
             points: @total_points
             vendor:
                 yasb:
-                    builder: 'Yet Another Squad Builder 2.0'
+                    builder: 'YASB 2.0'
                     builder_url: window.location.href.split('?')[0]
                     link: @getPermaLink()
             version: '2.0.0'

@@ -4689,6 +4689,7 @@ exportObj.basicCardData = function() {
         unique: true,
         skill: 5,
         ship: "YT-1300",
+        keyword: ["Light Side"],
         points: 77,
         force: 1,
         slots: ["Force", "Missile", "Gunner", "Crew", "Crew", "Modification", "Modification", "Title"]
@@ -5536,7 +5537,7 @@ exportObj.basicCardData = function() {
         name: "R2 Astromech",
         id: 2,
         slot: "Astromech",
-        pointsarray: [3, 4, 5, 8],
+        pointsarray: [3, 3, 5, 8],
         variableagility: true,
         charge: 2
       }, {
@@ -9065,6 +9066,7 @@ exportObj.basicCardData = function() {
       }, {
         name: "Protectorate Gleb",
         id: 388,
+        unique: true,
         points: 2,
         slot: "Crew",
         faction: ["Galactic Empire", "First Order", "Scum and Villainy"],
@@ -9077,6 +9079,7 @@ exportObj.basicCardData = function() {
         name: "R4-B11",
         id: 389,
         points: 3,
+        unique: true,
         slot: "Astromech",
         faction: "Scum and Villainy"
       }
@@ -12875,6 +12878,7 @@ exportObj.setupTranslationCardData = function(pilot_translations, upgrade_transl
       } catch (_error) {
         e = _error;
         console.error("Cannot find translation for attribute " + field + " for upgrade " + upgrade_name + ". Please report this Issue. ");
+        throw e;
       }
     }
   }
@@ -12888,6 +12892,7 @@ exportObj.setupTranslationCardData = function(pilot_translations, upgrade_transl
       } catch (_error) {
         e = _error;
         console.error("Cannot find translation for attribute " + field + " for condition " + condition_name + ". Please report this Issue. ");
+        throw e;
       }
     }
   }
@@ -12904,7 +12909,8 @@ exportObj.setupTranslationCardData = function(pilot_translations, upgrade_transl
           _results1.push(exportObj.pilots[pilot_name][field] = translation);
         } catch (_error) {
           e = _error;
-          _results1.push(console.error("Cannot find translation for attribute " + field + " for pilot " + pilot_name + ". Please report this Issue. "));
+          console.error("Cannot find translation for attribute " + field + " for pilot " + pilot_name + ". Please report this Issue. ");
+          throw e;
         }
       }
       return _results1;
@@ -13107,7 +13113,7 @@ exportObj.hyperspacePilotExclusions = ['Wedge Antilles', 'Biggs Darklighter', 'K
 
 exportObj.hyperspaceUpgradeExclusions = ['Jyn Erso', 'Bistan', 'Ezra Bridger', '"Chopper" (Astromech)', 'Pivot Wing', '"Chopper" (Crew)', '"Zeb" Orrelios', 'Baze Malbus', 'Cassian Andor', 'Hera Syndulla', 'Jyn Erso', 'K-2SO', 'Kanan Jarrus', 'Lando Calrissian', 'Leia Organa', 'Magva Yarro', 'Maul', 'R2-D2 (Crew)', 'Sabine Wren', 'Saw Gerrera', 'Bistan', 'Ezra Bridger', 'Han Solo', 'Luke Skywalker', 'Outrider', 'Admiral Sloane', 'Ciena Ree', 'Director Krennic', 'Grand Inquisitor', 'Grand Moff Tarkin', 'Minister Tua', 'Moff Jerjerrod', 'Seventh Sister', 'ISB Slicer', 'Fifth Brother', 'ST-321', '"Genius"', '4-LOM', 'Cad Bane', 'Cikatro Vizago', 'IG-88D', 'Chewbacca (Scum)', 'Ketsu Onyo', 'Lando Calrissian (Scum)', 'Maul', 'Unkar Plutt', 'Zuckuss', 'Jabba the Hutt', 'Dengar', 'Han Solo (Scum)', 'Fearless', 'Havoc', 'Mist Hunter', 'Shadow Caster', 'Slave I', 'Virago', 'IG-2000', 'M9-G8', 'R2-HA', 'R5-X3', 'BB Astromech', 'Chewbacca (Resistance)', 'GA-97', 'Han Solo (Resistance)', 'Kaydel Connix', 'Finn', 'Paige Tico', 'Rey', 'Heroic', "Rey's Millennium Falcon", 'Captain Phasma', 'General Hux', 'Kylo Ren', 'Petty Officer Thanisson', 'Supreme Leader Snoke', 'Biohexacrypt Codes', 'Hyperspace Tracking Data', 'R2-A6', 'R2-C4', 'R4-P17', 'R4-P Astromech', 'C1-10P', 'Chancellor Palpatine', 'Battle Meditation', 'Ahsoka Tano', 'Clone Commander Cody', 'Seventh Fleet Gunner', 'Chancellor Palpatine', 'General Grievous', 'Discord Missiles', 'TA-175', 'TV-94', 'Ensnare', 'R5 Astromech', 'Autoblasters', 'Heavy Laser Cannon', 'Jamming Beam', 'Informant', 'GNK "Gonk" Droid', 'Perceptive Copilot', 'Tactical Officer', 'Brilliant Evasion', 'Precognitive Reflexes', 'Predictive Shot', 'Sense', 'Supernatural Reflexes', 'Hotshot Gunner', 'Veteran Tail Gunner', 'Veteran Turret Gunner', 'Cloaking Device', 'Coaxium Hyperfuel', 'Feedback Array', 'Inertial Dampeners', 'Cluster Missiles', 'Cluster Missiles', 'Homing Missiles', 'Ion Missiles', 'Barrage Rockets', 'Ablative Plating', 'Advanced SLAM', 'Afterburners', 'Delayed Fuses', 'Munitions Failsafe', 'Shield Upgrade', 'Spare Parts Canisters', 'Static Discharge Vanes', 'Stealth Device', 'Tactical Scrambler', 'Targeting Computer', 'Ion Bombs', 'Proton Bombs', 'Proximity Mines', 'Seismic Charges', 'Electro-Proton Bomb', 'Bomblet Generator', 'Advanced Sensors', 'Collision Detector', 'Trajectory Simulator', 'Lone Wolf', 'Squad Leader', 'Composure', 'Crack Shot', 'Debris Gambit', 'Elusive', 'Intimidation', 'Marksmanship', 'Outmaneuver', 'Saturation Salvo', 'Swarm Tactics', 'Trick Shot', 'Advanced Optics', 'Pattern Analyzer', 'Plasma Torpedoes'];
 
-exportObj.epicExclusionsList = ['CR90 Corellian Corvette', 'Raider-class Corvette', 'GR-75 Medium Transport', 'Gozanti-class Cruiser', 'C-ROC Cruiser', 'Syliure-class Hyperspace Ring'];
+exportObj.epicExclusionsList = ['CR90 Corellian Corvette', 'Raider-class Corvette', 'GR-75 Medium Transport', 'Gozanti-class Cruiser', 'C-ROC Cruiser', 'Syliure-class Hyperspace Ring', 'Trident-class Assault Ship'];
 
 exportObj.epicExclusions = function(data) {
   var _ref, _ref1;
@@ -15096,7 +15102,7 @@ exportObj.cardLoaders.English = function() {
     },
     "Darth Vader (TIE Defender)": {
       display_name: "Darth Vader",
-      text: "You cannot spend %FORCE% charges except while attacking. %LINEBREAK% When you perform an attack, you may spend 1 %FORCE% to change 1 blank result to a %HIT% result. %LINEBREAK%<strong>Full Throttle:</strong> After you fully execute a speed 3-5 maneuver, you may perform an %EVADE% action."
+      text: "You cannot spend %FORCE% except while attacking. %LINEBREAK% While you perform an attack, you may spend 1 %FORCE% to change 1 blank result to a %HIT% result. %LINEBREAK%<strong>Full Throttle:</strong> After you fully execute a speed 3-5 maneuver, you may perform an %EVADE% action."
     },
     "Captain Dobbs": {
       text: "While another friendly ship at range 0-1 defends, before the Neutralize Results step, if you are in the attack arc and are not ionized, you may gain 1 ion token to cancel 1 %HIT% result. %LINEBREAK%<strong>Full Throttle:</strong> After you fully execute a speed 3-5 maneuver, you may perform an %EVADE% action."
@@ -15652,7 +15658,7 @@ exportObj.cardLoaders.English = function() {
     },
     "Ion Bombs": {
       display_name: "Ion Bombs",
-      text: "During the System Phase, you may spend 1 %CHARGE% to drop an Ion Bomb using the [1 %STRAIGHT%] template."
+      text: "<strong>Bomb</strong>%LINEBREAK% During the System Phase, you may spend 1 %CHARGE% to drop an Ion Bomb using the [1 %STRAIGHT%] template."
     },
     "ISB Slicer": {
       display_name: "ISB Slicer",
@@ -16222,7 +16228,7 @@ exportObj.cardLoaders.English = function() {
       text: "<strong>Proud Tradition</strong>%LINEBREAK%<strong>Setup:</strong> Equip this side faceup. %LINEBREAK% While you have 2 or fewer stress tokens, you may perform %FOCUS% actions even while stressed. After you perform an attack, if you are stressed, the defender may spend 1 focus token or suffer 1 %CRIT% damage to flip this card. %LINEBREAK% <strong>False Tradition</strong>%LINEBREAK% Treat your %FOCUS% actions as red."
     },
     "Cluster Mines": {
-      text: "During the System Phase, you may spend 1 %CHARGE% to drop a Cluster Mine set using the [1 %STRAIGHT%] template. %LINEBREAK% This card's %CHARGE% cannot be recovered."
+      text: "<strong>Mine</strong>%LINEBREAK% During the System Phase, you may spend 1 %CHARGE% to drop a Cluster Mine set using the [1 %STRAIGHT%] template. %LINEBREAK% This card's %CHARGE% cannot be recovered."
     },
     "Kaz's Fireball": {
       text: "<strong>Setup:</strong> When you resolve <strong>Explosion with Wings</strong>, you may search the damage deck and choose a damage card with the <b>Ship</b> trait: you are dealt that card instead. Then, shuffle the damage deck. %LINEBREAK% You can perform actions of damage cards even while ionized."
@@ -16342,7 +16348,7 @@ exportObj.cardLoaders.English = function() {
       text: "While you perform a primary attack, before rolling attack dice, you may spend 2 charges. If you do, your %CRIT% results inflict ion tokens instead of damage."
     },
     "Thermal Detonators": {
-      text: "During the System Phase, you may spend up to 2 %CHARGE% to drop that many Thermal Detonators using the [1 %STRAIGHT%] or [2 %STRAIGHT%] template. Each must be placed using a different template. %LINEBREAK% When you reload this card, recover 1 additional %CHARGE%."
+      text: "<strong>Bomb</strong>%LINEBREAK% During the System Phase, you may spend up to 2 %CHARGE% to drop that many Thermal Detonators using the [1 %STRAIGHT%] or [2 %STRAIGHT%] template. Each must be placed using a different template. %LINEBREAK% When you reload this card, recover 1 additional %CHARGE%."
     },
     "R7-A7": {
       text: "While you perform an attack, you may spend 1 %CHARGE% to change 1 %HIT% result to a %CRIT% result."
@@ -17519,11 +17525,11 @@ exportObj.manifestByExpansion = {
     }, {
       name: 'Seasoned Navigator',
       type: 'upgrade',
-      count: 1
+      count: 2
     }, {
       name: 'Tactical Officer',
       type: 'upgrade',
-      count: 1
+      count: 2
     }, {
       name: '"Zeb" Orrelios',
       type: 'upgrade',
